@@ -1,0 +1,3 @@
+<template name="item">
+  <view class="item-name" bindtap="sayHello" >{{text}}</view>
+</template>

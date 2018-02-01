@@ -4,16 +4,47 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    id: 1,
+    showHello: false,
+    flag: false,
+    zero: 1,
+    item: {
+      index: 0,
+      msg: 'this is a template',
+      time: '2016-09-15'
+    },
+    item2: {
+      index: 22,
+      msg: 'th1221is is a template',
+      time: '2011116-09-15'
+    },
+    array: [{
+      message: 'fu'
+    }, {
+      message: 'yo1!'
+    }],
+    condition: false
+  },
+
+  clickMe: function(){
+    this.setData({ singer: 'fhhccccc' })
+    this.showHello = true
+    this.flag = true
+    this.condition = !this.condition
+  },
+
+  sayHello: function(){
+  console.log('mick')
   },
   //事件处理函数
   bindViewTap: function() {
     // wx.navigateTo({
     //   url: '../logs/logs'
     // })
+
 
     wx.request({
       url: 'http://122.225.218.26:9009/security/organ/page', //仅为示例，并非真实的接口地址
