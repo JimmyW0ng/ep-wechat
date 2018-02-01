@@ -15,17 +15,13 @@
     </block>
   </view>
 
-  <view class="test">
-    <text class="test-text">{{singer}}</text>
-  </view>
+  <button class='btn btn-primary' bindtap='handleLogin'>登陆</button>
 
-  <button bindtap='clickMe'>点我点我</button>
+  <button class='btn btn-primary' bindtap='handleOrgnization'>发现机构</button>
 
-  <button bindtap='clickMe'>点我点我</button>
+  <button class='btn btn-primary' bindtap='handleUserCenter'>我的</button>
 
-  <button bindtap='clickMe'>点我点我</button>
-
-  <button bindtap='clickMe'>点我点我</button>
+  <button class='btn btn-primary' bindtap='hanldeCourse'>课程</button>
 
   <import src="./component/template.wxml" />
   <template is="item" data="{{text: 'forbar'}}"></template>

@@ -1,0 +1,88 @@
+/* pages/orgnization/OrgnizationPage.wxss */
+
+.page {
+  padding: 20px;
+  padding-bottom: 100px;
+}
+
+.title {
+  font-size: 20px;
+  color: #1e293c;
+  line-height: 20px;
+  margin-bottom: 24px;
+}
+
+.card-orgnization {
+  margin-bottom: 35px;
+}
+
+.avatar-wrap {
+  width: 100%;
+  height: 190px;
+  border: 1px solid #eaeaea;
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.avatar {
+  max-width: 100%;
+  height: 100%;
+}
+
+.basic-info {
+  margin-top: 15px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.org-name {
+  font-size: 16px;
+  color: #1e293c;
+  letter-spacing: 0;
+  line-height: 16px;
+  margin-bottom: 11px;
+}
+
+.org-address {
+  font-size: 14px;
+  color: #7d8794;
+  letter-spacing: 0;
+  line-height: 14px;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bottom-left {
+  flex: 1;
+}
+
+.tag-list {
+
+}
+.tag {
+  vertical-align: top;
+  display: inline-block;
+background: #5EE495;
+border-radius: 4px;
+  font-size: 12px;
+color: #FFFFFF;
+line-height: 12px;
+margin-right: 8px;
+padding: 3px 7px;
+}
+
+.learn-num {
+  font-size: 12px;
+  color: #a4afbf;
+  line-height: 12px;
+  margin-top: 3px;
+  margin-left: 15px;
+}

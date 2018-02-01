@@ -1,0 +1,21 @@
+<!--pages/login/LoginPage.wxml-->
+<view class="page">
+  <view class='header'>
+    <view class='avatar'></view>
+    <view class='notice'>欢迎回来</view>
+  </view>
+
+  <view class='body'>
+    <input
+      class='form-control' 
+      type="number" 
+      maxlength="11" 
+      placeholder="请输入手机号码" />
+  </view>
+
+  <view class='footer'>
+    <view class='btn-login' bindtap='doLogin'>
+      登陆
+    </view>
+  </view>
+</view>

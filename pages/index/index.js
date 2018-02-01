@@ -36,20 +36,35 @@ Page({
     this.condition = !this.condition
   },
 
-  sayHello: function(){
-  console.log('mick')
+  handleLogin: function() {
+    wx.navigateTo({ 
+      url: '../login/LoginPage'
+    })
   },
-  //事件处理函数
-  bindViewTap: function() {
-    // wx.navigateTo({
-    //   url: '../logs/logs'
-    // })
 
+  handleOrgnization: function () {
+    wx.navigateTo({
+      url: '../orgnization/OrgnizationPage'
+    })
+  },
 
+  handleUserCenter: function () {
+    wx.navigateTo({
+      url: '../userCenter/UserCenterPage'
+    })
+  },
+
+  hanldeCourse: function () {
+    wx.navigateTo({
+      url: '../course/CoursePage'
+    })
+  },
+
+  fetchData: function() {
     wx.request({
       url: 'http://122.225.218.26:9009/security/organ/page', //仅为示例，并非真实的接口地址
       data: {
-        page:1,
+        page: 1,
       },
       method: 'POST',
       header: {
@@ -60,6 +75,7 @@ Page({
       }
     })
   },
+
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

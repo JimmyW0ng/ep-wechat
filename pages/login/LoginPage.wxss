@@ -1,0 +1,48 @@
+/* pages/login/LoginPage.wxss */
+
+.page {
+  padding: 40px;
+}
+
+.header {
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background: #d8d8d8;
+}
+
+.notice {
+  margin-top: 25px;
+  font-size: 16px;
+  color: #1e293c;
+  line-height: 16px;
+}
+
+.body {
+  margin-top: 40px;
+}
+
+.form-control {
+  font-size: 1.8rem;
+  color: #A4AFBF;
+  height: 2.2rem;
+}
+
+.footer {
+  margin-top: 130px;
+  text-align: right;
+}
+
+.btn-login {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;  
+  border-radius: 50px;
+  background: #2AD5F3;
+  color: #fff;
+  text-align: center;
+}

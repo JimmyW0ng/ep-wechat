@@ -1,14 +1,33 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/orgnization/OrgnizationPage",
+    "pages/login/LoginPage",
     "pages/logs/logs",
-    "pages/login/login"
+    "pages/userCenter/UserCenterPage",
+    "pages/course/CoursePage"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#eaeaea",
     "navigationBarTitleText": "jacksome",
     "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "宝贝行程"
+      },
+      {
+        "pagePath": "pages/orgnization/OrgnizationPage",
+        "text": "发现机构"
+      },
+      {
+        "pagePath": "pages/userCenter/UserCenterPage",
+        "text": "我的账户"
+      }
+    ]
   },
   "debug": true
 }
