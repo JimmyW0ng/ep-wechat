@@ -5,18 +5,23 @@
     "pages/login/LoginPage",
     "pages/logs/logs",
     "pages/userCenter/UserCenterPage",
-    "pages/course/CoursePage"
+    "pages/course/CoursePage",
+    "pages/userCenter/addBaby/AddBabyPage",
+    "pages/orgnization/orgnizationDetail/OrganizationDetailPage",
+    "pages/message/MessagePage",
+    "pages/message/messageDetail/MessageDetailPage",
+    "pages/babyTrip/BabyTripPage"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#eaeaea",
-    "navigationBarTitleText": "jacksome",
-    "navigationBarTextStyle": "white"
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/babyTrip/BabyTripPage",
         "text": "宝贝行程"
       },
       {
