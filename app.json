@@ -13,8 +13,8 @@
     "pages/babyTrip/BabyTripPage"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#eaeaea",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ccc",
     "navigationBarTitleText": "首页",
     "navigationBarTextStyle": "black"
   },

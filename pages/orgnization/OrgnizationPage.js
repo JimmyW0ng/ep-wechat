@@ -6,57 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    resPupet: {
-      "error": "string",
-      "errorDescription": "string",
-      "result": {
-        "content": [{
-          "catalogIds": "string",
-          "catalogLabelFormat": [
-            "string"
-          ],
-          "fileUrl": "string",
-          "id": 0,
-          "marketWeight": "string",
-          "organAddress": "string",
-          "organCreateDate": {
-            "date": 0,
-            "day": 0,
-            "hours": 0,
-            "minutes": 0,
-            "month": 0,
-            "nanos": 0,
-            "seconds": 0,
-            "time": 0,
-            "timezoneOffset": 0,
-            "year": 0
-          },
-          "organEmail": "string",
-          "organIntroduce": "string",
-          "organLat": "string",
-          "organLng": "string",
-          "organName": "string",
-          "organPhone": "string",
-          "organRegion": 0,
-          "organShortIntroduce": "string",
-          "organUrl": "string",
-          "status": "normal",
-          "togetherScore": "string",
-          "totalParticipate": 0
-        }],
-        "first": true,
-        "last": true,
-        "number": 0,
-        "numberOfElements": 0,
-        "size": 0,
-        "sort": {},
-        "totalElements": 0,
-        "totalPages": 0
-      },
-      "success": true
-    },
-
-    orgnizationList: []
+    orgnizationList: [],
+    page: 0
   },
 
   /**
@@ -75,13 +26,47 @@ Page({
       page: 0
     }, (res) => {
       const result = res.result || {}
-      debugger
+      // debugger
       const content = result.content || []
       console.log('content', content)
       self.setData({ orgnizationList: content })
     })
   },
+  //下拉刷新
+  onPullDownRefresh () {
+    // wx.showNavigationBarLoading() //在标题栏中显示加载
 
+    // //模拟加载
+    // setTimeout(function () {
+    //   // complete
+    //   wx.hideNavigationBarLoading() //完成停止加载
+    //   wx.stopPullDownRefresh() //停止下拉刷新
+    // }, 1500);
+  },
+  onReachBottom() {
+    alert('gogogo')
+  },
+  // loadMore: function (e) {
+  //   console.log(e)
+  //   var self = this;
+  //   // self.setData({
+  //   //   hasRefesh: true,
+  //   // });
+  //   // if (!this.data.hasMore) return
+  //   AXIOS.POST('security/organ/page', {
+  //     page: ++self.page
+  //   }).then((res) => {
+  //     console.log('jacksomhel')
+  //     // self.setData({
+  //     //   list: self.data.list.concat(res.data.result.list),
+  //     //   hidden: true,
+  //     //   hasRefesh: false,
+  //     // });
+  //   })
+  // },
+  refesh: function (e) {
+    console.log('fdmasfoda')
+  },
   /**
    * 生命周期函数--监听页面显示
    */
