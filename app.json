@@ -19,19 +19,25 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#ccc",
-    "selectedColor": "#35495e",
+    "color": "#1E293C",
+    "selectedColor": "#5EE495",
     "borderStyle": "white",
     "backgroundColor": "#f9f9f9",
     "list": [{
-        "text": "首页",
-        "pagePath": "pages/index/index"
+        "text": "宝贝行程",
+        "pagePath": "pages/index/index",
+        "iconPath": "asset/img/tabIcon-fly.png",
+        "selectedIconPath": "asset/img/tabIcon-fly-active.png"
       },{
-        "text": "目录",
-        "pagePath": "pages/orgnization/OrgnizationPage"
+        "text": "发现机构",
+        "pagePath": "pages/orgnization/OrgnizationPage",
+          "iconPath": "asset/img/tabIcon-org.png",
+          "selectedIconPath": "asset/img/tabIcon-org-active.png"
       },{
-        "text": "我的",
-        "pagePath": "pages/userCenter/UserCenterPage"
+        "text": "我的账户",
+        "pagePath": "pages/userCenter/UserCenterPage",
+          "iconPath": "asset/img/tabIcon-user.png",
+          "selectedIconPath": "asset/img/tabIcon-user-active.png"
       }]
   },
   "debug":true

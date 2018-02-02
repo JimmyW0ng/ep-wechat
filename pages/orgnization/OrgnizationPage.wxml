@@ -15,7 +15,7 @@
             <view class='org-address'>{{item.organAddress}}</view>
           </view>
           <view class='top-right'>
-            <view class='point-wrap'>{{item.togetherScore}}</view>
+            <view class='point-wrap'>TODO {{item.togetherScore}}</view>
           </view>
         </view>
         <view class='bottom'>
