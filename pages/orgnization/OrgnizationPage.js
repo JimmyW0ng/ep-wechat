@@ -1,16 +1,13 @@
 // pages/orgnization/OrgnizationPage.js
+const AXIOS = require('../../utils/axios')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    src: [
-      'http://res.xiaomaiketang.com/xiaomai/app-registration_201801015.png',
-      'http://res.xiaomaiketang.com/xiaomai/app-newYearDay_201701208.png',
-      'http://res.xiaomaiketang.com/xiaomai/app-halloween_2017010016.png',
-      'http://res.xiaomaiketang.com/xiaomai/app-summerCamp_20170607.png'
-    ],
+    title: '精选培训机构',
 
     orgnizationList: [{
       orgName: '金宝贝早教中心文三路店',
@@ -54,7 +51,18 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    const self = this
+    AXIOS.POST('security/organ/page', {
+      page: 1
+    }, (res) => {
+      const result = res.result || {}
+      const content = result.content || []
+      var param = {}
+      var string = "orgnizationList[" + 0 + "].point";
+      param[string] = content[0].organShortIntroduce;
+      console.log('param',param)
+      self.setData(param)
+    })
   },
 
   /**

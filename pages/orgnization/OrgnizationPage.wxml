@@ -1,7 +1,7 @@
 <!--pages/orgnization/OrgnizationPage.wxml-->
 <view class='page'>
   <view class='title'>
-    精选培训机构
+    {{title}}
   </view>
 
   <view class='card-orgnization' wx:for="{{orgnizationList}}" wx:key="index">

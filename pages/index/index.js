@@ -1,32 +1,13 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const CONFIG = require("../../utils/config.js");
+const AXIOS = require("../../utils/axios.js");
 
 Page({
   data: {
     userInfo: {},
-    hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    id: 1,
-    showHello: false,
-    flag: false,
-    zero: 1,
-    item: {
-      index: 0,
-      msg: 'this is a template',
-      time: '2016-09-15'
-    },
-    item2: {
-      index: 22,
-      msg: 'th1221is is a template',
-      time: '2011116-09-15'
-    },
-    array: [{
-      message: 'fu'
-    }, {
-      message: 'yo1!'
-    }],
-    condition: false
   },
 
   clickMe: function(){
@@ -61,18 +42,10 @@ Page({
   },
 
   fetchData: function() {
-    wx.request({
-      url: 'http://122.225.218.26:9009/security/organ/page', //仅为示例，并非真实的接口地址
-      data: {
-        page: 1,
-      },
-      method: 'POST',
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        console.log(res.data)
-      }
+    AXIOS.POST('security/organ/page', {
+      page: 1
+    }, (res) => {
+      console.log(res)
     })
   },
 

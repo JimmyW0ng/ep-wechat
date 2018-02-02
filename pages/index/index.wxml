@@ -23,11 +23,8 @@
 
   <button class='btn btn-primary' bindtap='hanldeCourse'>课程</button>
 
+  <button class='btn btn-primary' bindtap='fetchData'>获取数据</button>
+
   <import src="./component/template.wxml" />
   <template is="item" data="{{text: 'forbar'}}"></template>
-
-  <wxs module="foo">
-    var name = 'fldal'
-    console.log(name)
-  </wxs>
 </view>
