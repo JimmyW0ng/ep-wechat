@@ -6,67 +6,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orgnizationList: [],
-    page: 0
+    dataSet: [],
+    page: 0,
+    last: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getListData()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+
+  },
+
+  getListData(loadMore){
     const self = this
+    let page = loadMore ? self.data.page + 1 : 0
+
     AXIOS.POST('security/organ/page', {
-      page: 0
+      page: page
     }, (res) => {
       const result = res.result || {}
-      // debugger
-      const content = result.content || []
-      console.log('content', content)
-      self.setData({ orgnizationList: content })
+      let content = result.content || []
+      if (page > 0){
+        content = self.data.dataSet.concat(content)
+      }
+      self.setData({ 
+        dataSet: content,
+        page: result.number || 0,
+        last: result.last
+      })
     })
   },
-  //下拉刷新
-  onPullDownRefresh () {
-    // wx.showNavigationBarLoading() //在标题栏中显示加载
 
-    // //模拟加载
-    // setTimeout(function () {
-    //   // complete
-    //   wx.hideNavigationBarLoading() //完成停止加载
-    //   wx.stopPullDownRefresh() //停止下拉刷新
-    // }, 1500);
-  },
-  onReachBottom() {
-    alert('gogogo')
-  },
-  // loadMore: function (e) {
-  //   console.log(e)
-  //   var self = this;
-  //   // self.setData({
-  //   //   hasRefesh: true,
-  //   // });
-  //   // if (!this.data.hasMore) return
-  //   AXIOS.POST('security/organ/page', {
-  //     page: ++self.page
-  //   }).then((res) => {
-  //     console.log('jacksomhel')
-  //     // self.setData({
-  //     //   list: self.data.list.concat(res.data.result.list),
-  //     //   hidden: true,
-  //     //   hasRefesh: false,
-  //     // });
-  //   })
-  // },
-  refesh: function (e) {
-    console.log('fdmasfoda')
-  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -92,14 +70,16 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.getListData()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (!this.data.last) {
+      this.getListData(true)
+    }
   },
 
   /**

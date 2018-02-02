@@ -4,7 +4,7 @@
     精选培训机构
   </view>
 <!-- <scroll-view scroll-y="true" style="height: 100%" bindscrolltolower="loadMore" bindscrolltoupper="refesh"> -->
-    <view class='card-orgnization' wx:for="{{orgnizationList}}" wx:key="index">
+    <view class='card-orgnization' wx:for="{{dataSet}}" wx:key="index">
       <view class='avatar-wrap'>
         <image class='avatar' src="{{item.fileUrl}}" mode="aspectFill"></image>
       </view>

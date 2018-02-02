@@ -18,5 +18,5 @@
     "navigationBarTitleText": "首页",
     "navigationBarTextStyle": "black"
   },
-  "debug":false
+  "debug":true
 }
