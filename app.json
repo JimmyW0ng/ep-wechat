@@ -18,21 +18,5 @@
     "navigationBarTitleText": "首页",
     "navigationBarTextStyle": "black"
   },
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/babyTrip/BabyTripPage",
-        "text": "宝贝行程"
-      },
-      {
-        "pagePath": "pages/orgnization/OrgnizationPage",
-        "text": "发现机构"
-      },
-      {
-        "pagePath": "pages/userCenter/UserCenterPage",
-        "text": "我的账户"
-      }
-    ]
-  },
   "debug": true
 }
