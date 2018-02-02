@@ -55,6 +55,8 @@ Page({
       },
       "success": true
     },
+
+    orgnizationList: []
   },
 
   /**
@@ -73,12 +75,9 @@ Page({
       page: 0
     }, (res) => {
       const result = res.result || {}
+      debugger
       const content = result.content || []
-      // var param = {}
-      // var string = "orgnizationList[" + 0 + "].point";
-      // param[string] = content[0].organShortIntroduce;
-      // console.log('param',param)
-      console.log('content')
+      console.log('content', content)
       self.setData({ orgnizationList: content })
     })
   },

@@ -3,7 +3,6 @@
   <view class='title'>
     精选培训机构
   </view>
-  <scroll-view scroll-y style="height: 200px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
 
     <view class='card-orgnization' wx:for="{{orgnizationList}}" wx:key="index">
       <view class='avatar-wrap'>
@@ -22,12 +21,12 @@
         <view class='bottom'>
           <view class='bottom-left'>
             <view class='tag-list'>
-              <view class='tag' 
+               <view class='tag' 
                     wx:for="{{item.catalogLabelFormat}}" 
                     wx:for-item="tag" 
                     wx:key="index">
                 {{tag}}
-              </view>
+              </view> 
             </view>
           </view>
           <view class='bottom-right'>
@@ -36,5 +35,4 @@
         </view>
       </view>
     </view>
-  </scroll-view>
 </view>
