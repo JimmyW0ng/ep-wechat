@@ -1,2 +1,100 @@
 <!--pages/orgnization/orgnizationDetail/OrganizationDetailPage.wxml-->
-<text>pages/orgnization/orgnizationDetail/OrganizationDetailPage.wxml</text>
+<view>
+  <view class='org-cover-wrap'>
+    <image class='org-cover' src="{{cover}}" mode="scaleToFill"></image>
+  </view>
+
+  <view class='org-detail-wrap'>
+    <view class='basic-info'>
+      <view class='basic-left'>
+        <view class='org-name'>金宝贝早教中心文三路店</view>
+        <view class='basic-count'>
+          <view class='org-point'>3.5分</view>
+          <view class='org-talk'>121条评论</view>
+        </view>
+        <view class='org-slogan'>专注高端儿童钢琴培训，提供宝贝最好的服务</view>
+      </view>
+      <view class='basic-right'>
+        <view class='org-avatar-wrap'>
+          <image class='org-cover' src="{{cover}}" mode="scaleToFill"></image>
+        </view>
+      </view>
+    </view>
+
+    <view class='contact-info'>
+      <view class='contact-left'>
+        <view class='iconfont icon-address'></view>
+        <view class='org-address'>杭州市西湖区文三西路221号</view>
+      </view>
+      <view class='contact-right'>
+        <view class='iconfont icon-phone ripple'></view>
+      </view>
+    </view>
+
+    <view class='introduce-info'>
+      <view class='introduce-title'>品牌介绍</view>
+      <view class='introduce-content'>
+        Gymboree Play & Music金宝贝，源自美国的儿童成长方式专家。1976年创立于美国三藩市，专注于带给全球家庭360度全方位关爱。 首家金宝贝早教中心于1976年在加州设立，至今遍布40多个国家和地区，近700多家早教中心。 2003年金宝贝早教进入中国, 目前发展了300多家早教中心。
+        <view class='btn-checkMore'>查看全部</view>
+      </view>
+
+    </view>
+  </view>
+
+   <view class='org-course-wrap'>
+    <view class='course-wrap-title'>推荐课程</view>
+    <view class='course-list-wrap'>
+      <view class='course-list-item'>
+        <view class='course-avatar-wrap'>
+          <image class="course-avatar" src="{{cover}}" mode="scaleToFill"></image>
+        </view>
+         <view class='course-info'>
+          <view class='course-org-name'>噗噗鲁课程-亲子音乐主题</view>
+          <view class='course-simple-info'>
+            <view class='course-tag'>钢琴</view>
+            <view class='course-name'>宝贝国际少儿音乐</view>
+          </view>
+          <view class='course-bottom-info'>
+            <view class='course-price'>￥2139</view>
+            <view class='course-learn-num'>已有2192人学习</view>
+          </view>
+        </view> 
+      </view>
+
+      <view class='course-list-item'>
+        <view class='course-avatar-wrap'>
+          <image class="course-avatar" src="{{cover}}" mode="scaleToFill"></image>
+        </view>
+         <view class='course-info'>
+          <view class='course-org-name'>噗噗鲁课程-亲子音乐主题</view>
+          <view class='course-simple-info'>
+            <view class='course-tag'>钢琴</view>
+            <view class='course-name'>宝贝国际少儿音乐</view>
+          </view>
+          <view class='course-bottom-info'>
+            <view class='course-price'>￥2139</view>
+            <view class='course-learn-num'>已有2192人学习</view>
+          </view>
+        </view> 
+      </view>
+
+      <view class='course-list-item'>
+        <view class='course-avatar-wrap'>
+          <image class="course-avatar" src="{{cover}}" mode="scaleToFill"></image>
+        </view>
+         <view class='course-info'>
+          <view class='course-org-name'>噗噗鲁课程-亲子音乐主题</view>
+          <view class='course-simple-info'>
+            <view class='course-tag'>钢琴</view>
+            <view class='course-name'>宝贝国际少儿音乐</view>
+          </view>
+          <view class='course-bottom-info'>
+            <view class='course-price'>￥2139</view>
+            <view class='course-learn-num'>已有2192人学习</view>
+          </view>
+        </view> 
+      </view>
+    </view>
+  </view>
+
+</view>

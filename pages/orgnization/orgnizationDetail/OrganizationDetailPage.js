@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    cover: '../../../asset/img/org-cover.jpg'
   },
 
   /**

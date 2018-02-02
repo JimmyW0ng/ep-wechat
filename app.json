@@ -1,13 +1,13 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/orgnization/orgnizationDetail/OrganizationDetailPage",
     "pages/orgnization/OrgnizationPage",
+    "pages/index/index",
     "pages/login/LoginPage",
     "pages/logs/logs",
     "pages/userCenter/UserCenterPage",
     "pages/course/CoursePage",
     "pages/userCenter/addBaby/AddBabyPage",
-    "pages/orgnization/orgnizationDetail/OrganizationDetailPage",
     "pages/message/MessagePage",
     "pages/message/messageDetail/MessageDetailPage",
     "pages/babyTrip/BabyTripPage"
@@ -30,7 +30,7 @@
         "selectedIconPath": "asset/img/tabIcon-fly-active.png"
       },{
         "text": "发现机构",
-        "pagePath": "pages/orgnization/OrgnizationPage",
+        "pagePath": "pages/orgnization/orgnizationDetail/OrganizationDetailPage",
           "iconPath": "asset/img/tabIcon-org.png",
           "selectedIconPath": "asset/img/tabIcon-org-active.png"
       },{
