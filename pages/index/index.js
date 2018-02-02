@@ -23,18 +23,6 @@ Page({
     })
   },
 
-  handleOrgnization: function () {
-    wx.navigateTo({
-      url: '../orgnization/OrgnizationPage'
-    })
-  },
-
-  handleUserCenter: function () {
-    wx.navigateTo({
-      url: '../userCenter/UserCenterPage'
-    })
-  },
-
   hanldeCourse: function () {
     wx.navigateTo({
       url: '../course/CoursePage'

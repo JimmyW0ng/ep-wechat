@@ -17,10 +17,6 @@
 
   <button class='btn btn-primary' bindtap='handleLogin'>登陆</button>
 
-  <button class='btn btn-primary' bindtap='handleOrgnization'>发现机构</button>
-
-  <button class='btn btn-primary' bindtap='handleUserCenter'>我的</button>
-
   <button class='btn btn-primary' bindtap='hanldeCourse'>课程</button>
 
   <button class='btn btn-primary' bindtap='fetchData'>获取数据</button>

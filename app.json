@@ -18,5 +18,21 @@
     "navigationBarTitleText": "首页",
     "navigationBarTextStyle": "black"
   },
+  "tabBar": {
+    "color": "#ccc",
+    "selectedColor": "#35495e",
+    "borderStyle": "white",
+    "backgroundColor": "#f9f9f9",
+    "list": [{
+        "text": "首页",
+        "pagePath": "pages/index/index"
+      },{
+        "text": "目录",
+        "pagePath": "pages/orgnization/OrgnizationPage"
+      },{
+        "text": "我的",
+        "pagePath": "pages/userCenter/UserCenterPage"
+      }]
+  },
   "debug":true
 }
