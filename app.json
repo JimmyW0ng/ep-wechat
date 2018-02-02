@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/orgnization/orgnizationDetail/OrganizationDetailPage",
-    "pages/orgnization/OrgnizationPage",
     "pages/index/index",
+    "pages/orgnization/OrgnizationPage",
+    "pages/orgnization/orgnizationDetail/OrganizationDetailPage",
     "pages/login/LoginPage",
     "pages/logs/logs",
     "pages/userCenter/UserCenterPage",
@@ -30,7 +30,7 @@
         "selectedIconPath": "asset/img/tabIcon-fly-active.png"
       },{
         "text": "发现机构",
-        "pagePath": "pages/orgnization/orgnizationDetail/OrganizationDetailPage",
+        "pagePath": "pages/orgnization/OrgnizationPage",
           "iconPath": "asset/img/tabIcon-org.png",
           "selectedIconPath": "asset/img/tabIcon-org-active.png"
       },{
