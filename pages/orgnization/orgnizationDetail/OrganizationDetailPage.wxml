@@ -1,8 +1,17 @@
 <!--pages/orgnization/orgnizationDetail/OrganizationDetailPage.wxml-->
 <view>
-  <view class='org-cover-wrap'>
+  <!-- <view class='org-cover-wrap'>
     <image class='org-cover' src="{{cover}}" mode="scaleToFill"></image>
-  </view>
+  </view> -->
+
+  <swiper class="swiper" indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{ognBanners}}" wx:key="{{index}}">
+    <swiper-item>
+      <image src="{{item.fileUrl}}" class="slide-image" height="200"/>
+    </swiper-item>
+  </block>
+</swiper>
 
   <view class='org-detail-wrap'>
     <view class='basic-info'>
