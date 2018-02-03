@@ -2,10 +2,12 @@
 
 .org-cover-wrap {
   height: 210px;
+  overflow: hidden;
 }
 
 .org-cover {
-  height: 100%;
+  width: 100%;
+  /* height: 100%; */
 }
 
 .org-detail-wrap {

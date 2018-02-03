@@ -21,7 +21,7 @@
   "tabBar": {
     "color": "#1E293C",
     "selectedColor": "#5EE495",
-    "borderStyle": "white",
+    "borderStyle": "black",
     "backgroundColor": "#f9f9f9",
     "list": [{
         "text": "宝贝行程",
