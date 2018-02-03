@@ -1,18 +1,37 @@
 // pages/orgnization/orgnizationDetail/OrganizationDetailPage.js
+const AXIOS = require('../../../utils/axios')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    cover: '../../../asset/img/org-cover.jpg'
+    cover: '../../../asset/img/org-cover.jpg',
+    ognBanners: [],
+    ognInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log(options)
+
+    this.getData(options.id)
+  },
+
+  getData(id) {
+    const self = this
+    AXIOS.POST('security/organ/detail', {
+      organId: id
+    }, (res) => {
+      const result = res.result || {}
+      self.setData({
+        ognBanners: result.ognBanners || [],
+        ognInfo: result.ognInfo || {},
+      })
+    })
   },
 
   /**

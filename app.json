@@ -1,8 +1,7 @@
 {
   "pages": [
-    "pages/babyTrip/BabyTripPage",
-    "pages/index/index",
     "pages/orgnization/OrgnizationPage",
+    "pages/index/index",
     "pages/orgnization/orgnizationDetail/OrganizationDetailPage",
     "pages/login/LoginPage",
     "pages/logs/logs",
@@ -10,7 +9,8 @@
     "pages/course/CoursePage",
     "pages/userCenter/addBaby/AddBabyPage",
     "pages/message/MessagePage",
-    "pages/message/messageDetail/MessageDetailPage"
+    "pages/message/messageDetail/MessageDetailPage",
+    "pages/babyTrip/BabyTripPage"
   ],
   "window": {
     "backgroundTextStyle": "dark",
