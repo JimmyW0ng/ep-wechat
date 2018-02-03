@@ -8,6 +8,7 @@ Page({
   data: {
     dataSet: [],
     page: 0,
+    size: 5,
     last: false
   },
 
@@ -34,9 +35,10 @@ Page({
   getListData(loadMore){
     const self = this
     let page = loadMore ? self.data.page + 1 : 0
-
+    let size = self.data.size || 10
     AXIOS.POST('security/organ/page', {
-      page: page
+      page: page,
+      size: size
     }, (res) => {
       const result = res.result || {}
       let content = result.content || []
