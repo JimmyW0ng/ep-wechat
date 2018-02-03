@@ -1,0 +1,16 @@
+.text-overflow-ellipsis{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  display: inline-block;
+}
+
+.text-overflow-ellipsis-line {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break:break-all;
+  display:-webkit-box;
+  -webkit-line-clamp: 2;  /* 行数 */
+  -webkit-box-orient:vertical;
+}

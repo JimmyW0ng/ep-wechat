@@ -2,3 +2,4 @@
 
 @import './asset/style/iconfont.wxss';
 @import './asset/style/ripple-effect.wxss';
+@import './asset/style/toolkit.wxss';

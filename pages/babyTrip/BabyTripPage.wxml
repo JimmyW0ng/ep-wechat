@@ -1,2 +1,50 @@
 <!--pages/babyTrip/BabyTripPage.wxml-->
-<text>pages/babyTrip/BabyTripPage.wxml</text>
+<view class='page'>
+
+  <view class='top-bar'>
+    <view class='logo'>logo</view>
+    <view class='top-message-wrap'>
+      <view class='top-message'>
+        <view class='text-overflow-ellipsis'> 
+        “七七”收到老师1条评价七七”收到老师1条评价
+        </view>
+      </view>
+      <view class='iconfont icon-message-o'></view>
+    </view>
+  </view>
+
+  <view class='page-title'>
+  宝贝行程
+  </view>
+
+  <view class='trip-list-wrap'>
+    <view class='trip-list-item' wx:for="{{dataSet}}" wx:key="index" >
+      <view class='trip-item-header'>
+        <view class='baby-avatar-wrap'>
+          <image src="{{cover}}" mode="scaleToFill"></image>
+        </view>
+        <view class='baby-name'>七七</view>
+      </view>
+
+       <view class='trip-item-date'>今天 9:00-11:00   </view>
+
+       <view class='course-list-item'>
+        <view class='course-avatar-wrap'>
+          <image class="course-avatar" src="{{cover}}" mode="scaleToFill"></image>
+        </view>
+         <view class='course-info'>
+          <view class='course-org-name'>噗噗鲁课程-亲子音乐主题</view>
+          <view class='course-simple-info'>
+            <view class='course-tag'>钢琴</view>
+            <view class='course-name'>宝贝国际少儿音乐</view>
+          </view>
+          <view class='course-bottom-info'>
+            <view class='course-price'></view>
+            <view class='course-learn-num'>14/24课时</view>
+          </view>
+        </view> 
+      </view>
+    </view>
+  </view>
+
+</view>

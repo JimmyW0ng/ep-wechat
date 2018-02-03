@@ -1,1 +1,178 @@
 /* pages/babyTrip/BabyTripPage.wxss */
+
+.page {
+  padding: 20px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-message-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-message {
+  background: #5ee495;
+  border-radius: 4px;
+  color: #fff;
+  padding: 2px 8px;
+  position: relative;
+  font-size: 12px;
+  max-width: 180px;
+  display: flex;
+}
+
+.top-message::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  background: #fff;
+  top: 50%;
+  right: -8px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-left: 8px solid #5ee495;
+  border-bottom: 4px solid transparent;
+}
+
+.icon-message-o {
+  font-size: 22px;
+  margin-left: 15px;
+}
+
+.page-title {
+  font-size: 20px;
+  color: #1e293c;
+  line-height: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.trip-list-wrap {
+}
+
+.trip-list-item {
+  border-left: 2px solid #5EE495;
+  padding-left: 15px;
+  padding-bottom: 40px;
+}
+.trip-item-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.baby-avatar-wrap {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 24px;
+  margin-right: 8px;
+  overflow: hidden;
+}
+
+.trip-item-date {
+  font-size: 14px;
+  color: #1e293c;
+  line-height: 16px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.trip-item-date::before {
+  content: '';
+  display: inline-block;
+  background: #fff;
+  width: 14px;
+  height: 18px;
+  position: absolute;
+  top: -2px;
+  left: -23px;
+}
+.trip-item-date::after {
+  content: '';
+  display: inline-block;
+  background: #5EE495;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  position: absolute;
+  top:3px;
+  left: -20px;
+}
+.course-list-item {
+  display: flex;
+  align-items: top;
+  justify-content: space-between;
+  padding: 12px;
+  background: #fff;
+  box-shadow: 0 4px 16px 0 rgba(164, 175, 191, 0.30);
+  border-radius: 4px;
+}
+
+.course-avatar {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  margin-right: 12px;
+  border-radius: 4px;
+}
+
+.course-info {
+  flex: 1;
+}
+
+.course-org-name {
+  font-size: 14px;
+  color: #1e293c;
+  line-height: 14px;
+  margin-bottom: 8px;
+  margin-top: 3px;
+}
+
+.course-tag {
+  font-size: 12px;
+  padding: 2px 6px;
+  background: #5ee495;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.course-name {
+  font-size: 12px;
+  color: #7d8794;
+  line-height: 12px;
+  margin-left: 10px;
+}
+
+.course-simple-info {
+  display: flex;
+  align-items: center;
+}
+
+.course-bottom-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.course-price {
+  font-size: 18px;
+  color: #000;
+  line-height: 18px;
+}
+
+.course-learn-num {
+  font-size: 12px;
+  color: #a4afbf;
+  line-height: 12px;
+}
