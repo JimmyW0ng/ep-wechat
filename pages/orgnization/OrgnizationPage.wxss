@@ -1,7 +1,7 @@
 /* pages/orgnization/OrgnizationPage.wxss */
 
 .page {
-  padding: 20rpx;
+  padding: 20px;
 }
 
 .title {

@@ -10,7 +10,8 @@
     "pages/userCenter/addBaby/AddBabyPage",
     "pages/message/MessagePage",
     "pages/message/messageDetail/MessageDetailPage",
-    "pages/babyTrip/BabyTripPage"
+    "pages/babyTrip/BabyTripPage",
+    "pages/course/courseDetailPage/courseDetailPage"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -23,27 +24,32 @@
     "selectedColor": "#5EE495",
     "borderStyle": "black",
     "backgroundColor": "#f9f9f9",
-    "list": [{
+    "list": [
+      {
         "text": "宝贝行程",
         "pagePath": "pages/babyTrip/BabyTripPage",
         "iconPath": "asset/img/tabIcon-fly.png",
         "selectedIconPath": "asset/img/tabIcon-fly-active.png"
-      },{
+      },
+      {
         "text": "首页",
         "pagePath": "pages/index/index",
         "iconPath": "asset/img/tabIcon-fly.png",
         "selectedIconPath": "asset/img/tabIcon-fly-active.png"
-      },{
+      },
+      {
         "text": "发现机构",
         "pagePath": "pages/orgnization/OrgnizationPage",
-          "iconPath": "asset/img/tabIcon-org.png",
-          "selectedIconPath": "asset/img/tabIcon-org-active.png"
-      },{
+        "iconPath": "asset/img/tabIcon-org.png",
+        "selectedIconPath": "asset/img/tabIcon-org-active.png"
+      },
+      {
         "text": "我的账户",
         "pagePath": "pages/userCenter/UserCenterPage",
-          "iconPath": "asset/img/tabIcon-user.png",
-          "selectedIconPath": "asset/img/tabIcon-user-active.png"
-      }]
+        "iconPath": "asset/img/tabIcon-user.png",
+        "selectedIconPath": "asset/img/tabIcon-user-active.png"
+      }
+    ]
   },
-  "debug":true
+  "debug": true
 }

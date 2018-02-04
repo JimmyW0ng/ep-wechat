@@ -20,4 +20,4 @@
   margin-top: 200px;
 }
 
-@import "./template.wxss";
+ @import "./component/template.wxss"; 

@@ -103,7 +103,7 @@
   letter-spacing: 0;
   line-height: 16px;
   margin-top: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .introduce-content {
@@ -115,7 +115,7 @@
 
 .btn-checkMore {
   color: #5ee495;
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 .org-course-wrap {
