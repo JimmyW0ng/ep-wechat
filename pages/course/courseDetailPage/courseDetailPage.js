@@ -8,13 +8,12 @@ Page({
    */
   data: {
     classes: [],
+    comments: [],
     course: {},
     successOrders: 1,
     team: [],
 
-    selectedTab: 0,
-    selectedClass: 'a-active',
-    cover: '../../../asset/img/org-cover.jpg',
+    selectedTab: 2,
   },
 
   /**
@@ -33,6 +32,7 @@ Page({
       const result = res.result || {}
       self.setData({
         classes: result.classes || [],
+        comments: result.comments || [],
         course: result.course || {},
         successOrders: result.successOrders,
         team: result.team || [],

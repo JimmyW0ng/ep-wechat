@@ -1,6 +1,4 @@
 <!--pages/orgnization/orgnizationDetail/OrganizationDetailPage.wxml-->
-
-
 <view>
   <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{ognBanners}}" wx:key="index">
