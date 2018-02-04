@@ -1,18 +1,40 @@
 // pages/course/courseDetailPage/courseDetailPage.js
+const AXIOS = require('../../../utils/axios')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    classes: [],
+    course: {},
+    successOrders: 1,
+    team: [],
+    cover: '../../../asset/img/org-cover.jpg',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getCourseDetail(options.id)
+  },
+
+  getCourseDetail(id) {
+    const self = this
+    id=1
+    AXIOS.POST('security/course/detail', {
+      courseId: id
+    }, (res) => {
+      const result = res.result || {}
+      self.setData({
+        classes: result.ognBanners || [],
+        course: result.course || {},
+        successOrders: result.successOrders,
+        team: result.team || [],
+      })
+    })
   },
 
   /**

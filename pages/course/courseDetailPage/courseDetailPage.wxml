@@ -1,2 +1,28 @@
 <!--pages/course/courseDetailPage/courseDetailPage.wxml-->
-<text>pages/course/courseDetailPage/courseDetailPage.wxml</text>
+<view class='page'>
+  <view class='course-list-item' bindtap='goCourseDetailPage'>
+    <view class='course-avatar-wrap'>
+      <image class="course-avatar" src="{{course.mainPicUrl}}" mode="scaleToFill"></image>
+    </view>
+    <view class='course-info'>
+      <view class='course-org-name'>{{course.courseName}}</view>
+      <view class='course-simple-info'>
+        <view class='course-tag'>{{course.label}}</view>
+        <view class='course-name'>{{course.courseIntroduce}}</view>
+      </view>
+      <view class='course-bottom-info'>
+        <view class='course-note'>{{course.courseNote}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='tab-header' style="display: flex; flex-direction:row;">
+    <view class="tab-selector active">课程内容</view>
+    <view class="tab-selector">老师介绍</view>
+    <view class="tab-selector">课程表</view>
+    <view class="tab-selector">评价</view>
+  </view>
+  <view class='tab-container'>
+    hell owrokdafjf ofdaojfd s
+  </view>
+</view>

@@ -8,9 +8,19 @@
   <view class='body'>
     <input
       class='form-control' 
-      type="number" 
       maxlength="11" 
+      focus="true"
+      bindinput="bindPhoneInput"
       placeholder="请输入手机号码" />
+  </view>
+
+   <view class='body'>
+    <input
+      class='form-control' 
+      maxlength="11" 
+      focus="true"
+      bindinput="bindPhoneInput"
+      placeholder="请输入F" />
   </view>
 
   <view class='footer'>

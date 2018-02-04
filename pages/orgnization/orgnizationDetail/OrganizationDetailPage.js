@@ -60,7 +60,15 @@ Page({
       phoneNumber: e.currentTarget.dataset.organphone
     })
   },
-  
+
+  goCourseDetailPage : function (e) {
+    const dataset = e.currentTarget.dataset
+    const item = dataset.item
+    wx.navigateTo({
+      url: '../../course/courseDetailPage/courseDetailPage?id=' + item.id
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

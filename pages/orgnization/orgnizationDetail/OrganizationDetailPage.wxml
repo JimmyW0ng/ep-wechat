@@ -56,9 +56,13 @@
   <view class='org-course-wrap'>
     <view class='course-wrap-title'>推荐课程 TODO course cover</view>
     <view class='course-list-wrap'>
-      <view class='course-list-item' wx:for="{{ognCourseList}}" wx:key="index">
+      <view class='course-list-item' 
+            wx:for="{{ognCourseList}}" 
+            wx:key="index" 
+            bindtap='goCourseDetailPage'  
+            data-item="{{item}}">
         <view class='course-avatar-wrap'>
-          <image class="course-avatar" src="{{cover}}" mode="scaleToFill"></image>
+          <image class="course-avatar" src="{{item.mainPicUrl}}" mode="scaleToFill"></image>
         </view>
         <view class='course-info'>
           <view class='course-org-name'>{{item.courseName}}</view>

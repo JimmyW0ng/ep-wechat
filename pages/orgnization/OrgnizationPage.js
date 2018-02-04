@@ -12,7 +12,7 @@ Page({
     last: false
   },
 
-  handleGoDetail(e) {
+  goOrgDetailPage(e) {
     const dataset = e.currentTarget.dataset
     const item = dataset.item
     console.log(item.id)

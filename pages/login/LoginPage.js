@@ -5,11 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    inputPhone: ''
+  },
+
+  bindPhoneInput(e){
+    this.setData({
+      inputPhone: e.detail.value
+    })
   },
 
   doLogin() {
-    console.log('login')
+    console.log(this.data.inputPhone)
   },
 
   /**

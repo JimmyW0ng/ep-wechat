@@ -1,1 +1,106 @@
 /* pages/course/courseDetailPage/courseDetailPage.wxss */
+
+.page {
+  padding: 20px;
+}
+
+.course-list-item {
+  display: flex;
+  align-items: top;
+  justify-content: space-between;
+  padding: 5px 0;
+  margin-bottom: 25px;
+}
+
+.course-avatar {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  margin-right: 12px;
+  border-radius: 4px;
+}
+
+.course-info {
+  flex: 1;
+}
+
+.course-org-name {
+  color: #1e293c;
+  line-height: 14px;
+  margin-bottom: 8px;
+  margin-top: 3px;
+  font-size: 16px;
+}
+
+.course-tag {
+  font-size: 12px;
+  padding: 2px 6px;
+  background: #5ee495;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.course-name {
+  font-size: 12px;
+  color: #7d8794;
+  line-height: 12px;
+  margin-left: 10px;
+}
+
+.course-simple-info {
+  display: flex;
+  align-items: center;
+}
+
+.course-bottom-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.course-note {
+  font-size: 12px;
+  color: #1e293c;
+  line-height: 18px;
+}
+
+.course-price {
+  font-size: 18px;
+  color: #000;
+  line-height: 18px;
+}
+
+.course-learn-num {
+  font-size: 12px;
+  color: #a4afbf;
+  line-height: 12px;
+}
+
+.tab-header {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  border-bottom: 1px solid #E9E9E9;
+  box-sizing: border-box;
+  height: 50px;
+}
+
+.tab-selector {
+font-size: 14px;
+color: #1E293C;
+  height: 50px;
+  line-height: 50px;
+box-sizing: border-box;
+flex: 1;
+}
+
+.tab-selector.active {
+  color: #5EE495;
+  border-bottom: 2px solid #5EE495;
+}
+
+.tab-container {
+  padding: 24px 0;
+}

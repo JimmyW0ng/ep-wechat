@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/course/courseDetailPage/courseDetailPage",
     "pages/orgnization/OrgnizationPage",
     "pages/index/index",
     "pages/orgnization/orgnizationDetail/OrganizationDetailPage",
@@ -10,8 +11,7 @@
     "pages/userCenter/addBaby/AddBabyPage",
     "pages/message/MessagePage",
     "pages/message/messageDetail/MessageDetailPage",
-    "pages/babyTrip/BabyTripPage",
-    "pages/course/courseDetailPage/courseDetailPage"
+    "pages/babyTrip/BabyTripPage"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -25,6 +25,12 @@
     "borderStyle": "black",
     "backgroundColor": "#f9f9f9",
     "list": [
+      {
+        "text": "课程详情",
+        "pagePath": "pages/course/courseDetailPage/courseDetailPage",
+        "iconPath": "asset/img/tabIcon-fly.png",
+        "selectedIconPath": "asset/img/tabIcon-fly-active.png"
+      },
       {
         "text": "宝贝行程",
         "pagePath": "pages/babyTrip/BabyTripPage",
