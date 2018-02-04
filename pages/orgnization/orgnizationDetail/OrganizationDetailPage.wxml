@@ -54,7 +54,7 @@
   </view>
 
   <view class='org-course-wrap'>
-    <view class='course-wrap-title'>推荐课程 TODO course cover</view>
+    <view class='course-wrap-title'>推荐课程</view>
     <view class='course-list-wrap'>
       <view class='course-list-item' 
             wx:for="{{ognCourseList}}" 
@@ -72,7 +72,7 @@
           </view>
           <view class='course-bottom-info'>
             <view class='course-price'>￥{{item.prizeMin || 0}}</view>
-            <view class='course-learn-num'>已有2192人学习 TODO</view>
+            <view class='course-learn-num'>已有{{item.totalParticipate}}人学习</view>
           </view>
         </view>
       </view>

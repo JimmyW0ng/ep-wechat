@@ -11,6 +11,8 @@ Page({
     course: {},
     successOrders: 1,
     team: [],
+
+    selectedTab: 0,
     cover: '../../../asset/img/org-cover.jpg',
   },
 
@@ -29,11 +31,20 @@ Page({
     }, (res) => {
       const result = res.result || {}
       self.setData({
-        classes: result.ognBanners || [],
+        classes: result.classes || [],
         course: result.course || {},
         successOrders: result.successOrders,
         team: result.team || [],
       })
+    })
+  },
+
+  selectTab(e){
+    const self = this
+    var tab = e.currentTarget.dataset.tab
+    console.log(tab)
+    self.setData({
+      selectedTab: tab
     })
   },
 

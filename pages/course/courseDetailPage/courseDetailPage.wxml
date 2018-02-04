@@ -17,12 +17,49 @@
   </view>
 
   <view class='tab-header' style="display: flex; flex-direction:row;">
-    <view class="tab-selector active">课程内容</view>
-    <view class="tab-selector">老师介绍</view>
-    <view class="tab-selector">课程表</view>
-    <view class="tab-selector">评价</view>
+    <view class="tab-selector active" data-tab="0" bindtap='selectTab'>课程介绍</view>
+    <view class="tab-selector" data-tab="1" bindtap='selectTab'>老师介绍</view>
+    <view class="tab-selector" data-tab="2" bindtap='selectTab'>评价</view>
   </view>
-  <view class='tab-container'>
-    hell owrokdafjf ofdaojfd s
+  <view class='tab-body'>
+    <view class='tab-content course-introduce' wx:if="{{selectedTab == 0}}">
+      <view class='tab-content-title'></view>
+      {{course.courseContent}}
+    </view>
+
+    <view class='tab-content course-team' wx:if="{{selectedTab == 1}}">
+      <view class='tab-content-title'>老师介绍
+        <view class='title-info'>({{team.length}}位)</view>
+      </view>
+
+      <view class='teacher-item' wx:for="{{team}}" wx:key="index">
+        <view class='teacher-basic'>
+          <view class='teacher-avatar-wrap'>
+            <image class="teacher-avatar" src="{{course.mainPicUrl}}" mode="scaleToFill"></image>
+          </view>
+          <view class='teacher-info'>
+            <view class='teacher-title'>授课老师</view>
+            <view class='teacher-name'>{{item.nickName}}</view>
+          </view>
+        </view>
+
+        <view class='teacher-introduce'>{{item.introduce}}</view>
+      </view>
+    </view>
+
+    <view class='tab-content course-comments' wx:if="{{selectedTab == 2}}">
+      <view class='tab-content-title'></view>
+
+      <view class='class-item' wx:for="{{classes}}" wx:key="index">
+        <view class='class-item-left'>
+          <view class='class-name'>{{item.className}}</view>
+          <view class='class-date'>01.29 18:00-20:00 TODO</view>
+        </view>
+        <view class='class-item-right'>
+          <view class='class-courseNum'>课时 {{item.courseNum}} TODO</view>
+        </view>
+      </view>
+    </view>
+
   </view>
 </view>
