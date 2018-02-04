@@ -16,7 +16,6 @@ Page({
     autoplay: false,
     interval: 5000,
     duration: 1000,
-    test: '<p>hello wrold</p>'
   },
 
   /**
@@ -33,6 +32,9 @@ Page({
       organId: id
     }, (res) => {
       const result = res.result || {}
+
+      WxParse.wxParse('organIntroduce', 'html', result.ognInfo.organIntroduce, self, 0);
+
       self.setData({
         ognBanners: result.ognBanners || [],
         ognInfo: result.ognInfo || {},
@@ -63,7 +65,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
