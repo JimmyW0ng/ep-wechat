@@ -32,7 +32,6 @@ Page({
       organId: id
     }, (res) => {
       const result = res.result || {}
-
       WxParse.wxParse('organIntroduce', 'html', result.ognInfo.organIntroduce, self, 0);
 
       self.setData({
@@ -54,6 +53,14 @@ Page({
       })
     })
   },
+
+  callOgn(e) {
+    const self = this
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.organphone
+    })
+  },
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

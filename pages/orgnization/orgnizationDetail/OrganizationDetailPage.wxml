@@ -37,7 +37,9 @@
         <view class='org-address'>{{ognInfo.organAddress}}</view>
       </view>
       <view class='contact-right'>
-        <view class='iconfont icon-phone ripple'></view>
+        <view class='iconfont icon-phone ripple' 
+              bindtap='callOgn' 
+              data-organPhone="{{ognInfo.organPhone}}"></view>
       </view>
     </view>
 
