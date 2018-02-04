@@ -10,9 +10,10 @@
     <view class='basic-info'>
       <view class='top'>
         <view class='top-left'>
-          <view class='org-name'>{{item.organName}}</view>
-          <view class='org-address'>{{item.organAddress}}</view>
+          <view class='org-name'>{{item.ognName}}</view>
+          <view class='org-address'>{{item.ognAddress}}</view>
         </view>
+
         <view class='top-right'>
           <view class='point-wrap'>TODO {{item.togetherScore}}</view>
         </view>

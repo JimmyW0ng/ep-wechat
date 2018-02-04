@@ -17,14 +17,19 @@
   </view>
 
   <view class='tab-header' style="display: flex; flex-direction:row;">
-    <view class="tab-selector active" data-tab="0" bindtap='selectTab'>课程介绍</view>
-    <view class="tab-selector" data-tab="1" bindtap='selectTab'>老师介绍</view>
-    <view class="tab-selector" data-tab="2" bindtap='selectTab'>评价</view>
+    <view class="tab-selector {{selectedTab == 0 && 'active'}}" data-tab="0" bindtap='selectTab'>课程介绍</view>
+    <view class="tab-selector {{selectedTab == 1 && 'active'}}" data-tab="1" bindtap='selectTab'>老师介绍</view>
+    <view class="tab-selector {{selectedTab == 2 && 'active'}}" data-tab="2" bindtap='selectTab'>评价</view>
   </view>
   <view class='tab-body'>
     <view class='tab-content course-introduce' wx:if="{{selectedTab == 0}}">
       <view class='tab-content-title'></view>
       {{course.courseContent}}
+
+      <view class='tab-content-title'>报名须知</view>
+      <view class='tab-join-notice'>
+        九岁学习钢琴，大学期间进入安徽师范大学钢琴专业进修，师从张旭良教授。受过专业的钢琴教育，在舞台表现力以及钢琴教育、理论方面有丰富的实践教学经验。钢琴以及乐理获得中国音乐学院最高级证书，屡获钢琴专业比赛奖项，擅长根据不同学生制定不同的教学计划，能够让学生在短时间内提高学习能力，掌握学习技巧。
+      </view>
     </view>
 
     <view class='tab-content course-team' wx:if="{{selectedTab == 1}}">
@@ -50,7 +55,7 @@
     <view class='tab-content course-comments' wx:if="{{selectedTab == 2}}">
       <view class='tab-content-title'></view>
 
-      <view class='class-item' wx:for="{{classes}}" wx:key="index">
+      <!-- <view class='class-item' wx:for="{{classes}}" wx:key="index">
         <view class='class-item-left'>
           <view class='class-name'>{{item.className}}</view>
           <view class='class-date'>01.29 18:00-20:00 TODO</view>
@@ -58,8 +63,26 @@
         <view class='class-item-right'>
           <view class='class-courseNum'>课时 {{item.courseNum}} TODO</view>
         </view>
-      </view>
+      </view> -->
+
+
     </view>
 
+  </view>
+
+  <view class='course-detail-footer'>
+    <view class='footer-left'>
+      <view class='iconfont icon-phone ripple' bindtap='callOgn' data-ognPhone="{{course.ognPhone}}"></view>
+      <view class='footer-name'>机构</view>
+    </view>
+
+    <view class='footer-center'>
+      <view class='footer-price'>￥{{course.prizeMin}}</view>
+      <view class='footer-join-number'>已有{{course.totalParticipate}}人学习</view>
+    </view>
+
+    <view class='footer-right'>
+      <view class='footer-btn ripple' bindtap='handleJoin'>立即报名</view>
+    </view>
   </view>
 </view>

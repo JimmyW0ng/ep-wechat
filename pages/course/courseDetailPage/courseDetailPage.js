@@ -13,6 +13,7 @@ Page({
     team: [],
 
     selectedTab: 0,
+    selectedClass: 'a-active',
     cover: '../../../asset/img/org-cover.jpg',
   },
 
@@ -48,6 +49,16 @@ Page({
     })
   },
 
+  callOgn(e) {
+    const self = this
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.ognphone
+    })
+  },
+
+  handleJoin() {
+    console.log('join now')
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

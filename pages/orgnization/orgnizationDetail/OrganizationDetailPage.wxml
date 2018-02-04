@@ -2,10 +2,6 @@
 
 
 <view>
-  <!-- <view class='org-cover-wrap'>
-    <image class='org-cover' src="{{cover}}" mode="scaleToFill"></image>
-  </view> -->
-
   <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{ognBanners}}" wx:key="index">
       <swiper-item>
@@ -17,16 +13,16 @@
   <view class='org-detail-wrap'>
     <view class='basic-info'>
       <view class='basic-left'>
-        <view class='org-name'>{{ognInfo.organName}}</view>
+        <view class='org-name'>{{ognInfo.ognName}}</view>
         <view class='basic-count'>
           <view class='org-point'>{{ognInfo.togetherScore}}分</view>
           <view class='org-talk'>{{ognInfo.totalParticipate}}条评论</view>
         </view>
-        <view class='org-slogan'>{{ognInfo.organShortIntroduce}}</view>
+        <view class='org-slogan'>{{ognInfo.ognShortIntroduce}}</view>
       </view>
       <view class='basic-right'>
         <view class='org-avatar-wrap'>
-          <image class='org-cover' src="{{cover}}" mode="scaleToFill"></image>
+          <image class='org-cover' src="{{ognLogo.fileUrl}}" mode="scaleToFill"></image>
         </view>
       </view>
     </view>
@@ -34,12 +30,12 @@
     <view class='contact-info'>
       <view class='contact-left'>
         <view class='iconfont icon-address'></view>
-        <view class='org-address'>{{ognInfo.organAddress}}</view>
+        <view class='org-address'>{{ognInfo.ognAddress}}</view>
       </view>
       <view class='contact-right'>
         <view class='iconfont icon-phone ripple' 
               bindtap='callOgn' 
-              data-organPhone="{{ognInfo.organPhone}}"></view>
+              data-ognPhone="{{ognInfo.ognPhone}}"></view>
       </view>
     </view>
 
@@ -47,7 +43,7 @@
       <view class='introduce-title'>品牌介绍</view>
       <view class='introduce-content'>
         <import src="../../../utils/wxParse/wxParse.wxml" />
-        <template is="wxParse" data="{{wxParseData:organIntroduce.nodes}}" />
+        <template is="wxParse" data="{{wxParseData:ognIntroduce.nodes}}" />
         <view class='btn-checkMore'>查看全部 TODO</view>
       </view>
     </view>

@@ -8,9 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    cover: '../../../asset/img/org-cover.jpg',
     ognBanners: [],
     ognInfo: {},
+    ognLogo: {},
     ognCourseList: [],
     indicatorDots: true,
     autoplay: false,
@@ -32,11 +32,12 @@ Page({
       organId: id
     }, (res) => {
       const result = res.result || {}
-      WxParse.wxParse('organIntroduce', 'html', result.ognInfo.organIntroduce, self, 0);
+      WxParse.wxParse('ognIntroduce', 'html', result.ognInfo.ognIntroduce, self, 0);
 
       self.setData({
         ognBanners: result.ognBanners || [],
         ognInfo: result.ognInfo || {},
+        ognLogo: result.ognLogo || {},
       })
     })
   },
@@ -57,7 +58,7 @@ Page({
   callOgn(e) {
     const self = this
     wx.makePhoneCall({
-      phoneNumber: e.currentTarget.dataset.organphone
+      phoneNumber: e.currentTarget.dataset.ognphone
     })
   },
 

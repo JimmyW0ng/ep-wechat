@@ -7,7 +7,7 @@
 
 .org-cover {
   width: 100%;
-  /* height: 100%; */
+   height: 100%; 
 }
 
 .swiper {
@@ -198,4 +198,9 @@ color: #fff;
   font-size: 12px;
   color: #a4afbf;
   line-height: 12px;
+}
+
+
+.course-detail-footer {
+  
 }
