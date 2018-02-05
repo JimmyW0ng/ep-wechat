@@ -1,2 +1,57 @@
 <!--pages/userCenter/addBaby/AddBabyPage.wxml-->
-<text>pages/userCenter/addBaby/AddBabyPage.wxml</text>
+<view class='page'>
+  <view class='form-control'>
+    <view class='label'>宝宝头像</view>
+
+    <view class='input-wrap'>
+      <input placeholder='点击上传头像' />
+    </view>
+  </view>
+
+  <view class='form-control'>
+    <view class='label'>宝贝昵称</view>
+
+    <view class='input-wrap'>
+      <input placeholder='请输入宝贝昵称' />
+    </view>
+  </view>
+
+  <view class='form-control'>
+    <view class='label'>宝贝生日</view>
+
+    <view class='input-wrap'>
+      <input placeholder='请选择出生日期' />
+    </view>
+  </view>
+
+  <view class='form-control'>
+    <view class='label'>宝贝性别</view>
+
+    <view class='input-wrap'>
+      <input placeholder='请选择性别' />
+    </view>
+  </view>
+  <view class='form-control'>
+    <view class='label'>所在学校</view>
+
+    <view class='input-wrap'>
+      <input placeholder='请输入所在学校' />
+    </view>
+  </view>
+  <view class='form-control'>
+    <view class='label'>所在年级</view>
+
+    <view class='input-wrap'>
+      <input placeholder='请选择年级' />
+    </view>
+  </view>
+  <view class='form-control'>
+    <view class='label'> 小目标</view>
+
+    <view class='input-wrap'>
+      <input placeholder='请输入小目标' />
+    </view>
+  </view>
+
+  <button class='btn-save ripple'>保存</button>
+</view>

@@ -8,6 +8,13 @@ Page({
   
   },
 
+  goAddBaby() {
+    console.log('fuck')
+    wx.navigateTo({
+      url: './addBaby/AddBabyPage'
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

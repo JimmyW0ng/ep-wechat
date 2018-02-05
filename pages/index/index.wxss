@@ -1,4 +1,5 @@
 /**index.wxss**/
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -19,5 +20,19 @@
 .usermotto {
   margin-top: 200px;
 }
+@import "./component/template.wxss";
 
- @import "./component/template.wxss"; 
+.star-image {
+  position: absolute;
+  top: 50rpx;
+  width: 150rpx;
+  height: 150rpx;
+  src: "./img/star_grey_small.png";
+}
+
+.item {
+  position: absolute;
+  top: 50rpx;
+  width: 75rpx;
+  height: 150rpx;
+}

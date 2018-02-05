@@ -7,9 +7,8 @@
     "pages/login/LoginPage",
     "pages/logs/logs",
     "pages/course/CoursePage",
-    "pages/course/courseDetailPage/courseDetailPage",
     "pages/userCenter/addBaby/AddBabyPage",
-  
+    "pages/course/courseDetailPage/courseDetailPage",
     "pages/message/messageDetail/MessageDetailPage",
     "pages/babyTrip/BabyTripPage",
     "pages/message/MessagePage",

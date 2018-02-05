@@ -4,11 +4,10 @@
   <view class='userCenter-header'>
     <view class='header-empty'>
       <view class='btn-add ripple'>
-        <view class='iconfont icon-plus1 '></view>
+        <view class='iconfont icon-plus1' bindtap='goAddBaby'></view>
       </view> 
       <view class='text-add'>添加宝贝信息</view>
     </view>
-  
   </view>
 
   <view class='userCenter-body'>

@@ -1,1 +1,28 @@
 /* pages/userCenter/addBaby/AddBabyPage.wxss */
+
+.page {
+  padding: 20px;
+  padding-top: 40px;
+}
+
+.form-control {
+  border-bottom: 1px solid #E9E9E9;
+  margin-bottom: 15px;
+  display: flex;
+   padding-top: 15px;
+  padding-bottom: 15px;
+
+}
+
+.label {
+  width: 100px;
+}
+
+.btn-save {
+  background-image: linear-gradient(90deg, #5EE495 0%, #2AD5F3 100%);
+box-shadow: 0 4px 16px 0 rgba(164,175,191,0.30);
+border-radius: 4px;
+color: #fff;
+margin-top: 50px;
+margin-bottom: 50px;
+}
