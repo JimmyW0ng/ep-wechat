@@ -1,0 +1,18 @@
+/* utils/scoreStar/scoreStar.wxss */
+
+.score-star-wrap {
+  display: flex;
+  overflow: hidden;
+  padding-top: 2px;
+}
+
+.star-image {
+  width: 14px;
+  height: 14px;
+  src: "./img/star_grey_small.png";
+}
+
+.item {
+  width: 7px;
+  height: 14px;
+}

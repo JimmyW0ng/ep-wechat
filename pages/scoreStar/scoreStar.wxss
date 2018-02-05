@@ -1,9 +1,11 @@
+/* utils/scoreStar/scoreStar.wxss */
+
 .star-image {
   position: absolute;
   top: 50rpx;
   width: 150rpx;
   height: 150rpx;
-  src: "./img/normal.png";
+  src: "./img/star_grey_small.png";
 }
 
 .item {

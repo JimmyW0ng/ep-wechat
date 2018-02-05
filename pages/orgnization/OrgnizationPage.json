@@ -1,4 +1,7 @@
 {
   "enablePullDownRefresh": true,
-  "navigationBarTitleText": "发现机构"
+  "navigationBarTitleText": "发现机构",
+  "usingComponents": {
+    "score-star": "../../components/scoreStar/scoreStar"
+  }
 }

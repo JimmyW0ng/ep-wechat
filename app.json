@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/userCenter/UserCenterPage",
     "pages/orgnization/OrgnizationPage",
-    "pages/index/index",
     "pages/orgnization/orgnizationDetail/OrganizationDetailPage",
     "pages/login/LoginPage",
     "pages/logs/logs",
