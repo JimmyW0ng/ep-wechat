@@ -9,7 +9,7 @@
         “七七”收到老师1条评价七七”收到老师1条评价
         </view>
       </view>
-      <view class='iconfont icon-message-o'></view>
+      <view class='iconfont icon-message-o' bindtap='goMessageList'></view>
     </view>
   </view>
 

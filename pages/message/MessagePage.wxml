@@ -1,2 +1,23 @@
 <!--pages/message/MessagePage.wxml-->
-<text>pages/message/MessagePage.wxml</text>
+
+<view class='page'>
+  <view class='message-item' wx:for="{{dataSet}}" wx:key="index">
+    <view class='message-basic'>
+      <view class='message-head-left'>
+        <view class='message-avatar-wrap'>
+          <image class="message-avatar" src="../../asset/img/org-cover.jpg" mode="scaleToFill"></image>
+        </view>
+        <view class='message-info'>
+          <view class='message-title'>授课老师</view>
+          <view class='message-org-name'>雅马哈音乐中心</view>
+        </view>
+      </view>
+
+      <view class='message-date'>17-12-21 09:53</view>
+    </view>
+
+    <view class='message-introduce'>经常下课后与其他小朋友讨论，其他人有不会的…</view>
+
+    <view class='message-receive'>“七七”在“噜噜唐课程”中收到老师评价</view>
+  </view>
+</view>

@@ -1,1 +1,66 @@
 /* pages/message/MessagePage.wxss */
+
+.page {
+  padding-left: 20px;
+}
+
+.message-item {
+  border-bottom: 1px solid #e9e9e9;
+  padding: 20px 0;
+  padding-right: 20px;
+}
+
+.message-basic {
+  display: flex;
+  align-items: top;
+  justify-content: space-between;
+}
+
+.message-head-left {
+  display: flex;
+  align-items: center;
+}
+
+.message-avatar {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  margin-right: 12px;
+  border-radius: 50px;
+}
+
+.message-title {
+  font-size: 14px;
+  color: #1e293c;
+  line-height: 14px;
+  margin-bottom: 5px;
+}
+
+.message-org-name {
+  font-size: 12px;
+  color: #7d8794;
+  line-height: 12px;
+}
+
+.message-date {
+  font-size: 12px;
+  color: #a4afbf;
+  line-height: 12px;
+  padding-top: 12px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.message-introduce {
+  font-size: 14px;
+  color: #1e293c;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.message-receive {
+  font-size: 12px;
+  color: #a4afbf;
+  line-height: 12px;
+}

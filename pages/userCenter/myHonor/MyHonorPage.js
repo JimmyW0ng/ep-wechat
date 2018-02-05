@@ -1,19 +1,11 @@
-// pages/babyTrip/BabyTripPage.js
+// pages/userCenter/myHonor/MyHonorPage.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    cover: '../../asset/img/org-cover.jpg',
-    dataSet: [1,2,3]
-  },
-
-  goMessageList(){
-    console.log('wtf')
-    wx.navigateTo({
-      url: '../message/MessagePage'
-    })
+  
   },
 
   /**

@@ -9,9 +9,12 @@
     "pages/course/CoursePage",
     "pages/course/courseDetailPage/courseDetailPage",
     "pages/userCenter/addBaby/AddBabyPage",
-    "pages/message/MessagePage",
+  
     "pages/message/messageDetail/MessageDetailPage",
-    "pages/babyTrip/BabyTripPage"
+    "pages/babyTrip/BabyTripPage",
+    "pages/message/MessagePage",
+    "pages/userCenter/myCourse/MyCoursePage",
+    "pages/userCenter/myHonor/MyHonorPage"
   ],
   "window": {
     "backgroundTextStyle": "dark",
