@@ -1,2 +1,40 @@
 <!--pages/userCenter/UserCenterPage.wxml-->
-<text>pages/userCenter/UserCenterPage.wxml</text>
+
+<view class='page'>
+  <view class='userCenter-header'>
+    <view class='header-empty'>
+      <view class='btn-add ripple'>
+        <view class='iconfont icon-plus1 '></view>
+      </view> 
+      <view class='text-add'>添加宝贝信息</view>
+    </view>
+  
+  </view>
+
+  <view class='userCenter-body'>
+
+  <view class='userCenter-body-item border-right ripple'>
+    <view class='body-num'>0</view>
+    <view class='body-text'>我的课程</view>
+  </view>
+  <view class='userCenter-body-item ripple'>
+  <view class='body-num'>0</view>
+    <view class='body-text'>奖状墙</view>
+  </view>
+
+  </view>
+
+  <view class='userCenter-footer'>
+    <view class='footer-title'>评价（0）</view>
+
+    <view class='footer-empty'>
+      <view class='img-empty'>
+        <image class='org-cover' src="../../asset/img/comment_empty.png" mode="scaleToFill"></image>
+      </view>
+      <view class='text-empty'>暂无报名课程，去看看吧</view>
+
+      <view class='btn-empty ripple'>查看课程</view>
+    </view>
+  
+  </view>
+</view>
