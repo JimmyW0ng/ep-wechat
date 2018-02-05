@@ -1,5 +1,0 @@
-<!--utils/scoreStar/scoreStar.wxml-->
-<view class="inner">
-  {{innerText}}
-</view>
-<slot></slot>
