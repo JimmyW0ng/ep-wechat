@@ -5,7 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataSet:[1,2,3]
+    // dataSet:[1,2,3]
+    dataSet: []
+  },
+
+  toggleData() {
+    this.setData({
+      dataSet: [1, 2, 3]
+    })
   },
 
   /**

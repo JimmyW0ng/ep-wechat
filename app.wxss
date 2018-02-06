@@ -4,3 +4,33 @@
 @import './asset/style/ripple-effect.wxss';
 @import './asset/style/toolkit.wxss';
 @import "./utils/wxParse/wxParse.wxss";
+
+
+.page-no-data {
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+.page-no-data-img {
+  display: inline-block;
+  width: 61px;
+  height: 51px;
+}
+
+.page-no-data-text {
+font-size: 16px;
+color: #A4AFBF;
+margin: 20px 0;
+}
+
+.page-no-data-btn {
+  border: 1px solid #5EE495;
+border-radius: 4px;
+color: #5EE495;
+padding: 9px 20px;
+font-size: 14px;
+line-height: 14px;
+}

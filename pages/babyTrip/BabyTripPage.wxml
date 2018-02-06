@@ -17,7 +17,7 @@
   宝贝行程
   </view>
 
-  <view class='trip-list-wrap'>
+  <view class='trip-list-wrap' wx:if="{{dataSet.length > 0}}">
     <view class='trip-list-item' wx:for="{{dataSet}}" wx:key="index" >
       <view class='trip-item-header'>
         <view class='baby-avatar-wrap'>
@@ -47,4 +47,9 @@
     </view>
   </view>
 
+  <view class='page-no-data' wx:else>
+    <image class='page-no-data-img' src="../../asset/img/trip_empty.png"></image>
+    <view class='page-no-data-text'>宝贝暂无行程安排</view>
+    <view class='page-no-data-btn ripple' bindtap='toggleData'>查看课程</view>
+  </view>
 </view>

@@ -6,13 +6,20 @@ Page({
    */
   data: {
     cover: '../../asset/img/org-cover.jpg',
-    dataSet: [1,2,3]
+    // dataSet: [1,2,3],
+    dataSet: []
   },
 
   goMessageList(){
     console.log('wtf')
     wx.navigateTo({
       url: '../message/MessagePage'
+    })
+  },
+
+  toggleData(){
+    this.setData({
+      dataSet: [1,2,3]
     })
   },
 
