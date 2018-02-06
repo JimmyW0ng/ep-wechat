@@ -32,8 +32,8 @@
   font-size: 18px;
   height: 40px;
   line-height: 40px;
-  border: 1px solid #eaeaea;
-  margin-bottom: 35px;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 25px;
 }
 
 .footer {
@@ -50,6 +50,7 @@
   background: #2AD5F3;
   color: #fff;
   text-align: center;
+  margin-left: 15px;
 }
 
 .icon-arrowsrightline {
