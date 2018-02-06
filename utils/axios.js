@@ -33,7 +33,8 @@ function request(apiPath, method, param, success, complete) {
     url,
     data,
     header: {
-      'content-type': 'application/x-www-form-urlencoded' // 默认值
+      'content-type': 'application/x-www-form-urlencoded', // 默认值
+      'Authorization': 'Bearer ' + conf.token
     },
     method: method,
     success: function (res) {

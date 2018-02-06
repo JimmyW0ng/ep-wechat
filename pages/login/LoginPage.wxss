@@ -26,9 +26,14 @@
 }
 
 .form-control {
-  font-size: 1.8rem;
+  /* font-size: 1.8rem; */
   color: #A4AFBF;
-  height: 2.2rem;
+  /* height: 2.2rem; */
+  font-size: 18px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #eaeaea;
+  margin-bottom: 35px;
 }
 
 .footer {

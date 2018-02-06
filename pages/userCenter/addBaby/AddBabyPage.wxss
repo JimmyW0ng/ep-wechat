@@ -16,6 +16,9 @@
 
 .label {
   width: 100px;
+font-size: 16px;
+color: #1E293C;
+line-height: 16px;
 }
 
 .btn-save {

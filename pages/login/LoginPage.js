@@ -1,21 +1,55 @@
 // pages/login/LoginPage.js
+const CONFIG = require('../../utils/config.js')
+const AXIOS = require('../../utils/axios')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    inputPhone: ''
+    phone: '',
+    code: '',
+    captcha: '',
   },
 
   bindPhoneInput(e){
     this.setData({
-      inputPhone: e.detail.value
+      phone: e.detail.value
+    })
+  },
+
+  bindCodeInput(e) {
+    this.setData({
+      captcha: e.detail.value
+    })
+  },
+
+  doGetCaptcha() {
+    const self = this
+    AXIOS.POST('security/api/captcha', {
+      mobile: this.data.phone,
+      clientId: CONFIG.clientId,
+      clientSecret: CONFIG.clientSecret
+    }, res => {
+      console.log(res)
+      self.data.code = res.result
     })
   },
 
   doLogin() {
-    console.log(this.data.inputPhone)
+    const self = this
+    AXIOS.POST('security/api/token', {
+      mobile: self.data.phone,
+      code: self.data.code,
+      captcha: self.data.captcha,
+      clientId: CONFIG.clientId,
+      clientSecret: CONFIG.clientSecret,
+    }, res => {
+      console.log(res)
+      let result = res.result || {}
+      self.memberType = result.memberType
+      self.token = result.token
+    })
   },
 
   /**

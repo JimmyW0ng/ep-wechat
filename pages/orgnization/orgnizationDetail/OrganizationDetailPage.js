@@ -29,15 +29,15 @@ Page({
   getOgnData(id) {
     const self = this
     AXIOS.POST('security/organ/detail', {
-      organId: id
+      ognId: id
     }, (res) => {
       const result = res.result || {}
       WxParse.wxParse('ognIntroduce', 'html', result.ognInfo.ognIntroduce, self, 0);
 
       self.setData({
-        ognBanners: result.ognBanners || [],
+        mainPicUrl: result.mainPicUrl || [],
         ognInfo: result.ognInfo || {},
-        ognLogo: result.ognLogo || {},
+        logoUrl: result.logoUrl || {},
       })
     })
   },

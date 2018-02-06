@@ -1,27 +1,57 @@
 // pages/userCenter/addBaby/AddBabyPage.js
+const CONFIG = require('../../../utils/config.js')
+const AXIOS = require('../../../utils/axios')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    date: '',
-    time: '',
+    childBirthday: '',
     today: new Date()
   },
 
-  bindDateChange: function (e) {
+  bindChildTrueName: function(e) {
+    this.setData({ childTrueName: e.detail.value })
+  },
+  bindChildNickName(e){
+    this.setData({ childNickName: e.detail.value })
+  },
+  bindChildIdentity(e){
+    this.setData({ childIdentity: e.detail.value })
+  },
+  bindChildSex(e) {
+    this.setData({ childSex: 'women'})
+  },
+  bindCurrentSchool(e){
+    this.setData({ currentSchool: e.detail.value  })
+  },
+  bindCurrentGrade(e){
+    this.setData({ currentGrade: e.detail.value })
+  },
+  bindSign(e) {
+    this.setData({ sign: e.detail.value })
+  },
+
+  bindDateChange (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      date: e.detail.value
+      childBirthday: e.detail.value
     })
   },
-  bindTimeChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      time: e.detail.value
+
+  handleSave (e){
+    const self = this
+    console.log('saveveveev')
+
+    
+    var data = self.data
+    AXIOS.POST('auth/child/add', data, res => {
+
     })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
