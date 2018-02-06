@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/userCenter/addBaby/AddBabyPage",
+    
     "pages/index/index",
     "pages/userCenter/UserCenterPage",
     "pages/orgnization/OrgnizationPage",
@@ -7,7 +9,6 @@
     "pages/login/LoginPage",
     "pages/logs/logs",
     "pages/course/CoursePage",
-    "pages/userCenter/addBaby/AddBabyPage",
     "pages/course/courseDetailPage/courseDetailPage",
     "pages/message/messageDetail/MessageDetailPage",
     "pages/babyTrip/BabyTripPage",
@@ -27,6 +28,12 @@
     "borderStyle": "black",
     "backgroundColor": "#f9f9f9",
     "list": [
+      {
+        "text": "添加宝贝",
+        "pagePath": "pages/userCenter/addBaby/AddBabyPage",
+        "iconPath": "asset/img/tabIcon-user.png",
+        "selectedIconPath": "asset/img/tabIcon-user-active.png"
+      },
       {
         "text": "我的账户",
         "pagePath": "pages/userCenter/UserCenterPage",

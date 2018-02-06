@@ -20,7 +20,16 @@
     <view class='label'>宝贝生日</view>
 
     <view class='input-wrap'>
-      <input placeholder='请选择出生日期' />
+      <!-- <input placeholder='请选择出生日期' /> -->
+      <view class="section">
+        <!-- <view class="section__title">请选择出生日期</view> -->
+        <picker mode="date" value="{{date}}" start="2015-09-01" end="{{today}}" bindchange="bindDateChange">
+          <view class="picker">
+            <view wx:if="{{!date}}">请选择出生日期 </view>{{date}}
+          </view>
+        </picker>
+      </view>
+
     </view>
   </view>
 
