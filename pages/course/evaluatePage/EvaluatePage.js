@@ -12,17 +12,19 @@ Page({
     avatarList: [{
       id: '1',
       url: 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png'
-    }, {
+    }
+    , {
       id: '2',
       url: 'http://res.xiaomaiketang.com/xiaomai/newYearDay_201701208.png'
-    }, {
+    }, 
+    {
       id: '3',
       url: 'http://res.xiaomaiketang.com/xiaomai/vote_20170807.png'
     }
-    , {
-      id: '4',
-      url: 'http://res.xiaomaiketang.com/xiaomai/vote_20170807.png'
-    },
+    // , {
+    //   id: '4',
+    //   url: 'http://res.xiaomaiketang.com/xiaomai/vote_20170807.png'
+    // },
     // {
     //   id: '5',
     //   url: 'http://res.xiaomaiketang.com/xiaomai/vote_20170807.png'
