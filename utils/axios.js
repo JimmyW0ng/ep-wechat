@@ -1,5 +1,5 @@
 const app = getApp();
-const conf = require('./config.js');
+const CONFIG = require('./config.js');
 const User = require('./user.js');
 
 const LoginUrl = 'pages/login/LoginPage'
@@ -21,8 +21,8 @@ function GET(apiPath, success, fail, complete) {
 }
 
 function request(apiPath, method, param, success, complete) {
-  // const url = conf.apiUrl + apiPath + `?p=w&uid=${User.getUid()}&wechatAppId=${conf.appId}&token=${User.getToken()}&openId=${User.getOpenId()}`;
-  const url = conf.apiUrl + apiPath;
+  // const url = CONFIG.apiUrl + apiPath + `?p=w&uid=${User.getUid()}&wechatAppId=${CONFIG.appId}&token=${User.getToken()}&openId=${User.getOpenId()}`;
+  const url = CONFIG.apiUrl + apiPath;
   const data = param;
   wx.showToast({
     // title: "loading",
@@ -34,7 +34,7 @@ function request(apiPath, method, param, success, complete) {
     data,
     header: {
       'content-type': 'application/x-www-form-urlencoded', // 默认值
-      'Authorization': 'Bearer ' + conf.token
+      'Authorization': 'Bearer ' + CONFIG.token
     },
     method: method,
     success: function (res) {
@@ -95,48 +95,63 @@ function processHttpError(xhr, errorType, error) {
   })
 }
 
-const UPLOAD = (filePath, name, callback, uploadCallback) => {
-  wx.request({
-    url: 'https://rc-api-upload.xiaomai5.com/xm/oss/web/token?bucket=res', //oss token
-    method: "GET",
+const UPLOAD = (filePath, callback, uploadCallback) => {
+  let uploadTask = wx.uploadFile({
+    url: CONFIG.apiUrl + 'auth/file/child/avatar',
+    filePath,
+    name: 'file',
     header: {
-      'content-type': 'application/json' // 默认值
+      'content-type': 'multipart/form-data',
+      'Authorization': 'Bearer ' + CONFIG.token
     },
     success: (res) => {
-      const signInfo = res.data;
-      console.log(signInfo)
-      const uploadTask = wx.uploadFile({
-        url: 'https://res.xiaomai5.com',
-        filePath,
-        name: 'file',
-        header: {
-          'content-type': 'multipart/form-data'
-        },
-        formData: {
-          'key': signInfo.dir + name,
-          OSSAccessKeyId: signInfo.accessid,
-          signature: signInfo.signature,
-          policy: signInfo.policy,
-          expire: signInfo.expire,
-          success_action_status: '200',
-          callback: signInfo.callback,
-        },
-        success: (res) => {
-          if (callback) {
-            callback(JSON.parse(res.data), name)
-          }
-        }
-      })
-      uploadTask.onProgressUpdate((res) => {
-        if (uploadCallback) {
-          uploadCallback(res, name)
-        }
-        // console.log('上传进度', res.progress)
-        // console.log('已经上传的数据长度', res.totalBytesSent)
-        // console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend)
-      })
+      if (callback) {
+        callback(JSON.parse(res.data))
+      }
     }
   })
+
+  // let uploadTask = wx.request({
+  //   url: 'https://rc-api-upload.xiaomai5.com/xm/oss/web/token?bucket=res', //oss token
+  //   method: "GET",
+  //   header: {
+  //     'content-type': 'application/json' // 默认值
+  //   },
+  //   success: (res) => {
+  //     const signInfo = res.data;
+  //     console.log(signInfo)
+  //     const uploadTask = wx.uploadFile({
+  //       url: 'https://res.xiaomai5.com',
+  //       filePath,
+  //       name: 'file',
+  //       header: {
+  //         'content-type': 'multipart/form-data'
+  //       },
+  //       formData: {
+  //         'key': signInfo.dir + name,
+  //         OSSAccessKeyId: signInfo.accessid,
+  //         signature: signInfo.signature,
+  //         policy: signInfo.policy,
+  //         expire: signInfo.expire,
+  //         success_action_status: '200',
+  //         callback: signInfo.callback,
+  //       },
+  //       success: (res) => {
+  //         if (callback) {
+  //           callback(JSON.parse(res.data), name)
+  //         }
+  //       }
+  //     })
+  //     uploadTask.onProgressUpdate((res) => {
+  //       if (uploadCallback) {
+  //         uploadCallback(res, name)
+  //       }
+  //       // console.log('上传进度', res.progress)
+  //       // console.log('已经上传的数据长度', res.totalBytesSent)
+  //       // console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend)
+  //     })
+  //   }
+  // })
 }
 
 module.exports = {

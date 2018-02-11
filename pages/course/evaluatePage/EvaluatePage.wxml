@@ -8,7 +8,10 @@
 
   <score-star-large score="30" bind:change="changeScore"></score-star-large> 
 
-  <view class='btn btn-upload' bindtap='upload'>上传图片</view>
+  <image src="{{previewImg}}"></image>
+  <!-- <view class='btn btn-upload' bindtap='upload'>上传图片</view> -->
+
+  <img-uploader bind:change="changeImg"></img-uploader>  
 
   <avatar-selector list="{{avatarList}}"></avatar-selector>
 </view>

@@ -31,18 +31,28 @@ Page({
     // }
     ],
     picture: [],
-    content: []
+    content: [],
+    previewImg: ''
   },
 
-  changeScore(scoreItem) {
-    console.log(scoreItem)
-    let score = scoreItem.detail.score
+  changeScore(item) {
+    console.log(item)
+    let score = item.detail.score
     this.setData({
       score: score
     })
   },
 
+  changeImg(item){
+    const self = this
+    let fileUrl = item.detail.fileUrl
+    self.setData({
+      previewImg: fileUrl
+    })
+  },
+
   upload() {
+    const self = this
     if (this.data.picture.length > 8) {
       wx.showModal({
         title: "图片与视频总共不可超过9个",
@@ -56,35 +66,18 @@ Page({
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: (res) => {
-        debugger
         const filePath = res.tempFilePaths[0];
-        const content = this.data.content
-        const len = content.length;
-        const name = new Date().valueOf() + '.png'
-        content.push({
-          type: 2,
-          content: filePath,
-          status: 1,
-          progress: 0,
-          name
-        });
-        // this.resolveData(content);
-        AXIOS.UPLOAD(filePath, name, (res, name) => {
-          // content.map((item) => {
-          //   if (item.name == name) {
-          //     item.content = res.url;
-          //     item.status = 0;
-          //     this.setData({ content });
-          //     this.resolveData(content);
-          //   }
-          // })
-        }, (res, name) => {
-          // content.map((item) => {
-          //   if (item.name == name) {
-          //     item.progress = res.progress;
-          //     this.resolveData(content);
-          //   }
-          // })
+        AXIOS.UPLOAD(filePath, (res) => {
+          debugger
+          let result = res.result || {}
+          console.log(result)
+          // self.previewImg = result.fileUrl
+          self.setData({
+            previewImg: result.fileUrl
+          })
+
+        }, (res) => {
+          console.log('todo?')
         });
       }
     })
