@@ -9,11 +9,30 @@ Page({
    */
   data: {
     score: 0,
+    avatarList: [{
+      id: '1',
+      url: 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png'
+    }, {
+      id: '2',
+      url: 'http://res.xiaomaiketang.com/xiaomai/newYearDay_201701208.png'
+    }, {
+      id: '3',
+      url: 'http://res.xiaomaiketang.com/xiaomai/vote_20170807.png'
+    }
+    , {
+      id: '4',
+      url: 'http://res.xiaomaiketang.com/xiaomai/vote_20170807.png'
+    },
+    // {
+    //   id: '5',
+    //   url: 'http://res.xiaomaiketang.com/xiaomai/vote_20170807.png'
+    // }
+    ],
     picture: [],
-    content:[]
+    content: []
   },
 
-  changeScore(scoreItem){
+  changeScore(scoreItem) {
     console.log(scoreItem)
     let score = scoreItem.detail.score
     this.setData({
@@ -21,8 +40,8 @@ Page({
     })
   },
 
-  upload(){
-    if (this.data.picture.length> 8) {
+  upload() {
+    if (this.data.picture.length > 8) {
       wx.showModal({
         title: "图片与视频总共不可超过9个",
         showCancel: false,
@@ -73,7 +92,7 @@ Page({
   //   // const picture = content.filter((item) => {
   //   //   return item.type == this.data.type.picture;
   //   // })
-   
+
   //   this.setData({ content, picture });
   //   console.log(this.data.picture)
   // },
@@ -82,55 +101,55 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

@@ -10,10 +10,7 @@ Component({
     score: {
       type: Number,
       value: 0,
-    },
-    // change: {
-    //   type: Function
-    // }
+    }
   },
 
   /**
@@ -32,12 +29,8 @@ Component({
     selectRight: _.debounce(function (e) {
       var key = e.currentTarget.dataset.key * 10
       var score = key == this.data.score ? 0 : key
-      this.setData({
-        score: score
-      })
-      this.triggerEvent('change', {
-        score: score
-      }, {})
+      this.setData({score})
+      this.triggerEvent('change', { score }, {})
     }, 200, true)
   }
 })

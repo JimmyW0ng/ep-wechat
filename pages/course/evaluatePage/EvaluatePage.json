@@ -1,5 +1,6 @@
 {
     "usingComponents": {
-      "score-star-large": "../../../components/scoreStarLarge/scoreStarLarge"
+      "score-star-large": "../../../components/scoreStarLarge/scoreStarLarge",
+      "avatar-selector": "../../../components/avatarSelector/avatarSelector"
     }
 }
