@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+      "score-star-large": "../../../components/scoreStarLarge/scoreStarLarge"
+    }
+}

@@ -20,6 +20,22 @@ Page({
     })
   },
 
+  goMyCourse () {
+    console.log('fuck1')
+
+    wx.navigateTo({
+      url: './myCourse/MyCoursePage'
+    })
+  },
+
+  goMyHonor() {
+    console.log('fuck2')
+
+    wx.navigateTo({
+      url: './myHonor/MyHonorPage'
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

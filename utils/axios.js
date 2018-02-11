@@ -94,6 +94,7 @@ function processHttpError(xhr, errorType, error) {
     showCancel: false,
   })
 }
+
 const UPLOAD = (filePath, name, callback, uploadCallback) => {
   wx.request({
     url: 'https://rc-api-upload.xiaomai5.com/xm/oss/web/token?bucket=res', //oss token

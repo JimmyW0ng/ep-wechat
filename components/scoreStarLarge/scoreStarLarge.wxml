@@ -1,0 +1,14 @@
+<!--utils/scoreStar/scoreStar.wxml-->
+
+<view class='score-star-wrap'>
+  <block wx:for="{{stars}}" wx:key="index">
+    <image class="star-image" 
+    src="{{(score / 10) > item ?((score / 10) -item == 0.5?halfSrc:selectedSrc) : normalSrc}}" 
+    data-key="{{item+1}}" 
+    bindtap="selectRight">
+      <view class="item" 
+      data-score="{{item+1}}" 
+      bindtap="selectRight"></view>
+    </image>
+  </block>
+</view>

@@ -4,20 +4,23 @@
     <view class='label'>宝宝头像</view>
 
     <view class='input-wrap'>
-      <input placeholder='点击上传头像' />
+      <!-- <input placeholder='点击上传头像' /> -->
+      <view class='btn-avatar'>
+        <view class='iconfont icon-photo'></view>
+      </view>
     </view>
   </view>
 
- <view class='form-control'>
+ <!-- <view class='form-control'>
     <view class='label'>宝贝名字</view>
 
     <view class='input-wrap'>
       <input placeholder='请输入宝贝名字' bindinput="bindChildTrueName"  />
     </view>
-  </view>
+  </view> -->
 
   <view class='form-control'>
-    <view class='label'>宝贝昵称</view>
+    <view class='label'>*宝贝昵称</view>
 
     <view class='input-wrap'>
       <input placeholder='请输入宝贝昵称' bindinput="bindChildNickName"  />
@@ -25,7 +28,7 @@
   </view>
 
   <view class='form-control'>
-    <view class='label'>宝贝生日</view>
+    <view class='label'>*宝贝生日</view>
 
     <view class='input-wrap'>
       <!-- <input placeholder='请选择出生日期' /> -->
@@ -33,23 +36,23 @@
         <!-- <view class="section__title">请选择出生日期</view> -->
         <picker mode="date" value="{{childBirthday}}" start="2015-09-01" end="{{today}}" bindchange="bindDateChange">
           <view class="picker">
-            <view wx:if="{{!childBirthday}}">请选择出生日期 </view>{{childBirthday}}
+            <view wx:if="{{!childBirthday}}" class="date-placeholder">请选择出生日期 </view>{{childBirthday}}
           </view>
         </picker>
       </view>
     </view>
   </view>
 
- <view class='form-control'>
+ <!-- <view class='form-control'>
     <view class='label'>宝贝身份证</view>
 
     <view class='input-wrap'>
       <input placeholder='请填写身份证' bindinput="bindChildIdentity"  />
     </view>
-  </view>
+  </view> -->
 
   <view class='form-control'>
-    <view class='label'>宝贝性别</view>
+    <view class='label'>*宝贝性别</view>
 
     <view class='input-wrap'>
       <input placeholder='请选择性别' bindinput="bindChildSex"  />
@@ -69,13 +72,11 @@
       <input placeholder='请选择年级'  bindinput="bindCurrentGrade" />
     </view>
   </view>
-  <view class='form-control'>
-    <view class='label'> 小目标</view>
 
-    <view class='input-wrap'>
-      <input placeholder='请输入小目标'  bindinput="bindSign" />
-    </view>
-  </view>
+  <textarea 
+    bindinput="bindSign" 
+    auto-height 
+    placeholder="请输入小目标" />
 
   <button class='btn-save ripple' bindtap='handleSave'>保存</button>
 </view>

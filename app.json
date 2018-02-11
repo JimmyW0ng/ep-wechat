@@ -1,14 +1,13 @@
 {
   "pages": [
-    "pages/babyTrip/BabyTripPage",
-    
-    "pages/login/LoginPage",
-    
-    "pages/index/index",
-    
-    "pages/userCenter/addBaby/AddBabyPage",
-    
+    "pages/course/evaluatePage/EvaluatePage",
+    "pages/scrollableTabView/index",
+    "pages/userCenter/myCourse/MyCoursePage",
     "pages/userCenter/UserCenterPage",
+    "pages/babyTrip/BabyTripPage",
+    "pages/login/LoginPage",
+    "pages/index/index",
+    "pages/userCenter/addBaby/AddBabyPage",
     "pages/orgnization/OrgnizationPage",
     "pages/orgnization/orgnizationDetail/OrganizationDetailPage",
     "pages/logs/logs",
@@ -16,8 +15,8 @@
     "pages/course/courseDetailPage/courseDetailPage",
     "pages/message/messageDetail/MessageDetailPage",
     "pages/message/MessagePage",
-    "pages/userCenter/myCourse/MyCoursePage",
     "pages/userCenter/myHonor/MyHonorPage"
+   
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -32,8 +31,8 @@
     "backgroundColor": "#f9f9f9",
     "list": [
       {
-        "text": "login",
-        "pagePath": "pages/login/LoginPage",
+        "text": "评价课程",
+        "pagePath": "pages/course/evaluatePage/EvaluatePage",
         "iconPath": "asset/img/tabIcon-user.png",
         "selectedIconPath": "asset/img/tabIcon-user-active.png"
       },

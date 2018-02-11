@@ -2,36 +2,73 @@
 
 .page {
   padding: 20px;
-  padding-top: 40px;
 }
 
 .form-control {
-  border-bottom: 1px solid #E9E9E9;
+  border-bottom: 1px solid #e9e9e9;
   margin-bottom: 15px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-   padding-top: 15px;
+  padding-top: 15px;
   padding-bottom: 15px;
-
 }
 
 .label {
   width: 100px;
-font-size: 16px;
-color: #1E293C;
-line-height: 16px;
+  font-size: 16px;
+  color: #1e293c;
+  line-height: 16px;
 }
 
-input, .picker{
-  color: #A4AFBF; 
+.input-wrap {
+  text-align: right;
+  flex: 1;
+}
+
+.btn-avatar {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 40px;
+  text-align: center;
+  border: 1px solid #e9e9e9;
+  color: #5EE495;
+}
+
+.btn-avatar .iconfont {
+  font-size: 20px;
+}
+
+.date-placeholder {
+  color: #808080;
+}
+
+.section .picker {
+  color: #808080;
+}
+
+input, .picker {
+  color: #a4afbf;
   /* TODO */
 }
 
+textarea {
+  width: 100%;
+  border: 1px solid #e9e9e9;
+  padding: 10px;
+  min-height: 100px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
 .btn-save {
-  background-image: linear-gradient(90deg, #5EE495 0%, #2AD5F3 100%);
-box-shadow: 0 4px 16px 0 rgba(164,175,191,0.30);
-border-radius: 4px;
-color: #fff;
-margin-top: 50px;
-margin-bottom: 50px;
+  background-image: linear-gradient(90deg, #5ee495 0%, #2ad5f3 100%);
+  box-shadow: 0 4px 16px 0 rgba(164, 175, 191, 0.30);
+  border-radius: 4px;
+  color: #fff;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
