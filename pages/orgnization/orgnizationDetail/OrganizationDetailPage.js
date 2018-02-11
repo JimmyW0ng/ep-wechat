@@ -42,11 +42,9 @@ Page({
     })
   },
 
-  getOgnCourseData(id) {
+  getOgnCourseData(ognId) {
     const self = this
-    AXIOS.POST('security/course/page', {
-      organId: id
-    }, (res) => {
+    AXIOS.POST('security/course/page', {ognId}, (res) => {
       const result = res.result || {}
       self.setData({
         ognCourseList: result.content || [],
@@ -62,7 +60,7 @@ Page({
     })
   },
 
-  goCourseDetailPage : function (e) {
+  goCourseDetailPage: function (e) {
     const dataset = e.currentTarget.dataset
     const item = dataset.item
     wx.navigateTo({
@@ -81,7 +79,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**

@@ -9,6 +9,7 @@ Page({
    */
   data: {
     avatar: '',
+    avatarCode: '',
     childBirthday: '',
     childTrueName: '',
     childNickName: '',
@@ -29,17 +30,17 @@ Page({
       // alert('成功添加了')
       let result = res.result
       self.setData({
-        avatar: result.avatar,
-        childBirthday: result.childBirthday,
-        childTrueName: result.hildTrueName,
-        childNickName: result.childNickName,
-        childSex: result.childSex,
-        childIdentity: result.childIdentity,
-        currentSchool: result.currentSchool,
-        currentGrade: result.currentGrade,
-        childId: result.id,
-        memberId: result.memberId,
-        sign: result.sign
+        avatar: result.avatar || '',
+        childBirthday: result.childBirthday || '',
+        childTrueName: result.hildTrueName || '',
+        childNickName: result.childNickName || '',
+        childSex: result.childSex || '',
+        childIdentity: result.childIdentity || '',
+        currentSchool: result.currentSchool || '',
+        currentGrade: result.currentGrade || '',
+        childId: result.id || '',
+        memberId: result.memberId || '',
+        sign: result.sign || ''
       })
     })
   },
@@ -49,7 +50,8 @@ Page({
     let preCode = item.detail.preCode
     let fileUrl = item.detail.fileUrl
     self.setData({
-      avatar: fileUrl
+      avatar: fileUrl || '',
+      avatarCode: preCode || ''
     })
   },
 
