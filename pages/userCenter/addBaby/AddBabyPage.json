@@ -1,3 +1,6 @@
 {
-        "navigationBarTitleText": "添加宝贝"
+        "navigationBarTitleText": "添加宝贝",
+        "usingComponents": {
+          "img-uploader": "../../../components/imgUploader/imgUploader"
+        }
 }

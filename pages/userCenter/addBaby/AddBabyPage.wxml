@@ -5,25 +5,30 @@
 
     <view class='input-wrap'>
       <!-- <input placeholder='点击上传头像' /> -->
-      <view class='btn-avatar'>
-        <view class='iconfont icon-photo'></view>
-      </view>
+      <img-uploader bind:change="changeImg">
+        <view class='baby-avatar-wrap' wx:if="{{avatar}}">
+          <image class='baby-avatar' src="{{avatar}}"></image>
+        </view>
+        <view class='btn-avatar' wx:else>
+          <view class='iconfont icon-photo'></view>
+        </view>
+      </img-uploader>
     </view>
   </view>
 
- <!-- <view class='form-control'>
+   <view class='form-control'>
     <view class='label'>宝贝名字</view>
 
     <view class='input-wrap'>
-      <input placeholder='请输入宝贝名字' bindinput="bindChildTrueName"  />
+      <input placeholder='请输入宝贝名字' value="{{childTrueName}}" bindinput="bindChildTrueName"  />
     </view>
-  </view> -->
+  </view> 
 
   <view class='form-control'>
     <view class='label'>*宝贝昵称</view>
 
     <view class='input-wrap'>
-      <input placeholder='请输入宝贝昵称' bindinput="bindChildNickName"  />
+      <input placeholder='请输入宝贝昵称' value="{{childNickName}}" bindinput="bindChildNickName" />
     </view>
   </view>
 
@@ -31,9 +36,7 @@
     <view class='label'>*宝贝生日</view>
 
     <view class='input-wrap'>
-      <!-- <input placeholder='请选择出生日期' /> -->
       <view class="section">
-        <!-- <view class="section__title">请选择出生日期</view> -->
         <picker mode="date" value="{{childBirthday}}" start="2015-09-01" end="{{today}}" bindchange="bindDateChange">
           <view class="picker">
             <view wx:if="{{!childBirthday}}" class="date-placeholder">请选择出生日期 </view>{{childBirthday}}
@@ -43,40 +46,37 @@
     </view>
   </view>
 
- <!-- <view class='form-control'>
+   <view class='form-control'>
     <view class='label'>宝贝身份证</view>
 
     <view class='input-wrap'>
-      <input placeholder='请填写身份证' bindinput="bindChildIdentity"  />
+      <input placeholder='请填写身份证' value="{{childIdentity}}" bindinput="bindChildIdentity"  />
     </view>
-  </view> -->
+  </view> 
 
   <view class='form-control'>
     <view class='label'>*宝贝性别</view>
 
     <view class='input-wrap'>
-      <input placeholder='请选择性别' bindinput="bindChildSex"  />
+      <input placeholder='请选择性别' value="{{childSex}}" bindinput="bindChildSex" />
     </view>
   </view>
   <view class='form-control'>
     <view class='label'>所在学校</view>
 
     <view class='input-wrap'>
-      <input placeholder='请输入所在学校'  bindinput="bindCurrentSchool"/>
+      <input placeholder='请输入所在学校' value="{{currentSchool}}" bindinput="bindCurrentSchool" />
     </view>
   </view>
   <view class='form-control'>
     <view class='label'>所在年级</view>
 
     <view class='input-wrap'>
-      <input placeholder='请选择年级'  bindinput="bindCurrentGrade" />
+      <input placeholder='请选择年级' value="{{currentGrade}}" bindinput="bindCurrentGrade" />
     </view>
   </view>
 
-  <textarea 
-    bindinput="bindSign" 
-    auto-height 
-    placeholder="请输入小目标" />
+  <textarea bindinput="bindSign" auto-height value="{{sign}}" placeholder="请输入小目标" />
 
   <button class='btn-save ripple' bindtap='handleSave'>保存</button>
 </view>

@@ -31,8 +31,9 @@ Component({
           const filePath = res.tempFilePaths[0];
           AXIOS.UPLOAD(filePath, (res) => {
             let result = res.result || {}
+            let preCode = result.preCode 
             let fileUrl = result.fileUrl 
-            self.triggerEvent('change', { fileUrl }, {})
+            self.triggerEvent('change', { preCode, fileUrl }, {})
           }, (res) => {
             console.log('upload error')
             // self.triggerEvent('error', { fileUrl }, {})

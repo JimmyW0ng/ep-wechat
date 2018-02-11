@@ -8,8 +8,49 @@ Page({
    * 页面的初始数据
    */
   data: {
+    avatar: '',
     childBirthday: '',
+    childTrueName: '',
+    childNickName: '',
+    childSex: '',
+    childIdentity: '',
+    currentSchool: '',
+    currentGrade: '',
+    id: '',
+    memberId: '',
+    sign: '',
+
     today: new Date()
+  },
+
+  loadDetail(childId){
+    const self = this
+    AXIOS.POST('auth/child/get', {childId}, res => {
+      // alert('成功添加了')
+      let result = res.result
+      self.setData({
+        avatar: result.avatar,
+        childBirthday: result.childBirthday,
+        childTrueName: result.hildTrueName,
+        childNickName: result.childNickName,
+        childSex: result.childSex,
+        childIdentity: result.childIdentity,
+        currentSchool: result.currentSchool,
+        currentGrade: result.currentGrade,
+        childId: result.id,
+        memberId: result.memberId,
+        sign: result.sign
+      })
+    })
+  },
+
+  changeImg(item) {
+    const self = this
+    let preCode = item.detail.preCode
+    let fileUrl = item.detail.fileUrl
+    self.setData({
+      avatar: fileUrl
+    })
   },
 
   bindChildTrueName: function(e) {
@@ -44,19 +85,27 @@ Page({
   handleSave (e){
     const self = this
     console.log('saveveveev')
-
-    
     var data = self.data
-    AXIOS.POST('auth/child/add', data, res => {
+    if(data.childId){
+      AXIOS.POST('auth/child/edit', data, res => {
+        // alert('成功添加了')
+      })
+    } else {
+      AXIOS.POST('auth/child/add', data, res => {
+        // alert('成功添加了')
+      })
+    }
 
-    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log(options)
+    if(options.id){
+      this.loadDetail(options.id)
+    }
   },
 
   /**

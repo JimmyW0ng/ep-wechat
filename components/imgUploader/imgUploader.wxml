@@ -1,2 +1,4 @@
 <!--components/imgUploader/imgUploader.wxml-->
-  <view class='btn btn-upload' bindtap='upload'>上传图片</view>
+  <view class='btn btn-upload' bindtap='upload'>
+    <slot></slot>
+  </view>

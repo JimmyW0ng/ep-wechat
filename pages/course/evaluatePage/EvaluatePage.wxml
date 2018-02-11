@@ -11,7 +11,7 @@
   <image src="{{previewImg}}"></image>
   <!-- <view class='btn btn-upload' bindtap='upload'>上传图片</view> -->
 
-  <img-uploader bind:change="changeImg"></img-uploader>  
+  <img-uploader bind:change="changeImg">上传图片</img-uploader>  
 
   <avatar-selector list="{{avatarList}}"></avatar-selector>
 </view>
