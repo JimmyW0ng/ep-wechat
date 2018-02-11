@@ -1,4 +1,6 @@
 // utils/scoreStar/scoreStar.js
+const _ = require('../../utils/underscore');
+
 Component({
   /**
    * 组件的属性列表
@@ -27,7 +29,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    selectRight: function (e) {
+    selectRight: _.debounce(function (e) {
       var key = e.currentTarget.dataset.key * 10
       var score = key == this.data.score ? 0 : key
       this.setData({
@@ -36,6 +38,6 @@ Component({
       this.triggerEvent('change', {
         score: score
       }, {})
-    }
+    }, 200, true)
   }
 })
