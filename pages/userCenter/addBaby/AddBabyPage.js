@@ -85,7 +85,11 @@ Page({
     if(data.childId){
       AXIOS.POST('auth/child/edit', data, res => {
         // alert('成功添加了')
-
+        wx.showToast({
+          title: '保存成功',
+          icon: 'success',
+          duration: 1000
+        })
         wx.navigateBack({
           delta: 1
         })
@@ -93,24 +97,50 @@ Page({
     } else {
       AXIOS.POST('auth/child/add', data, res => {
         // alert('成功添加了')
-        wx.navigateBack({
-          delta: 1
+        wx.showToast({
+          title: '保存成功',
+          icon: 'success',
+          duration: 1000
         })
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1000)
       })
     }
 
   },
 
-  handleDelete(e) {
-    var data = this.data
+  confirmDelete(e){
+    const self = this
+    let data = this.data
     let childId = data.id
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除宝贝信息吗？',
+      success: function (res) {
+        if (res.confirm) {
+          self.handleDelete(childId)
+        }
+      }
+    })
+  },
+
+  handleDelete(childId) {
     AXIOS.POST('auth/child/del', {
       childId
     }, res => {
-      console.log(res) // TODO alert一下
-      wx.navigateBack({
-        delta: 1
+      wx.showToast({
+        title: '删除成功',
+        icon: 'success',
+        duration: 1000
       })
+      setTimeout(() => {
+        wx.navigateBack({
+          delta: 1
+        })
+      }, 1000)
     })
   },
 

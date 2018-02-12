@@ -1,5 +1,4 @@
 /**app.wxss**/
-
 @import './asset/style/iconfont.wxss';
 @import './asset/style/ripple-effect.wxss';
 @import './asset/style/toolkit.wxss';
@@ -19,7 +18,7 @@ page {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
 }
 
 .page-no-data-img {
@@ -29,16 +28,31 @@ page {
 }
 
 .page-no-data-text {
-font-size: 16px;
-color: #A4AFBF;
-margin: 20px 0;
+  font-size: 16px;
+  color: #a4afbf;
+  margin: 20px 0;
 }
 
 .page-no-data-btn {
-  border: 1px solid #5EE495;
-border-radius: 4px;
-color: #5EE495;
-padding: 9px 20px;
-font-size: 14px;
-line-height: 14px;
+  border: 1px solid #5ee495;
+  border-radius: 4px;
+  color: #5ee495;
+  padding: 9px 20px;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.icon-loading {
+  animation: loadingWhite 1.2s infinite linear;
+  animation-timing-function: steps(10);
+}
+
+@keyframes loadingWhite {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -500rpx 0;
+  }
 }

@@ -113,6 +113,12 @@ const UPLOAD = (filePath, callback, uploadCallback) => {
       if (callback) {
         callback(JSON.parse(res.data))
       }
+    },
+    fail: (res) => {
+      // debugger
+    },
+    complete(res){
+// debugger
     }
   })
 

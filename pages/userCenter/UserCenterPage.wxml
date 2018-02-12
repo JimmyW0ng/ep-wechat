@@ -10,7 +10,7 @@
       <view class='btn-add ripple'>
         <view class='iconfont icon-plus1' bindtap='goAddBaby'></view>
       </view>
-      <view class='text-add' wx:if="{{children.length == 0}}" bindtap='goAddBaby'>添加宝贝信息 </view>
+      <view class='text-add' wx:if="{{children.length == 0}}" bindtap='goAddBaby'>添加宝贝信息</view>
     </view>
   </view>
 

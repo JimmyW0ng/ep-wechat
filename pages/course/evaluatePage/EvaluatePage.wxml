@@ -15,6 +15,9 @@
   <import src="../../../wux/components/dialog/dialog.wxml" />
   <template is="dialog" data="{{ ...$wux.dialog }}" />
 
+  <button class="weui-btn" type="default" bindtap="showModal">Default Dialog</button>
+   <button class="weui-btn" type="default" bindtap="showActionSheet">Default ActionSheet</button>
+
   <view class="page__bd">
     <view class="weui-btn-area">
       <button class="weui-btn" type="default" bindtap="open">Default Dialog</button>

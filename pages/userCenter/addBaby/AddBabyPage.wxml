@@ -79,7 +79,7 @@
   <textarea bindinput="bindChildInfo" data-key="sign" auto-height value="{{sign}}" placeholder="请输入小目标" />
 
    <view class='botton-btn-wrap'>
-  <button wx:if="{{childId}}" class='btn-delete ripple' bindtap='handleDelete'>删除</button>
+  <button wx:if="{{childId}}" class='btn-delete ripple' bindtap='confirmDelete'>删除</button>
    
   <button class='btn-save ripple' bindtap='handleSave'>保存</button>
   </view>

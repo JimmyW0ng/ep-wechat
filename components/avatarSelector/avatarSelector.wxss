@@ -22,8 +22,8 @@
 
 .avatar-item.active {
   transform: scale(1.1);
-  box-shadow: 0 0 5px black;
-  z-index: 10
+  box-shadow: 0 0 10px black;
+  z-index: 10;
 }
 
 .avatar {
