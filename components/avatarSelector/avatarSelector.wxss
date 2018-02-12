@@ -1,16 +1,11 @@
 /* components/avatarSelector/avatarSelector.wxss */
 
 .scroll-view{
-   height: 120px; 
-   line-height: 120px; 
-  border: 1px solid #e9e9e9;
-  padding: 20px 0;
   box-sizing: border-box;
 }
 
 .avatar-container{
   width: 100%;
-  text-align: center;
 }
 
 .avatar-item {
@@ -18,11 +13,11 @@
   width: 80px;
   height: 80px;
   border-radius: 80px;
-  /* border: 1px solid #e9e9e9; */
+   border: 1px solid #e9e9e9; 
   overflow: hidden;
   box-sizing: border-box;
    transition: all 0.2s ease-in-out;
-   position: relative;
+   position: absolute;
 }
 
 .avatar-item.active {

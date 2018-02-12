@@ -2,18 +2,15 @@
 
 <view class='page'>
   <view class='userCenter-header'>
-    <view class='header-empty'>
-      <view class='avatar-list' wx:if="{{children.length > 0}}" wx:for="{{children}}" wx:key="{{index}}">
-        <view data-id="{{item.id}}" bindtap='goBabyDetail'>
-          {{item.childNickName}}  
-          <view bindtap='deleteChild'>删除</view>
-        </view>
-      </view>
+    <view class='avatar-list-wrap' wx:if="{{children.length > 0}}">
+      <avatar-selector bind:clickItem="goBabyDetail" list="{{children}}"></avatar-selector>
+    </view>
 
+    <view class='btn-add-wrap'>
       <view class='btn-add ripple'>
-        <view class='iconfont icon-plus1' bindtap='goAddBaby' bindtap='goAddBaby'></view>
+        <view class='iconfont icon-plus1' bindtap='goAddBaby'></view>
       </view>
-      <view class='text-add' bindtap='goAddBaby'>添加宝贝信息 </view>
+      <view class='text-add' wx:if="{{children.length == 0}}" bindtap='goAddBaby'>添加宝贝信息 </view>
     </view>
   </view>
 

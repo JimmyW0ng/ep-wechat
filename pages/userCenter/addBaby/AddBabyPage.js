@@ -1,6 +1,7 @@
 // pages/userCenter/addBaby/AddBabyPage.js
 const CONFIG = require('../../../utils/config.js')
 const AXIOS = require('../../../utils/axios')
+const UTIL = require('../../../utils/util')
 
 Page({
 
@@ -16,8 +17,9 @@ Page({
     childSex: '',
     childIdentity: '',
     currentSchool: '',
-    currentGrade: '',
-    id: '',
+    currentClass: '',
+    childId: '',
+    id:'',
     memberId: '',
     sign: '',
 
@@ -28,17 +30,20 @@ Page({
     const self = this
     AXIOS.POST('auth/child/get', {childId}, res => {
       // alert('成功添加了')
-      let result = res.result
+      let result = res.result || {}
+      let birthDayFormat = UTIL.formatDate('YYYY-MM-DD', new Date(result.childBirthday || '').valueOf())
+
       self.setData({
         avatar: result.avatar || '',
-        childBirthday: result.childBirthday || '',
-        childTrueName: result.hildTrueName || '',
+        childBirthday: birthDayFormat || '',
+        childTrueName: result.childTrueName || '',
         childNickName: result.childNickName || '',
         childSex: result.childSex || '',
         childIdentity: result.childIdentity || '',
         currentSchool: result.currentSchool || '',
-        currentGrade: result.currentGrade || '',
+        currentClass: result.currentClass || '',
         childId: result.id || '',
+        id: result.id || '',
         memberId: result.memberId || '',
         sign: result.sign || ''
       })
@@ -55,28 +60,17 @@ Page({
     })
   },
 
-  bindChildTrueName: function(e) {
-    this.setData({ childTrueName: e.detail.value })
-  },
-  bindChildNickName(e){
-    this.setData({ childNickName: e.detail.value })
-  },
-  bindChildIdentity(e){
-    this.setData({ childIdentity: e.detail.value })
-  },
-  bindChildSex(e) {
-    this.setData({ childSex: 'women'})
-  },
-  bindCurrentSchool(e){
-    this.setData({ currentSchool: e.detail.value  })
-  },
-  bindCurrentGrade(e){
-    this.setData({ currentGrade: e.detail.value })
-  },
-  bindSign(e) {
-    this.setData({ sign: e.detail.value })
+  bindChildInfo(e){
+    let key = e.currentTarget.dataset.key
+    this.setData({
+      [key]: e.detail.value
+    })
   },
 
+  bindChildSex(e) {
+    this.setData({ childSex: 'women'}) // TODO
+  },
+  
   bindDateChange (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
@@ -91,13 +85,33 @@ Page({
     if(data.childId){
       AXIOS.POST('auth/child/edit', data, res => {
         // alert('成功添加了')
+
+        wx.navigateBack({
+          delta: 1
+        })
       })
     } else {
       AXIOS.POST('auth/child/add', data, res => {
         // alert('成功添加了')
+        wx.navigateBack({
+          delta: 1
+        })
       })
     }
 
+  },
+
+  handleDelete(e) {
+    var data = this.data
+    let childId = data.id
+    AXIOS.POST('auth/child/del', {
+      childId
+    }, res => {
+      console.log(res) // TODO alert一下
+      wx.navigateBack({
+        delta: 1
+      })
+    })
   },
 
   /**

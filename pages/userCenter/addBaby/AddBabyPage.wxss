@@ -66,12 +66,11 @@
 }
 
 .section .picker {
-  color: #808080;
+  color: black;
 }
 
 input, .picker {
-  color: #a4afbf;
-  /* TODO */
+  color: black;
 }
 
 textarea {
@@ -84,11 +83,19 @@ textarea {
   margin-top: 20px;
 }
 
-.btn-save {
+
+.botton-btn-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn-save,
+.btn-delete {
   background-image: linear-gradient(90deg, #5ee495 0%, #2ad5f3 100%);
   box-shadow: 0 4px 16px 0 rgba(164, 175, 191, 0.30);
   border-radius: 4px;
   color: #fff;
   margin-top: 50px;
   margin-bottom: 50px;
+  width: 100%;
 }

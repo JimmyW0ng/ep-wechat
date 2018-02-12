@@ -1,18 +1,12 @@
-<view class="scroll-view" 
-    bindtouchstart="handlerStart" 
-    catchtouchmove="handlerMove" 
-    bindtouchcancel="handlerCancel" 
-    bindtouchend="handlerEnd">
+<view class="scroll-view" bindtouchstart="handlerStart" catchtouchmove="handlerMove" bindtouchcancel="handlerCancel" bindtouchend="handlerEnd">
   <view class='avatar-container'>
-  <view 
-    class="avatar-item {{index == activeIndex && 'active'}}"
-    style="z-index: {{index == activeIndex ? '10' : list.length + index - activeIndex}}"
-    wx:for="{{list}}" 
-    wx:key="index">
-    <image 
-    class="avatar"
-    src="{{item.url}}"
-     mode="scaleToFill"></image>
+    <view class="avatar-item {{index == activeIndex && 'active'}}"    style="left: {{(30 * index)}}px; z-index: {{index == activeIndex ? '10' : children.length - index}}" wx:for="{{list}}" wx:key="index"
+    bindtap='onTap'
+    data-index="{{index}}"
+    data-id="{{item.id}}"
+    >
+      <image class="avatar" 
+      src="{{item.avatar ? item.avatar : '../../asset/img/avatar-man.png'}}" mode="scaleToFill"></image>
+    </view>
   </view>
-</view>
 </view>

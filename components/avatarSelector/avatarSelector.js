@@ -31,6 +31,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    onTap(e){
+      let id = e.currentTarget.dataset.id
+      let index = e.currentTarget.dataset.index
+      if (index == this.data.activeIndex){
+        let id = e.currentTarget.dataset.id
+        this.triggerEvent('clickItem', { id }, {})
+      }
+    },
+
     handlerStart(e) {
       let touched = e.changedTouches || []
       let touched0 = touched[0] || {}

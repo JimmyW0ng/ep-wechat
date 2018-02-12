@@ -21,20 +21,12 @@ Page({
     mbrInfo: {
       id: '',
       mobile: '',
-    }
+    },
+    activeIndex: 0
   },
 
-  deleteChild(e){
-    let childId = e.currentTarget.dataset.id
-    AXIOS.POST('auth/child/del', {
-      childId
-    }, res=> {
-      console.log(res)
-    })
-  },
-
-  goBabyDetail(e){
-    let childId = e.currentTarget.dataset.id
+  goBabyDetail(item){
+    let childId = item.detail.id
     wx.navigateTo({
       url: './addBaby/AddBabyPage?id=' + childId
     })
@@ -63,10 +55,7 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  loadDetail(){
     const self = this
     AXIOS.POST('auth/member/detail', {}, res => {
       console.log(res)
@@ -80,6 +69,13 @@ Page({
   },
 
   /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    // this.loadDetail()
+  },
+
+  /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
@@ -90,7 +86,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.loadDetail()
   },
 
   /**

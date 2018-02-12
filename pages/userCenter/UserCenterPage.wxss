@@ -1,11 +1,14 @@
 /* pages/userCenter/UserCenterPage.wxss */
 
 .userCenter-header {
-  padding: 40px;
+  padding: 40px 20px;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
 }
 
-.header-empty {
- text-align: center;
+.avatar-list-wrap {
+  position: relative
 }
 
 .btn-add {
@@ -17,7 +20,10 @@
   line-height: 80px;
   box-shadow: 0 0 10px #E9E9E9;
   text-align: center;
-  margin-bottom: 20px;
+}
+
+.text-add {
+  margin-top: 20px;
 }
 
 .icon-plus1 {
