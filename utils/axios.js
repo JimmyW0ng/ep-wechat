@@ -3,7 +3,7 @@ const CONFIG = require('./config.js');
 const User = require('./user.js');
 
 const LoginUrl = 'pages/login/LoginPage'
-const LoadingDuration = 1000
+const LoadingDuration = 300
 
 // if (!(User.getToken() && User.getUid())) {
 // if (true) {
@@ -39,7 +39,11 @@ function request(apiPath, method, param, success, complete) {
     method: method,
     success: function (res) {
       const result = res.data;
-      success(result);
+      if (result.error) {
+        processRequestError(result)
+      } else {
+        success(result);
+      }
       // if (result.resultCode === 0) {
       //   if (typeof success == "function") {
       //     success(result);
@@ -54,7 +58,9 @@ function request(apiPath, method, param, success, complete) {
       // }
     },
     fail: function (res) {
-      processHttpError(res)
+      const result = res.data;
+      processHttpError(result)
+
       if (typeof fail == "function") {
         fail();
       }
@@ -70,13 +76,12 @@ function request(apiPath, method, param, success, complete) {
   });
 }
 
-function processRequestError(res) {
-  if (res.resultMsg) {
-    wx.showModal({
-      title: res.resultMsg,
-      showCancel: false,
-    })
-  }
+function processRequestError(result) {
+  // TODO 优化一下对话框
+  wx.showModal({
+    title: result.error + ' : ' + result.errorDescription,
+    showCancel: false,
+  })
 }
 
 function processHttpError(xhr, errorType, error) {

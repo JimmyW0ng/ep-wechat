@@ -5,6 +5,14 @@
 @import './asset/style/toolkit.wxss';
 @import "./utils/wxParse/wxParse.wxss";
 
+/* 引用 wux */
+@import './wux/components/wux.wxss';
+@import './wux/assets/styles/weui.wxss';
+@import './wux/assets/styles/skyvow.wxss';
+
+page {
+  background: #fff;
+}
 
 .page-no-data {
   text-align: center;
