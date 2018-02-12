@@ -1,15 +1,10 @@
 <!--pages/course/evaluatePage/EvaluatePage.wxml-->
-<text>pages/course/evaluatePage/EvaluatePage.wxml</text>
-
 <view class='page'>
-  hello减肥的哦啊见佛ID就欧迪芬大
-
-  <view>{{score}}</view>
+  <view>分数{{score}}</view>
 
   <score-star-large score="30" bind:change="changeScore"></score-star-large> 
 
-  <image src="{{previewImg}}"></image>
-  <!-- <view class='btn btn-upload' bindtap='upload'>上传图片</view> -->
+  <image class="uploaded-img" src="{{previewImg}}"></image>
 
   <img-uploader bind:change="changeImg">上传图片</img-uploader>  
 
