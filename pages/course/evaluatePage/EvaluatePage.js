@@ -29,6 +29,16 @@ Page(Object.assign({}, Zan.Toast, {
   showToast() {
     this.showZanToast('toast的内容');
   },
+  showPopup(){
+    this.setData({
+      popup: 1
+    })
+  },
+  closePopup(){
+    this.setData({
+      popup: 0
+    })
+  },
   showModal(){
     wx.showModal({
       title: '提示',

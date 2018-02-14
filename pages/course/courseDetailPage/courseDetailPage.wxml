@@ -87,7 +87,27 @@
     </view>
 
     <view class='footer-right'>
-      <view class='footer-btn ripple' bindtap='handleJoin'>立即报名</view>
+      <view class='footer-btn ripple' bindtap='showPopup'>立即报名</view>
     </view>
+  </view>
+
+  <!-- 报名 PopUp -->
+  <view class="zan-popup zan-popup--bottom {{popupStatus ? 'zan-popup--show' : ''}}">
+    <view class="zan-popup__mask" bindtap='closePopup'></view>
+    <view class="zan-popup__container join-container">
+      <view class='join-title'>课程周期选择</view>
+
+      <view class='date-list'>
+        <view class='date-btn' wx:for="{{dateList}}" wx:key="index">
+          {{item}}
+        </view>
+      </view>
+
+      <view class='join-title'>上课宝贝</view>
+
+
+       <view class='footer-btn ripple' bindtap='handleJoin'>确认报名 ￥4139</view>
+    </view>
+
   </view>
 </view>

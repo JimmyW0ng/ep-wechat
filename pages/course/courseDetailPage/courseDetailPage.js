@@ -14,6 +14,9 @@ Page({
     team: [],
 
     selectedTab: 2,
+    popupStatus: true,
+    dateList: ['1个月期', '1个月期', '1个月期', '1个月期']
+    
   },
 
   /**
@@ -21,6 +24,18 @@ Page({
    */
   onLoad: function (options) {
     this.getCourseDetail(options.id)
+  },
+
+  showPopup(){
+    this.setData({
+      popupStatus: true
+    })
+  },
+
+  closePopup(){
+    this.setData({
+      popupStatus: false
+    })
   },
 
   getCourseDetail(id) {

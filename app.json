@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/course/courseDetailPage/courseDetailPage",
+    
     "pages/course/evaluatePage/EvaluatePage",
     
     "pages/userCenter/myHonor/MyHonorPage",
@@ -14,7 +16,6 @@
     "pages/orgnization/orgnizationDetail/OrganizationDetailPage",
     "pages/logs/logs",
     "pages/course/CoursePage",
-    "pages/course/courseDetailPage/courseDetailPage",
     "pages/message/messageDetail/MessageDetailPage",
     "pages/message/MessagePage"
    
@@ -33,7 +34,7 @@
     "list": [
       {
         "text": "测试组件",
-        "pagePath": "pages/course/evaluatePage/EvaluatePage",
+        "pagePath": "pages/course/courseDetailPage/courseDetailPage",
         "iconPath": "asset/img/tabIcon-user.png",
         "selectedIconPath": "asset/img/tabIcon-user-active.png"
       },

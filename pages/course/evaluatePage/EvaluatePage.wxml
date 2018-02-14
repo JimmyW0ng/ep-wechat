@@ -13,9 +13,47 @@
   </view>
 
   <view class="zan-btn">按钮</view>
-<import src="../../../zanui/toast/index.wxml" />
+  <import src="../../../zanui/toast/index.wxml" />
 
-<view bindtap="showToast">显示toast</view>
+  <view bindtap="showToast">显示toast</view>
 
-<template is="zan-toast" data="{{ zanToast }}"></template>
+  <template is="zan-toast" data="{{ zanToast }}"></template>
+
+  <view class="zan-btn" bindtap='showPopup'>按钮</view>
+  <!-- 从底部弹出的弹层 -->
+  <view class="zan-popup zan-popup--bottom {{popup == 1 ? 'zan-popup--show' : ''}}">
+    <view class="zan-popup__mask" bindtap='closePopup'></view>
+    <view class="zan-popup__container">
+
+      fd afdsaf
+    </view>
+
+  </view>
+
+  <!-- 从顶部弹出的弹层 -->
+  <view class="zan-popup zan-popup--top {{popup == 2 ? 'zan-popup--show' : ''}}">
+    <view class="zan-popup__mask"></view>
+    <view class="zan-popup__container">
+
+      fd afdsaf
+    </view>
+  </view>
+
+  <!-- 从左侧弹出的弹层 -->
+  <view class="zan-popup zan-popup--left {{popup == 3 ? 'zan-popup--show' : ''}}">
+    <view class="zan-popup__mask"></view>
+    <view class="zan-popup__container">
+
+      fd afdsaf
+    </view>
+  </view>
+
+  <!-- 从右侧弹出的弹层 -->
+  <view class="zan-popup zan-popup--right {{popup == 4 ? 'zan-popup--show' : ''}}">
+    <view class="zan-popup__mask"></view>
+    <view class="zan-popup__container">
+
+      fd afdsaf
+    </view>
+  </view>
 </view>
