@@ -1,2 +1,10 @@
-<!--pages/userCenter/myCourse/MyCoursePage.wxml-->
-<text>pages/userCenter/myCourse/MyCoursePage.wxml</text>
+<view>
+
+  <view class='page-no-data'>
+    <image class='page-no-data-img' src="../../../asset/img/comment_empty.png"></image>
+    <view class='page-no-data-text'>暂无报名课程，去看看吧</view>
+    <view class='page-no-data-btn ripple' bindtap='toggleData'>查看课程</view>
+  </view>
+
+</view>
+

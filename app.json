@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/course/evaluatePage/EvaluatePage",
+    
+    "pages/userCenter/myHonor/MyHonorPage",
     "pages/userCenter/UserCenterPage",
     "pages/scrollableTabView/index",
     "pages/userCenter/myCourse/MyCoursePage",
@@ -14,8 +16,7 @@
     "pages/course/CoursePage",
     "pages/course/courseDetailPage/courseDetailPage",
     "pages/message/messageDetail/MessageDetailPage",
-    "pages/message/MessagePage",
-    "pages/userCenter/myHonor/MyHonorPage"
+    "pages/message/MessagePage"
    
   ],
   "window": {
@@ -38,7 +39,7 @@
       },
       {
         "text": "我的账户",
-        "pagePath": "pages/userCenter/UserCenterPage",
+        "pagePath": "pages/userCenter/myHonor/MyHonorPage",
         "iconPath": "asset/img/tabIcon-user.png",
         "selectedIconPath": "asset/img/tabIcon-user-active.png"
       },

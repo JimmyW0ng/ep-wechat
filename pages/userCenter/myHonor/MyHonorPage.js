@@ -5,7 +5,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    dataSet: [{
+      id: '1',
+      courseName: '亲子钢琴课',
+      ognName: '金宝贝早教中心',
+      date: '2017年7月30日',
+      avatar: 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png'
+    }
+    , {
+      id: '2', courseName: '亲子钢琴课',
+      ognName: '金宝贝早教中心',
+      date: '2017年7月30日',
+      avatar: 'http://res.xiaomaiketang.com/xiaomai/newYearDay_201701208.png'
+    }, 
+    {
+      id: '3', courseName: '亲子钢琴课',
+      ognName: '金宝贝早教中心',
+      date: '2017年7月30日',
+      avatar: 'http://res.xiaomaiketang.com/xiaomai/vote_20170807.png'
+    }
+    ],
+  },
+
+  toggleData(){
+    this.setData({
+      dataSet: []
+    })
   },
 
   /**

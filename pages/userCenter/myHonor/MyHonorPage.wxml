@@ -1,2 +1,29 @@
 <!--pages/userCenter/myHonor/MyHonorPage.wxml-->
-<text>pages/userCenter/myHonor/MyHonorPage.wxml</text>
+<view class='page'>
+
+  <view class='honor-list-wrap' wx:if="dataSet.length > 0">
+    <view class="honor-item {{index % 2 == 0 ? 'even' : 'odd'}}"
+     wx:for="{{dataSet}}" wx:key="{{index}}">
+      <view class='ribbon-wrap'>
+        <image class='ribbon' src="../../../asset/img/gold_medal_small.png"></image>
+      </view>
+
+      <view class='avatar-wrap'>
+        <image class='avatar' mode='aspectFit' src="{{item.avatar}}"></image>
+      </view>
+
+      <view class='info'>
+        <view class='course-name'>亲子钢琴课</view>
+        <view class='org-name'>金宝贝早教中心 颁发</view>
+        <view class='honor-date'>{{item.date}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='page-no-data' wx:else>
+    <image class='page-no-data-img' src="../../../asset/img/gold_medal_empty.png"></image>
+    <view class='page-no-data-text'>宝贝还未获得奖状</view>
+    <view class='page-no-data-btn ripple' bindtap='toggleData'>查看奖状</view>
+  </view>
+
+</view>

@@ -1,1 +1,71 @@
 /* pages/userCenter/myHonor/MyHonorPage.wxss */
+
+.page {
+  padding: 20px;
+}
+
+.honor-list-wrap {
+}
+
+.honor-item {
+  width: 50%;
+  position: relative;
+  float: left;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+}
+
+.honor-item.even {
+  /* background: red; */
+  padding-right: 10px;
+}
+.honor-item.odd {
+  /* background: orange; */
+   padding-left: 10px; 
+}
+
+.honor-item.odd .ribbon-wrap {
+  left: 20px;
+}
+.avatar {
+   width: 150px;
+   height: 150px;
+  max-width: 100%;
+}
+
+.ribbon-wrap {
+  position: absolute;
+  top: -8px;
+  left: 10px;
+}
+
+.ribbon {
+  width: 32px;
+  height: 54px;
+}
+
+.course-name {
+  font-size: 14px;
+  color: #1e293c;
+  line-height: 14px;
+  margin-bottom: 8px;
+}
+
+.org-name {
+  font-size: 12px;
+  color: #7d8794;
+  line-height: 12px;
+  margin-bottom: 8px;
+}
+
+.honor-date {
+  font-size: 12px;
+  color: #a4afbf;
+  line-height: 12px;
+  margin-bottom: 8px;
+}
+
+.page-no-data-img {
+  width: 46px;
+  height: 75px;
+}

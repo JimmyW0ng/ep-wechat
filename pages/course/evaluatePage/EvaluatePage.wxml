@@ -9,23 +9,13 @@
   <img-uploader bind:change="changeImg">上传图片</img-uploader>
 
   <view style="height: 120px">
-  <avatar-selector list="{{avatarList}}"></avatar-selector>
+    <avatar-selector list="{{avatarList}}"></avatar-selector>
   </view>
 
-  <import src="../../../wux/components/dialog/dialog.wxml" />
-  <template is="dialog" data="{{ ...$wux.dialog }}" />
+  <view class="zan-btn">按钮</view>
+<import src="../../../zanui/toast/index.wxml" />
 
-  <button class="weui-btn" type="default" bindtap="showModal">Default Dialog</button>
-   <button class="weui-btn" type="default" bindtap="showActionSheet">Default ActionSheet</button>
+<view bindtap="showToast">显示toast</view>
 
-  <view class="page__bd">
-    <view class="weui-btn-area">
-      <button class="weui-btn" type="default" bindtap="open">Default Dialog</button>
-      <button class="weui-btn" type="primary" bindtap="confirm">Confirm Dialog</button>
-      <button class="weui-btn" type="default" bindtap="alert">Alert Dialog</button>
-      <button class="weui-btn" type="default" bindtap="prompt">Prompt Dialog</button>
-      <button class="weui-btn" type="default" bindtap="custom">Custom Dialog</button>
-      <button class="weui-btn" type="default" bindtap="vertical">Vertical Buttons Dialog</button>
-    </view>
-  </view>
+<template is="zan-toast" data="{{ zanToast }}"></template>
 </view>
