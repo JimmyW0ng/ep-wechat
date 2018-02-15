@@ -20,20 +20,24 @@ Page({
     childList: [{
       'avatar': 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png',
       name: 'CC',
-      selected: false
+      selected: false,
+      id: '1'
     }, {
         'avatar': 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png',
       name: 'JACK',
-      selected: false
+      selected: true,
+      id: '2'
     }, {
         'avatar': 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png',
       name: 'FUCKER',
-      selected: false
+      selected: false,
+      id: '3'
     }, {
       'avatar': 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png',
       name: 'FUCKER',
-      selected: false
-    }]
+      selected: false,
+      id: '4'
+    }],
   },
 
   /**
@@ -44,10 +48,18 @@ Page({
   },
 
   chooseDate(e){
-    debugger
     const index = e.currentTarget.dataset.index
     this.setData({
       selectedDate: index
+    })
+  },
+
+  chooseChild(e){
+    const index = e.currentTarget.dataset.index
+    let childList = this.data.childList || []
+    childList[index].selected = !childList[index].selected
+    this.setData({
+      childList
     })
   },
 

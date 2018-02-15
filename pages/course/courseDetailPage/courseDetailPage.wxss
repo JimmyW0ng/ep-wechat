@@ -323,7 +323,6 @@
 
 .date-btn {
   border-radius: 4px;
-  margin-bottom: 8px;
   display: inline-block;
   padding: 10px 15px;
   transition: all 0.5s ease;
@@ -332,11 +331,14 @@
   color: #7d8794;
   line-height: 14px;
   margin-right: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
 }
 
 .date-btn.active {
   background: #5ee495;
   color: #fff;
+  border: 1px solid #5ee495;
 }
 
 .baby-list {
@@ -361,4 +363,27 @@
   border-radius: 40px;
   display: inline-block;
   margin-right: 12px;
+}
+.item-name {
+  font-size: 16px;
+color: #1E293C;
+line-height: 16px;
+}
+
+.item-selector {
+  color: #ddd;
+  border: 1px solid #ddd;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  transition: all 0.5s ease;
+}
+.item-selector.active {
+  background: #5ee495;
+  color: #fff;
+  border: 1px solid #5ee495
 }

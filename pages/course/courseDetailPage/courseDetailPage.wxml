@@ -110,12 +110,14 @@
       <view class='join-title'>上课宝贝</view>
 
       <view class='baby-list'>
-        <view class='baby-list-item' wx:for="{{childList}}" wx:key="{{index}}">
+        <view class="baby-list-item" bindtap='chooseChild' data-index="{{index}}" wx:for="{{childList}}" wx:key="{{index}}">
           <view class='baby-info'>
             <image class='item-avatar' src="{{item.avatar}}"></image>
-            <view class='item-name'>七七</view>
+            <view class='item-name'>{{item.name}}</view>
           </view>
-          <view class='item-selector'>确定</view>
+          <view class="item-selector {{item.selected ? 'active' : ''}}" >
+            <view class='iconfont icon-right1'></view>
+          </view>
         </view>
       </view>
       <view class='footer-btn ripple' bindtap='handleJoin'>确认报名 ￥4139</view>
