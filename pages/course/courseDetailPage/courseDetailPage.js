@@ -15,8 +15,25 @@ Page({
 
     selectedTab: 2,
     popupStatus: true,
-    dateList: ['1个月期', '1个月期', '1个月期', '1个月期']
-    
+    dateList: ['1个月期', '1个月期', '1个月期', '1个月期'],
+    selectedDate: 0,
+    childList: [{
+      'avatar': 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png',
+      name: 'CC',
+      selected: false
+    }, {
+        'avatar': 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png',
+      name: 'JACK',
+      selected: false
+    }, {
+        'avatar': 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png',
+      name: 'FUCKER',
+      selected: false
+    }, {
+      'avatar': 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png',
+      name: 'FUCKER',
+      selected: false
+    }]
   },
 
   /**
@@ -26,13 +43,21 @@ Page({
     this.getCourseDetail(options.id)
   },
 
-  showPopup(){
+  chooseDate(e){
+    debugger
+    const index = e.currentTarget.dataset.index
+    this.setData({
+      selectedDate: index
+    })
+  },
+
+  showPopup() {
     this.setData({
       popupStatus: true
     })
   },
 
-  closePopup(){
+  closePopup() {
     this.setData({
       popupStatus: false
     })
@@ -40,7 +65,7 @@ Page({
 
   getCourseDetail(id) {
     const self = this
-    id=1
+    id = 1
     AXIOS.POST('security/course/detail', {
       courseId: id
     }, (res) => {
@@ -55,7 +80,7 @@ Page({
     })
   },
 
-  selectTab(e){
+  selectTab(e) {
     const self = this
     var tab = e.currentTarget.dataset.tab
     console.log(tab)
@@ -78,48 +103,48 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

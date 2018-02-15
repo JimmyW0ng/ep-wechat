@@ -98,15 +98,27 @@
       <view class='join-title'>课程周期选择</view>
 
       <view class='date-list'>
-        <view class='date-btn' wx:for="{{dateList}}" wx:key="index">
+        <view class="date-btn {{index == selectedDate && 'active'}}" 
+        wx:for="{{dateList}}" 
+        wx:key="{{index}}"
+        data-index="{{index}}"
+        bindtap='chooseDate'>
           {{item}}
         </view>
       </view>
 
       <view class='join-title'>上课宝贝</view>
 
-
-       <view class='footer-btn ripple' bindtap='handleJoin'>确认报名 ￥4139</view>
+      <view class='baby-list'>
+        <view class='baby-list-item' wx:for="{{childList}}" wx:key="{{index}}">
+          <view class='baby-info'>
+            <image class='item-avatar' src="{{item.avatar}}"></image>
+            <view class='item-name'>七七</view>
+          </view>
+          <view class='item-selector'>确定</view>
+        </view>
+      </view>
+      <view class='footer-btn ripple' bindtap='handleJoin'>确认报名 ￥4139</view>
     </view>
 
   </view>
