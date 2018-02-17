@@ -26,6 +26,6 @@
   </img-uploader>
 
   <view class='footer-btn-wrap'>
-    <view class='footer-btn ripple' bindtap='handleSave'>提交</view>
+    <view class='btn-primary ripple' bindtap='handleSave'>提交</view>
   </view>
 </view>

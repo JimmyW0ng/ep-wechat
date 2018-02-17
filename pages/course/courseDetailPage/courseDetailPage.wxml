@@ -87,7 +87,7 @@
     </view>
 
     <view class='footer-right'>
-      <view class='footer-btn ripple' bindtap='showPopup'>立即报名</view>
+      <view class='btn-primary ripple' bindtap='showPopup'>立即报名</view>
     </view>
   </view>
 
@@ -120,8 +120,7 @@
           </view>
         </view>
       </view>
-      <view class='footer-btn ripple' bindtap='handleJoin'>确认报名 ￥4139</view>
+      <view class='btn-primary ripple' bindtap='handleJoin'>确认报名 ￥4139</view>
     </view>
-
   </view>
 </view>

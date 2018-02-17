@@ -3,7 +3,6 @@
 @import './asset/style/ripple-effect.wxss';
 @import './asset/style/toolkit.wxss';
 @import "./utils/wxParse/wxParse.wxss";
-
 @import "./zanui/index.wxss";
 
 page {
@@ -45,6 +44,30 @@ page {
 .icon-loading {
   animation: loadingWhite 1.2s infinite linear;
   animation-timing-function: steps(10);
+}
+
+.btn-primary {
+  background-image: linear-gradient(90deg, #5ee495 0%, #2ad5f3 100%);
+  box-shadow: 0 4px 16px 0 rgba(164, 175, 191, 0.30);
+  border-radius: 4px;
+  font-size: 16px;
+  color: #fff;
+  line-height: 16px;
+  padding: 14px 30px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.btn-ghost {
+  border: 1px solid #2ad5f3;
+  border-radius: 4px;
+  color: #2ad5f3;
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+  box-sizing: border-box;
+  line-height: 14px;
+  display: inline-block;
 }
 
 @keyframes loadingWhite {

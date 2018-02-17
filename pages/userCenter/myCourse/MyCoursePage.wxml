@@ -1,10 +1,58 @@
 <view>
 
-  <view class='page-no-data'>
+  <view class='tab-header' style="display: flex; flex-direction:row;">
+    <view class="tab-selector {{selectedTab == 0 && 'active'}}" data-tab="0" bindtap='selectTab'>全部</view>
+    <view class="tab-selector {{selectedTab == 1 && 'active'}}" data-tab="1" bindtap='selectTab'>报名中</view>
+    <view class="tab-selector {{selectedTab == 2 && 'active'}}" data-tab="2" bindtap='selectTab'>学习中</view>
+    <view class="tab-selector {{selectedTab == 3 && 'active'}}" data-tab="3" bindtap='selectTab'>已结束</view>
+
+  </view>
+  <view class='tab-body'>
+    <view class='tab-content course-introduce' wx:if="{{selectedTab == 0}}">
+      <view class='course-list-wrap'>
+        <view class='course-list-item' wx:for="{{courseList}}" wx:key="index" bindtap='goCourseDetailPage' data-item="{{item}}">
+          <view class='course-avatar-wrap'>
+            <image class="course-avatar" src="{{item.mainPicUrl}}" mode="scaleToFill"></image>
+          </view>
+          <view class='course-info'>
+            <view class='course-org-name'>{{item.courseName}}</view>
+            <view class='course-simple-info'>
+              <view class='course-tag'>{{item.label}}</view>
+              <view class='course-name'>{{item.courseIntroduce}}</view>
+            </view>
+            <view class='course-bottom-info'>
+              <view class='course-price'>￥{{item.prizeMin || 0}}</view>
+              <view class='course-learn-num'>已有{{item.totalParticipate}}人学习</view>
+            </view>
+
+            <view class='course-actions'>
+              <view class='btn btn-ghost'>老师评价(5)</view>
+              <view class='btn btn-ghost'>评价课程</view>
+              <view class='btn btn-ghost'>查看奖状</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class='tab-content course-team' wx:if="{{selectedTab == 1}}">
+      bbb
+    </view>
+
+    <view class='tab-content course-comments' wx:if="{{selectedTab == 2}}">
+      ccc
+    </view>
+
+    <view class='tab-content course-comments' wx:if="{{selectedTab == 3}}">
+      ddd
+    </view>
+  </view>
+
+
+  <view class='page-no-data' wx:if="{{courseList.length == 0}}">
     <image class='page-no-data-img' src="../../../asset/img/comment_empty.png"></image>
     <view class='page-no-data-text'>暂无报名课程，去看看吧</view>
     <view class='page-no-data-btn ripple' bindtap='toggleData'>查看课程</view>
   </view>
 
 </view>
-

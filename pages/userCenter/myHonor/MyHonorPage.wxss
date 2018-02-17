@@ -27,6 +27,13 @@
 .honor-item.odd .ribbon-wrap {
   left: 20px;
 }
+
+.avatar-wrap {
+  height: 150px;
+  overflow: hidden;
+  font-size: 0;
+  margin-bottom: 8px;
+}
 .avatar {
    width: 150px;
    height: 150px;

@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/course/evaluatePage/EvaluatePage",
+    "pages/userCenter/UserCenterPage",
     
+    "pages/course/evaluatePage/EvaluatePage",
     "pages/course/courseDetailPage/courseDetailPage",
     "pages/userCenter/myHonor/MyHonorPage",
-    "pages/userCenter/UserCenterPage",
     "pages/scrollableTabView/index",
     "pages/userCenter/myCourse/MyCoursePage",
     "pages/babyTrip/BabyTripPage",
@@ -17,7 +17,6 @@
     "pages/course/CoursePage",
     "pages/message/messageDetail/MessageDetailPage",
     "pages/message/MessagePage"
-   
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -39,7 +38,7 @@
       },
       {
         "text": "我的账户",
-        "pagePath": "pages/userCenter/myHonor/MyHonorPage",
+        "pagePath": "pages/userCenter/UserCenterPage",
         "iconPath": "asset/img/tabIcon-user.png",
         "selectedIconPath": "asset/img/tabIcon-user-active.png"
       },
