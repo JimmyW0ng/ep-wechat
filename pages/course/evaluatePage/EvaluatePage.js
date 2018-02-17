@@ -14,32 +14,40 @@ Page(Object.assign({}, Zan.Toast, {
       id: '1',
       avatar: 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png'
     }
-    , {
+      , {
       id: '2',
       avatar: 'http://res.xiaomaiketang.com/xiaomai/newYearDay_201701208.png'
-    }, 
+    },
     {
       id: '3',
       avatar: 'http://res.xiaomaiketang.com/xiaomai/vote_20170807.png'
     }
     ],
-    picture: [],
-    content: [],
+    previewImgList: [{
+      fileUrl: 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png',
+      preCode: '2123213'
+    }, {
+      fileUrl: 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png',
+      preCode: '2123213'
+    }, {
+      fileUrl: 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png',
+      preCode: '2123213'
+    }]
   },
   showToast() {
     this.showZanToast('toast的内容');
   },
-  showPopup(){
+  showPopup() {
     this.setData({
       popup: 1
     })
   },
-  closePopup(){
+  closePopup() {
     this.setData({
       popup: 0
     })
   },
-  showModal(){
+  showModal() {
     wx.showModal({
       title: '提示',
       content: '这是一个模态弹窗',
@@ -53,7 +61,7 @@ Page(Object.assign({}, Zan.Toast, {
     })
   },
 
-  showActionSheet(){
+  showActionSheet() {
     wx.showActionSheet({
       itemList: ['A', 'B', 'C'],
       success: function (res) {
@@ -73,22 +81,45 @@ Page(Object.assign({}, Zan.Toast, {
     })
   },
 
-  changeImg(item){
+  changeImg(item) {
     const self = this
-    let fileUrl = item.detail.fileUrl
+    let file = item.detail
+    let temp = self.data.previewImgList
+    temp.push(file)
     self.setData({
-      previewImg: fileUrl
+      previewImgList: temp
     })
   },
 
-  // resolveData(content) {
-  //   // const picture = content.filter((item) => {
-  //   //   return item.type == this.data.type.picture;
-  //   // })
+  removeImg(e) {
+    const self = this
+    let index = e.currentTarget.dataset.index
+    let temp = self.data.previewImgList
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除这张图片吗？',
+      success: function (res) {
+        if (res.confirm) {
+          temp.splice(index, 1)
+          self.setData({
+            previewImgList: temp
+          })
+        } 
+      }
+    })
+  },
 
-  //   this.setData({ content, picture });
-  //   console.log(this.data.picture)
-  // },
+  previewImage(e){
+    let url = e.currentTarget.dataset.url
+    wx.previewImage({
+      current: url,
+      urls: [url],
+    })
+  },
+
+  handleSave(){
+    console.log('save TODO')
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -101,7 +132,6 @@ Page(Object.assign({}, Zan.Toast, {
 
     wx.showTabBarRedDot({
       index: 2,
-      
     })
   },
 

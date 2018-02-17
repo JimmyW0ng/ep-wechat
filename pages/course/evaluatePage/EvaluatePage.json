@@ -1,7 +1,6 @@
 {
     "usingComponents": {
       "score-star-large": "../../../components/scoreStarLarge/scoreStarLarge",
-      "avatar-selector": "../../../components/avatarSelector/avatarSelector",
       "img-uploader": "../../../components/imgUploader/imgUploader"
     }
 }

@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/course/courseDetailPage/courseDetailPage",
-    
     "pages/course/evaluatePage/EvaluatePage",
     
+    "pages/course/courseDetailPage/courseDetailPage",
     "pages/userCenter/myHonor/MyHonorPage",
     "pages/userCenter/UserCenterPage",
     "pages/scrollableTabView/index",
@@ -34,7 +33,7 @@
     "list": [
       {
         "text": "测试组件",
-        "pagePath": "pages/course/courseDetailPage/courseDetailPage",
+        "pagePath": "pages/course/evaluatePage/EvaluatePage",
         "iconPath": "asset/img/tabIcon-user.png",
         "selectedIconPath": "asset/img/tabIcon-user-active.png"
       },

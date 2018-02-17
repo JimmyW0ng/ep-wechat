@@ -8,12 +8,12 @@
 }
 
 .star-image {
-  width: 65px;
-  height: 65px;
+  width: 33px;
+  height: 33px;
   src: "./img/star_grey_small.png";
 }
 
 .item {
-  width: 65px;
-  height: 65px;
+  width: 33px;
+  height: 33px;
 }

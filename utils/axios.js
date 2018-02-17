@@ -87,13 +87,13 @@ function processRequestError(result) {
 function processHttpError(xhr, errorType, error) {
   //TODO Process HTTP error for 404, 503, 403, 500
   let message = '';
-  if (xhr.status === 404) {
-    message = '404 网络错误 \n 请检查你的本地网络是否连接';
-  } else if (xhr.status === 500) {
-    message = 'Oops! 500错误 \n 服务器异常';
-  } else {
-    message = '网络错误';
-  }
+  // if (xhr.status === 404) {
+  //   message = '404 网络错误 \n 请检查你的本地网络是否连接';
+  // } else if (xhr.status === 500) {
+  //   message = 'Oops! 500错误 \n 服务器异常';
+  // } else {
+  //   message = '网络错误';
+  // }
   wx.showModal({
     title: message,
     showCancel: false,
