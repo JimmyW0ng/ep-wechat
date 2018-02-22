@@ -6,6 +6,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    activeIndex: {
+      type: Number
+    },
     list: {
       type: Array,
     },

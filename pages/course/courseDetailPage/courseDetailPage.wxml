@@ -21,59 +21,102 @@
     <view class="tab-selector {{selectedTab == 1 && 'active'}}" data-tab="1" bindtap='selectTab'>老师介绍</view>
     <view class="tab-selector {{selectedTab == 2 && 'active'}}" data-tab="2" bindtap='selectTab'>评价</view>
   </view>
-  <view class='tab-body'>
-    <view class='tab-content course-introduce' wx:if="{{selectedTab == 0}}">
-      <view class='tab-content-title'>报名须知</view>
-      <view class='tab-join-notice'>
-        {{course.courseContent}}
-      </view>
-    </view>
 
-    <view class='tab-content course-team' wx:if="{{selectedTab == 1}}">
-      <view class='tab-content-title'>老师介绍
-        <view class='title-info'>({{team.length}}位)</view>
-      </view>
-
-      <view class='teacher-item' wx:for="{{team}}" wx:key="index">
-        <view class='teacher-basic'>
-          <view class='teacher-avatar-wrap'>
-            <image class="teacher-avatar" src="{{course.mainPicUrl}}" mode="scaleToFill"></image>
-          </view>
-          <view class='teacher-info'>
-            <view class='teacher-title'>授课老师</view>
-            <view class='teacher-name'>{{item.nickName}}</view>
+  <swiper style="height:{{swiperHeight}}px; padding-bottom: 50px" indicator-dots="{{false}}" current="{{selectedTab}}" autoplay="{{false}}" bindchange="changeSwiper">
+    <swiper-item>
+      <scroll-view scroll-y="true" class="scoll-h">
+        <view class='tab-content course-introduce'>
+          <view class='tab-content-title'>报名须知</view>
+          <view class='tab-join-notice'>
+            {{course.courseContent}}
           </view>
         </view>
+      </scroll-view>
+    </swiper-item>
 
-        <view class='teacher-introduce'>{{item.introduce}}</view>
-      </view>
-    </view>
+    <swiper-item>
+      <scroll-view scroll-y="true" class="scoll-h">
+        <view class='tab-content course-team'>
+          <view class='tab-content-title'>老师介绍
+            <view class='title-info'>({{team.length}}位)</view>
+          </view>
 
-    <view class='tab-content course-comments' wx:if="{{selectedTab == 2}}">
-      <view class='tab-content-title'>评价
-        <view class='title-info'>({{comments.length}}条)</view>
-      </view>
+          <view class='teacher-item' wx:for="{{team}}" wx:key="index">
+            <view class='teacher-basic'>
+              <view class='teacher-avatar-wrap'>
+                <image class="teacher-avatar" src="{{course.mainPicUrl}}" mode="scaleToFill"></image>
+              </view>
+              <view class='teacher-info'>
+                <view class='teacher-title'>授课老师</view>
+                <view class='teacher-name'>{{item.nickName}}</view>
+              </view>
+            </view>
 
-      <view class='comment-item' wx:for="{{comments}}" wx:key="index">
-        <view class='comment-header'>
-          <image class="child-avatar" src="{{item.childAvatar}}" mode="scaleToFill"></image>
-          <view class='child-name'>{{item.childNickName}}</view>
-          <view class='child-chosenFlag'>{{item.chosenFlag}} TODO</view>
+            <view class='teacher-introduce'>{{item.introduce}}</view>
+          </view>
+
+          <view class='teacher-item' wx:for="{{team}}" wx:key="index">
+            <view class='teacher-basic'>
+              <view class='teacher-avatar-wrap'>
+                <image class="teacher-avatar" src="{{course.mainPicUrl}}" mode="scaleToFill"></image>
+              </view>
+              <view class='teacher-info'>
+                <view class='teacher-title'>授课老师</view>
+                <view class='teacher-name'>{{item.nickName}}</view>
+              </view>
+            </view>
+
+            <view class='teacher-introduce'>{{item.introduce}}</view>
+          </view>
+
+          <view class='teacher-item' wx:for="{{team}}" wx:key="index">
+            <view class='teacher-basic'>
+              <view class='teacher-avatar-wrap'>
+                <image class="teacher-avatar" src="{{course.mainPicUrl}}" mode="scaleToFill"></image>
+              </view>
+              <view class='teacher-info'>
+                <view class='teacher-title'>授课老师</view>
+                <view class='teacher-name'>{{item.nickName}}</view>
+              </view>
+            </view>
+
+            <view class='teacher-introduce'>{{item.introduce}}</view>
+          </view>
         </view>
-        <view class='comment-body'>
-          <view class='comment-body-item'>{{item.createAt}}</view>
-          <view class='comment-body-item'>{{item.className}}</view>
-          <view class='comment-body-item'>{{item.score}}</view>
-        </view>
-        <view class='comment-footer'>{{item.content}}</view>
-      </view>
+      </scroll-view>
+    </swiper-item>
 
-      <view class='comment-check-all'>
-        <view class='check-all-text'>查看全部评价 TODO icon</view>
-        <view class='check-all-icon iconfont icon-right1'></view>
-      </view>
-    </view>
-  </view>
+    <swiper-item>
+      <scroll-view scroll-y="true" class="scoll-h">
+
+        <view class='tab-content course-comments'>
+          <view class='tab-content-title'>评价
+            <view class='title-info'>({{comments.length}}条)</view>
+          </view>
+
+          <view class='comment-item' wx:for="{{comments}}" wx:key="index">
+            <view class='comment-header'>
+              <image class="child-avatar" src="{{item.childAvatar}}" mode="scaleToFill"></image>
+              <view class='child-name'>{{item.childNickName}}</view>
+              <view class='child-chosenFlag'>{{item.chosenFlag}} TODO</view>
+            </view>
+            <view class='comment-body'>
+              <view class='comment-body-item'>{{item.createAt}}</view>
+              <view class='comment-body-item'>{{item.className}}</view>
+              <view class='comment-body-item'>{{item.score}}</view>
+            </view>
+            <view class='comment-footer'>{{item.content}}</view>
+          </view>
+
+          <view class='comment-check-all'>
+            <view class='check-all-text'>查看全部评价 TODO icon</view>
+            <view class='check-all-icon iconfont icon-right1'></view>
+          </view>
+        </view>
+      </scroll-view>
+
+    </swiper-item>
+  </swiper>
 
   <view class='course-detail-footer'>
     <view class='footer-left'>
@@ -98,11 +141,7 @@
       <view class='join-title'>课程周期选择</view>
 
       <view class='date-list'>
-        <view class="date-btn {{index == selectedDate && 'active'}}" 
-        wx:for="{{dateList}}" 
-        wx:key="{{index}}"
-        data-index="{{index}}"
-        bindtap='chooseDate'>
+        <view class="date-btn {{index == selectedDate && 'active'}}" wx:for="{{dateList}}" wx:key="{{index}}" data-index="{{index}}" bindtap='chooseDate'>
           {{item}}
         </view>
       </view>
@@ -115,7 +154,7 @@
             <image class='item-avatar' src="{{item.avatar}}"></image>
             <view class='item-name'>{{item.name}}</view>
           </view>
-          <view class="item-selector {{item.selected ? 'active' : ''}}" >
+          <view class="item-selector {{item.selected ? 'active' : ''}}">
             <view class='iconfont icon-right1'></view>
           </view>
         </view>

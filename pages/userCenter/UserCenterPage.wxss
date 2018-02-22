@@ -1,13 +1,14 @@
 /* pages/userCenter/UserCenterPage.wxss */
 
 .userCenter-header {
-  padding: 40px 20px;
+  padding: 40px 20px 30px;
 
 }
 
 .userCenter-header-top {
   display: flex;
   justify-content: space-between;
+  height: 85px;
 }
 .userCenter-header-bottom {
   margin-top: 15px;

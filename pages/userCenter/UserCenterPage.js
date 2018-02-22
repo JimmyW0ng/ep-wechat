@@ -65,6 +65,7 @@ Page({
       let result = res.result
       let children = result.children || []
       self.setData({
+        activeIndex: 0,
         children: children,
         selectedChild: children[0] || {},
         mbrInfo: result.mbrInfo || {},

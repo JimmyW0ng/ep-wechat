@@ -13,8 +13,7 @@ Page({
     successOrders: 1,
     team: [],
 
-    selectedTab: 2,
-    popupStatus: true,
+    popupStatus: false,
     dateList: ['1个月期', '1个月期', '1个月期', '1个月期'],
     selectedDate: 0,
     childList: [{
@@ -38,13 +37,44 @@ Page({
       selected: false,
       id: '4'
     }],
+
+    selectedTab: 0,
+    swiperHeight:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getCourseDetail(options.id)
+    this.getCourseDetail(1 || options.id)
+
+    var self = this;
+    //  高度自适应
+    wx.getSystemInfo({
+      success: function (res) {
+        var clientHeight = res.windowHeight,
+          clientWidth = res.windowWidth;
+        var calc = clientHeight - 170; // TODO 这里有点操蛋
+        self.setData({
+          swiperHeight: calc
+        });
+      }
+    });
+  },
+
+  selectTab(e) {
+    const self = this
+    var tab = e.currentTarget.dataset.tab
+    self.setData({
+      selectedTab: tab
+    })
+  },
+
+  changeSwiper(e){
+    let current = e.detail.current
+    this.setData({
+      selectedTab:current
+    });
   },
 
   chooseDate(e){
@@ -77,7 +107,6 @@ Page({
 
   getCourseDetail(id) {
     const self = this
-    id = 1
     AXIOS.POST('security/course/detail', {
       courseId: id
     }, (res) => {
@@ -89,15 +118,6 @@ Page({
         successOrders: result.successOrders,
         team: result.team || [],
       })
-    })
-  },
-
-  selectTab(e) {
-    const self = this
-    var tab = e.currentTarget.dataset.tab
-    console.log(tab)
-    self.setData({
-      selectedTab: tab
     })
   },
 

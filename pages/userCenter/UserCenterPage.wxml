@@ -4,7 +4,7 @@
   <view class='userCenter-header'>
     <view class='userCenter-header-top'>
       <view class='avatar-list-wrap' wx:if="{{children.length > 0}}">
-        <avatar-selector bind:clickItem="goBabyDetail" bind:changeItem="changeBaby" list="{{children}}"></avatar-selector>
+        <avatar-selector bind:clickItem="goBabyDetail" bind:changeItem="changeBaby" activeIndex="{{activeIndex}}" list="{{children}}"></avatar-selector>
       </view>
 
       <view class='btn-add-wrap'>
@@ -16,8 +16,8 @@
     </view>
 
     <view class='userCenter-header-bottom'>
-      <view class='child-school'>{{selectedChild.currentSchool}}</view>
-      <view class='child-sign'>{{selectedChild.sign}}</view>
+      <view class='child-school' wx:if="selectedChild.currentSchool">{{selectedChild.currentSchool}}</view>
+      <view class='child-sign text-ellipsis' wx:if="selectedChild.sign">{{selectedChild.sign}}</view>
     </view>
   </view>
 

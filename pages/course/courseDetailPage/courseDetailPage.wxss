@@ -4,6 +4,10 @@
   padding: 20px 0;
 }
 
+swiper-item{
+  overflow-y: scroll;
+}
+
 .course-list-item {
   display: flex;
   align-items: top;
@@ -102,13 +106,9 @@
   border-bottom: 2px solid #5ee495;
 }
 
-.tab-body {
+.tab-content {
   padding: 20px;
   padding-right: 0;
-  padding-bottom: 80px;
-}
-
-.tab-content {
 }
 
 .tab-content-title {
