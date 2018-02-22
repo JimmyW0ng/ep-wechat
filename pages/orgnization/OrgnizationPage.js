@@ -15,7 +15,6 @@ Page({
   goOrgDetailPage(e) {
     const dataset = e.currentTarget.dataset
     const item = dataset.item
-    console.log(item.id)
     wx.navigateTo({
       url: './orgnizationDetail/OrganizationDetailPage?id=' + item.id
     })

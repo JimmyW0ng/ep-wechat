@@ -128,8 +128,13 @@ Page({
     })
   },
 
+  // TODO 报名成功后的操作
   handleJoin() {
-    console.log('join now')
+    AXIOS.POST('auth/order/new', {
+      courseId: id
+    }, (res) => {
+      const result = res.result || {}
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
