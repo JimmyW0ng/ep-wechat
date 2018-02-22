@@ -7,6 +7,8 @@
     >
       <image class="avatar" 
       src="{{item.avatar ? item.avatar : '../../asset/img/avatar-man.png'}}" mode="scaleToFill"></image>
+      <view class='basic-info'>萧山三小,2年级 TODO</view>
+      <view class='sign'>过年前学会用吉他弹奏“天空之城”</view>
     </view>
   </view>
 </view>

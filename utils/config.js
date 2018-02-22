@@ -1,5 +1,6 @@
 const CONFIG = {
-  apiDocUrl: 'http://122.225.218.26:9009/swagger-ui.html',
+  // apiDocUrl: 'http://122.225.218.26:9009/swagger-ui.html',
+  apiDocUrl: 'http://ep.free.ngrok.cc/swagger-ui.html',
   // apiUrl: 'http://122.225.218.26:9009/',
   apiUrl: 'http://ep.free.ngrok.cc/',
 
