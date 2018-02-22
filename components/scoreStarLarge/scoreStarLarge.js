@@ -28,7 +28,7 @@ Component({
   methods: {
     selectRight: _.debounce(function (e) {
       var key = e.currentTarget.dataset.key * 10
-      var score = key == this.data.score ? 0 : key
+      var score = key == this.data.score ? key-10 : key
       this.setData({score})
       this.triggerEvent('change', { score }, {})
     }, 200, true)
