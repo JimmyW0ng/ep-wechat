@@ -18,6 +18,7 @@ Page({
       id: 5,
       memberId: 7,
     }],
+    selectedChild: {},
     mbrInfo: {
       id: '',
       mobile: '',
@@ -29,6 +30,14 @@ Page({
     let childId = item.detail.id
     wx.navigateTo({
       url: './addBaby/AddBabyPage?id=' + childId
+    })
+  },
+
+  changeBaby(item){
+    let index = item.detail.activeIndex
+    let selectedChild = this.data.children[index] || {}
+    this.setData({
+      selectedChild
     })
   },
 
@@ -54,8 +63,10 @@ Page({
     const self = this
     AXIOS.POST('auth/member/detail', {}, res => {
       let result = res.result
+      let children = result.children || []
       self.setData({
-        children: result.children || [],
+        children: children,
+        selectedChild: children[0] || {},
         mbrInfo: result.mbrInfo || {},
       })
     })

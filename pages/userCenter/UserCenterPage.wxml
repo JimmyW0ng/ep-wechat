@@ -2,15 +2,22 @@
 
 <view class='page'>
   <view class='userCenter-header'>
-    <view class='avatar-list-wrap' wx:if="{{children.length > 0}}">
-      <avatar-selector bind:clickItem="goBabyDetail" list="{{children}}"></avatar-selector>
+    <view class='userCenter-header-top'>
+      <view class='avatar-list-wrap' wx:if="{{children.length > 0}}">
+        <avatar-selector bind:clickItem="goBabyDetail" bind:changeItem="changeBaby" list="{{children}}"></avatar-selector>
+      </view>
+
+      <view class='btn-add-wrap'>
+        <view class='btn-add ripple'>
+          <view class='iconfont icon-plus1' bindtap='goAddBaby'></view>
+        </view>
+        <view class='text-add' wx:if="{{children.length == 0}}" bindtap='goAddBaby'>添加宝贝信息</view>
+      </view>
     </view>
 
-    <view class='btn-add-wrap'>
-      <view class='btn-add ripple'>
-        <view class='iconfont icon-plus1' bindtap='goAddBaby'></view>
-      </view>
-      <view class='text-add' wx:if="{{children.length == 0}}" bindtap='goAddBaby'>添加宝贝信息</view>
+    <view class='userCenter-header-bottom'>
+      <view class='child-school'>{{selectedChild.currentSchool}}</view>
+      <view class='child-sign'>{{selectedChild.sign}}</view>
     </view>
   </view>
 

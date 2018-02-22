@@ -2,11 +2,19 @@
 
 .userCenter-header {
   padding: 40px 20px;
-  display: flex;
-  /* align-items: center; */
-  justify-content: space-between;
+
 }
 
+.userCenter-header-top {
+  display: flex;
+  justify-content: space-between;
+}
+.userCenter-header-bottom {
+  margin-top: 15px;
+}
+.child-school {
+  margin-bottom: 5px;
+}
 .avatar-list-wrap {
   position: relative
 }

@@ -66,18 +66,23 @@ Component({
 
       if (clientX < this.data.startPos) {
         if (activeIndex < length - 1) {
+          let temp = activeIndex + 1
           this.setData({
-            activeIndex: activeIndex + 1,
+            activeIndex: temp,
             startPos: 0
           })
+
+          this.triggerEvent('changeItem', { activeIndex: temp }, {})
         }
 
       } else if (clientX > this.data.startPos){
         if (activeIndex > 0) {
+          let temp = activeIndex - 1
           this.setData({
             activeIndex: activeIndex - 1,
             startPos: 0
           })
+          this.triggerEvent('changeItem', { activeIndex: temp }, {})
         }
       }
     }
