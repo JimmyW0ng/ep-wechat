@@ -15,7 +15,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    activeIndex: 1,
+    activeIndex: 0,
     startPos: 0,
     windowWidth: 320
   },
