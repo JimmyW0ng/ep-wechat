@@ -33,23 +33,18 @@ Page({
   },
 
   goAddBaby() {
-    console.log('fuck')
     wx.navigateTo({
       url: './addBaby/AddBabyPage'
     })
   },
 
   goMyCourse() {
-    console.log('fuck1')
-
     wx.navigateTo({
       url: './myCourse/MyCoursePage'
     })
   },
 
   goMyHonor() {
-    console.log('fuck2')
-
     wx.navigateTo({
       url: './myHonor/MyHonorPage'
     })
@@ -58,9 +53,7 @@ Page({
   loadDetail(){
     const self = this
     AXIOS.POST('auth/member/detail', {}, res => {
-      console.log(res)
       let result = res.result
-      let mbrInfo = result.mbrInfo
       self.setData({
         children: result.children || [],
         mbrInfo: result.mbrInfo || {},

@@ -32,6 +32,7 @@ Page({
       clientSecret: CONFIG.clientSecret
     }, res => {
       console.log(res)
+      // TODO 本地存储一下 token
       self.data.code = res.result
     })
   },
@@ -45,7 +46,6 @@ Page({
       clientId: CONFIG.clientId,
       clientSecret: CONFIG.clientSecret,
     }, res => {
-      console.log(res)
       let result = res.result || {}
       self.memberType = result.memberType
       self.token = result.token

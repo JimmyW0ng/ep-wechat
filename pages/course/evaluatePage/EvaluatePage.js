@@ -127,7 +127,7 @@ Page(Object.assign({}, Zan.Toast, {
   onLoad: function (options) {
     wx.setTabBarBadge({
       index: 1,
-      text: 'fuck'
+      text: '22'
     })
 
     wx.showTabBarRedDot({

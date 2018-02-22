@@ -30,8 +30,8 @@
     </view>
 
     <view class='contact-info'>
-      <view class='contact-left'>
-        <view class='iconfont icon-address'></view>
+      <view class='contact-left' bindtap='openAddress'>
+        <view class='iconfont icon-address' wx:if="{{ognInfo.ognLat && ognInfo.ognLng}}"></view>
         <view class='org-address'>{{ognInfo.ognAddress}}</view>
       </view>
       <view class='contact-right'>

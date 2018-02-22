@@ -78,10 +78,22 @@ function request(apiPath, method, param, success, complete) {
 
 function processRequestError(result) {
   // TODO 优化一下对话框
-  wx.showModal({
-    title: result.error + ' : ' + result.errorDescription,
-    showCancel: false,
-  })
+  if (result.error == "ERROR_ACCESS_NEED_AUTH"){
+    wx.showModal({
+      title: '登陆信息过期，请重新登陆',
+      showCancel: false,
+    })
+    setTimeout(() => {
+      wx.redirectTo({
+        url: '/pages/login/LoginPage'
+      })
+    }, 1000)
+  } else {
+    wx.showModal({
+      title: result.error + ' : ' + result.errorDescription,
+      showCancel: false,
+    })
+  }
 }
 
 function processHttpError(xhr, errorType, error) {

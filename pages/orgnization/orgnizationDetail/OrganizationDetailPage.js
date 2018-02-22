@@ -44,13 +44,34 @@ Page({
 
   getOgnCourseData(ognId) {
     const self = this
-    AXIOS.POST('security/course/page', {ognId}, (res) => {
+    AXIOS.POST('security/course/page', { ognId }, (res) => {
       const result = res.result || {}
       self.setData({
         ognCourseList: result.content || [],
         last: result.last,
       })
     })
+  },
+
+  openAddress() {
+    const ognInfo = this.data.ognInfo || {}
+    const ognLat = Number(ognInfo.ognLat)
+    const ognLng = Number(ognInfo.ognLng)
+    if (ognLat && ognLng) {
+      wx.openLocation({
+        latitude: Number(ognInfo.ognLat),
+        longitude: Number(ognInfo.ognLng),
+        // scale: 18, // 缩放比例，范围5~18，默认为18
+        name: ognInfo.ognName,
+        address: ognInfo.ognAddress,
+        success: function (res) {
+          console.log(res)
+        },
+        fail: function (res) {
+          console.log(res)
+        }
+      })
+    }
   },
 
   callOgn(e) {
