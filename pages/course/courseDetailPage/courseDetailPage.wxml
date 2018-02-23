@@ -138,13 +138,13 @@
   <view class="zan-popup zan-popup--bottom {{popupStatus ? 'zan-popup--show' : ''}}">
     <view class="zan-popup__mask" bindtap='closePopup'></view>
     <view class="zan-popup__container join-container">
-      <!-- <view class='join-title'>课程周期选择</view>
+      <view class='join-title'>课程班次 TODO</view>
 
-      <view class='date-list'>
-        <view class="date-btn {{index == selectedDate && 'active'}}" wx:for="{{dateList}}" wx:key="{{index}}" data-index="{{index}}" bindtap='chooseDate'>
-          {{item}}
+       <view class='date-list'>
+        <view class="date-btn {{index == selectedDate && 'active'}}" wx:for="{{classes}}" wx:key="{{index}}" data-index="{{index}}" bindtap='chooseDate'>
+          {{item.className}} {{item.classPrize}}
         </view>
-      </view> -->
+      </view>  
 
       <view class='join-title'>上课宝贝</view>
 

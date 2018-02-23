@@ -1,57 +1,57 @@
 const getOpenId = () => {
-  return global.openId || wx.getStorageSync('wx_openId')
+  return global.openId || wx.getStorageSync('ep_openId')
 }
 
 const setOpenId = (value) => {
-  wx.setStorageSync('wx_openId', value)
+  wx.setStorageSync('ep_openId', value)
 }
 
 const getPhone = () => {
-  return global.phone || wx.getStorageSync('wx_phone')
+  return global.phone || wx.getStorageSync('ep_phone')
 }
 
 const setPhone = (value) => {
-  wx.setStorageSync('wx_phone', value)
+  wx.setStorageSync('ep_phone', value)
 }
 
 const getToken = () => {
-  return wx.getStorageSync('wx_token')
+  return wx.getStorageSync('ep_token')
 }
 
 const setToken = (value) => {
-  wx.setStorageSync('wx_token', value)
+  wx.setStorageSync('ep_token', value)
 }
 
 const setMemberType = (value) => {
-  wx.setStorageSync('wx_memberType', value)
+  wx.setStorageSync('ep_memberType', value)
 }
 
 const getMemberType = () => {
-  return wx.getStorageSync('wx_memberType')
+  return wx.getStorageSync('ep_memberType')
 }
 
 const getUserInfo = () => {
-  return wx.getStorageSync('wx_userInfo') ? JSON.parse(wx.getStorageSync('wx_userInfo')) : false;
+  return wx.getStorageSync('ep_userInfo') ? JSON.parse(wx.getStorageSync('ep_userInfo')) : false;
 }
 
 const setUserInfo = (value) => {
-  wx.setStorageSync('wx_userInfo', JSON.stringify(value))
+  wx.setStorageSync('ep_userInfo', JSON.stringify(value))
 }
 
 const getUid = () => {
-  return wx.getStorageSync('wx_uid');
+  return wx.getStorageSync('ep_uid');
 }
 
 const setUid = (value) => {
-  wx.setStorageSync('wx_uid', value)
+  wx.setStorageSync('ep_uid', value)
 }
 
 const getSelectedChild = () => {
-  return wx.getStorageSync('wx_selectedChildId');
+  return wx.getStorageSync('ep_selectedChildId');
 }
 
 const setSelectedChild = (value) => {
-  wx.setStorageSync('wx_selectedChildId', value)
+  wx.setStorageSync('ep_selectedChildId', value)
 }
 
 module.exports = {

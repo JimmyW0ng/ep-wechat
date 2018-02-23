@@ -1,5 +1,6 @@
 {
   "pages": [
+        "pages/orgnization/OrgnizationPage",
     "pages/index/index",
     
     "pages/course/courseDetailPage/courseDetailPage",
@@ -13,7 +14,6 @@
     "pages/babyTrip/BabyTripPage",
     "pages/login/LoginPage",
     "pages/userCenter/addBaby/AddBabyPage",
-    "pages/orgnization/OrgnizationPage",
     "pages/orgnization/orgnizationDetail/OrganizationDetailPage",
     "pages/logs/logs",
     "pages/course/CoursePage",

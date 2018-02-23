@@ -74,7 +74,7 @@ function processRequestError(result) {
   // TODO 优化一下对话框
   if (result.error == "ERROR_ACCESS_NEED_AUTH"){
     wx.showModal({
-      title: '登陆信息过期，请重新登陆',
+      title: '请登陆',
       showCancel: false,
     })
     setTimeout(() => {
