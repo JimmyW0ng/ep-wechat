@@ -40,6 +40,8 @@ Page({
       for (var i = 0; i < radioItems.length; i++) {
         if (radioItems[i].value == childSex) {
           radioItems[i].checked = true
+        } else {
+          radioItems[i].checked = false
         }
       }
 

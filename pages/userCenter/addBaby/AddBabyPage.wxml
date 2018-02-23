@@ -47,6 +47,23 @@
   </view>
 
   <view class='form-control'>
+    <view class='label'>*宝贝性别</view>
+    <view class='input-wrap'>
+      <radio-group class="group" bindchange="radioChange">
+        <view class="label-2" wx:for="{{radioItems}}">
+          <label class="label-2__text" for="{{item.name}}">
+            <radio id="{{item.name}}" hidden value="{{item.name}}" checked="{{item.checked}}"></radio>
+            <view class="label-2__icon">
+              <view class="label-2__icon-checked" style="opacity:{{item.checked ? 1: 0}}"></view>
+            </view>
+            <text>{{item.name}}</text>
+          </label>
+        </view>
+      </radio-group>
+    </view>
+  </view>
+
+  <view class='form-control'>
     <view class='label'>宝贝身份证</view>
 
     <view class='input-wrap'>
@@ -54,22 +71,6 @@
     </view>
   </view>
 
-  <view class='form-control'>
-    <view class='label'>*宝贝性别</view>
-  <view class='input-wrap'>
-    <radio-group class="group" bindchange="radioChange">
-      <view class="label-2" wx:for="{{radioItems}}">
-        <label class="label-2__text" for="{{item.name}}">
-          <radio id="{{item.name}}" hidden value="{{item.name}}" checked="{{item.checked}}"></radio>
-          <view class="label-2__icon">
-            <view class="label-2__icon-checked" style="opacity:{{item.checked ? 1: 0}}"></view>
-          </view>
-          <text>{{item.name}}</text>
-        </label>
-      </view>
-    </radio-group>
-    </view>
-  </view>
   <view class='form-control'>
     <view class='label'>所在学校</view>
 

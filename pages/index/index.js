@@ -33,11 +33,13 @@ Page({
     AXIOS.POST('security/organ/page', {
       page: 1
     }, (res) => {
-      console.log(res)
+      let result = res.result || {}
+      wx.setStorageSync('wx_ognList', result.content || [])
     })
   },
 
   onLoad: function () {
+    console.log(wx.getStorageSync('wx_ognList'))
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
