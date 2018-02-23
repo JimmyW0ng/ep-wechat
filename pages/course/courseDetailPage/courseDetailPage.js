@@ -16,28 +16,8 @@ Page({
     popupStatus: false,
     dateList: ['1个月期', '1个月期', '1个月期', '1个月期'],
     selectedDate: 0,
-    childList: [{
-      'avatar': 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png',
-      name: 'CC',
-      selected: false,
-      id: '1'
-    }, {
-        'avatar': 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png',
-      name: 'JACK',
-      selected: true,
-      id: '2'
-    }, {
-        'avatar': 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png',
-      name: 'FUCKER',
-      selected: false,
-      id: '3'
-    }, {
-      'avatar': 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png',
-      name: 'FUCKER',
-      selected: false,
-      id: '4'
-    }],
-
+    childList: [],
+    selectedChild: '',
     selectedTab: 0,
     swiperHeight:'',
   },
@@ -47,6 +27,7 @@ Page({
    */
   onLoad: function (options) {
     this.getCourseDetail(1 || options.id)
+    this.getChildList()
 
     var self = this;
     //  高度自适应
@@ -60,6 +41,14 @@ Page({
         });
       }
     });
+  },
+
+  getChildList(){
+    const self = this
+    AXIOS.POST('auth/child/list', {}, (res) => {
+      const result = res.result || []
+      self.setData({childList: result})
+    })
   },
 
   selectTab(e) {
@@ -85,11 +74,9 @@ Page({
   },
 
   chooseChild(e){
-    const index = e.currentTarget.dataset.index
-    let childList = this.data.childList || []
-    childList[index].selected = !childList[index].selected
+    const id = e.currentTarget.dataset.id
     this.setData({
-      childList
+      selectedChildId: id
     })
   },
 
@@ -130,11 +117,26 @@ Page({
 
   // TODO 报名成功后的操作
   handleJoin() {
-    AXIOS.POST('auth/order/new', {
-      courseId: id
-    }, (res) => {
-      const result = res.result || {}
-    })
+    const self = this
+    // TODO 这里已经报名过这个课程的小孩是否要过滤一下
+    if (!self.data.selectedChildId){
+      wx.showToast({
+        icon: 'none',
+        title: '请选择宝贝',
+      })
+    } else {
+      AXIOS.POST('auth/order/new', {
+        childId: self.data.selectedChildId,
+        classId: self.data.course.id // TODO这里没有展示班级的地方吧
+      }, (res) => {
+        debugger
+        wx.showToast({
+          icon: 'success',
+          title: '报名成功！',
+        })
+        self.closePopup()
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
