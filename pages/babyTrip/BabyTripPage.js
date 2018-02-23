@@ -1,5 +1,6 @@
 // pages/babyTrip/BabyTripPage.js
 const AXIOS = require('../../utils/axios')
+const USER = require('../../utils/user')
 
 Page({
 
@@ -7,7 +8,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    cover: '../../asset/img/org-cover.jpg', // TODO default course page
     dataSet: [],
     page: 0,
     size: 5,
@@ -26,33 +26,39 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    this.getListData()
-  },
-
   getListData(loadMore) {
     const self = this
     let page = loadMore ? self.data.page + 1 : 0
     let size = self.data.size || 10
-    AXIOS.POST('auth/child/class/schedule', {
-      childId: 3, // TODO 这里应该不需要 childId的
-      page,
-      size
-    }, (res) => {
-      const result = res.result || {}
-      let content = result.content || []
-      if (page > 0) {
-        content = self.data.dataSet.concat(content)
-      }
-      self.setData({
-        dataSet: content,
-        page: result.number || 0,
-        last: result.last
+    let child = USER.getSelectedChild() || {}
+    let childId = child.id || ''
+
+    if (childId) {
+      AXIOS.POST('auth/child/class/schedule', {
+        childId,
+        page,
+        size
+      }, (res) => {
+        const result = res.result || {}
+        let content = result.content || []
+        if (page > 0) {
+          content = self.data.dataSet.concat(content)
+        }
+        self.setData({
+          dataSet: content,
+          page: result.number || 0,
+          last: result.last
+        })
       })
-    })
+    }
+  },
+
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
   },
 
   /**
@@ -66,7 +72,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getListData()
   },
 
   /**

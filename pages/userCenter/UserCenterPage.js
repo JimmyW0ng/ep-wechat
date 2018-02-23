@@ -2,7 +2,7 @@
 
 const CONFIG = require('../../utils/config.js')
 const AXIOS = require('../../utils/axios')
-
+const USER = require('../../utils/user')
 Page({
 
   /**
@@ -39,6 +39,7 @@ Page({
     this.setData({
       selectedChild
     })
+    USER.setSelectedChild(selectedChild)
   },
 
   goAddBaby() {
@@ -70,6 +71,7 @@ Page({
         selectedChild: children[0] || {},
         mbrInfo: result.mbrInfo || {},
       })
+      USER.setSelectedChild(children[0])
     })
   },
 
