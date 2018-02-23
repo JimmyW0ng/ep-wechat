@@ -37,7 +37,8 @@ Page({
         AXIOS.POST('security/api/captcha', {
           mobile: phone,
           clientId: CONFIG.clientId,
-          clientSecret: CONFIG.clientSecret
+          clientSecret: CONFIG.clientSecret,
+          noToken: true
         }, res => {
           self.setData({
             code: res.result || '',
@@ -87,6 +88,7 @@ Page({
         captcha: captcha,
         clientId: CONFIG.clientId,
         clientSecret: CONFIG.clientSecret,
+        noToken: true
       }, res => {
         let result = res.result || {}
         USER.setMemberType(result.memberType)

@@ -40,7 +40,8 @@ Page({
     let size = self.data.size || 10
     AXIOS.POST('security/organ/page', {
       page: page,
-      size: size
+      size: size,
+      noToken: true
     }, (res) => {
       const result = res.result || {}
       let content = result.content || []

@@ -29,7 +29,8 @@ Page({
   getOgnData(id) {
     const self = this
     AXIOS.POST('security/organ/detail', {
-      ognId: id
+      ognId: id,
+      noToken: true
     }, (res) => {
       const result = res.result || {}
       WxParse.wxParse('ognIntroduce', 'html', result.ognInfo.ognIntroduce, self, 0);
@@ -44,7 +45,10 @@ Page({
 
   getOgnCourseData(ognId) {
     const self = this
-    AXIOS.POST('security/course/page', { ognId }, (res) => {
+    AXIOS.POST('security/course/page', {
+      ognId, 
+      noToken: true
+    }, (res) => {
       const result = res.result || {}
       self.setData({
         ognCourseList: result.content || [],

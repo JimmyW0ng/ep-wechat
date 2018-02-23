@@ -95,7 +95,8 @@ Page({
   getCourseDetail(id) {
     const self = this
     AXIOS.POST('security/course/detail', {
-      courseId: id
+      courseId: id,
+      noToken: true
     }, (res) => {
       const result = res.result || {}
       self.setData({

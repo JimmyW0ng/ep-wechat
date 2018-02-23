@@ -2,15 +2,8 @@ const app = getApp();
 const CONFIG = require('./config.js');
 const User = require('./user.js');
 
-const LoginUrl = 'pages/login/LoginPage'
+const LoginUrl = '/pages/login/LoginPage'
 const LoadingDuration = 300
-
-// 用户 token过期或者没有token直接去登陆
-// if (!User.getToken()) {
-//   wx.redirectTo({
-//     url: LoginUrl,
-//   })
-// }
 
 function POST(apiPath, param, success, fail, complete) {
   request(apiPath, 'POST', param, success, fail, complete);
@@ -21,19 +14,29 @@ function GET(apiPath, success, fail, complete) {
 }
 
 function request(apiPath, method, param, success, axios) {
-  // const url = CONFIG.apiUrl + apiPath + `?p=w&uid=${User.getUid()}&wechatAppId=${CONFIG.appId}&token=${User.getToken()}&openId=${User.getOpenId()}`;
   const url = CONFIG.apiUrl + apiPath;
   const data = param;
+
+  let token = User.getToken() || ''
+
   wx.showToast({
-    // title: "loading",
     icon: "loading",
     duration: 50000
   })
+ 
+  if(!data.noToken){
+    if(!token){
+      wx.redirectTo({
+        url: LoginUrl,
+      })
+    }
+  }
+
   let header = {
     'content-type': 'application/x-www-form-urlencoded', // 默认值
   }
-  if (CONFIG.token){
-    header.Authorization = 'Bearer ' + CONFIG.token
+  if (token){
+    header.Authorization = 'Bearer ' + token
   }
   wx.request({
     url,
@@ -47,18 +50,6 @@ function request(apiPath, method, param, success, axios) {
       } else {
         success(result);
       }
-      // if (result.resultCode === 0) {
-      //   if (typeof success == "function") {
-      //     success(result);
-      //   }
-      // } else if (result.resultCode === 1102) {
-      //   console.log(getCurrentPages())
-      //   wx.navigateTo({
-      //     url: LoginUrl,
-      //   })
-      // } else {
-      //   processRequestError(result);
-      // }
     },
     fail: function (res) {
       const result = res.data;
@@ -102,13 +93,6 @@ function processRequestError(result) {
 function processHttpError(xhr, errorType, error) {
   //TODO Process HTTP error for 404, 503, 403, 500
   let message = '网络出错';
-  // if (xhr.status === 404) {
-  //   message = '404 网络错误 \n 请检查你的本地网络是否连接';
-  // } else if (xhr.status === 500) {
-  //   message = 'Oops! 500错误 \n 服务器异常';
-  // } else {
-  //   message = '网络错误';
-  // }
   wx.showModal({
     title: message,
     showCancel: false,
