@@ -6,14 +6,19 @@
   </view>
 
   <view class='body'>
-    <input class='form-control' maxlength="11" value="{{phone}}" bindinput="bindPhoneInput" placeholder="请输入手机号码" />
-    <input class='form-control' maxlength="11" value="{{code}}" bindinput="bindCodeInput" placeholder="请输入验证码" />
+    <view class='form-control'>
+      <input maxlength="11" type="number" value="{{phone}}" bindinput="bindPhoneInput" placeholder="手机号码" />
+    </view>
+    <view class='form-control with-btn'>
+      <input maxlength="6" type="number" value="{{captcha}}" bindinput="bindCaptchaInput" placeholder="验证码" />
+      <view class='btn-send ripple' bindtap='doGetCaptcha'>
+        {{verifyBtnText}}
+      </view>
+    </view>
   </view>
 
   <view class='footer'>
-    <view class='btn-login ripple' bindtap='doGetCaptcha'>
-        <view>验</view>
-    </view>
+    
     <view class='btn-login ripple' bindtap='doLogin'>
       <!-- 登陆 -->
       <view class="iconfont icon-arrowsrightline"></view>

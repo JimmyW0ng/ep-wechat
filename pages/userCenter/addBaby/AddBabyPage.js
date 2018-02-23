@@ -22,16 +22,26 @@ Page({
     id:'',
     memberId: '',
     sign: '',
-
+    radioItems: [
+      { name: '男', value: 'man', checked: true},
+      { name: '女', value: 'woman' },
+    ],
     today: new Date()
   },
 
   loadDetail(childId){
     const self = this
     AXIOS.POST('auth/child/get', {childId}, res => {
-      // alert('成功添加了')
       let result = res.result || {}
       let birthDayFormat = UTIL.formatDate('YYYY-MM-DD', new Date(result.childBirthday || '').valueOf())
+
+      let childSex = result.childSex || 'man'
+      let radioItems = self.data.radioItems;
+      for (var i = 0; i < radioItems.length; i++) {
+        if (radioItems[i].value == childSex) {
+          radioItems[i].checked = true
+        }
+      }
 
       self.setData({
         avatar: result.avatar || '',
@@ -45,7 +55,8 @@ Page({
         childId: result.id || '',
         id: result.id || '',
         memberId: result.memberId || '',
-        sign: result.sign || ''
+        sign: result.sign || '',
+        radioItems: radioItems
       })
     })
   },
@@ -67,12 +78,23 @@ Page({
     })
   },
 
-  bindChildSex(e) {
-    this.setData({ childSex: 'women'}) // TODO
+  radioChange: function (e) {
+    var checked = e.detail.value
+    var changed = {}
+    let childSex = ''
+    for (var i = 0; i < this.data.radioItems.length; i++) {
+      if (checked.indexOf(this.data.radioItems[i].name) !== -1) {
+        changed['radioItems[' + i + '].checked'] = true
+        childSex = this.data.radioItems[i].value
+      } else {
+        changed['radioItems[' + i + '].checked'] = false
+      }
+    }
+    changed.childSex = childSex
+    this.setData(changed)
   },
-  
+
   bindDateChange (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       childBirthday: e.detail.value
     })
@@ -80,7 +102,6 @@ Page({
 
   handleSave (e){
     const self = this
-    console.log('saveveveev')
     var data = self.data
     if(data.childId){
       AXIOS.POST('auth/child/edit', data, res => {

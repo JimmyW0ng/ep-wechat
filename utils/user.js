@@ -22,6 +22,14 @@ const setToken = (value) => {
   wx.setStorageSync('wx_token', value)
 }
 
+const setMemberType = (value) => {
+  wx.setStorageSync('wx_memberType', value)
+}
+
+const getMemberType = () => {
+  return wx.getStorageSync('wx_memberType')
+}
+
 const getUserInfo = () => {
   return wx.getStorageSync('wx_userInfo') ? JSON.parse(wx.getStorageSync('wx_userInfo')) : false;
 }
@@ -49,5 +57,7 @@ module.exports = {
   getUserInfo,
   setUserInfo,
   getUid,
-  setUid
+  setUid,
+  getMemberType,
+  setMemberType,
 }

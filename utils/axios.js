@@ -5,9 +5,9 @@ const User = require('./user.js');
 const LoginUrl = 'pages/login/LoginPage'
 const LoadingDuration = 300
 
-// if (!(User.getToken() && User.getUid())) {
-// if (true) {
-//   wx.navigateTo({
+// 用户 token过期或者没有token直接去登陆
+// if (!User.getToken()) {
+//   wx.redirectTo({
 //     url: LoginUrl,
 //   })
 // }
@@ -20,7 +20,7 @@ function GET(apiPath, success, fail, complete) {
   request(apiPath, 'GET', param, success, fail, complete);
 }
 
-function request(apiPath, method, param, success, complete) {
+function request(apiPath, method, param, success, axios) {
   // const url = CONFIG.apiUrl + apiPath + `?p=w&uid=${User.getUid()}&wechatAppId=${CONFIG.appId}&token=${User.getToken()}&openId=${User.getOpenId()}`;
   const url = CONFIG.apiUrl + apiPath;
   const data = param;
@@ -29,13 +29,16 @@ function request(apiPath, method, param, success, complete) {
     icon: "loading",
     duration: 50000
   })
+  let header = {
+    'content-type': 'application/x-www-form-urlencoded', // 默认值
+  }
+  if (CONFIG.token){
+    header.Authorization = 'Bearer ' + CONFIG.token
+  }
   wx.request({
     url,
     data,
-    header: {
-      'content-type': 'application/x-www-form-urlencoded', // 默认值
-      'Authorization': 'Bearer ' + CONFIG.token
-    },
+    header,
     method: method,
     success: function (res) {
       const result = res.data;
@@ -85,7 +88,7 @@ function processRequestError(result) {
     })
     setTimeout(() => {
       wx.redirectTo({
-        url: '/pages/login/LoginPage'
+        url: LoginUrl
       })
     }, 1000)
   } else {
@@ -98,7 +101,7 @@ function processRequestError(result) {
 
 function processHttpError(xhr, errorType, error) {
   //TODO Process HTTP error for 404, 503, 403, 500
-  let message = '';
+  let message = '网络出错';
   // if (xhr.status === 404) {
   //   message = '404 网络错误 \n 请检查你的本地网络是否连接';
   // } else if (xhr.status === 500) {

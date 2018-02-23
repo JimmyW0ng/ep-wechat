@@ -26,14 +26,33 @@
 }
 
 .form-control {
-  /* font-size: 1.8rem; */
-  color: #A4AFBF;
-  /* height: 2.2rem; */
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 25px;
+}
+
+.form-control input {
+  border: none;
+  color: #a4afbf;
   font-size: 18px;
   height: 40px;
   line-height: 40px;
-  border-bottom: 1px solid #eaeaea;
-  margin-bottom: 25px;
+}
+
+.form-control.with-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-control.with-btn input {
+  width: 60%;
+}
+
+.btn-send {
+  color: #2ad5f3;
+  font-size: 18px;
+  height: 40px;
+  line-height: 40px;
 }
 
 .footer {
@@ -45,9 +64,9 @@
   display: inline-block;
   width: 50px;
   height: 50px;
-  line-height: 50px;  
+  line-height: 50px;
   border-radius: 50px;
-  background: #2AD5F3;
+  background: #2ad5f3;
   color: #fff;
   text-align: center;
   margin-left: 15px;

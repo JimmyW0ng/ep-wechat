@@ -16,13 +16,13 @@
     </view>
   </view>
 
-   <view class='form-control'>
+  <view class='form-control'>
     <view class='label'>宝贝名字</view>
 
     <view class='input-wrap'>
-      <input placeholder='请输入宝贝名字' data-key="childTrueName" value="{{childTrueName}}" bindinput="bindChildInfo"  />
+      <input placeholder='请输入宝贝名字' data-key="childTrueName" value="{{childTrueName}}" bindinput="bindChildInfo" />
     </view>
-  </view> 
+  </view>
 
   <view class='form-control'>
     <view class='label'>*宝贝昵称</view>
@@ -46,19 +46,28 @@
     </view>
   </view>
 
-   <view class='form-control'>
+  <view class='form-control'>
     <view class='label'>宝贝身份证</view>
 
     <view class='input-wrap'>
-      <input placeholder='请填写身份证' data-key="childIdentity" value="{{childIdentity}}" bindinput="bindChildInfo"  />
+      <input placeholder='请填写身份证' data-key="childIdentity" value="{{childIdentity}}" bindinput="bindChildInfo" />
     </view>
-  </view> 
+  </view>
 
   <view class='form-control'>
     <view class='label'>*宝贝性别</view>
-
-    <view class='input-wrap'>
-      <input placeholder='请选择性别' value="{{childSex}}" bindinput="bindChildSex" />
+  <view class='input-wrap'>
+    <radio-group class="group" bindchange="radioChange">
+      <view class="label-2" wx:for="{{radioItems}}">
+        <label class="label-2__text" for="{{item.name}}">
+          <radio id="{{item.name}}" hidden value="{{item.name}}" checked="{{item.checked}}"></radio>
+          <view class="label-2__icon">
+            <view class="label-2__icon-checked" style="opacity:{{item.checked ? 1: 0}}"></view>
+          </view>
+          <text>{{item.name}}</text>
+        </label>
+      </view>
+    </radio-group>
     </view>
   </view>
   <view class='form-control'>
@@ -78,9 +87,9 @@
 
   <textarea bindinput="bindChildInfo" data-key="sign" auto-height value="{{sign}}" placeholder="请输入小目标" />
 
-   <view class='botton-btn-wrap'>
-  <button wx:if="{{childId}}" class='btn-delete ripple' bindtap='confirmDelete'>删除</button>
-   
-  <button class='btn-save ripple' bindtap='handleSave'>保存</button>
+  <view class='botton-btn-wrap'>
+    <button wx:if="{{childId}}" class='btn-delete ripple' bindtap='confirmDelete'>删除</button>
+
+    <button class='btn-save ripple' bindtap='handleSave'>保存</button>
   </view>
 </view>

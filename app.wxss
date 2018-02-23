@@ -87,13 +87,3 @@ page {
   -webkit-line-clamp: 2;
   -webkit-box-orient:vertical;
 }
-
-@keyframes loadingWhite {
-  0% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: -500rpx 0;
-  }
-}

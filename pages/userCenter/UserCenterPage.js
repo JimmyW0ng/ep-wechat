@@ -62,7 +62,7 @@ Page({
   loadDetail(){
     const self = this
     AXIOS.POST('auth/member/detail', {}, res => {
-      let result = res.result
+      let result = res.result || {}
       let children = result.children || []
       self.setData({
         activeIndex: 0,

@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/index/index",
+    
     "pages/course/courseDetailPage/courseDetailPage",
     
     "pages/userCenter/UserCenterPage",
@@ -10,7 +12,6 @@
     "pages/userCenter/myCourse/MyCoursePage",
     "pages/babyTrip/BabyTripPage",
     "pages/login/LoginPage",
-    "pages/index/index",
     "pages/userCenter/addBaby/AddBabyPage",
     "pages/orgnization/OrgnizationPage",
     "pages/orgnization/orgnizationDetail/OrganizationDetailPage",
