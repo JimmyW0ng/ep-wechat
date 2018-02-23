@@ -1,87 +1,77 @@
 // pages/userCenter/myCourse/MyCoursePage.js
-Page({
+const AXIOS = require('../../../utils/axios')
+const USER = require('../../../utils/user')
 
+let selectedChild = USER.getSelectedChild() || {}
+
+Page({
   /**
    * 页面的初始数据
    */
   data: {
-    classes: [],
-    comments: [],
-    course: {},
-    successOrders: 1,
-    team: [],
-    courseList: [{
-      courseAddress: "杭州市拱墅区运河广场",
-      courseCatalogId : 4,
-      courseContent :  "<view>这是详情</view>",
-      courseIntroduce: "这是课程目的",
-      courseName  :  "英语中级班",
-      courseNote :"<view>这是报名须知</view>",
-      courseStatus :"opening",
-      courseType  : "training",
-      enterTimeEnd :"2018-11-20 00:00:00",
-      enterTimeStart: "2017-10-21 00:00:00",
-      id : 2,
-      label : "英语",
-      mainPicUrl:  "http://ost0qtman.bkt.clouddn.com/ogn_1_course_1.jpg",
-      ognId  : 1,
-      onlineTime : "2017-09-20 00:00:00",
-      prizeMin : 0,
-      totalParticipate :0,
-    }, {
-      courseAddress: "杭州市拱墅区运河广场",
-      courseCatalogId: 4,
-      courseContent: "<view>这是详情</view>",
-      courseIntroduce: "这是课程目的",
-      courseName: "英语中级班",
-      courseNote: "<view>这是报名须知</view>",
-      courseStatus: "opening",
-      courseType: "training",
-      enterTimeEnd: "2018-11-20 00:00:00",
-      enterTimeStart: "2017-10-21 00:00:00",
-      id: 2,
-      label: "英语",
-      mainPicUrl: "http://ost0qtman.bkt.clouddn.com/ogn_1_course_1.jpg",
-      ognId: 1,
-      onlineTime: "2017-09-20 00:00:00",
-      prizeMin: 0,
-      totalParticipate: 0,
-      }, {
-        courseAddress: "杭州市拱墅区运河广场",
-        courseCatalogId: 4,
-        courseContent: "<view>这是详情</view>",
-        courseIntroduce: "这是课程目的",
-        courseName: "英语中级班",
-        courseNote: "<view>这是报名须知</view>",
-        courseStatus: "opening",
-        courseType: "training",
-        enterTimeEnd: "2018-11-20 00:00:00",
-        enterTimeStart: "2017-10-21 00:00:00",
-        id: 2,
-        label: "英语",
-        mainPicUrl: "http://ost0qtman.bkt.clouddn.com/ogn_1_course_1.jpg",
-        ognId: 1,
-        onlineTime: "2017-09-20 00:00:00",
-        prizeMin: 0,
-        totalParticipate: 0,
-      }],
-
+    dataSet: [],
+    page: 0,
+    size: 5,
+    last: false,
     selectedTab: 0,
+    status: 'ALL', // 'ENTERING', 'OPENING', 'END'
+    statusENUM: {
+      0: 'ALL',
+      1: 'ENTERING',
+      2: 'OPENING',
+      3: 'END'
+    },
+    statusText: {
+      
+    }
   },
 
   selectTab(e) {
     const self = this
     var tab = e.currentTarget.dataset.tab
     self.setData({
-      selectedTab: tab
+      selectedTab: tab,
+      status: self.data.statusENUM[tab]
     })
+    self.getListData()
+  },
+
+  getListData(loadMore){
+    const self = this
+    let selectedChild = USER.getSelectedChild() || {}
+    let childId = selectedChild.id || ''
+    if (!childId){
+      wx.showModal({
+        title: '提示',
+        content: '请选择一个宝贝查看',
+      })
+    } else {
+      let page = loadMore ? self.data.page + 1 : 0
+      let size = self.data.size || 10
+      let status = self.data.status || 'ALL'
+      AXIOS.POST('auth/child/class/page', {
+        childId, status, page, size,
+        noToken: true,
+      }, (res) => {
+        const result = res.result || {}
+        let content = result.content || []
+        if (page > 0) {
+          content = self.data.dataSet.concat(content)
+        }
+        self.setData({
+          dataSet: content,
+          page: result.number || 0,
+          last: result.last
+        })
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getListData()
   },
 
   /**
@@ -116,14 +106,16 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.getListData()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (!this.data.last) {
+      this.getListData(true)
+    }
   },
 
   /**

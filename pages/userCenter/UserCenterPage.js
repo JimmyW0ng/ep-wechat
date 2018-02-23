@@ -9,15 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    children: [{
-      childBirthday: "2015-09-01 00:00:00",
-      childNickName: "hahaha",
-      childSex: "women",
-      childTrueName: "fhc",
-      currentSchool: "xuexiao",
-      id: 5,
-      memberId: 7,
-    }],
+    children: [],
     selectedChild: {},
     mbrInfo: {
       id: '',

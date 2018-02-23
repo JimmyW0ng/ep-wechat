@@ -78,9 +78,9 @@ swiper-item{
 }
 
 .course-learn-num {
-  font-size: 12px;
+  font-size: 14px;
   color: #a4afbf;
-  line-height: 12px;
+  line-height: 14px;
 }
 
 .tab-header {

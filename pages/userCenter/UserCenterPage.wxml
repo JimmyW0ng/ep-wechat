@@ -16,7 +16,7 @@
     </view>
 
     <view class='userCenter-header-bottom'>
-      <view class='child-school' wx:if="selectedChild.currentSchool">{{selectedChild.currentSchool}}</view>
+      <view class='child-school' wx:if="selectedChild.childNickName">{{selectedChild.childNickName}}</view>
       <view class='child-sign text-ellipsis' wx:if="selectedChild.sign">{{selectedChild.sign}}</view>
     </view>
   </view>
@@ -24,11 +24,11 @@
   <view class='userCenter-body'>
 
     <view class='userCenter-body-item border-right ripple' bindtap='goMyCourse'>
-      <view class='body-num'>0</view>
+      <view class='body-num'>{{selectedChild.totalOrder || 0}}</view>
       <view class='body-text'>我的课程</view>
     </view>
     <view class='userCenter-body-item ripple' bindtap='goMyHonor'>
-      <view class='body-num'>0</view>
+      <view class='body-num'>{{selectedChild.totalHonor || 0}}</view>
       <view class='body-text'>奖状墙</view>
     </view>
 
