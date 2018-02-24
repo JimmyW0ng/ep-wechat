@@ -97,11 +97,13 @@ color: #fff;
 }
 
 .course-learn-num {
-  font-size: 12px;
-  color: #a4afbf;
-  line-height: 12px;
+font-size: 14px;
+color: #5EE495;
+line-height: 14px;
 }
-
+.course-learn-num.disabled {
+color: #A4AFBF;
+}
 .course-actions {
   margin-top: 10px;
   text-align: right;

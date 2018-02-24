@@ -57,6 +57,7 @@ Page({
     AXIOS.POST('auth/member/detail', {}, res => {
       let result = res.result || {}
       let children = result.children || []
+      debugger
       self.setData({
         activeIndex: 0,
         children: children,
@@ -78,7 +79,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    // this.loadDetail()
   },
 
   /**

@@ -3,7 +3,7 @@ const CONFIG = require('../../utils/config.js')
 const AXIOS = require('../../utils/axios')
 const USER = require('../../utils/user')
 const app = getApp()
-
+let loginInterval = ''
 Page({
 
   /**
@@ -49,7 +49,7 @@ Page({
             verifyBtnText: self.data.countDown + "s"
           })
 
-          const interval = setInterval(function () {
+          loginInterval = setInterval(function () {
             console.log('fuck')
             if (self.data.countDown > 1) {
               self.setData({
@@ -57,7 +57,7 @@ Page({
                 verifyBtnText: (self.data.countDown-1) + "s"
               })
             } else {
-              clearInterval(interval);
+              clearInterval(loginInterval);
               self.setData({
                 countDown: 60,
                 beginCountDown: false,
@@ -168,7 +168,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    clearInterval(loginInterval);
   },
 
   /**

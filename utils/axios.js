@@ -23,19 +23,19 @@ function request(apiPath, method, param, success, axios) {
     icon: "loading",
     duration: 50000
   })
- 
-  if(!data.noToken){
-    if(!token){
-      wx.redirectTo({
-        url: LoginUrl,
-      })
-    }
-  }
+
+  // if (!data.noToken) {
+  //   if (!token) {
+  //     wx.redirectTo({
+  //       url: LoginUrl,
+  //     })
+  //   }
+  // } 
 
   let header = {
     'content-type': 'application/x-www-form-urlencoded', // 默认值
   }
-  if (token){
+  if (token) {
     header.Authorization = 'Bearer ' + token
   }
   wx.request({
@@ -72,7 +72,7 @@ function request(apiPath, method, param, success, axios) {
 
 function processRequestError(result) {
   // TODO 优化一下对话框
-  if (result.error == "ERROR_ACCESS_NEED_AUTH"){
+  if (result.error == "ERROR_ACCESS_NEED_AUTH") {
     wx.showModal({
       title: '请登陆',
       showCancel: false,
@@ -117,8 +117,8 @@ const UPLOAD = (filePath, callback, uploadCallback) => {
     fail: (res) => {
       // debugger
     },
-    complete(res){
-// debugger
+    complete(res) {
+      // debugger
     }
   })
 

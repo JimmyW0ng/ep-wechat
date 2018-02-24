@@ -14,10 +14,11 @@ Page({
     team: [],
 
     popupStatus: false,
-    dateList: ['1个月期', '1个月期', '1个月期', '1个月期'],
-    selectedDate: 0,
     childList: [],
+
     selectedChild: '',
+    selectedClassIndex: 0,
+
     selectedTab: 0,
     swiperHeight:'',
   },
@@ -27,7 +28,6 @@ Page({
    */
   onLoad: function (options) {
     this.getCourseDetail(1 || options.id)
-    this.getChildList()
 
     var self = this;
     //  高度自适应
@@ -66,10 +66,10 @@ Page({
     });
   },
 
-  chooseDate(e){
+  chooseClass(e){
     const index = e.currentTarget.dataset.index
     this.setData({
-      selectedDate: index
+      selectedClassIndex: index
     })
   },
 
@@ -81,6 +81,7 @@ Page({
   },
 
   showPopup() {
+    this.getChildList()
     this.setData({
       popupStatus: true
     })
@@ -120,22 +121,30 @@ Page({
   handleJoin() {
     const self = this
     // TODO 这里已经报名过这个课程的小孩是否要过滤一下
-    if (!self.data.selectedChildId){
+    let selectedClassIndex = self.data.selectedClassIndex
+    let selectedClass = self.data.classes[selectedClassIndex] || {}
+    let selectedClassId = selectedClass.id || ''
+
+    let selectedChildId = self.data.selectedChildId
+
+    if (!selectedChildId){
       wx.showToast({
         icon: 'none',
         title: '请选择宝贝',
       })
     } else {
       AXIOS.POST('auth/order/new', {
-        childId: self.data.selectedChildId,
-        classId: self.data.course.id // TODO这里没有展示班级的地方吧
+        childId: selectedChildId,
+        classId: selectedClassId // TODO这里没有展示班级的地方吧
       }, (res) => {
-        debugger
         wx.showToast({
           icon: 'success',
           title: '报名成功！',
+          duration: 3000
         })
-        self.closePopup()
+        setTimeout(() => {
+          self.closePopup()
+        }, 1000)
       })
     }
   },

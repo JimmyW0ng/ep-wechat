@@ -1,4 +1,4 @@
-<!--pages/course/courseDetailPage/courseDetailPage.wxml-->
+        <!--pages/course/courseDetailPage/courseDetailPage.wxml-->
 <view class='page'>
   <view class='course-list-item' bindtap='goCourseDetailPage'>
     <view class='course-avatar-wrap'>
@@ -141,7 +141,7 @@
       <view class='join-title'>课程班次 TODO</view>
 
        <view class='date-list'>
-        <view class="date-btn {{index == selectedDate && 'active'}}" wx:for="{{classes}}" wx:key="{{index}}" data-index="{{index}}" bindtap='chooseDate'>
+        <view class="date-btn {{index == selectedClassIndex && 'active'}}" wx:for="{{classes}}" wx:key="{{index}}" data-index="{{index}}" bindtap='chooseClass'>
           {{item.className}} {{item.classPrize}}
         </view>
       </view>  
