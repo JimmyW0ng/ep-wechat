@@ -67,6 +67,26 @@ Page({
     }
   },
 
+  goCourseDetailPage(e){
+    let courseId = e.currentTarget.dataset.courseid
+    console.log(courseId)
+  },
+
+  goTeacherComment(e){
+
+  },
+
+  goEvaluate(e){
+    let orderId = e.currentTarget.dataset.orderid || 123
+    wx.navigateTo({
+      url: '/pages/course/evaluatePage/EvaluatePage?orderId' + orderId,
+    })
+  },
+
+  openHonorModal(){
+
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

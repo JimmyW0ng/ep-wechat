@@ -10,7 +10,7 @@
   <view class='tab-body'>
     <view class='tab-content course-introduce'>
       <view class='course-list-wrap'>
-        <view class='course-list-item' wx:for="{{dataSet}}" wx:key="index" bindtap='goCourseDetailPage' data-item="{{item}}">
+        <view class='course-list-item' wx:for="{{dataSet}}" wx:key="index" bindtap='goCourseDetailPage' data-courseid="{{item.courseId}}" data-childid="{{item.childId}}" data-classid="{{item.classId}}">
           <view class='course-avatar-wrap'>
             <image class="course-avatar" src="{{item.mainPicUrl}}" mode="scaleToFill"></image>
           </view>
@@ -26,9 +26,9 @@
             </view>
 
             <view class='course-actions'>
-              <view class='btn btn-ghost' wx:if="{{item.scheduleCommentNum}}">老师评价({{item.scheduleCommentNum}})</view>
-              <view class='btn btn-ghost'>评价课程</view>
-              <view class='btn btn-ghost'>查看奖状</view>
+              <view class='btn btn-ghost' bindtap='goTeacherComment' wx:if="{{item.scheduleCommentNum}}">老师评价({{item.scheduleCommentNum}})</view>
+              <view class='btn btn-ghost' bindtap='goEvaluate' data-orderid="{{item.orderId}}">评价课程 TODO orderId</view>
+              <view class='btn btn-ghost' bindtap='openHonorModal'>查看奖状</view>
             </view>
           </view>
         </view>
