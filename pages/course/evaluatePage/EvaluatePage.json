@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "评价",
     "usingComponents": {
       "score-star-large": "../../../components/scoreStarLarge/scoreStarLarge",
       "img-uploader": "../../../components/imgUploader/imgUploader"

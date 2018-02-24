@@ -1,14 +1,12 @@
 <!--pages/course/evaluatePage/EvaluatePage.wxml-->
 <view class='page'>
-  <view>分数{{score}}</view>
-
   <view class="star-wrap">
-    <score-star-large score="30" bind:change="changeScore"></score-star-large>
+    <score-star-large score="{{score}}" bind:change="changeScore"></score-star-large>
     <view class='notice'>你的评价会让机构做的更好</view>
   </view>
 
   <view class='textarea-wrap'>
-  <textarea class='eval-textarea' placeholder="请公平公正填写对于该课程的评价"  />
+  <textarea class='eval-textarea' value="{{content}}" bindinput="changeEvalContent"  placeholder="请公平公正填写对于该课程的评价"  />
   </view>
 
   <view class='image-list-wrap'>

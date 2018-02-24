@@ -84,7 +84,8 @@ function processRequestError(result) {
     }, 1000)
   } else {
     wx.showModal({
-      title: result.error + ' : ' + result.errorDescription,
+      title: '提示',
+      content: result.error + ' : ' + result.errorDescription,
       showCancel: false,
     })
   }

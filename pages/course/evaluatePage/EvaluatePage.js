@@ -1,76 +1,18 @@
 // pages/course/evaluatePage/EvaluatePage.js
 
 const AXIOS = require('../../../utils/axios')
-var Zan = require('../../../zanui/index');
+const _ = require('../../../utils/underscore')
 
-Page(Object.assign({}, Zan.Toast, {
+Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    orderId: '',
     score: 0,
-    avatarList: [{
-      id: '1',
-      avatar: 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png'
-    }
-      , {
-      id: '2',
-      avatar: 'http://res.xiaomaiketang.com/xiaomai/newYearDay_201701208.png'
-    },
-    {
-      id: '3',
-      avatar: 'http://res.xiaomaiketang.com/xiaomai/vote_20170807.png'
-    }
-    ],
-    previewImgList: [{
-      fileUrl: 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png',
-      preCode: '2123213'
-    }, {
-      fileUrl: 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png',
-      preCode: '2123213'
-    }, {
-      fileUrl: 'http://res.xiaomaiketang.com/xiaomai/theRabit_201801017.png',
-      preCode: '2123213'
-    }]
-  },
-  showToast() {
-    this.showZanToast('toast的内容');
-  },
-  showPopup() {
-    this.setData({
-      popup: 1
-    })
-  },
-  closePopup() {
-    this.setData({
-      popup: 0
-    })
-  },
-  showModal() {
-    wx.showModal({
-      title: '提示',
-      content: '这是一个模态弹窗',
-      success: function (res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
-  },
-
-  showActionSheet() {
-    wx.showActionSheet({
-      itemList: ['A', 'B', 'C'],
-      success: function (res) {
-        console.log(res.tapIndex)
-      },
-      fail: function (res) {
-        console.log(res.errMsg)
-      }
-    })
+    content: '',
+    previewImgList: []
   },
 
   changeScore(item) {
@@ -78,6 +20,12 @@ Page(Object.assign({}, Zan.Toast, {
     let score = item.detail.score
     this.setData({
       score: score
+    })
+  },
+
+  changeEvalContent(e){
+    this.setData({
+      content: e.detail.value
     })
   },
 
@@ -118,14 +66,49 @@ Page(Object.assign({}, Zan.Toast, {
   },
 
   handleSave(){
-    console.log('save TODO')
+    let data = this.data
+    let previewImgList = data.previewImgList || []
+    data.pic = _.pluck(previewImgList, 'preCode')
+
+    if(this.validForm(data)){
+      AXIOS.POST("auth/child/class/add/comment", data, res => {
+        wx.showModal({
+          title: '提示',
+          content: '评价成功！',
+        })
+        setTimeout(() => {
+          wx.navigateBack({})
+        }, 1000)
+      })
+    }
+  },
+
+  validForm(data){
+    let flag = false
+    if(!data.score){
+      wx.showToast({
+        icon: 'none',
+        title: '请选择评分',
+      })
+    } else if(!data.content){
+      wx.showToast({
+        icon: 'none',
+        title: '请填写课程评价',
+      })
+    } else {
+      flag = true
+    }
+    return flag
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.orderId)
+    let orderId = options.orderId || ''
+    this.setData({
+      orderId
+    })
   },
 
   /**
@@ -176,4 +159,4 @@ Page(Object.assign({}, Zan.Toast, {
   onShareAppMessage: function () {
 
   }
-}))
+})

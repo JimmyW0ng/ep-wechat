@@ -77,9 +77,9 @@ Page({
   },
 
   goEvaluate(e){
-    let orderId = e.currentTarget.dataset.orderid || 123
+    let orderId = e.currentTarget.dataset.orderid
     wx.navigateTo({
-      url: '/pages/course/evaluatePage/EvaluatePage?orderId' + orderId,
+      url: '/pages/course/evaluatePage/EvaluatePage?orderId=' + orderId,
     })
   },
 

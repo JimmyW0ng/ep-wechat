@@ -19,7 +19,7 @@ const formatNumber = n => {
  * @param len
  * @returns {string}
  */
-const random_string = (len) => {
+const getRandomString = (len) => {
   len = len || 32;
   const chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
   const maxPos = chars.length;
@@ -352,5 +352,8 @@ const getMinutesTime = (date) => {
 module.exports = {
   formatTime,
   formatNumber,
-  formatDate
+  formatDate,
+  isValidPhone,
+  isLongArr,
+  getRandomString
 }

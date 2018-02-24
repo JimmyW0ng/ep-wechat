@@ -18,7 +18,7 @@
             <view class='course-org-name'>{{item.courseName}}</view>
             <view class='course-simple-info'>
               <view class='course-tag'>{{item.label}}</view>
-              <view class='course-name'>{{item.courseIntroduce}}</view>
+              <view class='course-name'>范德萨发发{{item.courseIntroduce}}</view>
             </view>
             <view class='course-bottom-info'>
               <view class='course-price'>￥{{item.pirzeFormat || 0}}</view>
@@ -27,7 +27,7 @@
 
             <view class='course-actions'>
               <view class='btn btn-ghost' bindtap='goTeacherComment' wx:if="{{item.scheduleCommentNum}}">老师评价({{item.scheduleCommentNum}})</view>
-              <view class='btn btn-ghost' bindtap='goEvaluate' data-orderid="{{item.orderId}}">评价课程 TODO orderId</view>
+              <view class='btn btn-ghost' bindtap='goEvaluate' data-orderid="{{item.id}}">评价课程 TODO orderId</view>
               <view class='btn btn-ghost' bindtap='openHonorModal'>查看奖状</view>
             </view>
           </view>
