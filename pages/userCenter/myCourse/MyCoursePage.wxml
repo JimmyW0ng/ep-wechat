@@ -18,7 +18,7 @@
             <view class='course-org-name'>{{item.courseName}}</view>
             <view class='course-simple-info'>
               <view class='course-tag'>{{item.label}}</view>
-              <view class='course-name'>范德萨发发{{item.courseIntroduce}}</view>
+              <view class='course-name'>{{item.ognName}}</view>
             </view>
             <view class='course-bottom-info'>
               <view class='course-price'>￥{{item.pirzeFormat || 0}}</view>
