@@ -27,7 +27,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getCourseDetail(1 || options.id)
+    this.getCourseDetail(options.id)
 
     var self = this;
     //  高度自适应

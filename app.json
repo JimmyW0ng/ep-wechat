@@ -1,12 +1,9 @@
 {
   "pages": [
-        "pages/orgnization/OrgnizationPage",
+    "pages/orgnization/OrgnizationPage",
     "pages/index/index",
-    
     "pages/course/courseDetailPage/courseDetailPage",
-    
     "pages/userCenter/UserCenterPage",
-    
     "pages/course/evaluatePage/EvaluatePage",
     "pages/userCenter/myHonor/MyHonorPage",
     "pages/scrollableTabView/index",
@@ -33,16 +30,10 @@
     "backgroundColor": "#f9f9f9",
     "list": [
       {
-        "text": "测试组件",
-        "pagePath": "pages/course/courseDetailPage/courseDetailPage",
-        "iconPath": "asset/img/tabIcon-user.png",
-        "selectedIconPath": "asset/img/tabIcon-user-active.png"
-      },
-      {
-        "text": "我的账户",
-        "pagePath": "pages/userCenter/UserCenterPage",
-        "iconPath": "asset/img/tabIcon-user.png",
-        "selectedIconPath": "asset/img/tabIcon-user-active.png"
+        "text": "发现机构",
+        "pagePath": "pages/orgnization/OrgnizationPage",
+        "iconPath": "asset/img/tabIcon-org.png",
+        "selectedIconPath": "asset/img/tabIcon-org-active.png"
       },
       {
         "text": "宝贝行程",
@@ -51,16 +42,16 @@
         "selectedIconPath": "asset/img/tabIcon-fly-active.png"
       },
       {
+        "text": "我的账户",
+        "pagePath": "pages/userCenter/UserCenterPage",
+        "iconPath": "asset/img/tabIcon-user.png",
+        "selectedIconPath": "asset/img/tabIcon-user-active.png"
+      },
+      {
         "text": "首页",
         "pagePath": "pages/index/index",
         "iconPath": "asset/img/tabIcon-fly.png",
         "selectedIconPath": "asset/img/tabIcon-fly-active.png"
-      },
-      {
-        "text": "发现机构",
-        "pagePath": "pages/orgnization/OrgnizationPage",
-        "iconPath": "asset/img/tabIcon-org.png",
-        "selectedIconPath": "asset/img/tabIcon-org-active.png"
       }
     ]
   },
