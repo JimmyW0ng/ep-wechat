@@ -54,34 +54,6 @@
 
             <view class='teacher-introduce'>{{item.introduce}}</view>
           </view>
-
-          <view class='teacher-item' wx:for="{{team}}" wx:key="index">
-            <view class='teacher-basic'>
-              <view class='teacher-avatar-wrap'>
-                <image class="teacher-avatar" src="{{course.mainPicUrl}}" mode="scaleToFill"></image>
-              </view>
-              <view class='teacher-info'>
-                <view class='teacher-title'>授课老师</view>
-                <view class='teacher-name'>{{item.nickName}}</view>
-              </view>
-            </view>
-
-            <view class='teacher-introduce'>{{item.introduce}}</view>
-          </view>
-
-          <view class='teacher-item' wx:for="{{team}}" wx:key="index">
-            <view class='teacher-basic'>
-              <view class='teacher-avatar-wrap'>
-                <image class="teacher-avatar" src="{{course.mainPicUrl}}" mode="scaleToFill"></image>
-              </view>
-              <view class='teacher-info'>
-                <view class='teacher-title'>授课老师</view>
-                <view class='teacher-name'>{{item.nickName}}</view>
-              </view>
-            </view>
-
-            <view class='teacher-introduce'>{{item.introduce}}</view>
-          </view>
         </view>
       </scroll-view>
     </swiper-item>
@@ -103,7 +75,9 @@
             <view class='comment-body'>
               <view class='comment-body-item'>{{item.createAt}}</view>
               <view class='comment-body-item'>{{item.className}}</view>
-              <view class='comment-body-item'>{{item.score}}</view>
+              <view class='comment-body-item' style='display: flex'>
+                打分：<score-star score="{{item.score}}"></score-star>
+              </view>
             </view>
             <view class='comment-footer'>{{item.content}}</view>
           </view>

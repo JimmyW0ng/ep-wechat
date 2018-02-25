@@ -23,6 +23,10 @@ Page({
     })
   },
 
+  handleLogout: function(){
+    wx.clearStorageSync()
+  },
+
   hanldeCourse: function () {
     wx.navigateTo({
       url: '../course/CoursePage'

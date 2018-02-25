@@ -57,7 +57,6 @@ Page({
     AXIOS.POST('auth/member/detail', {}, res => {
       let result = res.result || {}
       let children = result.children || []
-      debugger
       self.setData({
         activeIndex: 0,
         children: children,

@@ -22,7 +22,6 @@
   </view>
 
   <view class='userCenter-body'>
-
     <view class='userCenter-body-item border-right ripple' bindtap='goMyCourse'>
       <view class='body-num'>{{selectedChild.totalOrder || 0}}</view>
       <view class='body-text'>我的课程</view>
@@ -31,7 +30,6 @@
       <view class='body-num'>{{selectedChild.totalHonor || 0}}</view>
       <view class='body-text'>奖状墙</view>
     </view>
-
   </view>
 
   <view class='userCenter-footer'>
