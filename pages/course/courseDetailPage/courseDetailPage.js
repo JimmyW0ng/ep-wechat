@@ -17,10 +17,11 @@ Page({
     childList: [],
 
     selectedChild: '',
-    selectedClassIndex: 0,
+    selectedClassIndex: '',
+    selectedClass: {},
 
     selectedTab: 0,
-    swiperHeight:'',
+    swiperHeight: '',
   },
 
   /**
@@ -43,11 +44,21 @@ Page({
     });
   },
 
-  getChildList(){
+  getChildList() {
     const self = this
-    AXIOS.POST('auth/child/list', {}, (res) => {
+    const selectedClassId = '' + self.data.selectedClass.id
+    AXIOS.POST('auth/order/init', { courseId: self.data.course.id}, (res) => {
       const result = res.result || []
-      self.setData({childList: result})
+      result.map((item) => {
+        if (item.joinedClasses) {
+          item.joinedClasses = item.joinedClasses.split(',')
+        }
+      })
+      result.map((item, index) => {
+        item.joined = !!(item.joinedClasses && item.joinedClasses.indexOf(selectedClassId) > -1)
+      })
+      debugger
+      self.setData({ childList: result })
     })
   },
 
@@ -59,25 +70,31 @@ Page({
     })
   },
 
-  changeSwiper(e){
+  changeSwiper(e) {
     let current = e.detail.current
     this.setData({
-      selectedTab:current
+      selectedTab: current
     });
   },
 
-  chooseClass(e){
+  chooseClass(e) {
     const index = e.currentTarget.dataset.index
+    const selectedClass = this.data.classes[index]
+    const tempId = selectedClass.id
+    const childList = self.data.childList
+
     this.setData({
-      selectedClassIndex: index
+      selectedClassIndex: index,
+      selectedClass: selectedClass
     })
   },
 
-  chooseChild(e){
-    const id = e.currentTarget.dataset.id
-    this.setData({
-      selectedChildId: id
-    })
+  chooseChild(e) {
+    if (!e.currentTarget.dataset.joined) {
+      this.setData({
+        selectedChildId: e.currentTarget.dataset.id
+      })
+    }
   },
 
   showPopup() {
@@ -102,6 +119,7 @@ Page({
       const result = res.result || {}
       self.setData({
         classes: result.classes || [],
+        selectedClass: result.classes[0],
         comments: result.comments || [],
         course: result.course || {},
         successOrders: result.successOrders,
@@ -121,13 +139,11 @@ Page({
   handleJoin() {
     const self = this
     // TODO 这里已经报名过这个课程的小孩是否要过滤一下
-    let selectedClassIndex = self.data.selectedClassIndex
-    let selectedClass = self.data.classes[selectedClassIndex] || {}
+    let selectedClass = self.data.selectedClass || {}
     let selectedClassId = selectedClass.id || ''
-
     let selectedChildId = self.data.selectedChildId
 
-    if (!selectedChildId){
+    if (!selectedChildId) {
       wx.showToast({
         icon: 'none',
         title: '请选择宝贝',

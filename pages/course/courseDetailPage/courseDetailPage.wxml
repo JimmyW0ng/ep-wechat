@@ -123,12 +123,14 @@
       <view class='join-title'>上课宝贝</view>
 
       <view class='baby-list'>
-        <view class="baby-list-item" bindtap='chooseChild' data-id="{{item.id}}" wx:for="{{childList}}" wx:key="{{index}}">
+        <view class="baby-list-item" bindtap='chooseChild' data-joined="{{item.joined}}" data-id="{{item.childId}}" wx:for="{{childList}}" wx:key="{{index}}">
           <view class='baby-info'>
             <image class='item-avatar' src="{{item.avatar}}"></image>
-            <view class='item-name'>{{item.name}}</view>
+            <view class='item-name'>{{item.childNickName}}</view>
           </view>
-          <view class="item-selector {{item.id == selectedChildId ? 'active' : ''}}">
+
+          <view class='joined-text' wx:if="{{item.joined}}">已报名</view>
+          <view class="item-selector {{item.childId == selectedChildId ? 'active' : ''}}" wx:else>
             <view class='iconfont icon-right1'></view>
           </view>
         </view>
