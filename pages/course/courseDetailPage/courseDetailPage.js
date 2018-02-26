@@ -22,6 +22,9 @@ Page({
 
     selectedTab: 0,
     swiperHeight: '',
+
+    courseId: '',
+    courseCommentList: []
   },
 
   /**
@@ -29,6 +32,9 @@ Page({
    */
   onLoad: function (options) {
     this.getCourseDetail(options.id)
+    this.setData({
+      courseId: options.id
+    })
 
     var self = this;
     //  高度自适应
@@ -126,6 +132,20 @@ Page({
         course: result.course || {},
         successOrders: result.successOrders,
         team: result.team || [],
+      })
+    })
+  },
+
+  getCourseComments(){
+    const self = this
+    AXIOS.POST('security/course/comment/page', {
+      courseId: self.data.courseId,
+      noToken: true
+    }, (res) => {
+      const result = res.result || {}
+      // TODO 需要分页？？？？？
+      self.setData({
+        courseCommentList: result.content || []
       })
     })
   },

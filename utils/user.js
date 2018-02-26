@@ -54,6 +54,14 @@ const setSelectedChild = (value) => {
   wx.setStorageSync('ep_selectedChildId', value)
 }
 
+const getSelectedChildIndex = () => {
+  return wx.getStorageSync('ep_selectedChildIndex');
+}
+
+const setSelectedChildIndex = (value) => {
+  wx.setStorageSync('ep_selectedChildIndex', value);
+}
+
 module.exports = {
   getOpenId,
   setOpenId,
@@ -68,5 +76,7 @@ module.exports = {
   getMemberType,
   setMemberType,
   getSelectedChild,
-  setSelectedChild
+  setSelectedChild,
+  getSelectedChildIndex,
+  setSelectedChildIndex
 }

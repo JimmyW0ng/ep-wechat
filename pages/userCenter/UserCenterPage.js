@@ -15,7 +15,13 @@ Page({
       id: '',
       mobile: '',
     },
-    activeIndex: 0
+    tags: [],
+    sign: '',
+    commentList: [],
+    totalOrder: 0,
+    totalHonor: 0,
+    activeIndex: 0,
+    totalElements: 0
   },
 
   goBabyDetail(item){
@@ -31,7 +37,38 @@ Page({
     this.setData({
       selectedChild
     })
+    this.getChildAbstract(selectedChild.id)
+    this.getChildComment(selectedChild.id)
     USER.setSelectedChild(selectedChild)
+    USER.setSelectedChildIndex(index)
+  },
+
+  getChildAbstract(id){
+    const self = this
+    AXIOS.POST('auth/child/abstract', {
+      childId: id,
+    }, res => {
+      let result = res.result || {}
+      self.setData({
+        totalHonor: result.totalHonor || 0,
+        totalOrder: result.totalOrder || 0,
+        sign: result.sign || '',
+        tags: result.tags || []
+      })    
+    })
+  },
+
+  getChildComment(id){
+    const self = this
+    AXIOS.POST('auth/child/comment/recent/page', {
+      childId: id,
+    }, res => {
+      let result = res.result || {}
+      self.setData({
+        commentList: result.content || [],
+        totalElements: result.totalElements || 0
+      })
+    })
   },
 
   goAddBaby() {
@@ -57,13 +94,23 @@ Page({
     AXIOS.POST('auth/member/detail', {}, res => {
       let result = res.result || {}
       let children = result.children || []
+      let activeIndex = 0
+      let tempIndex = USER.getSelectedChildIndex()
+      if (tempIndex > -1 && children[tempIndex]){
+        activeIndex = tempIndex
+      }
+
+      let selectedChild = children[activeIndex] || {}
+      self.getChildAbstract(selectedChild.id)
+      self.getChildComment(selectedChild.id)
+      USER.setSelectedChild(selectedChild)
+
       self.setData({
-        activeIndex: 0,
-        children: children,
-        selectedChild: children[0] || {},
+        activeIndex,
+        children,
+        selectedChild,
         mbrInfo: result.mbrInfo || {},
       })
-      USER.setSelectedChild(children[0])
     })
   },
 

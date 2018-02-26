@@ -83,7 +83,7 @@
           </view>
 
           <view class='comment-check-all'>
-            <view class='check-all-text'>查看全部评价 TODO icon</view>
+            <view class='check-all-text' bindtap='getCourseComments'>查看全部评价</view>
             <view class='check-all-icon iconfont icon-right1'></view>
           </view>
         </view>

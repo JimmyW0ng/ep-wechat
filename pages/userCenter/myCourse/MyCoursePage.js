@@ -2,8 +2,6 @@
 const AXIOS = require('../../../utils/axios')
 const USER = require('../../../utils/user')
 
-let selectedChild = USER.getSelectedChild() || {}
-
 Page({
   /**
    * 页面的初始数据
@@ -91,7 +89,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getListData()
+    
   },
 
   /**
@@ -105,7 +103,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getListData()
   },
 
   /**

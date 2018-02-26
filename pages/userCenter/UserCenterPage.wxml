@@ -17,31 +17,51 @@
 
     <view class='userCenter-header-bottom'>
       <view class='child-school' wx:if="selectedChild.childNickName">{{selectedChild.childNickName}}</view>
-      <view class='child-sign text-ellipsis' wx:if="selectedChild.sign">{{selectedChild.sign}}</view>
+      <view class='child-sign text-ellipsis'>{{sign}}</view>
     </view>
   </view>
 
   <view class='userCenter-body'>
     <view class='userCenter-body-item border-right ripple' bindtap='goMyCourse'>
-      <view class='body-num'>{{selectedChild.totalOrder || 0}}</view>
+      <view class='body-num'>{{totalOrder || 0}}</view>
       <view class='body-text'>我的课程</view>
     </view>
     <view class='userCenter-body-item ripple' bindtap='goMyHonor'>
-      <view class='body-num'>{{selectedChild.totalHonor || 0}}</view>
+      <view class='body-num'>{{totalHonor || 0}}</view>
       <view class='body-text'>奖状墙</view>
     </view>
   </view>
 
   <view class='userCenter-footer'>
-    <view class='footer-title'>评价（0）</view>
+    <view class='tag-list' wx:if="{{tags.length}}">
+      <view class='tag' wx:for="{{tags}}" wx:key="{{index}}">
+        {{item.tagName}}{{item.num ? '(' + item.num + ')' : ''}}
+      </view>
+    </view>
 
-    <view class='footer-empty'>
+    <view class='footer-title'>评价（{{totalElements}}）</view>
+    <view class='comment-list' wx:if="{{commentList.length}}">
+      <view class='comment-item' wx:for="{{commentList}}" wx:key="{{index}}">
+        <view class='teacher-basic'>
+          <view class='left'>
+            <image class="teacher-avatar" src="{{item.avatar}}" mode="scaleToFill"></image>
+            <view class='teacher-info'>
+              <view class='teacher-title'>{{item.nickName}}老师</view>
+              <view class='teacher-name'>{{item.ognName}}</view>
+            </view>
+          </view>
+          <view class='comment-date'>{{item.commentTimeFormat}}</view>
+        </view>
+        <view class='teacher-introduce'>{{item.content}}</view>
+      </view>
+    </view>
+
+    <view class='footer-empty' wx:else>
       <view class='img-empty'>
         <image class='org-cover' src="../../asset/img/comment_empty.png" mode="scaleToFill"></image>
       </view>
-      <view class='text-empty'>暂无报名课程，去看看吧</view>
-
-      <view class='btn-empty ripple'>查看课程</view>
+      <view class='text-empty'>暂无评价，去看看吧</view>
+      <view class='btn-empty ripple'>查看课程 TODO</view>
     </view>
 
   </view>
