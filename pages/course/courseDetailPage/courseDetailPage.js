@@ -57,7 +57,6 @@ Page({
       result.map((item, index) => {
         item.joined = !!(item.joinedClasses && item.joinedClasses.indexOf(selectedClassId) > -1)
       })
-      debugger
       self.setData({ childList: result })
     })
   },
@@ -80,12 +79,15 @@ Page({
   chooseClass(e) {
     const index = e.currentTarget.dataset.index
     const selectedClass = this.data.classes[index]
-    const tempId = selectedClass.id
-    const childList = self.data.childList
-
+    const selectedClassId = '' + selectedClass.id
+    let childList = this.data.childList
+    childList.map((item, index) => {
+      item.joined = !!(item.joinedClasses && item.joinedClasses.indexOf(selectedClassId) > -1)
+    })
     this.setData({
       selectedClassIndex: index,
-      selectedClass: selectedClass
+      selectedClass: selectedClass,
+      childList: childList
     })
   },
 
