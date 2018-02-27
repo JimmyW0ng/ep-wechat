@@ -15,7 +15,8 @@
     "pages/logs/logs",
     "pages/course/CoursePage",
     "pages/message/messageDetail/MessageDetailPage",
-    "pages/message/MessagePage"
+    "pages/message/MessagePage",
+    "pages/course/commentListPage/commentListPage"
   ],
   "window": {
     "backgroundTextStyle": "dark",
