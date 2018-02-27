@@ -4,9 +4,9 @@
   <view class='top-bar'>
     <view class='logo'>logo</view>
     <view class='top-message-wrap'>
-      <view class='top-message'>
+      <view class='top-message' wx:if="{{msgNum}}">
         <view class='text-overflow-ellipsis'>
-          “七七”收到老师1条评价七七”收到老师1条评价
+          “{{child.childNickName}}”收到老师{{msgNum}}条评价
         </view>
       </view>
       <view class='iconfont icon-message-o' bindtap='goMessageList'></view>

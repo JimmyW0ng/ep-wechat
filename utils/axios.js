@@ -19,6 +19,7 @@ function request(apiPath, method, param, success, axios) {
 
   let token = User.getToken() || ''
 
+  wx.showNavigationBarLoading()
   wx.showToast({
     icon: "loading",
     duration: 50000
@@ -63,6 +64,7 @@ function request(apiPath, method, param, success, axios) {
       setTimeout(() => {
         wx.hideToast();
       }, LoadingDuration)
+      wx.hideNavigationBarLoading()
       if (typeof complete == "function") {
         complete();
       }

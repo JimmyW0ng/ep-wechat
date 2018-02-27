@@ -1,18 +1,45 @@
 // pages/message/messagePage.js
+const AXIOS = require('../../utils/axios')
+const USER = require('../../utils/user')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    // dataSet:[1,2,3]
-    dataSet: []
+    dataSet: [],
+    page: 0,
+    size: 5,
+    last: false,
   },
 
-  toggleData() {
-    this.setData({
-      dataSet: [1, 2, 3]
-    })
+  getListData(loadMore) {
+    const self = this
+    let page = loadMore ? self.data.page + 1 : 0
+    let size = self.data.size || 10
+    let child = USER.getSelectedChild() || {}
+    let childId = child.id || ''
+
+    if (childId) {
+      AXIOS.POST('auth/member/message/comment/page', {
+        childId,
+        page,
+        size
+      }, (res) => {
+        const result = res.result || {}
+        let content = result.content || []
+        if (page > 0) {
+          content = self.data.dataSet.concat(content)
+        }
+        self.setData({
+          dataSet: content,
+          page: result.number || 0,
+          last: result.last,
+          child
+        })
+      })
+    }
   },
 
   /**
@@ -33,7 +60,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.getListData()
   },
 
   /**
@@ -54,14 +81,16 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    this.getListData()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    if (!this.data.last) {
+      this.getListData(true)
+    }
   },
 
   /**

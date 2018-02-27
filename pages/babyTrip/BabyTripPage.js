@@ -11,18 +11,16 @@ Page({
     dataSet: [],
     page: 0,
     size: 5,
-    last: false
+    last: false,
+    child: {
+      childNickName:"fff"
+    },
+    msgNum: 0
   },
 
   goMessageList() {
     wx.navigateTo({
       url: '../message/MessagePage'
-    })
-  },
-
-  toggleData() {
-    this.setData({
-      dataSet: [1, 2, 3]
     })
   },
 
@@ -47,12 +45,26 @@ Page({
         self.setData({
           dataSet: content,
           page: result.number || 0,
-          last: result.last
+          last: result.last,
+          child        
         })
       })
     }
   },
 
+  getMsgCount(){
+    const self = this
+    let child = USER.getSelectedChild() || {}
+    let childId = child.id || ''
+
+    AXIOS.POST('auth/member/message/comment/unread/num', {
+      childId
+    }, (res) => {
+      self.setData({
+        msgNum: res.result || 0,
+      })
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -73,6 +85,7 @@ Page({
    */
   onShow: function () {
     this.getListData()
+    this.getMsgCount()
   },
 
   /**

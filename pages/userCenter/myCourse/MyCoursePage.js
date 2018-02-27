@@ -81,8 +81,10 @@ Page({
     })
   },
 
-  openHonorModal(){
-
+  goMyHonor(){
+    wx.navigateTo({
+      url: '../myHonor/MyHonorPage',
+    })
   },
 
   /**
