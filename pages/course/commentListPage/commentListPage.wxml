@@ -1,2 +1,13 @@
 <!--pages/course/commentListPage/commentListPage.wxml-->
-<text>pages/course/commentListPage/commentListPage.wxml</text>
+<tag-list tags="{{tags}}"></tag-list>
+
+<view class='comment-list'>
+  <view class='comment-item' wx:for="{{dataSet}}" wx:key="{{index}}">
+    <view class=''>{{item.catalogTitle}}</view>
+    <view class=''>{{item.catalogDesc}}</view>
+    <view class=''>{{item.comment}}</view>
+    <view class=''>{{item.commentTimeFormat}}</view>
+    <view class=''>{{item.startTime}}</view>
+    <view class=''>{{item.startTimeFormat}}</view>
+  </view>
+</view>

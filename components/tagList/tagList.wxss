@@ -1,0 +1,14 @@
+/* components/tagList/tagList.wxss */
+.tag-list {
+  padding: 20px;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.tag {
+  padding: 8px 10px;
+  display: inline-block;
+  background: rgba(94, 228, 149, 0.2);
+  border-radius: 4px;
+  font-size: 14px;
+  margin-right: 10px;
+}

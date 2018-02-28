@@ -1,18 +1,35 @@
 // pages/course/commentListPage/commentListPage.js
+const AXIOS = require('../../../utils/axios')
+const _ = require('../../../utils/underscore')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    dataSet: [],
+    tags: []
+  },
+
+  getListData(orderId){
+    const self = this
+    AXIOS.POST('auth/child/class/catalog/detail', {
+      orderId
+    }, (res) => {
+      const result = res.result || {}
+      self.setData({
+        dataSet: result.classCatalogs || [],
+        tags: result.tags || []
+      })
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getListData(options.orderId)
   },
 
   /**

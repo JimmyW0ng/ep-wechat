@@ -71,7 +71,10 @@ Page({
   },
 
   goTeacherComment(e){
-
+    let orderId = e.currentTarget.dataset.orderid
+    wx.navigateTo({
+      url: '/pages/course/commentListPage/commentListPage?orderId=' + orderId,
+    })
   },
 
   goEvaluate(e){

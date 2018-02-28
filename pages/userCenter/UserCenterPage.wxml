@@ -32,13 +32,9 @@
     </view>
   </view>
 
-  <view class='userCenter-footer'>
-    <view class='tag-list' wx:if="{{tags.length}}">
-      <view class='tag' wx:for="{{tags}}" wx:key="{{index}}">
-        {{item.tagName}}{{item.num ? '(' + item.num + ')' : ''}}
-      </view>
-    </view>
+  <tag-list tags="{{tags}}"></tag-list>
 
+  <view class='userCenter-footer'>
     <view class='footer-title'>评价（{{totalElements}}）</view>
     <view class='comment-list' wx:if="{{commentList.length}}">
       <view class='comment-item' wx:for="{{commentList}}" wx:key="{{index}}">

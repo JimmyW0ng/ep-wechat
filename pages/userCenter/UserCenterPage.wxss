@@ -80,7 +80,7 @@ line-height: 14px;
 }
 
 .userCenter-footer {
-  padding: 25px 20px;
+  padding: 20px;
 }
 
 .footer-title {
@@ -92,21 +92,6 @@ line-height: 14px;
 .footer-empty {
   padding: 50px 0;
   text-align: center;
-}
-
-.tag-list {
-  padding-bottom: 20px;
-  border-bottom: 1px solid #e9e9e9;
-  margin-bottom: 20px;
-}
-
-.tag {
-  padding: 8px 10px;
-  display: inline-block;
-  background: rgba(94, 228, 149, 0.2);
-  border-radius: 4px;
-  font-size: 14px;
-  margin-right: 10px;
 }
 
 .img-empty {
