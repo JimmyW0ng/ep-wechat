@@ -20,10 +20,10 @@ function request(apiPath, method, param, success, axios) {
   let token = User.getToken() || ''
 
   wx.showNavigationBarLoading()
-  wx.showToast({
-    icon: "loading",
-    duration: 50000
-  })
+  // wx.showToast({
+  //   icon: "loading",
+  //   duration: 50000
+  // })
 
   // if (!data.noToken) {
   //   if (!token) {
@@ -61,9 +61,9 @@ function request(apiPath, method, param, success, axios) {
       }
     },
     complete: function () {
-      setTimeout(() => {
-        wx.hideToast();
-      }, LoadingDuration)
+      // setTimeout(() => {
+      //   wx.hideToast();
+      // }, LoadingDuration)
       wx.hideNavigationBarLoading()
       if (typeof complete == "function") {
         complete();
