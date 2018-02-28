@@ -3,11 +3,27 @@
 
 <view class='comment-list'>
   <view class='comment-item' wx:for="{{dataSet}}" wx:key="{{index}}">
-    <view class=''>{{item.catalogTitle}}</view>
-    <view class=''>{{item.catalogDesc}}</view>
-    <view class=''>{{item.comment}}</view>
-    <view class=''>{{item.commentTimeFormat}}</view>
-    <view class=''>{{item.startTime}}</view>
-    <view class=''>{{item.startTimeFormat}}</view>
+    <view class='class-info'>
+      <view class='class-info-top'>
+        <view class='top-left'>{{item.catalogTitle}}</view>
+        <view class='top-right'>{{item.startTimeFormat}}</view>
+      </view>
+      <view class='class-info-bottom'>{{item.catalogDesc}}</view>
+    </view>
+    <view class='comment-info' wx:if="{{item.comment}}">
+      <view class='teacher-comment' wx:if="{{item.comment}}">
+        <view class='title-teacher'>老师评价：</view>
+        <view class='content'>{{item.comment}}</view>
+      </view>
+      
+      <view class='child-comment' wx:if="{{item.replay}}">
+        <view class='title-child'>我的回复：</view>
+        <view class='content'>{{item.replay}}</view>
+      </view>
+
+      <view class='no-child-comment' data-id="{{item.id}}" bindtap="doReplay" wx:if="{{!item.replay && item.comment}}">
+        点击回复
+      </view>
+    </view>
   </view>
 </view>

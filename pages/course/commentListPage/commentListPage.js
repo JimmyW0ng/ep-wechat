@@ -14,6 +14,7 @@ Page({
 
   getListData(orderId){
     const self = this
+    orderId = orderId || self.data.orderId || ''
     AXIOS.POST('auth/child/class/catalog/detail', {
       orderId
     }, (res) => {
@@ -25,11 +26,29 @@ Page({
     })
   },
 
+  doReplay(e){
+    const self = this
+    const commentId = e.currentTarget.dataset.id
+    AXIOS.POST('auth/child/class/catalog/detail/replay', {
+      commentId,
+      content: 'hello fc'
+    }, (res) => {
+      const result = res.result || {}
+      wx.showToast({
+        title: '回复成功',
+      })
+      self.getListData()
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.getListData(options.orderId)
+    this.setData({
+      orderId: options.orderId
+    })
   },
 
   /**
