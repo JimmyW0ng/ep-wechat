@@ -1,6 +1,6 @@
 <view class="scroll-view" bindtouchstart="handlerStart" catchtouchmove="handlerMove" bindtouchcancel="handlerCancel" bindtouchend="handlerEnd">
   <view class='avatar-container'>
-    <view class="avatar-item {{index == activeIndex && 'active'}}" style="left: {{(30 * index)}}px; z-index: {{index == activeIndex ? '10' : children.length - index}}" wx:for="{{list}}" wx:key="index"
+    <view class="avatar-item {{index == activeIndex && 'active'}}" style="left: {{(30 * index)}}px; z-index: {{index == activeIndex ? '10' : list.length - index}}" wx:for="{{list}}" wx:key="index"
     bindtap='onTap'
     data-index="{{index}}"
     data-id="{{item.id}}"
