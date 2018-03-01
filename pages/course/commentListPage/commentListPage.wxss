@@ -68,4 +68,5 @@
   font-size: 14px;
   color: #5ee495;
   line-height: 14px;
+  margin-top: 5px;
 }
