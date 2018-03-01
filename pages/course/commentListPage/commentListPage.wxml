@@ -1,6 +1,17 @@
 <!--pages/course/commentListPage/commentListPage.wxml-->
 <tag-list tags="{{tags}}"></tag-list>
 
+<view class='replay-modal' wx:if="{{showModal}}">
+  <view class='replay-mask' bindtap='hideReplayModal'></view>
+  <view class='replay-modal-container'>
+    <view class='replay-modal-title'></view>
+    <view class='replay-modal-body'>
+      <input maxlength='500' auto-focus="{{showModal}}" placeholder='请输入回复' value="{{tempContent}}" bindinput="bindInputReplay"></input>
+    </view>
+    <view class='replay-modal-footer ripple' bindtap='doReplay'>回复</view>
+  </view>
+</view>
+
 <view class='comment-list'>
   <view class='comment-item' wx:for="{{dataSet}}" wx:key="{{index}}">
     <view class='class-info'>
@@ -15,15 +26,13 @@
         <view class='title-teacher'>老师评价：</view>
         <view class='content'>{{item.comment}}</view>
       </view>
-      
+
       <view class='child-comment' wx:if="{{item.replay}}">
         <view class='title-child'>我的回复：</view>
         <view class='content'>{{item.replay}}</view>
       </view>
 
-      <view class='no-child-comment' data-id="{{item.id}}" bindtap="doReplay" wx:if="{{!item.replay && item.comment}}">
-        点击回复
-      </view>
+      <view class='no-child-comment' data-id="{{item.commentId}}" bindtap="openReplayModal" wx:if="{{!item.replay && item.comment}}">点击回复</view>
     </view>
   </view>
 </view>

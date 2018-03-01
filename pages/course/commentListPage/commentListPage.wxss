@@ -1,5 +1,7 @@
 /* pages/course/commentListPage/commentListPage.wxss */
-
+.comment-list {
+  padding-bottom: 50px;
+}
 .comment-item {
   padding-top: 20px;
   padding-left: 20px;
@@ -68,5 +70,33 @@
   font-size: 14px;
   color: #5ee495;
   line-height: 14px;
-  margin-top: 5px;
+  margin-top: 15px;
+}
+
+.replay-modal-container {
+  background: #fff;
+  width: 80%;
+  margin: 0 auto;
+  z-index: 3;
+  position: fixed;
+  top: 100px;
+  left: 10%;
+  box-sizing: border-box;
+}
+.replay-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+.replay-modal-body {
+  padding: 15px;
+}
+.replay-modal-footer {
+  padding: 15px;
+  text-align: center;
+  border-top: 1px solid #e9e9e9;
 }

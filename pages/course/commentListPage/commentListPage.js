@@ -9,7 +9,10 @@ Page({
    */
   data: {
     dataSet: [],
-    tags: []
+    tags: [],
+    showModal: false,
+    currentId: '',
+    tempContent: ''
   },
 
   getListData(orderId){
@@ -26,19 +29,54 @@ Page({
     })
   },
 
-  doReplay(e){
+  openReplayModal(e){
     const self = this
     const commentId = e.currentTarget.dataset.id
-    AXIOS.POST('auth/child/class/catalog/detail/replay', {
-      commentId,
-      content: 'hello fc'
-    }, (res) => {
-      const result = res.result || {}
-      wx.showToast({
-        title: '回复成功',
-      })
-      self.getListData()
+    self.setData({
+      currentId: commentId,
+      tempContent: '',
+      showModal: true
     })
+  },
+
+  hideReplayModal(){
+    this.setData({
+      currentId: '',
+      tempContent: '',
+      showModal: false
+    })
+  },
+
+  bindInputReplay(e){
+    this.setData({
+      tempContent: e.detail.value
+    })
+  },
+
+  doReplay(){
+    const self = this
+    const commentId = self.data.currentId
+    const content = self.data.tempContent
+    if (!content.length){
+      wx.showToast({
+        icon: 'none',
+        title: '请输入回复内容',
+      })
+    } else {
+      AXIOS.POST('auth/child/class/catalog/detail/replay', {
+        commentId,
+        content
+      }, (res) => {
+        const result = res.result || {}
+        wx.showToast({
+          title: '回复成功',
+        })
+        self.setData({
+          showModal: false
+        })
+        self.getListData()
+      })
+    }
   },
 
   /**
