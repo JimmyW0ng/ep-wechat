@@ -14,7 +14,7 @@ Page({
     childBirthday: '',
     childTrueName: '',
     childNickName: '',
-    childSex: '',
+    childSex: 'man',
     childIdentity: '',
     currentSchool: '',
     currentClass: '',
@@ -102,37 +102,56 @@ Page({
     })
   },
 
+  validForm(data){
+    if (!data.childNickName) {
+      wx.showToast({
+        icon: 'none',
+        title: '请填写宝贝昵称',
+      })
+      return false
+    } else if (!data.childBirthday) {
+      wx.showToast({
+        icon: 'none',
+        title: '请选择宝贝生日',
+      })
+      return false
+    } else {
+      return true
+    }
+  },
+
   handleSave (e){
     const self = this
     var data = self.data
-    if(data.childId){
-      AXIOS.POST('auth/child/edit', data, res => {
-        // alert('成功添加了')
-        wx.showToast({
-          title: '保存成功',
-          icon: 'success',
-          duration: 1000
-        })
-        wx.navigateBack({
-          delta: 1
-        })
-      })
-    } else {
-      AXIOS.POST('auth/child/add', data, res => {
-        // alert('成功添加了')
-        wx.showToast({
-          title: '保存成功',
-          icon: 'success',
-          duration: 1000
-        })
-        setTimeout(() => {
+    if(this.validForm(data)){
+      if(data.childId){
+        AXIOS.POST('auth/child/edit', data, res => {
+          // alert('成功添加了')
+          wx.showToast({
+            title: '保存成功',
+            icon: 'success',
+            duration: 1000
+          })
           wx.navigateBack({
             delta: 1
           })
-        }, 1000)
-      })
+        })
+      } else {
+        AXIOS.POST('auth/child/add', data, res => {
+          // alert('成功添加了')
+          wx.showToast({
+            title: '保存成功',
+            icon: 'success',
+            duration: 1000
+          })
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 1000)
+        })
+      }
     }
-
   },
 
   confirmDelete(e){
