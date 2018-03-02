@@ -16,6 +16,8 @@ Page({
     autoplay: false,
     interval: 5000,
     duration: 1000,
+    mainPicUrl: '',
+    totalCommentNum: 0
   },
 
   /**
@@ -39,6 +41,7 @@ Page({
         mainPicUrl: result.mainPicUrl || [],
         ognInfo: result.ognInfo || {},
         logoUrl: result.logoUrl || {},
+        totalCommentNum: result.totalCommentNum || 0
       })
     })
   },

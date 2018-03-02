@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    totalCommentNum: 0,
     classes: [],
     comments: [],
     course: {},
@@ -132,6 +133,7 @@ Page({
         course: result.course || {},
         successOrders: result.successOrders,
         team: result.team || [],
+        totalCommentNum: result.totalCommentNum || 0
       })
     })
   },

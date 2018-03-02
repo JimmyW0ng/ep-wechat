@@ -18,7 +18,7 @@
         <view class='org-name'>{{ognInfo.ognName}}</view>
         <view class='basic-count'>
           <score-star score="{{ognInfo.togetherScore}}"></score-star>
-          <view class='org-talk'>{{ognInfo.totalParticipate}}条评论</view>
+          <view class='org-talk'>{{totalCommentNum}}条评论</view>
         </view>
         <view class='org-slogan'>{{ognInfo.ognShortIntroduce}}</view>
       </view>

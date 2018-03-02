@@ -63,15 +63,19 @@
 
         <view class='tab-content course-comments'>
           <view class='tab-content-title'>评价
-            <view class='title-info'>({{comments.length}}条)</view>
+            <view class='title-info' wx:if="{{totalCommentNum > 0}}">
+              ({{totalCommentNum}}条)
+            </view>
           </view>
 
-          <view wx:for="{{comments}}" wx:key="index">
+          <view wx:if="{{totalCommentNum == 0}}" class='no-comments'>暂无评价</view>
+
+          <view wx:if="{{comments.length > 0}}" wx:for="{{comments}}" wx:key="index">
             <comment-item comment="{{item}}"></comment-item>  
           </view>
 
-          <view class='comment-check-all ripple' bindtap='goCourseCommentPage'>
-            <view class='check-all-text'>查看全部评价 TODO 是否展示</view>
+          <view class='comment-check-all ripple' bindtap='goCourseCommentPage' wx:if="{{totalCommentNum > 0 && (comments.length != totalCommentNum)}}">
+            <view class='check-all-text'>查看全部评价</view>
             <view class='check-all-icon iconfont icon-right2'></view>
           </view>
         </view>
@@ -86,11 +90,6 @@
       <view class='footer-name'>机构</view>
     </view>
 
-    <view class='footer-center'>
-      <view class='footer-price'>￥{{course.prizeMin}}</view>
-      <view class='footer-join-number'>已有{{course.totalParticipate}}人学习</view>
-    </view>
-
     <view class='footer-right'>
       <view class='btn-primary ripple' bindtap='showPopup'>立即报名</view>
     </view>
@@ -100,11 +99,11 @@
   <view class="zan-popup zan-popup--bottom {{popupStatus ? 'zan-popup--show' : ''}}">
     <view class="zan-popup__mask" bindtap='closePopup'></view>
     <view class="zan-popup__container join-container">
-      <view class='join-title'>课程班次 TODO</view>
+      <view class='join-title'>课程班次</view>
 
        <view class='date-list'>
         <view class="date-btn {{index == selectedClassIndex && 'active'}}" wx:for="{{classes}}" wx:key="{{index}}" data-index="{{index}}" bindtap='chooseClass'>
-          {{item.className}} {{item.classPrize}}
+          {{item.className}}
         </view>
       </view>  
 
@@ -123,7 +122,7 @@
           </view>
         </view>
       </view>
-      <view class='btn-primary ripple' bindtap='handleJoin'>确认报名</view>
+      <view class='btn-primary ripple' bindtap='handleJoin'>确认报名 ￥{{selectedClass.classPrize}}</view>
     </view>
   </view>
 </view>

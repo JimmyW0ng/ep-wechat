@@ -340,3 +340,9 @@ line-height: 16px;
   color: #fff;
   border: 1px solid #5ee495
 }
+
+.no-comments {
+  text-align: center;
+  padding-top: 50px;
+  color: #999;
+}

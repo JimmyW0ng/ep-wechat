@@ -2,7 +2,7 @@
   <view class='comment-header'>
     <image class="child-avatar" src="{{comment.childAvatar}}" mode="scaleToFill"></image>
     <view class='child-name'>{{comment.childNickName}}</view>
-    <image class='child-chosenFlag' src='../../asset/img/gold_medal_small.png'></image>
+    <image wx:if="{{comment.existHonor}}" class='child-chosenFlag' src='../../asset/img/gold_medal_small.png'></image>
   </view>
   <view class='comment-body'>
     <view class='comment-body-item'>{{comment.createAt}}</view>
