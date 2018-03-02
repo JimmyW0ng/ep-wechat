@@ -1,0 +1,15 @@
+ <view class='comment-item'>
+  <view class='comment-header'>
+    <image class="child-avatar" src="{{comment.childAvatar}}" mode="scaleToFill"></image>
+    <view class='child-name'>{{comment.childNickName}}</view>
+    <image class='child-chosenFlag' src='../../asset/img/gold_medal_small.png'></image>
+  </view>
+  <view class='comment-body'>
+    <view class='comment-body-item'>{{comment.createAt}}</view>
+    <view class='comment-body-item'>{{comment.className}}</view>
+    <view class='comment-body-item' style='display: flex'>
+      打分：<score-star score="{{comment.score}}"></score-star>
+    </view>
+  </view>
+  <view class='comment-footer'>{{comment.content}}</view>
+</view>

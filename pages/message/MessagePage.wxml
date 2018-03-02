@@ -2,7 +2,7 @@
 
 <view class='page'>
   <view class='message-list-wrap' wx:if="{{dataSet.length > 0}}">
-    <view class='message-item' wx:for="{{dataSet}}" wx:key="index">
+    <view class='message-item' bindtap='goTeacherComment' data-orderid="{{item.orderId}}"  wx:for="{{dataSet}}" wx:key="index">
       <view class='message-basic'>
         <view class='message-head-left'>
           <view class='message-avatar-wrap'>

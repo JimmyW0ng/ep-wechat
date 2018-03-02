@@ -1,0 +1,4 @@
+/* pages/course/courseCommentPage/courseCommentPage.wxss */
+.page {
+  padding-left: 20px;
+}

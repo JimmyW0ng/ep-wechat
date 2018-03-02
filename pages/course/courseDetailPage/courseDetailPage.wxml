@@ -66,25 +66,13 @@
             <view class='title-info'>({{comments.length}}条)</view>
           </view>
 
-          <view class='comment-item' wx:for="{{comments}}" wx:key="index">
-            <view class='comment-header'>
-              <image class="child-avatar" src="{{item.childAvatar}}" mode="scaleToFill"></image>
-              <view class='child-name'>{{item.childNickName}}</view>
-              <view class='child-chosenFlag'>{{item.chosenFlag}} TODO</view>
-            </view>
-            <view class='comment-body'>
-              <view class='comment-body-item'>{{item.createAt}}</view>
-              <view class='comment-body-item'>{{item.className}}</view>
-              <view class='comment-body-item' style='display: flex'>
-                打分：<score-star score="{{item.score}}"></score-star>
-              </view>
-            </view>
-            <view class='comment-footer'>{{item.content}}</view>
+          <view wx:for="{{comments}}" wx:key="index">
+            <comment-item comment="{{item}}"></comment-item>  
           </view>
 
-          <view class='comment-check-all'>
-            <view class='check-all-text' bindtap='getCourseComments'>查看全部评价</view>
-            <view class='check-all-icon iconfont icon-right1'></view>
+          <view class='comment-check-all ripple' bindtap='goCourseCommentPage'>
+            <view class='check-all-text'>查看全部评价 TODO 是否展示</view>
+            <view class='check-all-icon iconfont icon-right2'></view>
           </view>
         </view>
       </scroll-view>
@@ -125,7 +113,7 @@
       <view class='baby-list'>
         <view class="baby-list-item" bindtap='chooseChild' data-joined="{{item.joined}}" data-id="{{item.childId}}" wx:for="{{childList}}" wx:key="{{index}}">
           <view class='baby-info'>
-            <image class='item-avatar' src="{{item.avatar}}"></image>
+            <image class='item-avatar' src="{{item.avatar || '../../../asset/img/avatar-man.png'}}"></image>
             <view class='item-name'>{{item.childNickName}}</view>
           </view>
 

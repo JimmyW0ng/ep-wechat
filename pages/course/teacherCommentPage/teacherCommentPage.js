@@ -1,4 +1,3 @@
-// pages/course/commentListPage/commentListPage.js
 const AXIOS = require('../../../utils/axios')
 const _ = require('../../../utils/underscore')
 

@@ -23,7 +23,7 @@
   <view class='honor-list-wrap' wx:if="{{dataSet.length > 0}}">
     <view class="honor-item {{index % 2 == 0 ? 'even' : 'odd'}}" wx:for="{{dataSet}}" data-index="{{index}}" bindtap='openModal' wx:key="{{index}}">
       <view class='ribbon-wrap'>
-        <image class='ribbon' src="../../../asset/img/gold_medal_small.png"></image>
+        <image class='ribbon' src="../../../asset/img/gold_medal.png"></image>
       </view>
 
       <view class='avatar-wrap'>

@@ -136,17 +136,10 @@ Page({
     })
   },
 
-  getCourseComments(){
-    const self = this
-    AXIOS.POST('security/course/comment/page', {
-      courseId: self.data.courseId,
-      noToken: true
-    }, (res) => {
-      const result = res.result || {}
-      // TODO 需要分页？？？？？
-      self.setData({
-        courseCommentList: result.content || []
-      })
+  goCourseCommentPage(){
+    let courseId = this.data.courseId
+    wx.navigateTo({
+      url: `/pages/course/courseCommentPage/courseCommentPage?courseId=${courseId}` ,
     })
   },
 
@@ -157,10 +150,8 @@ Page({
     })
   },
 
-  // TODO 报名成功后的操作
   handleJoin() {
     const self = this
-    // TODO 这里已经报名过这个课程的小孩是否要过滤一下
     let selectedClass = self.data.selectedClass || {}
     let selectedClassId = selectedClass.id || ''
     let selectedChildId = self.data.selectedChildId
@@ -173,7 +164,7 @@ Page({
     } else {
       AXIOS.POST('auth/order/new', {
         childId: selectedChildId,
-        classId: selectedClassId // TODO这里没有展示班级的地方吧
+        classId: selectedClassId
       }, (res) => {
         wx.showToast({
           icon: 'success',
@@ -186,6 +177,7 @@ Page({
       })
     }
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

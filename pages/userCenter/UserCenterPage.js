@@ -24,14 +24,14 @@ Page({
     totalElements: 0
   },
 
-  goBabyDetail(item){
+  goBabyDetail(item) {
     let childId = item.detail.id
     wx.navigateTo({
       url: './addBaby/AddBabyPage?id=' + childId
     })
   },
 
-  changeBaby(item){
+  changeBaby(item) {
     let index = item.detail.activeIndex
     let selectedChild = this.data.children[index] || {}
     this.setData({
@@ -43,7 +43,7 @@ Page({
     USER.setSelectedChildIndex(index)
   },
 
-  getChildAbstract(id){
+  getChildAbstract(id) {
     const self = this
     AXIOS.POST('auth/child/abstract', {
       childId: id,
@@ -54,11 +54,11 @@ Page({
         totalOrder: result.totalOrder || 0,
         sign: result.sign || '',
         tags: result.tags || []
-      })    
+      })
     })
   },
 
-  getChildComment(id){
+  getChildComment(id) {
     const self = this
     AXIOS.POST('auth/child/comment/recent/page', {
       childId: id,
@@ -89,14 +89,14 @@ Page({
     })
   },
 
-  loadDetail(){
+  loadDetail() {
     const self = this
     AXIOS.POST('auth/member/detail', {}, res => {
       let result = res.result || {}
       let children = result.children || []
       let activeIndex = 0
       let tempIndex = USER.getSelectedChildIndex()
-      if (tempIndex > -1 && children[tempIndex]){
+      if (tempIndex > -1 && children[tempIndex]) {
         activeIndex = tempIndex
       }
 
@@ -112,6 +112,15 @@ Page({
         mbrInfo: result.mbrInfo || {},
       })
     })
+  },
+
+  goTeacherComment(e) {
+    let orderId = e.currentTarget.dataset.orderid
+    if (orderId) {
+      wx.navigateTo({
+        url: '/pages/course/teacherCommentPage/teacherCommentPage?orderId=' + orderId,
+      })
+    }
   },
 
   /**

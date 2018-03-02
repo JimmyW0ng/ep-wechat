@@ -16,7 +16,8 @@
     "pages/course/CoursePage",
     "pages/message/messageDetail/MessageDetailPage",
     "pages/message/MessagePage",
-    "pages/course/commentListPage/commentListPage"
+    "pages/course/teacherCommentPage/teacherCommentPage",
+    "pages/course/courseCommentPage/courseCommentPage"
   ],
   "window": {
     "backgroundTextStyle": "dark",

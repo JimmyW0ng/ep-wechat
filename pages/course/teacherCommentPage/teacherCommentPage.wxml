@@ -1,4 +1,3 @@
-<!--pages/course/commentListPage/commentListPage.wxml-->
 <tag-list tags="{{tags}}"></tag-list>
 
 <view class='replay-modal' wx:if="{{showModal}}">

@@ -37,7 +37,7 @@
   <view class='userCenter-footer'>
     <view class='footer-title'>评价（{{totalElements}}）</view>
     <view class='comment-list' wx:if="{{commentList.length}}">
-      <view class='comment-item' wx:for="{{commentList}}" wx:key="{{index}}">
+      <view class='comment-item' bindtap='goTeacherComment' data-orderid="{{item.orderId}}" wx:for="{{commentList}}" wx:key="{{index}}">
         <view class='teacher-basic'>
           <view class='left'>
             <image class="teacher-avatar" src="{{item.avatar}}" mode="scaleToFill"></image>

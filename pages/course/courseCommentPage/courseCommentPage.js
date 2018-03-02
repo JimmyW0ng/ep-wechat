@@ -1,6 +1,5 @@
-// pages/message/messagePage.js
-const AXIOS = require('../../utils/axios')
-const USER = require('../../utils/user')
+// pages/course/courseCommentPage/courseCommentPage.js
+const AXIOS = require('../../../utils/axios')
 
 Page({
 
@@ -8,54 +7,47 @@ Page({
    * 页面的初始数据
    */
   data: {
+    courseId: '',
     dataSet: [],
     page: 0,
     size: 5,
-    last: false,
+    last: false
   },
 
-  getListData(loadMore) {
+  getListData(loadMore, courseId) {
     const self = this
     let page = loadMore ? self.data.page + 1 : 0
     let size = self.data.size || 10
-    let child = USER.getSelectedChild() || {}
-    let childId = child.id || ''
+    courseId = courseId || self.data.courseId || ''
 
-    if (childId) {
-      AXIOS.POST('auth/member/message/comment/page', {
-        childId,
-        page,
-        size
-      }, (res) => {
-        const result = res.result || {}
-        let content = result.content || []
-        if (page > 0) {
-          content = self.data.dataSet.concat(content)
-        }
-        self.setData({
-          dataSet: content,
-          page: result.number || 0,
-          last: result.last,
-          child
-        })
+    AXIOS.POST('security/course/comment/page', {
+      page,
+      size,
+      courseId,
+      noToken: true
+    }, (res) => {
+      const result = res.result || {}
+      let content = result.content || []
+      if (page > 0) {
+        content = self.data.dataSet.concat(content)
+      }
+      self.setData({
+        dataSet: content,
+        page: result.number || 0,
+        last: result.last
       })
-    }
+    })
   },
 
-  goTeacherComment(e) {
-    let orderId = e.currentTarget.dataset.orderid
-    if (orderId) {
-      wx.navigateTo({
-        url: '/pages/course/teacherCommentPage/teacherCommentPage?orderId=' + orderId,
-      })
-    }
-  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getListData(false, options.courseId)
+    this.setData({
+      courseId: options.courseId
+    })
   },
 
   /**
@@ -69,7 +61,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getListData()
+  
   },
 
   /**
