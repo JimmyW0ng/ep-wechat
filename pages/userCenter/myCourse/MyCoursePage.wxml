@@ -1,6 +1,6 @@
 <view>
 
-  <view class='tab-header' style="display: flex; flex-direction:row;">
+  <view class='tab-header'>
     <view class="tab-selector {{selectedTab == 0 && 'active'}}" data-tab="0" bindtap='selectTab'>全部</view>
     <view class="tab-selector {{selectedTab == 1 && 'active'}}" data-tab="1" bindtap='selectTab'>报名中</view>
     <view class="tab-selector {{selectedTab == 2 && 'active'}}" data-tab="2" bindtap='selectTab'>学习中</view>
@@ -23,7 +23,7 @@
             </view>
             <view class='course-bottom-info'>
               <view class='course-price'>￥{{item.pirzeFormat || 0}}</view>
-              <view class='course-learn-num'>{{item.statusText}}</view>
+              <view class="{{'course-learn-num ' + (item.status == 'end' ? 'disabled' : '')}}">{{item.statusText}}</view>
             </view>
 
             <view class='course-actions'>

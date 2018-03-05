@@ -8,6 +8,13 @@
   border-bottom: 1px solid #e9e9e9;
   box-sizing: border-box;
   height: 50px;
+  flex-direction:row;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  background: #fff;
 }
 
 .tab-selector {
@@ -22,6 +29,10 @@
 .tab-selector.active {
   color: #5ee495;
   border-bottom: 2px solid #5ee495;
+}
+
+.tab-isbody {
+  margin-top: 50px;
 }
 
 .tab-body {
@@ -104,7 +115,7 @@ color: #5EE495;
 line-height: 14px;
 }
 .course-learn-num.disabled {
-color: #A4AFBF;
+color: #999;
 }
 .course-actions {
   margin-top: 10px;
