@@ -1,6 +1,5 @@
 /* pages/userCenter/myCourse/MyCoursePage.wxss */
 
-
 .tab-header {
   display: flex;
   justify-content: space-between;
@@ -8,7 +7,7 @@
   border-bottom: 1px solid #e9e9e9;
   box-sizing: border-box;
   height: 50px;
-  flex-direction:row;
+  flex-direction: row;
   position: fixed;
   top: 0;
   left: 0;
@@ -43,7 +42,6 @@
 .tab-content {
 }
 
-
 .course-list-wrap {
   padding-left: 20px;
 }
@@ -55,7 +53,7 @@
   padding: 15px 0;
   padding-right: 20px;
   border-bottom: 1px solid #e9e9e9;
-  }
+}
 
 .course-avatar {
   display: inline-block;
@@ -81,25 +79,27 @@
 .course-tag {
   font-size: 12px;
   padding: 2px 6px;
-  background: #5EE495;
-border-radius: 4px;
-color: #fff;
+  background: #5ee495;
+  border-radius: 4px;
+  color: #fff;
 }
 
-.course-name,
-.course-classhour {
+.course-name, .course-classhour {
   font-size: 12px;
   color: #7d8794;
   line-height: 12px;
   margin-left: 10px;
 }
+
 .course-simple-info {
-   display: flex;
-   align-items: center;
+  display: flex;
+  align-items: center;
 }
+
 .course-bottom-info {
   display: flex;
-  justify-content: space-between;   align-items: center;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 15px;
 }
 
@@ -110,13 +110,15 @@ color: #fff;
 }
 
 .course-learn-num {
-font-size: 14px;
-color: #5EE495;
-line-height: 14px;
+  font-size: 14px;
+  color: #5ee495;
+  line-height: 14px;
 }
+
 .course-learn-num.disabled {
-color: #999;
+  color: #999;
 }
+
 .course-actions {
   margin-top: 10px;
   text-align: right;
@@ -127,7 +129,5 @@ color: #999;
   margin-bottom: 8px;
 }
 
-
 .course-detail-footer {
-  
 }
