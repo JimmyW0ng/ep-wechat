@@ -23,9 +23,7 @@
         <view class='org-slogan'>{{ognInfo.ognShortIntroduce}}</view>
       </view>
       <view class='basic-right'>
-        <view class='org-avatar-wrap'>
-          <image class='org-logo' src="{{logoUrl}}" mode="scaleToFill"></image>
-        </view>
+        <image class='org-avatar-wrap' src="{{logoUrl}}" mode="scaleToFill"></image>
       </view>
     </view>
 

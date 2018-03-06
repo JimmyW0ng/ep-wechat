@@ -81,6 +81,10 @@
   align-items: center;
 }
 
+.contact-right {
+  margin-left: 15px;
+}
+
 .icon-address {
   margin-right: 5px;
   color: #7d8794;
@@ -90,7 +94,7 @@
   font-size: 14px;
   color: #1e293c;
   letter-spacing: 0;
-  line-height: 14px;
+  line-height: 16px;
 }
 
 .icon-phone {
