@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/userCenter/UserCenterPage",
     "pages/orgnization/OrgnizationPage",
+    "pages/userCenter/UserCenterPage",
     "pages/index/index",
     "pages/course/courseDetailPage/courseDetailPage",
     "pages/course/evaluatePage/EvaluatePage",
