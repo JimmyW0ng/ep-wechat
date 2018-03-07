@@ -73,17 +73,20 @@ function request(apiPath, method, param, success, axios) {
 }
 
 function processRequestError(result) {
-  // TODO 优化一下对话框
   if (result.error == "ERROR_ACCESS_NEED_AUTH") {
     wx.showModal({
-      title: '请登陆',
-      showCancel: false,
+      title: '提示',
+      content: '请先登录',
+      success: function (res) {
+        if (res.confirm) {
+          wx.redirectTo({
+            url: LoginUrl
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
     })
-    setTimeout(() => {
-      wx.redirectTo({
-        url: LoginUrl
-      })
-    }, 1000)
   } else {
     wx.showModal({
       title: '提示',
