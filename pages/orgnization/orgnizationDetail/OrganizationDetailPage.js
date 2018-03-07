@@ -17,7 +17,10 @@ Page({
     interval: 5000,
     duration: 1000,
     mainPicUrl: '',
-    totalCommentNum: 0
+    totalCommentNum: 0,
+    showMoreBtn: false,
+    showShortIntro: false,
+    introLimit: 100
   },
 
   /**
@@ -35,13 +38,26 @@ Page({
       noToken: true
     }, (res) => {
       const result = res.result || {}
-      WxParse.wxParse('ognIntroduce', 'html', result.ognInfo.ognIntroduce, self, 0);
+      // WxParse.wxParse('ognIntroduce', 'html', result.ognInfo.ognIntroduce, self, 0);
+      let ongInfo = result.ognInfo || {}
+      let ognIntroduce = ongInfo.ognIntroduce || ''
+
+      let showMoreBtn = false
+      let showShortIntro = false
+      let introLimit = this.data.introLimit
+      if (ognIntroduce.length > introLimit){
+        ongInfo.shortOngIntroduce = ognIntroduce.substr(0, introLimit)
+        showMoreBtn = true
+        showShortIntro = true
+      }
 
       self.setData({
-        mainPicUrl: result.mainPicUrl || [],
-        ognInfo: result.ognInfo || {},
+        mainPicUrl: result.mainPicUrl || '',
+        ognInfo: ongInfo || {},
         logoUrl: result.logoUrl || {},
-        totalCommentNum: result.totalCommentNum || 0
+        totalCommentNum: result.totalCommentNum || 0,
+        showMoreBtn,
+        showShortIntro
       })
     })
   },
@@ -79,6 +95,12 @@ Page({
         }
       })
     }
+  },
+
+  toggleIntro(){
+    this.setData({
+      showShortIntro: !this.data.showShortIntro
+    })
   },
 
   callOgn(e) {
