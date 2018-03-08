@@ -6,7 +6,6 @@
     "pages/course/courseDetailPage/courseDetailPage",
     "pages/course/evaluatePage/EvaluatePage",
     "pages/userCenter/myHonor/MyHonorPage",
-    "pages/scrollableTabView/index",
     "pages/userCenter/myCourse/MyCoursePage",
     "pages/babyTrip/BabyTripPage",
     "pages/login/LoginPage",

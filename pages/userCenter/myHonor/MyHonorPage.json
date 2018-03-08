@@ -1,4 +1,7 @@
 {
     "enablePullDownRefresh": true,
-  "navigationBarTitleText": "奖状墙"
+  "navigationBarTitleText": "奖状墙",
+  "usingComponents": {
+    "loadIcon": "../../../components/loadIcon/loadIcon"
+  }
 }

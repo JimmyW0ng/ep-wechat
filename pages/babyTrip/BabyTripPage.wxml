@@ -1,6 +1,5 @@
 <!--pages/babyTrip/BabyTripPage.wxml-->
 <view class='page'>
-
   <view class='top-bar'>
     <view class='logo'>logo</view>
     <view class='top-message-wrap'>

@@ -21,7 +21,8 @@ Page({
     },
     statusText: {
       
-    }
+    },
+    loading: true
   },
 
   selectTab(e) {
@@ -57,6 +58,7 @@ Page({
           content = self.data.dataSet.concat(content)
         }
         self.setData({
+          loading: false,
           dataSet: content,
           page: result.number || 0,
           last: result.last

@@ -1,5 +1,7 @@
 <!--pages/orgnization/OrgnizationPage.wxml-->
-<view class='page'>
+<loadIcon wx:if="{{loading}}"></loadIcon>
+
+<view class='page' wx:else>
   <view class='title'>
     精选培训机构
   </view>

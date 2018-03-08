@@ -1,4 +1,7 @@
 <!--pages/course/courseCommentPage/courseCommentPage.wxml-->
+
+<loadIcon wx:if="{{loading}}"></loadIcon>
+
 <view class='page'>
   <view wx:for="{{dataSet}}" wx:key="index">
     <comment-item comment="{{item}}"></comment-item>

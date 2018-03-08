@@ -1,5 +1,7 @@
 <!--pages/userCenter/myHonor/MyHonorPage.wxml-->
-<view class='page'>
+<loadIcon wx:if="{{loading}}"></loadIcon>
+
+<view class='page' wx:else>
   <view class='modal' wx:if="{{showModal}}">
     <view class='modal-mask' bindtap='closeModal'></view>
     <view class='modal-container'>

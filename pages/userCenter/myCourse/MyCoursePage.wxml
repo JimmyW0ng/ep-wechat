@@ -1,4 +1,6 @@
-<view>
+<loadIcon wx:if="{{loading}}"></loadIcon>
+
+<view wx:else>
 
   <view class='tab-header'>
     <view class="tab-selector {{selectedTab == 0 && 'active'}}" data-tab="0" bindtap='selectTab'>全部</view>

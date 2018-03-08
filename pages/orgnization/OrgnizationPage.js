@@ -9,7 +9,8 @@ Page({
     dataSet: [],
     page: 0,
     size: 5,
-    last: false
+    last: false,
+    loading: true
   },
 
   goOrgDetailPage(e) {
@@ -49,6 +50,7 @@ Page({
         content = self.data.dataSet.concat(content)
       }
       self.setData({ 
+        loading: false,
         dataSet: content,
         page: result.number || 0,
         last: result.last

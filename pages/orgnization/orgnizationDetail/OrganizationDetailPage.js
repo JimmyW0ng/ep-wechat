@@ -20,7 +20,8 @@ Page({
     totalCommentNum: 0,
     showMoreBtn: false,
     showShortIntro: false,
-    introLimit: 100
+    introLimit: 100,
+    loading: true
   },
 
   /**
@@ -52,6 +53,7 @@ Page({
       }
 
       self.setData({
+        loading: false,
         mainPicUrl: result.mainPicUrl || '',
         ognInfo: ongInfo || {},
         logoUrl: result.logoUrl || {},

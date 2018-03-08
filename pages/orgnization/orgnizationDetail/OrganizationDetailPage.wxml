@@ -1,5 +1,8 @@
 <!--pages/orgnization/orgnizationDetail/OrganizationDetailPage.wxml-->
-<view>
+
+<loadIcon wx:if="{{loading}}"></loadIcon>
+
+<view wx:else>
   <!-- <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{ognBanners}}" wx:key="index">
       <swiper-item>

@@ -2,6 +2,7 @@
   "navigationBarTitleText": "全部评价",
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "comment-item": "../../../components/commentItem/commentItem"
+    "comment-item": "../../../components/commentItem/commentItem",
+      "loadIcon": "../../../components/loadIcon/loadIcon"
   }
 }

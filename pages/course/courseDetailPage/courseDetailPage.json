@@ -2,6 +2,7 @@
   "navigationBarTitleText": "课程详情",
     "usingComponents": {
       "score-star": "../../../components/scoreStar/scoreStar",
-      "comment-item": "../../../components/commentItem/commentItem"
+      "comment-item": "../../../components/commentItem/commentItem",
+        "loadIcon": "../../../components/loadIcon/loadIcon"
     }
 }

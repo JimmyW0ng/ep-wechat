@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "机构详情",
     "usingComponents": {
-      "score-star": "../../../components/scoreStar/scoreStar"
+      "score-star": "../../../components/scoreStar/scoreStar",
+          "loadIcon": "../../../components/loadIcon/loadIcon"
     }
 }

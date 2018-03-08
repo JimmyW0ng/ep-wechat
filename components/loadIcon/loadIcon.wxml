@@ -1,0 +1,6 @@
+<view class="sk-folding-cube">
+  <view class="sk-cube1 sk-cube"></view>
+  <view class="sk-cube2 sk-cube"></view>
+  <view class="sk-cube4 sk-cube"></view>
+  <view class="sk-cube3 sk-cube"></view>
+</view>

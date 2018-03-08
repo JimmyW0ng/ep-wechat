@@ -25,7 +25,8 @@ Page({
     swiperHeight: '',
 
     courseId: '',
-    courseCommentList: []
+    courseCommentList: [],
+    loading: true
   },
 
   /**
@@ -127,6 +128,7 @@ Page({
     }, (res) => {
       const result = res.result || {}
       self.setData({
+        loading: false,
         classes: result.classes || [],
         selectedClass: result.classes[0],
         comments: result.comments || [],
