@@ -16,7 +16,7 @@
     </view> 
   </view>
 
-  <img-uploader bind:change="changeImg">
+  <img-uploader wx:if="{{uploadLimit !== previewImgList.length}}" limit="{{uploadLimit - previewImgList.length}}" bind:change="changeImg">
     <view class='upload-btn'>
       <view class='iconfont icon-plus1'></view>
       <view class='upload-btn-text'>添加照片</view>

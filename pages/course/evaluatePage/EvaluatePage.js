@@ -12,7 +12,8 @@ Page({
     orderId: '',
     score: 0,
     content: '',
-    previewImgList: []
+    previewImgList: [],
+    uploadLimit: 4
   },
 
   changeScore(item) {

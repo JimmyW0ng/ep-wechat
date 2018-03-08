@@ -105,7 +105,7 @@ function processHttpError(xhr, errorType, error) {
   })
 }
 
-const UPLOAD = (filePath, callback, uploadCallback) => {
+const UPLOAD = (filePath, callback, error, uploadCallback) => {
   let uploadTask = wx.uploadFile({
     url: CONFIG.apiUrl + 'auth/file/child/avatar',
     filePath,
@@ -120,7 +120,9 @@ const UPLOAD = (filePath, callback, uploadCallback) => {
       }
     },
     fail: (res) => {
-      // debugger
+      if(error) {
+        error(JSON.parse(res.data))
+      }
     },
     complete(res) {
       // debugger
