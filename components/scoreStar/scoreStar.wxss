@@ -3,7 +3,6 @@
 .score-star-wrap {
   display: flex;
   overflow: hidden;
-  padding-top: 2px;
 }
 
 .star-image {

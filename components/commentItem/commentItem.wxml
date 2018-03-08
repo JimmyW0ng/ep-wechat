@@ -7,7 +7,7 @@
   <view class='comment-body'>
     <view class='comment-body-item'>{{comment.createAt}}</view>
     <view class='comment-body-item'>{{comment.className}}</view>
-    <view class='comment-body-item' style='display: flex'>
+    <view class='comment-body-item'>
       打分：<score-star score="{{comment.score}}"></score-star>
     </view>
   </view>

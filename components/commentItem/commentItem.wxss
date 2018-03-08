@@ -44,6 +44,8 @@
 
 .comment-body-item {
   margin-right: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .comment-footer {
