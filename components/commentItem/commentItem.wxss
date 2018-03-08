@@ -54,3 +54,15 @@
   color: #1e293c;
   line-height: 22px;
 }
+
+.comment-pics {
+  font-size: 0;
+}
+
+.comment-pic {
+  display: inline-block;
+  margin-right: 10px;
+  margin-top: 10px;
+  width: 80px;
+  height: 80px;
+}

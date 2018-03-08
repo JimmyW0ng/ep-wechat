@@ -12,4 +12,8 @@
     </view>
   </view>
   <view class='comment-footer'>{{comment.content}}</view>
+
+  <view class='comment-pics' wx:if="{{comment.pics}}">
+    <image class='comment-pic' wx:for="{{comment.pics}}" src="{{item}}"></image>
+  </view>
 </view>

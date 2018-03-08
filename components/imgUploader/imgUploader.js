@@ -10,6 +10,10 @@ Component({
     limit: {
       type: Number,
       value: 1
+    },
+    pathType: {
+      type: String,
+      value: 'childAvatar'
     }
   },
 
@@ -17,7 +21,10 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    pathObj: {
+      childAvatar: 'auth/file/child/avatar',
+      commentPic: 'auth/file/child/class/comment/pic'
+    }
   },
 
   /**
@@ -28,6 +35,7 @@ Component({
       const self = this
       console.log('limit', self.data.limit)
       let limit = self.data.limit
+      let path = self.data.pathObj[self.data.pathType]
       if (limit > 0) {
         wx.chooseImage({
           count: self.data.limit, // 默认9
@@ -36,7 +44,7 @@ Component({
           success: (res) => {
             const tempFilePaths = res.tempFilePaths;
             tempFilePaths.map((item, index) => {
-              AXIOS.UPLOAD(item, (res) => {
+              AXIOS.UPLOAD(item, path, (res) => {
                 let result = res.result || {}
                 let preCode = result.preCode
                 let fileUrl = result.fileUrl
