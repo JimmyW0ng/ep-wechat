@@ -73,10 +73,10 @@ function request(apiPath, method, param, success, axios) {
 }
 
 function processRequestError(result) {
-  if (result.error == "ERROR_ACCESS_NEED_AUTH") {
+  if (result.errorDescription == "请重新登录") {
     wx.showModal({
       title: '提示',
-      content: '请先登录',
+      content: result.errorDescription,
       success: function (res) {
         if (res.confirm) {
           wx.redirectTo({
@@ -90,7 +90,7 @@ function processRequestError(result) {
   } else {
     wx.showModal({
       title: '提示',
-      content: result.error + ' : ' + result.errorDescription,
+      content: result.errorDescription,
       showCancel: false,
     })
   }
