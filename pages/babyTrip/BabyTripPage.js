@@ -13,7 +13,7 @@ Page({
     size: 5,
     last: false,
     child: {
-      childNickName:"fff"
+      childNickName: "fff"
     },
     msgNum: 0
   },
@@ -46,24 +46,26 @@ Page({
           dataSet: content,
           page: result.number || 0,
           last: result.last,
-          child        
+          child
         })
       })
     }
   },
 
-  getMsgCount(){
+  getMsgCount() {
     const self = this
     let child = USER.getSelectedChild() || {}
     let childId = child.id || ''
 
-    AXIOS.POST('auth/member/message/comment/unread/num', {
-      childId
-    }, (res) => {
-      self.setData({
-        msgNum: res.result || 0,
+    if (childId) {
+      AXIOS.POST('auth/member/message/comment/unread/num', {
+        childId
+      }, (res) => {
+        self.setData({
+          msgNum: res.result || 0,
+        })
       })
-    })
+    }
   },
 
   /**
