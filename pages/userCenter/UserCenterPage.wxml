@@ -56,8 +56,8 @@
       <view class='img-empty'>
         <image class='org-cover' src="../../asset/img/comment_empty.png" mode="scaleToFill"></image>
       </view>
-      <view class='text-empty'>暂无评价，去看看吧</view>
-      <view class='btn-empty ripple'>查看课程 TODO</view>
+      <view class='text-empty'>暂无评价</view>
+      <view class='btn-empty ripple' bindtap='goOgnList'>查看机构</view>
     </view>
 
   </view>

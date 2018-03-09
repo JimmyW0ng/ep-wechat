@@ -76,7 +76,7 @@ function processRequestError(result) {
   if (result.errorDescription == "请重新登录") {
     wx.showModal({
       title: '提示',
-      content: result.errorDescription,
+      content: result.errorDescription || '',
       success: function (res) {
         if (res.confirm) {
           wx.redirectTo({
@@ -90,7 +90,7 @@ function processRequestError(result) {
   } else {
     wx.showModal({
       title: '提示',
-      content: result.errorDescription,
+      content: result.errorDescription || '',
       showCancel: false,
     })
   }
