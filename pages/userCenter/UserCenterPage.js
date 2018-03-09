@@ -95,15 +95,20 @@ Page({
       let result = res.result || {}
       let children = result.children || []
       let activeIndex = 0
-      let tempIndex = USER.getSelectedChildIndex()
-      if (tempIndex > -1 && children[tempIndex]) {
-        activeIndex = tempIndex
-      }
+      let selectedChild = {}
 
-      let selectedChild = children[activeIndex] || {}
-      self.getChildAbstract(selectedChild.id)
-      self.getChildComment(selectedChild.id)
-      USER.setSelectedChild(selectedChild)
+      if(children.length){
+        let tempIndex = USER.getSelectedChildIndex()
+        if (tempIndex > -1 && children[tempIndex]) {
+          activeIndex = tempIndex
+        }
+
+        // 如果有 children的话
+        let selectedChild = children[activeIndex] || {}
+        self.getChildAbstract(selectedChild.id)
+        self.getChildComment(selectedChild.id)
+        USER.setSelectedChild(selectedChild)
+      }
 
       self.setData({
         activeIndex,
