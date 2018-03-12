@@ -26,7 +26,8 @@ Page({
       { name: '男', value: 'man', checked: true},
       { name: '女', value: 'woman' },
     ],
-    today: new Date()
+    today: new Date(),
+    canDeleteFlag: false
   },
 
   loadDetail(childId){
@@ -58,7 +59,8 @@ Page({
         id: result.id || '',
         memberId: result.memberId || '',
         sign: result.sign || '',
-        radioItems: radioItems
+        radioItems: radioItems,
+        canDeleteFlag: result.canDeleteFlag
       })
     })
   },
