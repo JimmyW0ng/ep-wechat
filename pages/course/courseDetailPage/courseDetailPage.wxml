@@ -113,7 +113,7 @@
       <view class='baby-list'>
         <view class="baby-list-item" bindtap='chooseChild' data-joined="{{item.joined}}" data-id="{{item.childId}}" wx:for="{{children}}" wx:key="{{index}}">
           <view class='baby-info'>
-            <image class='item-avatar' src="{{item.avatar || '../../../asset/img/avatar-man.png'}}"></image>
+            <image class='item-avatar' mode="aspectFill" src="{{item.avatar || '../../../asset/img/avatar-man.png'}}"></image>
             <view class='item-name'>{{item.childNickName}}</view>
           </view>
 

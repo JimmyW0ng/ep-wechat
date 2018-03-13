@@ -12,9 +12,8 @@ swiper-item{
   display: flex;
   align-items: top;
   justify-content: space-between;
-  padding: 5px 0;
-   margin-bottom: 10px; 
-  padding-left: 20px;
+  padding: 5px 20px;
+  margin-bottom: 10px; 
 }
 
 .course-avatar {
