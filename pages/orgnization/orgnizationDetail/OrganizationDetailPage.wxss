@@ -187,6 +187,7 @@ color: #fff;
   color: #7d8794;
   line-height: 15px;
   margin-left: 10px;
+  flex: 1;
 }
 .course-simple-info {
    display: flex;
