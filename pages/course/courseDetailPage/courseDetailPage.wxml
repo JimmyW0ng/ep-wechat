@@ -27,9 +27,9 @@
     <swiper-item>
       <scroll-view scroll-y="true" class="scoll-h">
         <view class='tab-content course-introduce'>
-          <view class='tab-content-title'>报名须知</view>
+          <!-- <view class='tab-content-title'>报名须知</view> -->
           <view class='tab-join-notice'>
-            {{course.courseContent}}
+            TODO 用wxparse转化 {{course.courseContent}}
           </view>
         </view>
       </scroll-view>
@@ -111,7 +111,7 @@
       <view class='join-title'>上课宝贝</view>
 
       <view class='baby-list'>
-        <view class="baby-list-item" bindtap='chooseChild' data-joined="{{item.joined}}" data-id="{{item.childId}}" wx:for="{{childList}}" wx:key="{{index}}">
+        <view class="baby-list-item" bindtap='chooseChild' data-joined="{{item.joined}}" data-id="{{item.childId}}" wx:for="{{children}}" wx:key="{{index}}">
           <view class='baby-info'>
             <image class='item-avatar' src="{{item.avatar || '../../../asset/img/avatar-man.png'}}"></image>
             <view class='item-name'>{{item.childNickName}}</view>
@@ -121,6 +121,11 @@
           <view class="item-selector {{item.childId == selectedChildId ? 'active' : ''}}" wx:else>
             <view class='iconfont icon-right1'></view>
           </view>
+        </view>
+
+        <view class="baby-list-item add-baby" bindtap='addChild' wx:if="childrenNum < childrenNumLimit">
+          <view class='text'>添加一名宝贝</view>
+          <view class='iconfont icon-plus item-selector'></view>
         </view>
       </view>
       <view class='btn-primary ripple' bindtap='handleJoin'>确认报名 ￥{{selectedClass.classPrize}}</view>

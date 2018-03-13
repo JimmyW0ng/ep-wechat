@@ -15,8 +15,9 @@ Page({
     team: [],
 
     popupStatus: false,
-    childList: [],
-
+    children: [],
+    childrenNum: 0,
+    childrenNumLimit: 4,
     selectedChild: '',
     selectedClassIndex: '',
     selectedClass: {},
@@ -52,20 +53,25 @@ Page({
     });
   },
 
-  getChildList() {
+  getChildren() {
     const self = this
     const selectedClassId = '' + self.data.selectedClass.id
     AXIOS.POST('auth/order/init', { courseId: self.data.course.id}, (res) => {
-      const result = res.result || []
-      result.map((item) => {
+      const result = res.result || {}
+      let children = result.children || []
+      children.map((item) => {
         if (item.joinedClasses) {
           item.joinedClasses = item.joinedClasses.split(',')
         }
       })
-      result.map((item, index) => {
+      children.map((item, index) => {
         item.joined = !!(item.joinedClasses && item.joinedClasses.indexOf(selectedClassId) > -1)
       })
-      self.setData({ childList: result })
+      self.setData({ 
+        children,
+        childrenNum: result.childrenNum,
+        childrenNumLimit: result.childrenNumLimit
+      })
     })
   },
 
@@ -88,14 +94,14 @@ Page({
     const index = e.currentTarget.dataset.index
     const selectedClass = this.data.classes[index]
     const selectedClassId = '' + selectedClass.id
-    let childList = this.data.childList
-    childList.map((item, index) => {
+    let children = this.data.children
+    children.map((item, index) => {
       item.joined = !!(item.joinedClasses && item.joinedClasses.indexOf(selectedClassId) > -1)
     })
     this.setData({
       selectedClassIndex: index,
       selectedClass: selectedClass,
-      childList: childList
+      children: children
     })
   },
 
@@ -108,7 +114,7 @@ Page({
   },
 
   showPopup() {
-    this.getChildList()
+    this.getChildren()
     this.setData({
       popupStatus: true
     })
@@ -117,6 +123,13 @@ Page({
   closePopup() {
     this.setData({
       popupStatus: false
+    })
+  },
+
+  addChild(){
+    wx.showToast({
+      icon: 'none',
+      title: '这个等会儿在做 TODO',
     })
   },
 

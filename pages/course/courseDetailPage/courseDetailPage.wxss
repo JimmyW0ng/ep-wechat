@@ -304,6 +304,13 @@ swiper-item{
   border-bottom: 1px solid #e9e9e9;
   padding: 10px 0;
 }
+
+.baby-list-item.add-baby .text{
+  font-size: 16px;
+  color: #ddd;
+  line-height: 16px;
+}
+
 .baby-list-item .joined-text {
   color: #999;
 }
