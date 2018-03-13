@@ -48,7 +48,7 @@ swiper-item{
 .course-name {
   font-size: 12px;
   color: #7d8794;
-  line-height: 12px;
+  line-height: 15px;
   margin-left: 10px;
 }
 
