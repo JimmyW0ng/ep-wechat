@@ -6,7 +6,7 @@
     data-id="{{item.id}}"
     >
       <image class="avatar" 
-      src="{{item.avatar || '../../asset/img/avatar-man.png'}}" mode="scaleToFill"></image>
+      src="{{item.avatar || '../../asset/img/avatar-man.png'}}" mode="aspectFill"></image>
     </view>
   </view>
 </view>
