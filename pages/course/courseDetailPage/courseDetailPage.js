@@ -127,9 +127,8 @@ Page({
   },
 
   addChild(){
-    wx.showToast({
-      icon: 'none',
-      title: '这个等会儿在做 TODO',
+    wx.navigateTo({
+      url: '/pages/userCenter/addBaby/AddBabyPage'
     })
   },
 

@@ -140,7 +140,6 @@ Page({
         })
       } else {
         AXIOS.POST('auth/child/add', data, res => {
-          // alert('成功添加了')
           wx.showToast({
             title: '保存成功',
             icon: 'success',
