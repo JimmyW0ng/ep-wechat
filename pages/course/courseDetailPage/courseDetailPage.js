@@ -1,5 +1,8 @@
 // pages/course/courseDetailPage/courseDetailPage.js
 const AXIOS = require('../../../utils/axios')
+const USER = require('../../../utils/user')
+const LoginUrl = '/pages/login/LoginPage'
+const WxParse = require('../../../utils/wxParse/wxParse.js');
 
 Page({
 
@@ -114,10 +117,26 @@ Page({
   },
 
   showPopup() {
-    this.getChildren()
-    this.setData({
-      popupStatus: true
-    })
+    if (USER.isLogined() ){
+      this.getChildren()
+      this.setData({
+        popupStatus: true
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success: function (res) {
+          if (res.confirm) {
+            wx.redirectTo({
+              url: LoginUrl
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    }
   },
 
   closePopup() {
@@ -139,6 +158,7 @@ Page({
       noToken: true
     }, (res) => {
       const result = res.result || {}
+      WxParse.wxParse('courseContent', 'html', result.course.courseContent, self, 0);
       self.setData({
         loading: false,
         classes: result.classes || [],

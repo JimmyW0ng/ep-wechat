@@ -27,9 +27,9 @@
     <swiper-item>
       <scroll-view scroll-y="true" class="scoll-h">
         <view class='tab-content course-introduce'>
-          <!-- <view class='tab-content-title'>报名须知</view> -->
           <view class='tab-join-notice'>
-            TODO 用wxparse转化 {{course.courseContent}}
+          <import src="../../../utils/wxParse/wxParse.wxml" />
+          <template is="wxParse" data="{{wxParseData: courseContent.nodes}}" />
           </view>
         </view>
       </scroll-view>

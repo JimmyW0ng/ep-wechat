@@ -49,7 +49,7 @@ page {
 .btn-primary {
   background-image: linear-gradient(90deg, #5ee495 0%, #2ad5f3 100%);
   box-shadow: 0 4px 16px 0 rgba(164, 175, 191, 0.30);
-  border-radius: 4px;tab
+  border-radius: 4px;
   font-size: 16px;
   color: #fff;
   line-height: 16px;
@@ -86,4 +86,8 @@ page {
   display:-webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient:vertical;
+}
+
+image {
+  max-width: 100%;
 }

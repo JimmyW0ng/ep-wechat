@@ -62,6 +62,15 @@ const setSelectedChildIndex = (value) => {
   wx.setStorageSync('ep_selectedChildIndex', value);
 }
 
+// TODO 不知道是否需要拿这个token去掉一下后台
+const isLogined = () => {
+  if (wx.getStorageSync('ep_token')){
+    return true
+  } else {
+    return false
+  }
+}
+
 module.exports = {
   getOpenId,
   setOpenId,
@@ -78,5 +87,6 @@ module.exports = {
   getSelectedChild,
   setSelectedChild,
   getSelectedChildIndex,
-  setSelectedChildIndex
+  setSelectedChildIndex,
+  isLogined
 }

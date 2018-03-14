@@ -99,6 +99,9 @@ Page({
         USER.setToken(result.token)
 
         // TODO 跳转到首页去
+        // wx.navigateBack({
+        //   delta: 1
+        // })
         wx.switchTab({
           url: '/pages/userCenter/UserCenterPage',
         })
@@ -147,7 +150,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    console.log(getCurrentPages())
   },
 
   /**
