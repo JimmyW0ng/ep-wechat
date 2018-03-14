@@ -45,6 +45,7 @@ swiper-item{
 color: #7D8794;
 line-height: 12px;
 margin-left: 10px;
+flex: 1;
 }
 
 .course-tag {
