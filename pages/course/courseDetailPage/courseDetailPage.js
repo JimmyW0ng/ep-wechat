@@ -14,7 +14,6 @@ Page({
     classes: [],
     comments: [],
     course: {},
-    successOrders: 1,
     team: [],
 
     popupStatus: false,
@@ -165,7 +164,6 @@ Page({
         selectedClass: result.classes[0],
         comments: result.comments || [],
         course: result.course || {},
-        successOrders: result.successOrders,
         team: result.team || [],
         totalCommentNum: result.totalCommentNum || 0
       })

@@ -204,9 +204,25 @@ swiper-item{
   background: #fff;
 }
 
+.footer-left {
+  display: flex;
+  align-items: center;
+}
+
+.footer-left-phone {
+  padding-right: 15px;
+  margin-right: 15px;
+  border-right: 1px solid #e9e9e9;
+}
+
+.footer-left-info {
+
+}
+
 .icon-phone {
   color: #5ee495;
   font-size: 20px;
+  margin-bottom: 3px;
 }
 
 .footer-name {
@@ -215,14 +231,11 @@ swiper-item{
   line-height: 12px;
 }
 
-.footer-center {
-  /* width: 40%; */
-}
-
 .footer-price {
   font-size: 18px;
   color: #000;
-  line-height: 20px;
+  line-height: 18px;
+  margin-bottom: 7px;
 }
 
 .footer-join-number {

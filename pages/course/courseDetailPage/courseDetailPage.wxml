@@ -42,9 +42,7 @@
 
           <view class='teacher-item' wx:for="{{team}}" wx:key="index">
             <view class='teacher-basic'>
-              <view class='teacher-avatar-wrap'>
-                <image class="teacher-avatar" src="{{course.mainPicUrl}}" mode="scaleToFill"></image>
-              </view>
+              <image class="teacher-avatar" src="{{item.avatar}}" mode="scaleToFill"></image>
               <view class='teacher-info'>
                 <view class='teacher-title'>授课老师</view>
                 <view class='teacher-name'>{{item.nickName}}</view>
@@ -84,9 +82,16 @@
   </swiper>
 
   <view class='course-detail-footer'>
-    <view class='footer-left'>
-      <view class='iconfont icon-phone ripple' bindtap='callOgn' data-ognPhone="{{course.ognPhone}}"></view>
-      <view class='footer-name'>机构</view>
+    <view class='footer-left' wx:if="{{course.ognPhone}}">
+      <view class='footer-left-phone'>
+        <view class='iconfont icon-phone ripple' bindtap='callOgn' data-ognPhone="{{course.ognPhone}}"></view>
+        <view class='footer-name'>机构</view>
+      </view>
+
+      <view class='footer-left-info'>
+        <view class='footer-price'>￥{{course.prizeMin || 0}}</view>
+        <view class='footer-join-number'>已有{{course.totalParticipate}}人学习</view>
+      </view>
     </view>
 
     <view class='footer-right'>
