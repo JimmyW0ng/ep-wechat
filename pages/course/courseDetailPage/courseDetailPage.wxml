@@ -6,8 +6,11 @@
       <image class="course-avatar" src="{{course.mainPicUrl}}" mode="scaleToFill"></image>
     </view>
     <view class='course-info'>
-      <view class='course-org-name'>{{course.courseName}}</view>
-      <view class='course-tag'>{{course.label}}</view>
+      <view class='course-course-name'>{{course.courseName}}</view>
+      <view class='course-basic-info'>
+        <view class='course-tag'>{{course.label}}</view>
+        <view class='course-ognName'>{{course.ognName}}</view>
+      </view>
       <view class='course-name'>{{course.courseIntroduce}}</view>
       <view class='course-bottom-info'>
         <view class='course-note'>{{course.courseNote}}</view>

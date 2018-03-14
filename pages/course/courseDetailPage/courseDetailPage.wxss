@@ -28,10 +28,23 @@ swiper-item{
   flex: 1;
 }
 
-.course-org-name {
+.course-course-name {
   color: #1e293c;
   line-height: 18px;
   font-size: 16px;
+}
+
+.course-basic-info {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.course-ognName {
+  font-size: 12px;
+color: #7D8794;
+line-height: 12px;
+margin-left: 10px;
 }
 
 .course-tag {
@@ -40,7 +53,6 @@ swiper-item{
   background: #5ee495;
   border-radius: 4px;
   color: #fff;
-  margin-top: 5px;
   display: inline-block;
 }
 
