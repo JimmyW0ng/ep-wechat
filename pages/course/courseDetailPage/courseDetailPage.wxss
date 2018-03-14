@@ -13,7 +13,6 @@ swiper-item{
   align-items: top;
   justify-content: space-between;
   padding: 5px 20px;
-  margin-bottom: 10px; 
 }
 
 .course-avatar {
@@ -31,9 +30,7 @@ swiper-item{
 
 .course-org-name {
   color: #1e293c;
-  line-height: 14px;
-  margin-bottom: 8px;
-  margin-top: 3px;
+  line-height: 18px;
   font-size: 16px;
 }
 
@@ -43,19 +40,15 @@ swiper-item{
   background: #5ee495;
   border-radius: 4px;
   color: #fff;
+  margin-top: 5px;
+  display: inline-block;
 }
 
 .course-name {
   font-size: 12px;
   color: #7d8794;
   line-height: 15px;
-  margin-left: 10px;
-  flex: 1;
-}
-
-.course-simple-info {
-  display: flex;
-  align-items: center;
+  margin-top: 5px;
 }
 
 .course-bottom-info {

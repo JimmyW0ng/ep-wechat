@@ -72,10 +72,8 @@
         </view>
         <view class='course-info'>
           <view class='course-org-name'>{{item.courseName}}</view>
-          <view class='course-simple-info'>
-            <view class='course-tag'>{{item.label}}</view>
-            <view class='course-name'>{{item.courseIntroduce}}</view>
-          </view>
+          <view class='course-tag'>{{item.label}}</view>
+          <view class='course-name'>{{item.courseIntroduce}}</view>
           <view class='course-bottom-info'>
             <view class='course-price'>￥{{item.prizeMin || 0}}</view>
             <view class='course-learn-num'>已有{{item.totalParticipate}}人学习</view>
