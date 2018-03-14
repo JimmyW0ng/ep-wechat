@@ -17,19 +17,6 @@
 
     <view class='userCenter-header-bottom'>
       <view class='child-school' wx:if="selectedChild.childNickName">{{selectedChild.childNickName}}</view>
-
-
-
-
-
-
-
-
-
-
-
-
-      
       <view class='child-sign text-ellipsis'>{{sign}}</view>
     </view>
   </view>

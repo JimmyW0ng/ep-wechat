@@ -104,7 +104,7 @@ Page({
         }
 
         // 如果有 children的话
-        let selectedChild = children[activeIndex] || {}
+        selectedChild = children[activeIndex] || {}
         self.getChildAbstract(selectedChild.id)
         self.getChildComment(selectedChild.id)
         USER.setSelectedChild(selectedChild)
