@@ -1,6 +1,6 @@
  <view class='comment-item'>
   <view class='comment-header'>
-    <image class="child-avatar" src="{{comment.childAvatar}}" mode="scaleToFill"></image>
+    <image class="child-avatar" src="{{comment.childAvatar || '../../asset/img/avatar-man.png'}}" mode="scaleToFill"></image>
     <view class='child-name'>{{comment.childNickName}}</view>
     <image wx:if="{{comment.existHonor}}" class='child-chosenFlag' src='../../asset/img/gold_medal_small.png'></image>
   </view>
