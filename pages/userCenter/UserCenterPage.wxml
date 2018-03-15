@@ -45,7 +45,7 @@
           <view class='left'>
             <image class="teacher-avatar" src="{{item.avatar}}" mode="scaleToFill"></image>
             <view class='teacher-info'>
-              <view class='teacher-title'>{{item.nickName}}老师</view>
+              <view class='teacher-title'>{{item.nickName}}</view>
               <view class='teacher-name'>{{item.ognName}}</view>
             </view>
           </view>

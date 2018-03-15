@@ -10,7 +10,7 @@
             <image class="message-avatar" src="{{item.avatar}}" mode="scaleToFill"></image>
           </view>
           <view class='message-info'>
-            <view class='message-title'>{{item.senderName}}老师</view>
+            <view class='message-title'>{{item.senderName}}</view>
             <view class='message-org-name'>{{item.senderDesc}}</view>
           </view>
         </view>
