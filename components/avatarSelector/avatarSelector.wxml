@@ -6,12 +6,7 @@
     data-id="{{item.id}}"
     >
       <image class="avatar" 
-      wx:if="{{item.avatar}}"
-      src="{{item.avatar}}" mode="aspectFill"></image>
-
-      <image class="avatar" 
-      wx:else 
-      src="{{item.childSex == 'woman' ? '../../asset/img/avatar-woman.png' : '../../asset/img/avatar-man.png'}}" mode="aspectFill"></image>
+      src="{{item.avatar || '../../asset/img/avatar-man.png'}}" mode="aspectFill"></image>
     </view>
   </view>
 </view>
