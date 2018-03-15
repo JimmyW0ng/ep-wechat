@@ -53,8 +53,8 @@ Page({
             console.log('fuck')
             if (self.data.countDown > 1) {
               self.setData({
-                countDown: self.data.countDown-1,
-                verifyBtnText: (self.data.countDown-1) + "s"
+                countDown: self.data.countDown - 1,
+                verifyBtnText: (self.data.countDown - 1) + "s"
               })
             } else {
               clearInterval(loginInterval);
@@ -98,18 +98,25 @@ Page({
         USER.setMemberType(result.memberType)
         USER.setToken(result.token)
 
-        // TODO 跳转到首页去
-        // wx.navigateBack({
-        //   delta: 1
-        // })
-        wx.switchTab({
-          url: '/pages/userCenter/UserCenterPage',
-        })
+        self.doBack()
       })
     } else {
       wx.showToast({
         icon: 'none',
         title: '请输入正确的手机号或验证码',
+      })
+    }
+  },
+
+  doBack() {
+    var pages = getCurrentPages();
+    if (pages.length > 1) {
+      wx.navigateBack({
+        delta: 1
+      })
+    } else {
+      wx.switchTab({
+        url: '/pages/userCenter/UserCenterPage',
       })
     }
   },
@@ -150,14 +157,16 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log(getCurrentPages())
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var pages = getCurrentPages();
+    var currPage = pages[pages.length - 1];   //当前页面
+    var prevPage = pages[pages.length - 2];  //上一个页面
+    console.log(pages)
   },
 
   /**

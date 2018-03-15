@@ -4,7 +4,6 @@ const CONFIG = require('../../utils/config.js')
 const AXIOS = require('../../utils/axios')
 const USER = require('../../utils/user')
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -17,6 +16,8 @@ Page({
     },
     tags: [],
     sign: '',
+    currentSchool: '',
+    currentClass: '',
     commentList: [],
     totalOrder: 0,
     totalHonor: 0,
@@ -53,6 +54,8 @@ Page({
         totalHonor: result.totalHonor || 0,
         totalOrder: result.totalOrder || 0,
         sign: result.sign || '',
+        currentSchool: result.currentSchool || '',
+        currentClass: result.currentClass || '',
         tags: result.tags || []
       })
     })
@@ -97,7 +100,7 @@ Page({
       let activeIndex = 0
       let selectedChild = {}
 
-      if(children.length){
+      if (children.length) {
         let tempIndex = USER.getSelectedChildIndex()
         if (tempIndex > -1 && children[tempIndex]) {
           activeIndex = tempIndex
@@ -128,7 +131,7 @@ Page({
     }
   },
 
-  goOgnList(){
+  goOgnList() {
     wx.switchTab({
       url: '/pages/orgnization/OrgnizationPage',
     })
