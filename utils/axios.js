@@ -20,18 +20,6 @@ function request(apiPath, method, param, success, axios) {
   let token = User.getToken() || ''
 
   wx.showNavigationBarLoading()
-  // wx.showToast({
-  //   icon: "loading",
-  //   duration: 50000
-  // })
-
-  // if (!data.noToken) {
-  //   if (!token) {
-  //     wx.redirectTo({
-  //       url: LoginUrl,
-  //     })
-  //   }
-  // } 
 
   let header = {
     'content-type': 'application/x-www-form-urlencoded', // 默认值
@@ -61,9 +49,6 @@ function request(apiPath, method, param, success, axios) {
       }
     },
     complete: function () {
-      // setTimeout(() => {
-      //   wx.hideToast();
-      // }, LoadingDuration)
       wx.hideNavigationBarLoading()
       if (typeof complete == "function") {
         complete();
@@ -79,7 +64,7 @@ function processRequestError(result) {
       content: result.errorDescription || '',
       success: function (res) {
         if (res.confirm) {
-          wx.redirectTo({
+          wx.navigateTo({
             url: LoginUrl
           })
         } else if (res.cancel) {

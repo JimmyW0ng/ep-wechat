@@ -47,12 +47,6 @@
         "pagePath": "pages/userCenter/UserCenterPage",
         "iconPath": "asset/img/tabIcon-user.png",
         "selectedIconPath": "asset/img/tabIcon-user-active.png"
-      },
-      {
-        "text": "首页",
-        "pagePath": "pages/index/index",
-        "iconPath": "asset/img/tabIcon-fly.png",
-        "selectedIconPath": "asset/img/tabIcon-fly-active.png"
       }
     ]
   },

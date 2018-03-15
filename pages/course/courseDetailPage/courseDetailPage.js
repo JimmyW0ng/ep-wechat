@@ -127,7 +127,7 @@ Page({
         content: '请先登录',
         success: function (res) {
           if (res.confirm) {
-            wx.redirectTo({
+            wx.navigateTo({
               url: LoginUrl
             })
           } else if (res.cancel) {
