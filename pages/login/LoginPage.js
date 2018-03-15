@@ -92,7 +92,7 @@ Page({
         captcha: captcha,
         clientId: CONFIG.clientId,
         clientSecret: CONFIG.clientSecret,
-        noToken: true
+        type: 'member'
       }, res => {
         let result = res.result || {}
         USER.setMemberType(result.memberType)

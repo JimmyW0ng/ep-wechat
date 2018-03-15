@@ -24,7 +24,6 @@
       </view>
 
       <view class='trip-item-date'>{{item.startTimeFormat}}</view>
-      <!-- <view class='trip-item-date'>今天 9:00-11:00</view>  -->
       <view class='course-list-item'>
         <view class='course-avatar-wrap'>
           <image class="course-avatar" src="{{item.mainPicUrl}}" mode="scaleToFill"></image>
