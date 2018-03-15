@@ -10,14 +10,14 @@
       </view>
       <view class='modal-body'>
         <view class='title'>{{selectedItem.childNickName}}小朋友</view>
-        <view class='content'>在参加{{selectedItem.ognName}} {{selectedItem.courseName}}课程中，表现优异，特此发证，以资鼓励！</view>
+        <view class='content'>{{selectedItem.content}}</view>
         <view class='notice'>
           <view class='notice-text'>{{selectedItem.awardTimeFormat}}</view>
           <view class='notice-text'>{{selectedItem.ognName}}</view>
         </view>
       </view>
       <view class='modal-footer'>
-        <button class='btn btn-primary'>分享到朋友圈 TODO</button>
+        <button class='btn btn-primary'>分享到朋友圈</button>
       </view>
     </view>
   </view>
