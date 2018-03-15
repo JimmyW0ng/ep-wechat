@@ -23,7 +23,7 @@ Page({
     totalHonor: 0,
     activeIndex: 0,
     totalElements: 0,
-    isLogined: USER.isLogined()
+    isLogined: false
   },
 
   goBabyDetail(item) {
@@ -139,12 +139,14 @@ Page({
   },
 
   doLogout() {
+    const self = this
     wx.showModal({
       title: '提示',
       content: '确定要登出账户吗',
       success: function (res) {
         if (res.confirm) {
           wx.clearStorageSync() // 清空缓存
+          self.resetData()
           wx.navigateTo({
             url: '/pages/login/LoginPage',
           })
@@ -152,6 +154,27 @@ Page({
           console.log('用户点击取消')
         }
       }
+    })
+  },
+
+  resetData(){
+    this.setData({
+      children: [],
+      selectedChild: {},
+      mbrInfo: {
+        id: '',
+        mobile: '',
+      },
+      tags: [],
+      sign: '',
+      currentSchool: '',
+      currentClass: '',
+      commentList: [],
+      totalOrder: 0,
+      totalHonor: 0,
+      activeIndex: 0,
+      totalElements: 0,
+      isLogined: false
     })
   },
 
@@ -174,6 +197,10 @@ Page({
    */
   onShow: function () {
     this.loadDetail()
+
+    this.setData({
+      isLogined: USER.isLogined()
+    })
   },
 
   /**
