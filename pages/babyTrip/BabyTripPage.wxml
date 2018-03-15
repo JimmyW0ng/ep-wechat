@@ -47,6 +47,6 @@
   <view class='page-no-data' wx:else>
     <image class='page-no-data-img' src="../../asset/img/trip_empty.png"></image>
     <view class='page-no-data-text'>宝贝暂无行程安排</view>
-    <view class='page-no-data-btn ripple' bindtap='toggleData'>查看课程</view>
+    <view class='page-no-data-btn ripple' bindtap='goMyCourse'>查看课程</view> 
   </view>
 </view>

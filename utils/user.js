@@ -47,11 +47,11 @@ const setUid = (value) => {
 }
 
 const getSelectedChild = () => {
-  return wx.getStorageSync('ep_selectedChildId');
+  return wx.getStorageSync('ep_selectedChild');
 }
 
 const setSelectedChild = (value) => {
-  wx.setStorageSync('ep_selectedChildId', value)
+  wx.setStorageSync('ep_selectedChild', value)
 }
 
 const getSelectedChildIndex = () => {

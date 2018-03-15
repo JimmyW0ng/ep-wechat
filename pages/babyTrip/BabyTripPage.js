@@ -13,7 +13,7 @@ Page({
     size: 5,
     last: false,
     child: {
-      childNickName: "fff"
+      childNickName: ""
     },
     msgNum: 0
   },
@@ -64,6 +64,30 @@ Page({
         self.setData({
           msgNum: res.result || 0,
         })
+      })
+    }
+  },
+
+  goMyCourse(){
+    const self = this
+
+    if (USER.isLogined()) {
+      wx.navigateTo({
+        url: '/pages/userCenter/myCourse/MyCoursePage'
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/LoginPage'
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
       })
     }
   },
