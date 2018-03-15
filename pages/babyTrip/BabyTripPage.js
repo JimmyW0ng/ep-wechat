@@ -1,4 +1,4 @@
-888// pages/babyTrip/BabyTripPage.js
+// pages/babyTrip/BabyTripPage.js
 const AXIOS = require('../../utils/axios')
 const USER = require('../../utils/user')
 
