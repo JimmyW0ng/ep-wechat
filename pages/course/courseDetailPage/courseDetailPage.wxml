@@ -93,7 +93,7 @@
 
       <view class='footer-left-info'>
         <view class='footer-price'>￥{{course.prizeMin || 0}}</view>
-        <view class='footer-join-number'>已有{{course.totalParticipate}}人学习</view>
+        <view class='footer-join-number'>已有{{course.totalParticipate}}人加入</view>
       </view>
     </view>
 

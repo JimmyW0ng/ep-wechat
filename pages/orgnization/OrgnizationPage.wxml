@@ -29,7 +29,7 @@
           </view>
         </view>
         <view class='bottom-right'>
-          <view class='learn-num'>已有{{item.totalParticipate}}人学习</view>
+          <view class='learn-num'>已有{{item.totalParticipate}}人加入</view>
         </view>
       </view>
     </view>
