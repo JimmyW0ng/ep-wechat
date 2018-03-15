@@ -19,7 +19,7 @@
   <view class='trip-list-wrap' wx:if="{{dataSet.length > 0}}">
     <view class='trip-list-item' wx:for="{{dataSet}}" wx:key="index">
       <view class='trip-item-header'>
-        <image class='baby-avatar' src="{{item.avatar || '../../asset/img/avatar-man.png'}}" mode="widthFix"></image>
+        <image class='baby-avatar' src="{{item.avatar || '../../asset/img/avatar-man.png'}}" mode="aspectFill"></image>
         <view class='baby-name'>{{item.nickName}}</view>
       </view>
 
