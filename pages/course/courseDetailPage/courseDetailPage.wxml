@@ -45,7 +45,7 @@
 
           <view class='teacher-item' wx:for="{{team}}" wx:key="index">
             <view class='teacher-basic'>
-              <image class="teacher-avatar" src="{{item.avatar}}" mode="scaleToFill"></image>
+              <image class="teacher-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
               <view class='teacher-info'>
                 <view class='teacher-title'>授课老师</view>
                 <view class='teacher-name'>{{item.nickName}}</view>

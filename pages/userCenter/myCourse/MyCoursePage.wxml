@@ -41,7 +41,7 @@
 
   <view class='page-no-data' wx:if="{{dataSet.length == 0}}">
     <image class='page-no-data-img' src="../../../asset/img/comment_empty.png"></image>
-    <view class='page-no-data-text'>暂无报名课程，去看看吧</view>
-    <view class='page-no-data-btn ripple' bindtap='toggleData'>查看课程</view>
+    <view class='page-no-data-text'>暂无课程</view>
+    <!-- <view class='page-no-data-btn ripple' bindtap='toggleData'>查看课程</view> -->
   </view>
 </view>

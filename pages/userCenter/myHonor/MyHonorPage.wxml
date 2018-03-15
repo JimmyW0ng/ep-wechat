@@ -43,7 +43,7 @@
   <view class='page-no-data' wx:else>
     <image class='page-no-data-img' src="../../../asset/img/gold_medal_empty.png"></image>
     <view class='page-no-data-text'>宝贝还未获得奖状</view>
-    <view class='page-no-data-btn ripple' bindtap='toggleData'>查看奖状</view>
+    <!-- <view class='page-no-data-btn ripple' bindtap='toggleData'>查看奖状</view> -->
   </view>
 
 </view>
