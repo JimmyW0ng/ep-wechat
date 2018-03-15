@@ -19,7 +19,7 @@
   <view class='trip-list-wrap' wx:if="{{dataSet.length > 0}}">
     <view class='trip-list-item' wx:for="{{dataSet}}" wx:key="index">
       <view class='trip-item-header'>
-        <image class='baby-avatar' src="{{item.avatar}}" mode="widthFix"></image>
+        <image class='baby-avatar' src="{{item.avatar || '../../asset/img/avatar-man.png'}}" mode="widthFix"></image>
         <view class='baby-name'>{{item.nickName}}</view>
       </view>
 
@@ -36,7 +36,7 @@
           </view>
           <view class='course-bottom-info'>
             <view class='course-price'></view>
-            <view class='course-learn-num'>14/24课时</view>
+            <view class='course-learn-num'>{{item.catalogIndex}}/{{item.courseNum}}课时</view>
           </view>
         </view>
       </view>
