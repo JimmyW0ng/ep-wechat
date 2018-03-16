@@ -88,17 +88,32 @@
     <view class='footer-left' wx:if="{{course.ognPhone}}">
       <view class='footer-left-phone'>
         <view class='iconfont icon-phone ripple' bindtap='callOgn' data-ognPhone="{{course.ognPhone}}"></view>
-        <view class='footer-name'>机构</view>
       </view>
-
+<!-- 
       <view class='footer-left-info'>
         <view class='footer-price'>￥{{course.prizeMin || 0}}</view>
-        <view class='footer-join-number'>已有{{course.totalParticipate}}人加入</view>
-      </view>
+        <view class='footer-join-number' wx:if="{{course.isBegin}}">已有{{course.totalParticipate}}人加入</view>
+      </view> -->
     </view>
 
     <view class='footer-right'>
-      <view class='btn-primary ripple' bindtap='showPopup'>立即报名</view>
+
+      <view wx:if="{{course.courseStatus=='offline'}}" class='btn-primary small disabled'>
+        <view>已结束</view>
+        <view class='text'>已有{{course.totalParticipate}}人加入</view>
+      </view>
+
+      <view wx:else>
+        <view class='btn-primary small ripple' wx:if="{{course.isBegin}}" bindtap='showPopup'>
+          <view>立即报名 ￥{{course.prizeMin || 0}}</view>
+          <view class='text'>已有{{course.totalParticipate}}人加入</view>
+        </view>
+
+        <view class='btn-primary small' wx:else bindtap='showPopup'>
+          <view>等待报名 ￥{{course.prizeMin || 0}}</view>
+          <view class='text'>{{course.enterTimeStart}}开始</view>
+        </view>
+      </view>
     </view>
   </view>
 
@@ -134,7 +149,11 @@
           <view class='iconfont icon-plus item-selector'></view>
         </view>
       </view>
-      <view class='btn-primary ripple' bindtap='handleJoin'>确认报名 ￥{{selectedClass.classPrize}}</view>
+      <view class='btn-primary disabled' wx:if="{{course.courseStatus == 'offline'}}" >已结束</view>
+      <view wx:else>
+        <view class='btn-primary ripple' wx:if="{{course.isBegin}}" bindtap='handleJoin'>确认报名 ￥{{selectedClass.classPrize}}</view>
+        <view class='btn-primary disabled' wx:else>未开始 ￥{{selectedClass.classPrize}}</view>
+      </view>
     </view>
   </view>
 </view>

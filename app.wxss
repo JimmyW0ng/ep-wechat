@@ -58,6 +58,11 @@ page {
   box-sizing: border-box;
 }
 
+.btn-primary.disabled{
+  background-image: none;
+  background: #ddd;
+}
+
 .btn-ghost {
   border: 1px solid #2ad5f3;
   border-radius: 4px;

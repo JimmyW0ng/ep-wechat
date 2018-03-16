@@ -158,6 +158,14 @@ Page({
     }, (res) => {
       const result = res.result || {}
       WxParse.wxParse('courseContent', 'html', result.course.courseContent, self, 0);
+      let course = result.course
+      let courseStatus = course.courseStatus
+      let enterTimeStart = course.enterTimeStart
+      let now = new Date().valueOf()
+      let enterTime = new Date(enterTimeStart).valueOf()
+      
+      course.isBegin = (now > enterTime) && (courseStatus != 'offline')
+
       self.setData({
         loading: false,
         classes: result.classes || [],
