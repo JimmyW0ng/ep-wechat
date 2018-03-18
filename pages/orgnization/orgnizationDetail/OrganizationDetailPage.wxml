@@ -51,10 +51,6 @@
         <view class='btn-checkMore' wx:if="{{showMoreBtn}}" bindtap='toggleIntro'>
           {{showShortIntro ? '查看全部' : '收起'}}
         </view> 
-
-        <!-- <import src="../../../utils/wxParse/wxParse.wxml" />
-        <template is="wxParse" data="{{wxParseData:ognIntroduce.nodes}}" />
-        <view class='btn-checkMore'>查看全部</view> -->
       </view>
     </view>
   </view>

@@ -9,7 +9,7 @@
       <view class='course-course-name'>{{course.courseName}}</view>
       <view class='course-basic-info'>
         <view class='course-tag'>{{course.label}}</view>
-        <view class='course-ognName'>{{course.ognName}}</view>
+        <view class='course-ognName' bindtap='goOgnDetail'>{{course.ognName}}</view>
       </view>
       <view class='course-name'>{{course.courseIntroduce}}</view>
       <view class='course-bottom-info'>

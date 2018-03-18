@@ -69,7 +69,9 @@ Page({
 
   goCourseDetailPage(e){
     let courseId = e.currentTarget.dataset.courseid
-    console.log(courseId)
+    wx.navigateTo({
+      url: '/pages/course/courseDetailPage/courseDetailPage?id=' + courseId
+    })
   },
 
   goTeacherComment(e){

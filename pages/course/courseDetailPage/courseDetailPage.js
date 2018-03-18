@@ -92,6 +92,13 @@ Page({
     });
   },
 
+  goOgnDetail(e){
+    let ognId = this.data.course && this.data.course.ognId 
+    wx.navigateTo({
+      url: '/pages/orgnization/orgnizationDetail/OrganizationDetailPage?id=' + ognId
+    })
+  },
+
   chooseClass(e) {
     const index = e.currentTarget.dataset.index
     const selectedClass = this.data.classes[index]

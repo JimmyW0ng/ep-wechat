@@ -19,10 +19,10 @@
     "pages/course/courseCommentPage/courseCommentPage"
   ],
   "window": {
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#ccc",
+    "backgroundTextStyle": "white",
+    "navigationBarBackgroundColor": "#5ee495",
     "navigationBarTitleText": "首页",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#1E293C",
