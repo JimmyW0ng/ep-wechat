@@ -12,9 +12,6 @@ Page({
     page: 0,
     size: 5,
     last: false,
-    child: {
-      childNickName: ""
-    },
     msgNum: 0
   },
 
@@ -28,44 +25,32 @@ Page({
     const self = this
     let page = loadMore ? self.data.page + 1 : 0
     let size = self.data.size || 10
-    let child = USER.getSelectedChild() || {}
-    let childId = child.id || ''
 
-    if (childId) {
-      AXIOS.POST('auth/child/class/schedule', {
-        childId,
-        page,
-        size
-      }, (res) => {
-        const result = res.result || {}
-        let content = result.content || []
-        if (page > 0) {
-          content = self.data.dataSet.concat(content)
-        }
-        self.setData({
-          dataSet: content,
-          page: result.number || 0,
-          last: result.last,
-          child
-        })
+    AXIOS.POST('auth/child/class/schedule', {
+      page,
+      size
+    }, (res) => {
+      const result = res.result || {}
+      let content = result.content || []
+      if (page > 0) {
+        content = self.data.dataSet.concat(content)
+      }
+      self.setData({
+        dataSet: content,
+        page: result.number || 0,
+        last: result.last
       })
-    }
+    })
   },
 
   getMsgCount() {
     const self = this
-    let child = USER.getSelectedChild() || {}
-    let childId = child.id || ''
 
-    if (childId) {
-      AXIOS.POST('auth/member/message/comment/unread/num', {
-        childId
-      }, (res) => {
-        self.setData({
-          msgNum: res.result || 0,
-        })
+    AXIOS.POST('auth/member/message/comment/unread/num', {}, (res) => {
+      self.setData({
+        msgNum: res.result || 0,
       })
-    }
+    })
   },
 
   goMyCourse(){

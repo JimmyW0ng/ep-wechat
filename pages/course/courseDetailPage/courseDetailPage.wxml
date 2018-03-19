@@ -1,7 +1,7 @@
 <loadIcon wx:if="{{loading}}"></loadIcon>
 
 <view class='page' wx:else>
-  <view class='course-list-item' bindtap='goCourseDetailPage'>
+  <view class='course-list-item'>
     <view class='course-avatar-wrap'>
       <image class="course-avatar" src="{{course.mainPicUrl}}" mode="scaleToFill"></image>
     </view>
