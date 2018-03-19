@@ -6,9 +6,7 @@
     精选培训机构
   </view>
   <view class='card-orgnization' wx:for="{{dataSet}}" wx:key="index" bindtap='goOrgDetailPage' data-item="{{item}}">
-    <view class='avatar-wrap'>
-      <image class='avatar' src="{{item.fileUrl}}" mode="aspectFill"></image>
-    </view>
+    <image class='avatar' src="{{item.fileUrl}}" mode="widthFix"></image>
     <view class='basic-info'>
       <view class='top'>
         <view class='top-left'>

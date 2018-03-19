@@ -11,9 +11,7 @@
     </block>
   </swiper> -->
 
-  <view class='org-cover-wrap'>
-   <image src="{{mainPicUrl}}" class="org-cover" height="200" />
-  </view>
+  <image src="{{mainPicUrl}}" class="org-cover" mode="widthFix"/>
 
   <view class='org-detail-wrap'>
     <view class='basic-info'>
