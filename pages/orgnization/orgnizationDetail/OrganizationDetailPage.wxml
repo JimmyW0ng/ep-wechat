@@ -64,7 +64,7 @@
             bindtap='goCourseDetailPage'  
             data-item="{{item}}">
         <view class='course-avatar-wrap'>
-          <image class="course-avatar" src="{{item.mainPicUrl}}" mode="aspectFill"></image>
+          <image class="course-avatar" src="{{item.mainPicUrl}}" mode="scaleToFill"></image>
         </view>
         <view class='course-info'>
           <view class='course-org-name'>{{item.courseName}}</view>
