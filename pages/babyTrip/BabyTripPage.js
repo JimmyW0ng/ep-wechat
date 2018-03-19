@@ -12,7 +12,9 @@ Page({
     page: 0,
     size: 5,
     last: false,
-    msgNum: 0
+    msgNum: 0,
+    loading: true,
+    isLogin: false
   },
 
   goMessageList() {
@@ -36,6 +38,7 @@ Page({
         content = self.data.dataSet.concat(content)
       }
       self.setData({
+        loading: false,
         dataSet: content,
         page: result.number || 0,
         last: result.last
@@ -53,28 +56,10 @@ Page({
     })
   },
 
-  goMyCourse(){
-    const self = this
-
-    if (USER.isLogined()) {
-      wx.navigateTo({
-        url: '/pages/userCenter/myCourse/MyCoursePage'
-      })
-    } else {
-      wx.showModal({
-        title: '提示',
-        content: '请先登录',
-        success: function (res) {
-          if (res.confirm) {
-            wx.navigateTo({
-              url: '/pages/login/LoginPage'
-            })
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
-        }
-      })
-    }
+  goLogin(){
+    wx.navigateTo({
+      url: '/pages/login/LoginPage'
+    })
   },
 
   /**
@@ -95,8 +80,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getListData()
-    this.getMsgCount()
+    let isLogin = USER.isLogined()
+    if (isLogin) {
+      this.setData({
+        isLogin
+      })
+      this.getListData()
+      this.getMsgCount()
+    } else {
+      this.setData({
+        isLogin,
+        loading: false
+      })
+    }
   },
 
   /**

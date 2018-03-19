@@ -89,11 +89,6 @@
       <view class='footer-left-phone'>
         <view class='iconfont icon-phone ripple' bindtap='callOgn' data-ognPhone="{{course.ognPhone}}"></view>
       </view>
-<!-- 
-      <view class='footer-left-info'>
-        <view class='footer-price'>￥{{course.prizeMin || 0}}</view>
-        <view class='footer-join-number' wx:if="{{course.isBegin}}">已有{{course.totalParticipate}}人加入</view>
-      </view> -->
     </view>
 
     <view class='footer-right'>

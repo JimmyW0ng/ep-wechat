@@ -182,3 +182,7 @@ line-height: 16px;
   color: #a4afbf;
   line-height: 12px;
 }
+
+.btn-primary {
+  width: 60%
+}
