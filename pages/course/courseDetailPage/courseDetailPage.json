@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "课程详情",
+  "navigationBarTitleText": "产品详情",
     "usingComponents": {
       "score-star": "../../../components/scoreStar/scoreStar",
       "comment-item": "../../../components/commentItem/commentItem",

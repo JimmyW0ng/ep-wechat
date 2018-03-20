@@ -54,7 +54,7 @@
   </view>
 
   <view class='org-course-wrap'>
-    <view class='course-wrap-title'>推荐课程</view>
+    <view class='course-wrap-title'>推荐产品</view>
     <view class='course-list-wrap'>
       <view class='course-list-item' 
             wx:for="{{ognCourseList}}" 
