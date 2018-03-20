@@ -22,7 +22,6 @@
   <view class='footer'>
     
     <view class='btn-login ripple' bindtap='doLogin'>
-      <!-- 登陆 -->
       <view class="iconfont icon-arrowsrightline"></view>
     </view>
   </view>

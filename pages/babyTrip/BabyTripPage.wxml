@@ -21,11 +21,11 @@
   <view class='page-no-data' wx:if="{{!isLogin}}">
     <image class='page-no-data-img' src="../../asset/img/trip_empty.png"></image>
     <view class='page-no-data-text'> 
-      <view>登陆后</view>
+      <view>登录后</view>
       <view>即可清晰了解宝贝行程哦</view>
     </view>
 
-    <button class='btn-primary' bindtap='goLogin'>前往登陆</button>
+    <button class='btn-primary' bindtap='goLogin'>前往登录</button>
   </view>
 
   <view wx:else>
