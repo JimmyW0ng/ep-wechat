@@ -29,9 +29,9 @@
             </view>
 
             <view class='course-actions'>
-              <view class='btn btn-ghost' bindtap='goTeacherComment' wx:if="{{item.scheduleCommentNum}}" data-orderid="{{item.id}}">老师评价({{item.scheduleCommentNum}})</view>
-              <view class='btn btn-ghost' bindtap='goEvaluate' wx:if="{{item.waitCommentFlag}}" data-orderid="{{item.id}}">评价课程</view>
-              <view class='btn btn-ghost' bindtap='goMyHonor' wx:if="{{item.honorNum}}" >查看奖状</view>
+              <view class='btn btn-ghost' catchtap='goTeacherComment' wx:if="{{item.scheduleCommentNum}}" data-orderid="{{item.id}}">老师评价({{item.scheduleCommentNum}})</view>
+              <view class='btn btn-ghost' catchtap='goEvaluate' wx:if="{{item.waitCommentFlag}}" data-orderid="{{item.id}}">评价课程</view>
+              <view class='btn btn-ghost' catchtap='goMyHonor' wx:if="{{item.honorNum}}" >查看奖状</view>
             </view>
           </view>
         </view>
