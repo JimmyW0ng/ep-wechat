@@ -34,21 +34,15 @@ Page({
     const self = this
     AXIOS.POST('auth/child/get', {childId}, res => {
       let result = res.result || {}
-      let birthDayFormat = UTIL.formatDate('YYYY-MM-DD', new Date(result.childBirthday || '').valueOf())
-
       let childSex = result.childSex || 'man'
       let radioItems = self.data.radioItems;
       for (var i = 0; i < radioItems.length; i++) {
-        if (radioItems[i].value == childSex) {
-          radioItems[i].checked = true
-        } else {
-          radioItems[i].checked = false
-        }
+        radioItems[i].checked = radioItems[i].value == childSex
       }
 
       self.setData({
         avatar: result.avatar || '',
-        childBirthday: birthDayFormat || '',
+        childBirthday: result.childBirthdayFormat || '',
         childTrueName: result.childTrueName || '',
         childNickName: result.childNickName || '',
         childSex: result.childSex || '',

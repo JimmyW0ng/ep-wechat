@@ -73,20 +73,18 @@ function processRequestError(result) {
       }
     })
   } else {
-    wx.showModal({
-      title: '提示',
-      content: result.errorDescription || '',
-      showCancel: false,
+    wx.showToast({
+      icon: 'none',
+      title: result.errorDescription || '',
     })
   }
 }
 
 function processHttpError(xhr, errorType, error) {
   //TODO Process HTTP error for 404, 503, 403, 500
-  let message = '网络出错';
-  wx.showModal({
-    title: message,
-    showCancel: false,
+  wx.showToast({
+    icon: 'none',
+    title: '网络出错',
   })
 }
 

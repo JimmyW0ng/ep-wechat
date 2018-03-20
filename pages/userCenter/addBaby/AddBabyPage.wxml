@@ -4,7 +4,6 @@
     <view class='label'>宝宝头像</view>
 
     <view class='input-wrap'>
-      <!-- <input placeholder='点击上传头像' /> -->
       <img-uploader bind:change="changeImg">
         <view class='baby-avatar-wrap' wx:if="{{avatar}}">
           <image class='baby-avatar' mode="aspectFill" src="{{avatar}}"></image>
