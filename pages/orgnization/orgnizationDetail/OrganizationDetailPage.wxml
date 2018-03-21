@@ -43,8 +43,8 @@
     <view class='introduce-info'>
       <view class='introduce-title'>品牌介绍</view>
       <view class='introduce-content'>
-        <view wx:if="{{showShortIntro}}">{{ognInfo.shortOngIntroduce}}</view>
-        <view wx:else>{{ognInfo.ognIntroduce}}</view>
+        <text wx:if="{{showShortIntro}}">{{ognInfo.shortOngIntroduce}}</text>
+        <text wx:else>{{ognInfo.ognIntroduce}}</text>
 
         <view class='btn-checkMore' wx:if="{{showMoreBtn}}" bindtap='toggleIntro'>
           {{showShortIntro ? '查看全部' : '收起'}}

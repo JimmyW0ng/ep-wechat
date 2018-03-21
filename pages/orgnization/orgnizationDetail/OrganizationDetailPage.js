@@ -40,7 +40,6 @@ Page({
       const result = res.result || {}
       let ongInfo = result.ognInfo || {}
       let ognIntroduce = ongInfo.ognIntroduce || ''
-
       let showMoreBtn = false
       let showShortIntro = false
       let introLimit = this.data.introLimit
@@ -49,7 +48,7 @@ Page({
         showMoreBtn = true
         showShortIntro = true
       }
-
+      
       self.setData({
         loading: false,
         mainPicUrl: result.mainPicUrl || '',
