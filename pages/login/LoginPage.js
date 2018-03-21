@@ -42,7 +42,7 @@ Page({
           mobile: phone,
           clientId: CONFIG.clientId,
           clientSecret: CONFIG.clientSecret,
-          noToken: true
+          scene: 'member_login'
         }, res => {
           self.setData({
             code: res.result || '',
@@ -92,7 +92,7 @@ Page({
         captcha: captcha,
         clientId: CONFIG.clientId,
         clientSecret: CONFIG.clientSecret,
-        type: 'member'
+        type: 'WECHAT_APP_MEMBER_CLIENT'
       }, res => {
         let result = res.result || {}
         USER.setMemberType(result.memberType)
