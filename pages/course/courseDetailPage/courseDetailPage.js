@@ -239,7 +239,7 @@ Page({
    */
   onShow: function () {
     let course = this.data.course
-    if (course && course.id && course.courseStatus != 'offline'){
+    if (USER.isLogined() && course && course.id && course.courseStatus != 'offline'){
       this.getChildren()
     }
   },

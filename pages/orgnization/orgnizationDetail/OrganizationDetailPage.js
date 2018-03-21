@@ -1,6 +1,5 @@
 // pages/orgnization/orgnizationDetail/OrganizationDetailPage.js
 const AXIOS = require('../../../utils/axios')
-const WxParse = require('../../../utils/wxParse/wxParse.js');
 
 Page({
 
@@ -39,7 +38,6 @@ Page({
       noToken: true
     }, (res) => {
       const result = res.result || {}
-      // WxParse.wxParse('ognIntroduce', 'html', result.ognInfo.ognIntroduce, self, 0);
       let ongInfo = result.ognInfo || {}
       let ognIntroduce = ongInfo.ognIntroduce || ''
 
