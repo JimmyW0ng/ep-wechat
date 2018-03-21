@@ -167,9 +167,8 @@ Page({
       WxParse.wxParse('courseContent', 'html', result.course.courseContent, self, 0);
       let course = result.course
       let courseStatus = course.courseStatus
-      let enterTimeStart = course.enterTimeStart
       let now = new Date().valueOf()
-      let enterTime = new Date(enterTimeStart).valueOf()
+      let enterTime = course.enterTimeStampStart
       
       course.isBegin = (now > enterTime) && (courseStatus != 'offline')
 
