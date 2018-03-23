@@ -37,7 +37,7 @@ Page({
     let phone = this.data.phone
 
     if (phone.length == 11) {
-      if (!self.beginCountDown) {
+      if (!self.data.beginCountDown) {
         AXIOS.POST('security/api/captcha', {
           mobile: phone,
           clientId: CONFIG.clientId,
