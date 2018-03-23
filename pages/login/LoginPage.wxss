@@ -49,6 +49,8 @@
 }
 
 .btn-send {
+  width: 40%;
+  text-align: right;
   color: #2ad5f3;
   font-size: 18px;
   height: 40px;

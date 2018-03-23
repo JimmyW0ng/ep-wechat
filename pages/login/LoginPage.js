@@ -46,6 +46,7 @@ Page({
         }, res => {
           self.setData({
             code: res.result || '',
+            beginCountDown: true,
             verifyBtnText: self.data.countDown + "s"
           })
 
