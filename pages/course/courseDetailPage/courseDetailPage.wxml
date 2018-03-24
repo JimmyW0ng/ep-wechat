@@ -120,7 +120,7 @@
 
        <view class='date-list'>
         <view class="date-btn {{index == selectedClassIndex && 'active'}}" wx:for="{{classes}}" wx:key="{{index}}" data-index="{{index}}" bindtap='chooseClass'>
-          {{item.className}} {{item.enterLimitFlag}} {{item.status}}
+          {{item.className}}
         </view>
       </view>  
 
@@ -147,7 +147,12 @@
 
       <view class='btn-primary disabled' wx:if="{{course.courseStatus == 'offline'}}" >已结束</view>
       <view wx:else>
-        <view class='btn-primary ripple' wx:if="{{course.isBegin}}" bindtap='handleJoin'>确认报名 ￥{{selectedClass.classPrize}}</view>
+        <view wx:if="{{course.isBegin}}">
+          <view class='btn-primary ripple' wx:if="{{selectedClass.canEnterFlag}}" bindtap='handleJoin'>确认报名 ￥{{selectedClass.classPrize}}</view>
+
+          <view class='btn-primary disabled' wx:else>{{selectedClass.canNotEnterText}}</view>
+        </view>
+
         <view class='btn-primary disabled' wx:else>未开始 ￥{{selectedClass.classPrize}}</view>
       </view>
     </view>
