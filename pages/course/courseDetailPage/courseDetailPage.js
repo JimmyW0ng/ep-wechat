@@ -20,7 +20,8 @@ Page({
     children: [],
     childrenNum: 0,
     childrenNumLimit: 4,
-    selectedChild: '',
+    selectedChild: {},
+    selectedChildId: '',
     selectedClassIndex: '',
     selectedClass: {},
 
@@ -110,7 +111,9 @@ Page({
     this.setData({
       selectedClassIndex: index,
       selectedClass: selectedClass,
-      children: children
+      children: children,
+      selectedChild: {},
+      selectedChildId: '',
     })
   },
 
