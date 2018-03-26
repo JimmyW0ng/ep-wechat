@@ -177,10 +177,11 @@ flex: 1;
 }
 
 .teacher-introduce {
-  margin-top: 10px;
+  margin-top: 15px;
   font-size: 14px;
   color: #1e293c;
   line-height: 22px;
+  display: inline-block;
 }
 
 .comment-check-all {

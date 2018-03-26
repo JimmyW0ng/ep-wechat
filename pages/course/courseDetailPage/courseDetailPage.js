@@ -241,7 +241,7 @@ Page({
    */
   onShow: function () {
     let course = this.data.course
-    if (USER.isLogined() && course && course.id && course.courseStatus != 'offline'){
+    if (USER.isLogined() && this.data.popupStatus && course && course.id && course.courseStatus != 'offline'){
       this.getChildren()
     }
   },

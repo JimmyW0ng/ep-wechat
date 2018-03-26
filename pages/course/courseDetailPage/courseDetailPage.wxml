@@ -20,7 +20,7 @@
 
   <view class='tab-header'>
     <view class="tab-selector {{selectedTab == 0 && 'active'}}" data-tab="0" bindtap='selectTab'>产品介绍</view>
-    <view class="tab-selector {{selectedTab == 1 && 'active'}}" data-tab="1" bindtap='selectTab'>老师介绍</view>
+    <view class="tab-selector {{selectedTab == 1 && 'active'}}" data-tab="1" bindtap='selectTab'>团队介绍</view>
     <view class="tab-selector {{selectedTab == 2 && 'active'}}" data-tab="2" bindtap='selectTab'>评价</view>
   </view>
 
@@ -39,7 +39,7 @@
     <swiper-item>
       <scroll-view scroll-y="true" class="scoll-h">
         <view class='tab-content course-team'>
-          <view class='tab-content-title'>老师介绍
+          <view class='tab-content-title'>团队介绍
             <view class='title-info'>({{team.length}}位)</view>
           </view>
 
@@ -52,7 +52,7 @@
               </view>
             </view>
 
-            <view class='teacher-introduce'>{{item.introduce}}</view>
+            <text class='teacher-introduce'>{{item.introduce}}</text>
           </view>
         </view>
       </scroll-view>
@@ -116,7 +116,7 @@
   <view class="zan-popup zan-popup--bottom {{popupStatus ? 'zan-popup--show' : ''}}">
     <view class="zan-popup__mask" bindtap='closePopup'></view>
     <view class="zan-popup__container join-container">
-      <view class='join-title'>课程班次</view>
+      <view class='join-title'>班次</view>
 
        <view class='date-list'>
         <view class="date-btn {{index == selectedClassIndex && 'active'}}" wx:for="{{classes}}" wx:key="{{index}}" data-index="{{index}}" bindtap='chooseClass'>
@@ -124,7 +124,7 @@
         </view>
       </view>  
 
-      <view class='join-title'>上课宝贝</view>
+      <view class='join-title'>宝贝</view>
 
       <view class='baby-list'>
         <view class="baby-list-item" bindtap='chooseChild' data-joined="{{item.joined}}" data-id="{{item.childId}}" wx:for="{{children}}" wx:key="{{index}}">
