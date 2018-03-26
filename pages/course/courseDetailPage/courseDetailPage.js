@@ -30,7 +30,8 @@ Page({
 
     courseId: '',
     courseCommentList: [],
-    loading: true
+    loading: true,
+    fromOgnDetail: false
   },
 
   /**
@@ -38,8 +39,10 @@ Page({
    */
   onLoad: function (options) {
     this.getCourseDetail(options.id)
+
     this.setData({
-      courseId: options.id
+      courseId: options.id,
+      fromOgnDetail: options.fromOgnDetail
     })
 
     var self = this;
@@ -95,9 +98,14 @@ Page({
 
   goOgnDetail(e){
     let ognId = this.data.course && this.data.course.ognId 
-    wx.navigateTo({
-      url: '/pages/orgnization/orgnizationDetail/OrganizationDetailPage?id=' + ognId
-    })
+
+    if (this.data.fromOgnDetail){
+      wx.navigateBack()
+    } else {
+      wx.navigateTo({
+        url: '/pages/orgnization/orgnizationDetail/OrganizationDetailPage?id=' + ognId
+      })
+    }
   },
 
   chooseClass(e) {

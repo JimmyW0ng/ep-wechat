@@ -113,7 +113,7 @@ Page({
     const dataset = e.currentTarget.dataset
     const item = dataset.item
     wx.navigateTo({
-      url: '../../course/courseDetailPage/courseDetailPage?id=' + item.id
+      url: '../../course/courseDetailPage/courseDetailPage?fromOgnDetail=true&id=' + item.id
     })
   },
 
