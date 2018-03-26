@@ -116,6 +116,7 @@
 
 .btn-checkMore {
   color: #5ee495;
+  text-align: right;
   /* display: inline-block; */
 }
 
@@ -133,15 +134,14 @@
   margin-bottom: 15px;
 }
 
-.course-list-wrap {
-}
-
 .course-list-item {
   display: flex;
   align-items: top;
   justify-content: space-between;
   padding: 5px 0;
   margin-bottom: 25px;
+  position: relative;
+  overflow: hidden;
 }
 
 .course-avatar {
@@ -163,14 +163,48 @@
   line-height: 16px;
 }
 
+.course-tag-wrap {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+}
 .course-tag {
   font-size: 12px;
-  padding: 2px 6px;
+  padding: 0 6px;
+  height: 22px;
+  line-height: 22px;
   background: #5ee495;
   border-radius: 4px;
   color: #fff;
   display: inline-block;
-  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.vip-name{
+  font-size: 12px;
+  padding:0 16px 0 6px;
+  border-radius: 4px 0 0 4px;
+  height: 22px;
+  line-height: 22px;
+  background: orangered;
+  color: #fff;
+  display: inline-block;
+  margin-right: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.vip-name::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+      width:0; 
+    height:0; 
+    border-top:11px solid transparent;
+    border-bottom:11px solid transparent; 
+    border-right:8px solid #fff; 
 }
 
 .course-name {
@@ -204,5 +238,25 @@
   line-height: 12px;
 }
 
-.course-detail-footer {
+.course-list-item .ribbon {
+  display: inline-block;
+  position: absolute;
+  top: -11px;
+  left: -22px;
+  padding: 2px;
+  background: #58b7ef;
+  color: #fff;
+  font-size: 12px;
+  width: 110px;
+  text-align: center;
+  -webkit-transform: rotate(-40deg) translate(-25px);
+  -ms-transform: rotate(-40deg) translate(-25px);
+  transform: rotate(-40deg) translate(-25px);
+}
+
+.course-list-item .ribbon.training {
+  background: orange;
+}
+.course-list-item .ribbon.activity {
+  background: #58b7ef;
 }

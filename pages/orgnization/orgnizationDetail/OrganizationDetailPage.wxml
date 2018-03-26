@@ -43,7 +43,7 @@
     <view class='introduce-info'>
       <view class='introduce-title'>品牌介绍</view>
       <view class='introduce-content'>
-        <text wx:if="{{showShortIntro}}">{{ognInfo.shortOngIntroduce}}</text>
+        <text wx:if="{{showShortIntro}}">{{ognInfo.shortOngIntroduce}}...</text>
         <text wx:else>{{ognInfo.ognIntroduce}}</text>
 
         <view class='btn-checkMore' wx:if="{{showMoreBtn}}" bindtap='toggleIntro'>
@@ -66,12 +66,19 @@
         </view>
         <view class='course-info'>
           <view class='course-org-name'>{{item.courseName}}</view>
-          <view class='course-tag'>{{item.label}}</view>
+          <view class='course-tag-wrap'>
+            <view class='course-tag'>{{item.label}}</view>
+            <view class='vip-name' wx:if="{{item.vipName}}">{{item.vipName}}专享</view>
+          </view>
           <view class='course-name'>{{item.courseIntroduce}}</view>
           <view class='course-bottom-info'>
             <view class='course-price'>￥{{item.prizeMin || 0}}</view>
             <view class='course-learn-num'>已有{{item.totalParticipate}}人加入</view>
           </view>
+        </view>
+
+        <view class='ribbon {{item.courseType}}' wx:if="{{item.courseTypeText}}">
+          {{item.courseTypeText}}
         </view>
       </view>
     </view>
