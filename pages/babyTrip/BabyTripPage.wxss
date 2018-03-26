@@ -51,8 +51,6 @@
   font-size: 20px;
   color: #1e293c;
   line-height: 20px;
-  margin-top: 10px;
-  margin-bottom: 20px;
 }
 
 .trip-list-wrap {
