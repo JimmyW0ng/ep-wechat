@@ -17,7 +17,7 @@
 
   <button class='btn btn-primary' bindtap='handleLogin'>登录</button>
   <button class='btn btn-primary' bindtap='handleLogout'>登出</button>
-  <button class='btn btn-primary' bindtap='hanldeCourse'>课程</button>
+  <button class='btn btn-primary' bindtap='hanldeCourse'>产品</button>
 
   <button class='btn btn-primary' bindtap='fetchData'>获取数据</button>
 

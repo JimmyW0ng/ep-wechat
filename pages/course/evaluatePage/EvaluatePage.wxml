@@ -6,7 +6,7 @@
   </view>
 
   <view class='textarea-wrap'>
-  <textarea class='eval-textarea' value="{{content}}" bindinput="changeEvalContent"  placeholder="请公平公正填写对于该课程的评价"  />
+  <textarea class='eval-textarea' value="{{content}}" bindinput="changeEvalContent"  placeholder="请公平公正填写对于该产品的评价"  />
   </view>
 
   <view class='image-list-wrap'>

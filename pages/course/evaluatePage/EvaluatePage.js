@@ -94,7 +94,7 @@ Page({
     } else if(!data.content){
       wx.showToast({
         icon: 'none',
-        title: '请填写课程评价',
+        title: '请填写产品评价',
       })
     } else {
       flag = true
