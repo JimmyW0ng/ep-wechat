@@ -143,3 +143,25 @@ textarea {
     background: #5ee495;
     border-radius: 50%;
 }
+
+.btn-more-info {
+  color: #999;
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-more-info .iconfont {
+  font-size: 20px;
+}
+
+.content-more-info {
+  height: 0;
+  transition: all 1s ease;
+  overflow: hidden;
+}
+
+.content-more-info.active {
+  height: 420px;
+}

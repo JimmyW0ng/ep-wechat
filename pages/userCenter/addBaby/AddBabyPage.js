@@ -27,7 +27,14 @@ Page({
       { name: '女', value: 'woman' },
     ],
     today: new Date(),
-    canDeleteFlag: false
+    canDeleteFlag: false,
+    showMoreInfo: false
+  },
+
+  toggleMoreInfo(){
+    this.setData({
+      showMoreInfo: !this.data.showMoreInfo
+    })
   },
 
   loadDetail(childId){

@@ -16,14 +16,6 @@
   </view>
 
   <view class='form-control'>
-    <view class='label'>宝贝名字</view>
-
-    <view class='input-wrap'>
-      <input placeholder='请输入宝贝名字' data-key="childTrueName" value="{{childTrueName}}" bindinput="bindChildInfo" />
-    </view>
-  </view>
-
-  <view class='form-control'>
     <view class='label'>*宝贝昵称</view>
 
     <view class='input-wrap'>
@@ -62,30 +54,46 @@
     </view>
   </view>
 
-  <view class='form-control'>
-    <view class='label'>宝贝身份证</view>
-
-    <view class='input-wrap'>
-      <input placeholder='请填写身份证' data-key="childIdentity" value="{{childIdentity}}" bindinput="bindChildInfo" />
-    </view>
+  <view class='btn-more-info ripple' bindtap='toggleMoreInfo'>
+    <view class='text'>完善宝贝信息</view>
+    <view class='iconfont icon-down2'></view>
   </view>
 
-  <view class='form-control'>
-    <view class='label'>所在学校</view>
+  <view class='content-more-info {{showMoreInfo ? "active" : ""}}'>
 
-    <view class='input-wrap'>
-      <input placeholder='请输入所在学校' data-key="currentSchool" value="{{currentSchool}}" bindinput="bindChildInfo" />
+    <view class='form-control'>
+      <view class='label'>宝贝名字</view>
+
+      <view class='input-wrap'>
+        <input placeholder='请输入宝贝名字' data-key="childTrueName" value="{{childTrueName}}" bindinput="bindChildInfo" />
+      </view>
     </view>
-  </view>
-  <view class='form-control'>
-    <view class='label'>所在班级</view>
 
-    <view class='input-wrap'>
-      <input placeholder='请选择班级' data-key="currentClass" value="{{currentClass}}" bindinput="bindChildInfo" />
+    <view class='form-control'>
+      <view class='label'>宝贝身份证</view>
+
+      <view class='input-wrap'>
+        <input placeholder='请填写身份证' data-key="childIdentity" value="{{childIdentity}}" bindinput="bindChildInfo" />
+      </view>
     </view>
-  </view>
 
-  <textarea bindinput="bindChildInfo" data-key="sign" maxlength='300' auto-height value="{{sign}}" placeholder="请输入小目标" />
+    <view class='form-control'>
+      <view class='label'>所在学校</view>
+
+      <view class='input-wrap'>
+        <input placeholder='请输入所在学校' data-key="currentSchool" value="{{currentSchool}}" bindinput="bindChildInfo" />
+      </view>
+    </view>
+    <view class='form-control'>
+      <view class='label'>所在班级</view>
+
+      <view class='input-wrap'>
+        <input placeholder='请选择班级' data-key="currentClass" value="{{currentClass}}" bindinput="bindChildInfo" />
+      </view>
+    </view>
+
+    <textarea bindinput="bindChildInfo" data-key="sign" maxlength='60' auto-height value="{{sign}}" placeholder="请输入小目标(最多60字)" />
+  </view>
 
   <view class='botton-btn-wrap'>
     <button wx:if="{{canDeleteFlag}}" class='btn-delete ripple' bindtap='confirmDelete'>删除</button>
