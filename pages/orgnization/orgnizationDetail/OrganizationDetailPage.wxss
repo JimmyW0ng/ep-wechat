@@ -39,8 +39,6 @@
   letter-spacing: 0;
   line-height: 12px;
   margin-left: 15px;
-  position: relative;
-  top: 2px;
 }
 
 .org-avatar-wrap {
