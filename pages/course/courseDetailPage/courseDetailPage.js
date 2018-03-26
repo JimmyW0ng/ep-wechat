@@ -207,25 +207,32 @@ Page({
     let selectedClassId = selectedClass.id || ''
     let selectedChildId = self.data.selectedChildId
 
-    if (!selectedChildId) {
+    if (self.data.children && self.data.children.length < 1){
       wx.showToast({
         icon: 'none',
-        title: '请选择宝贝',
+        title: '请先添加宝贝',
       })
     } else {
-      AXIOS.POST('auth/order/new', {
-        childId: selectedChildId,
-        classId: selectedClassId
-      }, (res) => {
+      if (!selectedChildId) {
         wx.showToast({
-          icon: 'success',
-          title: '报名成功！',
-          duration: 3000
+          icon: 'none',
+          title: '请选择宝贝',
         })
-        setTimeout(() => {
-          self.closePopup()
-        }, 1000)
-      })
+      } else {
+        AXIOS.POST('auth/order/new', {
+          childId: selectedChildId,
+          classId: selectedClassId
+        }, (res) => {
+          wx.showToast({
+            icon: 'success',
+            title: '报名成功！',
+            duration: 3000
+          })
+          setTimeout(() => {
+            self.closePopup()
+          }, 1000)
+        })
+      }
     }
   },
 

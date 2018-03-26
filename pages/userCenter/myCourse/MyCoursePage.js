@@ -19,27 +19,26 @@ Page({
       2: 'OPENING',
       3: 'END'
     },
-    statusText: {
-      
-    },
     loading: true
   },
 
   selectTab(e) {
     const self = this
-    var tab = e.currentTarget.dataset.tab
-    self.setData({
-      selectedTab: tab,
-      status: self.data.statusENUM[tab]
-    })
-    self.getListData()
+    let tab = e.currentTarget.dataset.tab
+    if (tab != self.data.selectedTab) {
+      self.setData({
+        selectedTab: tab,
+        status: self.data.statusENUM[tab]
+      })
+      self.getListData()
+    }
   },
 
-  getListData(loadMore){
+  getListData(loadMore) {
     const self = this
     let selectedChild = USER.getSelectedChild() || {}
     let childId = selectedChild.id || ''
-    if (!childId){
+    if (!childId) {
       wx.showModal({
         title: '提示',
         content: '请选择一个宝贝查看',
@@ -67,28 +66,28 @@ Page({
     }
   },
 
-  goCourseDetailPage(e){
+  goCourseDetailPage(e) {
     let courseId = e.currentTarget.dataset.courseid
     wx.navigateTo({
       url: '/pages/course/courseDetailPage/courseDetailPage?id=' + courseId
     })
   },
 
-  goTeacherComment(e){
+  goTeacherComment(e) {
     let orderId = e.currentTarget.dataset.orderid
     wx.navigateTo({
       url: '/pages/course/teacherCommentPage/teacherCommentPage?orderId=' + orderId,
     })
   },
 
-  goEvaluate(e){
+  goEvaluate(e) {
     let orderId = e.currentTarget.dataset.orderid
     wx.navigateTo({
       url: '/pages/course/evaluatePage/EvaluatePage?orderId=' + orderId,
     })
   },
 
-  goMyHonor(){
+  goMyHonor() {
     wx.navigateTo({
       url: '../myHonor/MyHonorPage',
     })
@@ -98,7 +97,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
 
   /**

@@ -8,13 +8,20 @@
     <view class='course-info'>
       <view class='course-course-name'>{{course.courseName}}</view>
       <view class='course-basic-info'>
-        <view class='course-tag'>{{course.label}}</view>
+        <view class='course-tag-wrap'>
+          <view class='course-tag'>{{course.label}}</view>
+          <view class='vip-name' wx:if="{{course.vipName}}">{{course.vipName}}专享</view>
+        </view>
         <view class='course-ognName' bindtap='goOgnDetail'>{{course.ognName}}</view>
       </view>
       <view class='course-name'>{{course.courseIntroduce}}</view>
       <view class='course-bottom-info'>
         <view class='course-note'>{{course.courseNote}}</view>
       </view>
+
+       <view class='ribbon {{course.courseType}}' wx:if="{{course.courseTypeText}}">
+          {{course.courseTypeText}}
+        </view>
     </view>
   </view>
 
@@ -29,8 +36,8 @@
       <scroll-view scroll-y="true" class="scoll-h">
         <view class='tab-content course-introduce'>
           <view class='tab-join-notice'>
-          <import src="../../../utils/wxParse/wxParse.wxml" />
-          <template is="wxParse" data="{{wxParseData: courseContent.nodes}}" />
+            <import src="../../../utils/wxParse/wxParse.wxml" />
+            <template is="wxParse" data="{{wxParseData: courseContent.nodes}}" />
           </view>
         </view>
       </scroll-view>
@@ -71,7 +78,7 @@
           <view wx:if="{{totalCommentNum == 0}}" class='no-comments'>暂无评价</view>
 
           <view wx:if="{{comments.length > 0}}" wx:for="{{comments}}" wx:key="index">
-            <comment-item comment="{{item}}"></comment-item>  
+            <comment-item comment="{{item}}"></comment-item>
           </view>
 
           <view class='comment-check-all ripple' bindtap='goCourseCommentPage' wx:if="{{totalCommentNum > 0 && (comments.length != totalCommentNum)}}">
@@ -118,11 +125,11 @@
     <view class="zan-popup__container join-container">
       <view class='join-title'>班次</view>
 
-       <view class='date-list'>
+      <view class='date-list'>
         <view class="date-btn {{index == selectedClassIndex && 'active'}}" wx:for="{{classes}}" wx:key="{{index}}" data-index="{{index}}" bindtap='chooseClass'>
           {{item.className}}
         </view>
-      </view>  
+      </view>
 
       <view class='join-title'>宝贝</view>
 
@@ -145,7 +152,7 @@
         </view>
       </view>
 
-      <view class='btn-primary disabled' wx:if="{{course.courseStatus == 'offline'}}" >已结束</view>
+      <view class='btn-primary disabled' wx:if="{{course.courseStatus == 'offline'}}">已结束</view>
       <view wx:else>
         <view wx:if="{{course.isBegin}}">
           <view class='btn-primary ripple' wx:if="{{selectedClass.canEnterFlag}}" bindtap='handleJoin'>确认报名 ￥{{selectedClass.classPrize}}</view>
