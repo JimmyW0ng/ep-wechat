@@ -110,8 +110,8 @@ Page({
     })
     this.setData({
       selectedClassIndex: index,
-      selectedClass: selectedClass,
-      children: children,
+      selectedClass,
+      children,
       selectedChild: {},
       selectedChildId: '',
     })

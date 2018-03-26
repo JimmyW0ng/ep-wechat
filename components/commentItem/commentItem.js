@@ -29,5 +29,14 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    doPreview(e){
+      let current = e.currentTarget.dataset.src || ''
+      let comment = this.data.comment || {}
+      let urls = comment.pics || []
+      wx.previewImage({
+        current, // 当前显示图片的http链接
+        urls // 需要预览的图片http链接列表
+      })
+    }
   }
 })
