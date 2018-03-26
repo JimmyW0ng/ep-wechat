@@ -1,6 +1,10 @@
 <loadIcon wx:if="{{loading}}"></loadIcon>
 
 <view class='page' wx:else>
+  <view class='btn-home'>
+    <view class='iconfont icon-home'></view>
+  </view>
+
   <view class='course-list-item'>
     <view class='course-avatar-wrap'>
       <image class="course-avatar" src="{{course.mainPicUrl}}" mode="scaleToFill"></image>

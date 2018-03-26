@@ -455,3 +455,22 @@ swiper-item {
   display: inline-block;
   margin-left: 5px;
 }
+
+.btn-home {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  line-height: 40px;  
+  text-align: center;
+  background: #ddd;
+  color: #fff;
+  z-index: 2;
+  box-shadow: 0 0 3px #eaeaea; 
+}
+
+.btn-home .iconfont {
+  font-size: 25px;
+}
