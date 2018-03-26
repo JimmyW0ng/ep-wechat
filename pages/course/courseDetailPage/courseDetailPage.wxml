@@ -7,21 +7,22 @@
     </view>
     <view class='course-info'>
       <view class='course-course-name'>{{course.courseName}}</view>
+      <view class='course-ognName' bindtap='goOgnDetail'>{{course.ognName}}</view>
+
       <view class='course-basic-info'>
         <view class='course-tag-wrap'>
           <view class='course-tag'>{{course.label}}</view>
           <view class='vip-name' wx:if="{{course.vipName}}">{{course.vipName}}专享</view>
         </view>
-        <view class='course-ognName' bindtap='goOgnDetail'>{{course.ognName}}</view>
       </view>
       <view class='course-name'>{{course.courseIntroduce}}</view>
       <view class='course-bottom-info'>
         <view class='course-note'>{{course.courseNote}}</view>
       </view>
 
-       <view class='ribbon {{course.courseType}}' wx:if="{{course.courseTypeText}}">
-          {{course.courseTypeText}}
-        </view>
+      <view class='ribbon {{course.courseType}}' wx:if="{{course.courseTypeText}}">
+        {{course.courseTypeText}}
+      </view>
     </view>
   </view>
 
@@ -155,7 +156,10 @@
       <view class='btn-primary disabled' wx:if="{{course.courseStatus == 'offline'}}">已结束</view>
       <view wx:else>
         <view wx:if="{{course.isBegin}}">
-          <view class='btn-primary ripple' wx:if="{{selectedClass.canEnterFlag}}" bindtap='handleJoin'>确认报名 ￥{{selectedClass.classPrize}}</view>
+          <view class='btn-primary ripple' wx:if="{{selectedClass.canEnterFlag}}" bindtap='handleJoin'>
+            确认报名 <view class='origin-price {{selectedClass.discountAmount ? "has-discount" : ""}}'>￥{{selectedClass.classPrize}}</view> 
+            <view class='discount-amount'>￥{{selectedClass.discountAmount}}</view>
+          </view>
 
           <view class='btn-primary disabled' wx:else>{{selectedClass.canNotEnterText}}</view>
         </view>
