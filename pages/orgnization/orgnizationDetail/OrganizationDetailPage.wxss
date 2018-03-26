@@ -138,7 +138,6 @@
   display: flex;
   align-items: top;
   justify-content: space-between;
-  padding: 5px 0;
   margin-bottom: 25px;
   position: relative;
   overflow: hidden;
