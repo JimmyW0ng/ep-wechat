@@ -1,6 +1,10 @@
 <!--pages/userCenter/UserCenterPage.wxml-->
 
 <view class='page'>
+ <view class='btn-home' bindtap='goBack'>
+    <image src="{{backInfo.mainPicUrl}}" mode="aspectFit" class='course-main-url'></image>
+  </view>
+
   <view class='userCenter-header'>
     <view class='btn-logout' wx:if="{{isLogined}}" bindtap='doLogout'>登出</view>
 

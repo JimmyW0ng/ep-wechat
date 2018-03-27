@@ -23,7 +23,9 @@ Page({
     totalHonor: 0,
     activeIndex: 0,
     totalElements: 0,
-    isLogined: false
+    isLogined: false,
+    showBackBtn: false,
+    backInfo: {}
   },
 
   goBabyDetail(item) {
@@ -192,11 +194,26 @@ Page({
     // this.loadDetail()
   },
 
+  goBack(){
+    let courseId = this.data.backInfo.courseId
+    wx.navigateTo({
+      url: '/pages/course/courseDetailPage/courseDetailPage?id=' + courseId,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
     this.loadDetail()
+    let lastCourse = USER.getLastCourse()
+
+    if (lastCourse.courseId){
+      this.setData({
+        showBackBtn: true,
+        backInfo: lastCourse
+      })
+    }
 
     this.setData({
       isLogined: USER.isLogined()

@@ -71,6 +71,15 @@ const isLogined = () => {
   }
 }
 
+// value {}: courseId mainPicUrl
+const setLastCourse = (value) => {
+  wx.setStorageSync('ep_lastCourse', value);
+}
+
+const getLastCourse = () => {
+  return wx.getStorageSync('ep_lastCourse') || {}; 
+}
+
 module.exports = {
   getOpenId,
   setOpenId,
@@ -88,5 +97,7 @@ module.exports = {
   setSelectedChild,
   getSelectedChildIndex,
   setSelectedChildIndex,
-  isLogined
+  isLogined,
+  setLastCourse,
+  getLastCourse,
 }

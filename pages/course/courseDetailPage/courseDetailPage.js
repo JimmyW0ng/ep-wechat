@@ -109,6 +109,12 @@ Page({
   },
 
   goUserCenter(){
+    let course = this.data.course || {}
+    USER.setLastCourse({
+      mainPicUrl: course.mainPicUrl,
+      courseId: this.data.courseId
+    })
+    
     wx.switchTab({
       url: '/pages/userCenter/UserCenterPage',
     })
