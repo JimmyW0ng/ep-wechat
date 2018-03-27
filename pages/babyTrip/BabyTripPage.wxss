@@ -158,6 +158,7 @@ line-height: 16px;
   color: #7d8794;
   line-height: 12px;
   margin-left: 10px;
+  flex: 1;
 }
 
 .course-simple-info {

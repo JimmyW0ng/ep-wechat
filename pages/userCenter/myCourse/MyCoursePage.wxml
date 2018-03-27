@@ -41,6 +41,6 @@
 
   <view class='page-no-data' wx:if="{{dataSet.length == 0}}">
     <image class='page-no-data-img' src="../../../asset/img/comment_empty.png"></image>
-    <!-- <view class='page-no-data-text'>暂无数据</view> -->
+     <view class='page-no-data-text'>暂无数据</view> 
   </view>
 </view>
