@@ -1,5 +1,5 @@
 {
-    "navigationBarTitleText": "老师评价",
+    "navigationBarTitleText": "随堂评价",
     "usingComponents": {
       "tag-list": "../../../components/tagList/tagList"
     }

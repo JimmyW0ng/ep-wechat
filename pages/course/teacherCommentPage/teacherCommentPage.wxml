@@ -18,11 +18,11 @@
         <view class='top-left'>{{item.catalogTitle}}</view>
         <view class='top-right'>{{item.startTimeFormat}}</view>
       </view>
-      <view class='class-info-bottom'>{{item.catalogDesc}}</view>
+      <view class='class-info-bottom'>内容：{{item.catalogDesc}}</view>
     </view>
     <view class='comment-info' wx:if="{{item.comment}}">
       <view class='teacher-comment' wx:if="{{item.comment}}">
-        <view class='title-teacher'>老师评价：</view>
+        <view class='title-teacher'>随堂评价：</view>
         <view class='content'>{{item.comment}}</view>
       </view>
 

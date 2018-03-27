@@ -108,6 +108,12 @@ Page({
     }
   },
 
+  goUserCenter(){
+    wx.switchTab({
+      url: '/pages/userCenter/UserCenterPage',
+    })
+  },
+
   chooseClass(e) {
     const index = e.currentTarget.dataset.index
     const selectedClass = this.data.classes[index]
