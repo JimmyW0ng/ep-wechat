@@ -73,9 +73,9 @@ Page({
 
     if(this.validForm(data)){
       AXIOS.POST("auth/child/class/add/comment", data, res => {
-        wx.showModal({
-          title: '提示',
-          content: '评价成功！',
+        wx.showToast({
+          icon: 'none',
+          title: '评价成功！',
         })
         setTimeout(() => {
           wx.navigateBack({})
