@@ -37,6 +37,19 @@
         </view>
 
         <view class='trip-item-date'>{{item.startTimeFormat}}</view>
+
+        <view class='contact-info'>
+          <view class='contact-left' data-name="{{item.ognName}}" data-address="{{item.address}}" data-lat='{{item.addressLat}}' data-lng="{{item.addressLng}}" bindtap='openAddress'>
+            <view class='iconfont icon-address' wx:if="{{item.addressLat && item.addressLng}}"></view>
+            <view class='org-address'>{{item.address}}</view>
+          </view>
+          <view class='contact-right'>
+            <view class='iconfont icon-phone ripple' 
+                  bindtap='callOgn' 
+                  data-ognPhone="{{item.phone}}"></view>
+          </view>
+        </view>
+
         <view class='course-list-item'>
           <view class='course-avatar-wrap'>
             <image class="course-avatar" src="{{item.mainPicUrl}}" mode="aspectFill"></image>

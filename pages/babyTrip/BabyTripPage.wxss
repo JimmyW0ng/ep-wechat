@@ -188,3 +188,38 @@ line-height: 16px;
 .btn-primary {
   width: 60%
 }
+
+
+.contact-info {
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.contact-left {
+  display: flex;
+  align-items: center;
+}
+
+.contact-right {
+  margin-left: 15px;
+}
+
+.icon-address {
+  margin-right: 5px;
+  color: #7d8794;
+}
+
+.org-address {
+  font-size: 14px;
+  color: #1e293c;
+  letter-spacing: 0;
+  line-height: 16px;
+}
+
+.icon-phone {
+  color: #5ee495;
+  font-size: 22px;
+}

@@ -46,6 +46,37 @@ Page({
     })
   },
 
+  openAddress(e) {
+    let dataset = e.currentTarget.dataset
+    let name = dataset.name
+    let address = dataset.address
+    let addressLat = Number(dataset.lat)
+    let addressLng = Number(dataset.lng)
+
+    if (addressLat && addressLng) {
+      wx.openLocation({
+        latitude: addressLat,
+        longitude: addressLng,
+        // scale: 18, // 缩放比例，范围5~18，默认为18
+        name,
+        address,
+        success: function (res) {
+          console.log(res)
+        },
+        fail: function (res) {
+          console.log(res)
+        }
+      })
+    }
+  },
+
+  callOgn(e) {
+    const self = this
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.ognphone
+    })
+  },
+
   getMsgCount() {
     const self = this
 
