@@ -27,7 +27,7 @@
         <view class='org-slogan'>{{ognInfo.ognShortIntroduce}}</view>
       </view>
       <view class='basic-right'>
-        <image class='org-avatar-wrap' src="{{logoUrl}}" mode="scaleToFill"></image>
+        <image class='org-avatar-wrap' src="{{logoUrl}}" mode="aspectFill"></image>
       </view>
     </view>
 
@@ -65,7 +65,7 @@
             bindtap='goCourseDetailPage'  
             data-item="{{item}}">
         <view class='course-avatar-wrap'>
-          <image class="course-avatar" src="{{item.mainPicUrl}}" mode="scaleToFill"></image>
+          <image class="course-avatar" src="{{item.mainPicUrl}}" mode="aspectFill"></image>
         </view>
         <view class='course-info'>
           <view class='course-org-name'>{{item.courseName}}</view>

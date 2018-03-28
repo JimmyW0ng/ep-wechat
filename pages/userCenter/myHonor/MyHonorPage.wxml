@@ -29,7 +29,7 @@
       </view>
 
       <view class='avatar-wrap'>
-        <image class='avatar' mode='scaleToFill' src="{{item.coursePic}}"></image>
+        <image class='avatar' mode='aspectFill' src="{{item.coursePic}}"></image>
       </view>
 
       <view class='info'>

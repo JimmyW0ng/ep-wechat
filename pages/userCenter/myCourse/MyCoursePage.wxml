@@ -14,7 +14,7 @@
       <view class='course-list-wrap'>
         <view class='course-list-item' wx:for="{{dataSet}}" wx:key="index" bindtap='goCourseDetailPage' data-courseid="{{item.courseId}}" data-childid="{{item.childId}}" data-classid="{{item.classId}}">
           <view class='course-avatar-wrap'>
-            <image class="course-avatar" src="{{item.mainPicUrl}}" mode="scaleToFill"></image>
+            <image class="course-avatar" src="{{item.mainPicUrl}}" mode="aspectFill"></image>
           </view>
           <view class='course-info'>
             <view class='course-org-name'>{{item.courseName}}</view>

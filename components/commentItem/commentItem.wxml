@@ -17,6 +17,6 @@
   <view class='comment-footer'>{{comment.content}}</view>
 
   <view class='comment-pics' wx:if="{{comment.pics}}">
-    <image class='comment-pic' bindtap='doPreview' wx:key="{{index}}" wx:for="{{comment.pics}}" data-src="{{item}}" src="{{item}}"></image>
+    <image class='comment-pic' bindtap='doPreview' mode="aspectFill" wx:key="{{index}}" wx:for="{{comment.pics}}" data-src="{{item}}" src="{{item}}"></image>
   </view>
 </view>

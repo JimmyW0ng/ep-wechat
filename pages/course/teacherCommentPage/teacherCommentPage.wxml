@@ -37,7 +37,7 @@
 </view>
 
 <view class='page-no-data' wx:else>
-  <image class='page-no-data-img' src="../../../asset/img/comment_empty.png" mode="scaleToFill"></image>
+  <image class='page-no-data-img' src="../../../asset/img/comment_empty.png" mode="aspectFill"></image>
   <view class='page-no-data-text'>
     <view>暂无数据</view>
   </view>

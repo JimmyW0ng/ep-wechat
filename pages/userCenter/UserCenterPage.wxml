@@ -47,7 +47,7 @@
       <view class='comment-item' bindtap='goTeacherComment' data-orderid="{{item.orderId}}" wx:for="{{commentList}}" wx:key="{{index}}">
         <view class='teacher-basic'>
           <view class='left'>
-            <image class="teacher-avatar" src="{{item.avatar}}" mode="scaleToFill"></image>
+            <image class="teacher-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
             <view class='teacher-info'>
               <view class='teacher-title'>{{item.nickName}}</view>
               <view class='teacher-name'>{{item.ognName}}</view>
@@ -61,7 +61,7 @@
 
     <view class='footer-empty' wx:else>
       <view class='img-empty'>
-        <image class='org-cover' src="../../asset/img/comment_empty.png" mode="scaleToFill"></image>
+        <image class='org-cover' src="../../asset/img/comment_empty.png"></image>
       </view>
       <view class='text-empty'>暂无评价</view>
       <view class='btn-empty ripple' bindtap='goOgnList'>查看机构</view>

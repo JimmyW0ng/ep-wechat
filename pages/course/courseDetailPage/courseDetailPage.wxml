@@ -7,7 +7,7 @@
 
   <view class='course-list-item'>
     <view class='course-avatar-wrap'>
-      <image class="course-avatar" src="{{course.mainPicUrl}}" mode="scaleToFill"></image>
+      <image class="course-avatar" src="{{course.mainPicUrl}}" mode="aspectFill"></image>
     </view>
     <view class='course-info'>
       <view class='course-course-name'>{{course.courseName}}</view>
