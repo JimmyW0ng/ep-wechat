@@ -3,11 +3,10 @@
 <view class='replay-modal' wx:if="{{showModal}}">
   <view class='replay-mask' bindtap='hideReplayModal'></view>
   <view class='replay-modal-container'>
-    <view class='replay-modal-title'></view>
     <view class='replay-modal-body'>
-      <input maxlength='500' auto-focus="{{showModal}}" placeholder='请输入回复' value="{{tempContent}}" bindinput="bindInputReplay"></input>
+      <input maxlength='500' class="replay-input" auto-focus="{{showModal}}" placeholder='请输入回复' value="{{tempContent}}" bindinput="bindInputReplay"></input>
+      <view class='replay-btn ripple' bindtap='doReplay'>回复</view>
     </view>
-    <view class='replay-modal-footer ripple' bindtap='doReplay'>回复</view>
   </view>
 </view>
 

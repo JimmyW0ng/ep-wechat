@@ -74,12 +74,11 @@
 
 .replay-modal-container {
   background: #fff;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   z-index: 3;
   position: fixed;
-  top: 100px;
-  left: 10%;
+  bottom: 0px;
   box-sizing: border-box;
 }
 .replay-mask {
@@ -91,11 +90,24 @@
   background: rgba(0, 0, 0, 0.4);
   z-index: 2;
 }
+
 .replay-modal-body {
-  padding: 15px;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  font-size: 15px;
 }
-.replay-modal-footer {
-  padding: 15px;
-  text-align: center;
-  border-top: 1px solid #e9e9e9;
+
+.replay-input {
+  height: 40px;
+  line-height: 40px; 
+  flex: 1;
+}
+
+.replay-btn {
+  font-size: 15px;
+  color: #5ee495;
+  padding: 0 15px;
 }
