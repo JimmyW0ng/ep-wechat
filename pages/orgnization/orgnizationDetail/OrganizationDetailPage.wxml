@@ -10,6 +10,9 @@
       </swiper-item>
     </block>
   </swiper> -->
+  <view class='btn-home'>
+    <view class='iconfont icon-home' bindtap='goUserCenter'></view>
+  </view>
 
   <image src="{{mainPicUrl}}" class="org-cover" mode="widthFix"/>
 

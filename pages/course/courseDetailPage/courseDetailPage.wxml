@@ -161,8 +161,8 @@
       <view wx:else>
         <view wx:if="{{course.isBegin}}">
           <view class='btn-primary ripple' wx:if="{{selectedClass.canEnterFlag}}" bindtap='handleJoin'>
-            确认报名 <view class='origin-price {{selectedClass.discountAmount ? "has-discount" : ""}}'>￥{{selectedClass.classPrize}}</view> 
-            <view class='discount-amount'>￥{{selectedClass.discountAmount}}</view>
+            确认报名 <view class='origin-price {{selectedClass.discountAmount != undefined ? "has-discount" : ""}}'>￥{{selectedClass.classPrize}}</view> 
+            <view class='discount-amount' wx:if="{{selectedClass.discountAmount != undefined }}">￥{{selectedClass.discountAmount}}</view>
           </view>
 
           <view class='btn-primary disabled' wx:else>{{selectedClass.canNotEnterText}}</view>

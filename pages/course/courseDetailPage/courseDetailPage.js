@@ -110,7 +110,8 @@ Page({
 
   goUserCenter(){
     let course = this.data.course || {}
-    USER.setLastCourse({
+    USER.setLastPage({
+      fromPage: 'courseDetail',
       mainPicUrl: course.mainPicUrl,
       courseId: this.data.courseId
     })

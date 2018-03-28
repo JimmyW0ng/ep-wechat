@@ -71,13 +71,13 @@ const isLogined = () => {
   }
 }
 
-// value {}: courseId mainPicUrl
-const setLastCourse = (value) => {
-  wx.setStorageSync('ep_lastCourse', value);
+// value {}: courseId || ognId,  mainPicUrl
+const setLastPage = (value) => {
+  wx.setStorageSync('ep_LastPage', value);
 }
 
-const getLastCourse = () => {
-  return wx.getStorageSync('ep_lastCourse') || {}; 
+const getLastPage = () => {
+  return wx.getStorageSync('ep_LastPage') || {}; 
 }
 
 module.exports = {
@@ -98,6 +98,6 @@ module.exports = {
   getSelectedChildIndex,
   setSelectedChildIndex,
   isLogined,
-  setLastCourse,
-  getLastCourse,
+  setLastPage,
+  getLastPage,
 }

@@ -195,10 +195,18 @@ Page({
   },
 
   goBack(){
-    let courseId = this.data.backInfo.courseId
-    wx.navigateTo({
-      url: '/pages/course/courseDetailPage/courseDetailPage?id=' + courseId,
-    })
+    let backInfo = this.data.backInfo || {}
+    let fromPage = backInfo.fromPage || ''
+
+    if (fromPage == 'courseDetail'){
+      wx.navigateTo({
+        url: '/pages/course/courseDetailPage/courseDetailPage?id=' + backInfo.courseId,
+      })
+    } else if (fromPage == 'ognDetail'){
+      wx.navigateTo({
+        url: '/pages/orgnization/orgnizationDetail/OrganizationDetailPage?id=' + backInfo.ognId,
+      })
+    }
   },
 
   /**
@@ -206,12 +214,12 @@ Page({
    */
   onShow: function () {
     this.loadDetail()
-    let lastCourse = USER.getLastCourse()
+    let lastPage = USER.getLastPage()
 
-    if (lastCourse.courseId){
+    if (lastPage.mainPicUrl){
       this.setData({
         showBackBtn: true,
-        backInfo: lastCourse
+        backInfo: lastPage
       })
     }
 

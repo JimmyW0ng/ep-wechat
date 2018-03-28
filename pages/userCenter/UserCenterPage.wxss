@@ -198,7 +198,7 @@
   line-height: 22px;
 }
 
-.btn-home {
+.btn-history-back {
   position: fixed;
   bottom: 50px;
   right: 20px;
@@ -212,7 +212,7 @@
   overflow: hidden;
 }
 
-.btn-home .course-main-url {
+.btn-history-back .course-main-url {
   width: 40px;
   height: 40px;
 }

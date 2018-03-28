@@ -1,7 +1,7 @@
 <!--pages/userCenter/UserCenterPage.wxml-->
 
 <view class='page'>
- <view class='btn-home' bindtap='goBack'>
+  <view class='btn-history-back' bindtap='goBack'>
     <image src="{{backInfo.mainPicUrl}}" mode="aspectFit" class='course-main-url'></image>
   </view>
 
@@ -23,7 +23,7 @@
 
     <view class='userCenter-header-bottom {{children.length == 0 ? "no-data" : ""}}'>
       <view class='child-name'>{{selectedChild.childNickName}}</view>
-      <view class='child-school'>{{currentSchool}}  {{currentClass}}</view>
+      <view class='child-school'>{{currentSchool}} {{currentClass}}</view>
       <view class='child-sign text-ellipsis'>{{sign}}</view>
     </view>
   </view>

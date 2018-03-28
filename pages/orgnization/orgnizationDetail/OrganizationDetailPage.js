@@ -1,6 +1,6 @@
 // pages/orgnization/orgnizationDetail/OrganizationDetailPage.js
 const AXIOS = require('../../../utils/axios')
-
+const USER = require('../../../utils/user')
 Page({
 
   /**
@@ -21,6 +21,19 @@ Page({
     showShortIntro: false,
     introLimit: 100,
     loading: true
+  },
+
+  goUserCenter() {
+    let ognInfo = this.data.ognInfo || {}
+    USER.setLastPage({
+      fromPage: 'ognDetail',
+      mainPicUrl: this.data.logoUrl,
+      ognId: ognInfo.id
+    })
+
+    wx.switchTab({
+      url: '/pages/userCenter/UserCenterPage',
+    })
   },
 
   /**
