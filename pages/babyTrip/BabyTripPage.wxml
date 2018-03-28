@@ -49,7 +49,7 @@
             </view>
             <view class='course-bottom-info'>
               <view class='course-price'></view>
-              <view class='course-learn-num'>{{item.catalogIndex}}/{{item.courseNum}}课时</view>
+              <view class='course-learn-num'>{{item.catalogIndex}}/{{item.courseNum}}</view>
             </view>
           </view>
         </view>
