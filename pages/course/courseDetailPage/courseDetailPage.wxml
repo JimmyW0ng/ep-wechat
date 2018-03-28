@@ -2,7 +2,7 @@
 
 <view class='page' wx:else>
   <view class='btn-home'>
-    <view class='iconfont icon-home' bindtap='goUserCenter'></view>
+    <view class='iconfont icon-iconuser-copy' bindtap='goUserCenter'></view>
   </view>
 
   <view class='course-list-item'>
