@@ -16,7 +16,7 @@
       <view class='course-basic-info'>
         <view class='course-tag-wrap'>
           <view class='course-tag'>{{course.label}}</view>
-          <view class='vip-name' wx:if="{{course.vipName}}">{{course.vipName}}专享</view>
+          <view class='vip-name' wx:if="{{course.vipFlag && course.vipName}}">{{course.vipName}}专享</view>
         </view>
       </view>
       <view class='course-name'>{{course.courseIntroduce}}</view>
