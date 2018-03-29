@@ -455,3 +455,37 @@ swiper-item {
   display: inline-block;
   margin-left: 5px;
 }
+
+
+.contact-info {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-left {
+  display: flex;
+  align-items: center;
+}
+
+.contact-right {
+  margin-left: 15px;
+}
+
+.icon-address {
+  margin-right: 5px;
+  color: #7d8794;
+}
+
+.org-address {
+  font-size: 14px;
+  color: #1e293c;
+  letter-spacing: 0;
+  line-height: 16px;
+}
+
+.icon-phone {
+  color: #5ee495;
+  font-size: 22px;
+}

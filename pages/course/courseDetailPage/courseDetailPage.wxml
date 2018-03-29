@@ -136,6 +136,19 @@
         </view>
       </view>
 
+      <view class='join-title'>班次信息</view>
+      <view class='contact-info'>
+        <view class='contact-left' data-name="{{selectedClass.className}}" data-address="{{selectedClass.address}}" data-lat='{{selectedClass.addressLat}}' data-lng="{{selectedClass.addressLng}}" bindtap='openAddress'>
+          <view class='iconfont icon-address' wx:if="{{selectedClass.addressLat && selectedClass.addressLng}}"></view>
+          <view class='org-address'>{{selectedClass.address}}</view>
+        </view>
+        <view class='contact-right'>
+          <view class='iconfont icon-phone ripple' 
+                bindtap='callOgn' 
+                data-ognPhone="{{selectedClass.phone}}"></view>
+        </view>
+      </view>
+
       <view class='join-title'>宝贝</view>
 
       <view class='baby-list'>
