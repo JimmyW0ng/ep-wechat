@@ -21,6 +21,14 @@
   line-height: 16px;
 }
 
+.label .icon-required {
+  color: #FF3A45;
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  margin-right: 3px;
+}
+
 .input-wrap {
   text-align: right;
   flex: 1;

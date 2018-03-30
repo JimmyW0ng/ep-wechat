@@ -16,7 +16,7 @@
   </view>
 
   <view class='form-control'>
-    <view class='label'>*宝贝昵称</view>
+    <view class='label'><view class='icon-required'>*</view>宝贝昵称</view>
 
     <view class='input-wrap'>
       <input placeholder='请输入宝贝昵称' data-key="childNickName" value="{{childNickName}}" bindinput="bindChildInfo" />
@@ -24,7 +24,7 @@
   </view>
 
   <view class='form-control'>
-    <view class='label'>*宝贝生日</view>
+    <view class='label'><view class='icon-required'>*</view>宝贝生日</view>
 
     <view class='input-wrap'>
       <view class="section">
@@ -38,7 +38,7 @@
   </view>
 
   <view class='form-control'>
-    <view class='label'>*宝贝性别</view>
+    <view class='label'><view class='icon-required'>*</view>宝贝性别</view>
     <view class='input-wrap'>
       <radio-group class="group" bindchange="radioChange">
         <view class="label-2" wx:for="{{radioItems}}" wx:key="{{index}}">
