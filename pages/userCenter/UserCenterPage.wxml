@@ -1,7 +1,7 @@
 <!--pages/userCenter/UserCenterPage.wxml-->
 <view class='page'>
   <view class='btn-history-back' wx:if="{{backInfo.mainPicUrl}}" bindtap='goBack'>
-    <image src="{{backInfo.mainPicUrl}}" mode="aspectFit" class='course-main-url'></image>
+    <image src="{{backInfo.mainPicUrl}}" mode="aspectFill" class='course-main-url'></image>
   </view>
 
   <view class='userCenter-header'>
@@ -27,11 +27,11 @@
   </view>
 
   <view class='userCenter-body'>
-    <view class='userCenter-body-item border-right ripple' bindtap='goTargetPage' data-url="./myCourse/MyCoursePage">
+    <view class='userCenter-body-item border-right ripple' bindtap='goTargetPage2' data-url="./myCourse/MyCoursePage">
       <view class='body-num'>{{totalOrder || 0}}</view>
       <view class='body-text'>我的报名</view>
     </view>
-    <view class='userCenter-body-item ripple' bindtap='goTargetPage' data-url="./myHonor/MyHonorPage">
+    <view class='userCenter-body-item ripple' bindtap='goTargetPage2' data-url="./myHonor/MyHonorPage">
       <view class='body-num'>{{totalHonor || 0}}</view>
       <view class='body-text'>奖状墙</view>
     </view>

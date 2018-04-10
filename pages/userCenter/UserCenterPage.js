@@ -123,6 +123,40 @@ Page({
     }
   },
 
+  goTargetPage2(e){
+    if (this.data.isLogined) {
+      if (this.data.selectedChild && this.data.selectedChild.id){
+        wx.navigateTo({
+          url: e.currentTarget.dataset.url
+        })
+      } else {
+        wx.showModal({
+          title: '提示',
+          content: '请先添加宝贝',
+          success: function (res) {
+            if (res.confirm) {
+              wx.navigateTo({
+                url: './addBaby/AddBabyPage'
+              })
+            }
+          }
+        })
+      }
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: LoginUrl
+            })
+          }
+        }
+      })
+    }
+  },
+
   loadDetail() {
     const self = this
     AXIOS.POST('auth/member/detail', {}, res => {

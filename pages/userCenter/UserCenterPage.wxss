@@ -3,7 +3,7 @@
 .userCenter-header {
   padding: 60px 20px 40px;
   text-align: center;
-  min-height: 250px;
+  min-height: 240px;
   box-sizing: border-box;
 }
 
@@ -16,10 +16,6 @@
 .userCenter-header-top.no-data {
   display: block;
   text-align: center;
-}
-
-.userCenter-header-bottom {
-  margin-top: 15px;
 }
 
 .userCenter-header-bottom.no-data {
@@ -85,6 +81,7 @@
   color: #1e293c;
   line-height: 20px;
   height: 20px;
+  margin-top: 3px;
 }
 
 .child-school {
