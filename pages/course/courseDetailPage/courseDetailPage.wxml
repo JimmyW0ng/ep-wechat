@@ -97,8 +97,8 @@
   </swiper>
 
   <view class='course-detail-footer'>
-    <view class='footer-left' wx:if="{{course.ognPhone}}">
-      <view class='footer-left-phone'>
+    <view class='footer-left'>
+      <view class='footer-left-phone' wx:if="{{course.ognPhone}}">
         <view class='iconfont icon-phone ripple' bindtap='callOgn' data-ognPhone="{{course.ognPhone}}"></view>
       </view>
     </view>

@@ -1,6 +1,7 @@
 // pages/userCenter/myHonor/MyHonorPage.js
 const AXIOS = require('../../../utils/axios')
 const USER = require('../../../utils/user')
+const LoginUrl = '/pages/login/LoginPage'
 
 Page({
 

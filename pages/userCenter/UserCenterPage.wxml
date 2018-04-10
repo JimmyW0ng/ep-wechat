@@ -1,39 +1,37 @@
 <!--pages/userCenter/UserCenterPage.wxml-->
-
 <view class='page'>
-  <view class='btn-history-back' bindtap='goBack'>
+  <view class='btn-history-back' wx:if="{{backInfo.mainPicUrl}}" bindtap='goBack'>
     <image src="{{backInfo.mainPicUrl}}" mode="aspectFit" class='course-main-url'></image>
   </view>
 
   <view class='userCenter-header'>
+    <view class='btn-select-baby' wx:if="{{!loading && children.length > 1}}" bindtap='showPopup'>选择宝贝</view>
     <view class='btn-logout' wx:if="{{isLogined}}" bindtap='doLogout'>登出</view>
+    <view class='btn-top-add' wx:if="{{!loading && children.length < 4 && children.length}}" bindtap='goTargetPage' data-url="./addBaby/AddBabyPage">添加宝贝</view>
 
-    <view class='userCenter-header-top {{children.length == 0 ? "no-data" : ""}}'>
-      <view class='avatar-list-wrap' wx:if="{{children.length > 0}}">
-        <avatar-selector bind:clickItem="goBabyDetail" bind:changeItem="changeBaby" activeIndex="{{activeIndex}}" list="{{children}}"></avatar-selector>
-      </view>
-
-      <view class='btn-add-wrap' wx:if="{{children.length < 4}}">
+    <view class='userCenter-header-top no-data' wx:if="{{children.length == 0}}">
+      <view class='btn-add-wrap' bindtap='goTargetPage' data-url="./addBaby/AddBabyPage">
         <view class='btn-add ripple'>
-          <view class='iconfont icon-plus1' bindtap='goAddBaby'></view>
+          <view class='iconfont icon-plus1'></view>
         </view>
-        <view class='text-add' wx:if="{{children.length == 0}}" bindtap='goAddBaby'>添加宝贝信息</view>
+        <view class='text-add'>添加宝贝信息</view>
       </view>
     </view>
 
-    <view class='userCenter-header-bottom {{children.length == 0 ? "no-data" : ""}}'>
-      <view class='child-name'>{{selectedChild.childNickName}}</view>
-      <view class='child-school'>{{currentSchool}} {{currentClass}}</view>
-      <view class='child-sign text-ellipsis'>{{sign}}</view>
+    <view wx:else class='userCenter-header-bottom {{children.length == 0 ? "no-data" : ""}}' data-id="{{selectedChild.id}}" bindtap='goBabyDetail'>
+      <image class="child-avatar" src="{{selectedChild.avatar || '../../asset/img/avatar-man.png'}}" mode="aspectFill"></image>
+      <view class='child-name' wx:if="{{selectedChild.childNickName}}">{{selectedChild.childNickName}}</view>
+      <view class='child-school' wx:if="{{currentSchool || currentClass}}">{{currentSchool}} {{currentClass}}</view>
+      <view class='child-sign text-ellipsis' wx:if="{{sign}}">{{sign}}</view>
     </view>
   </view>
 
   <view class='userCenter-body'>
-    <view class='userCenter-body-item border-right ripple' bindtap='goMyCourse'>
+    <view class='userCenter-body-item border-right ripple' bindtap='goTargetPage' data-url="./myCourse/MyCoursePage">
       <view class='body-num'>{{totalOrder || 0}}</view>
       <view class='body-text'>我的报名</view>
     </view>
-    <view class='userCenter-body-item ripple' bindtap='goMyHonor'>
+    <view class='userCenter-body-item ripple' bindtap='goTargetPage' data-url="./myHonor/MyHonorPage">
       <view class='body-num'>{{totalHonor || 0}}</view>
       <view class='body-text'>奖状墙</view>
     </view>
@@ -67,5 +65,25 @@
       <view class='btn-empty ripple' bindtap='goOgnList'>查看机构</view>
     </view>
 
+  </view>
+
+
+  <!-- 报名 PopUp -->
+  <view class="zan-popup zan-popup--bottom {{popupStatus ? 'zan-popup--show' : ''}}">
+    <view class="zan-popup__mask" bindtap='closePopup'></view>
+    <view class="zan-popup__container join-container">
+      <view class='baby-list'>
+        <view class="baby-list-item" bindtap='chooseChild' data-id="{{item.id}}" data-index="{{index}}" wx:for="{{children}}" wx:key="{{index}}">
+          <view class='baby-info'>
+            <image class='item-avatar' mode="aspectFill" src="{{item.avatar || '../../asset/img/avatar-man.png'}}"></image>
+            <view class='item-name'>{{item.childNickName}}</view>
+          </view>
+
+          <view class="item-selector {{item.id == selectedChildId ? 'active' : ''}}">
+            <view class='iconfont icon-right1'></view>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

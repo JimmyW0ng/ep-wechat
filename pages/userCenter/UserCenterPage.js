@@ -25,18 +25,44 @@ Page({
     totalElements: 0,
     isLogined: false,
     showBackBtn: false,
-    backInfo: {}
+    backInfo: {},
+
+    // 选择宝贝
+    popupStatus: false,
+    selectedChildId: '',
+    loading: true
   },
 
-  goBabyDetail(item) {
-    let childId = item.detail.id
+  showPopup() {
+    this.setData({
+      popupStatus: true
+    })
+  },
+
+  closePopup() {
+    this.setData({
+      popupStatus: false
+    })
+  },
+
+  chooseChild(e) {
+    let id = e.currentTarget.dataset.id
+    let index = e.currentTarget.dataset.index
+    this.setData({
+      popupStatus: false,
+      selectedChildId: id
+    })
+    this.changeBaby(index)
+  },
+
+  goBabyDetail(e) {
+    let childId = e.currentTarget.dataset.id
     wx.navigateTo({
       url: './addBaby/AddBabyPage?id=' + childId
     })
   },
 
-  changeBaby(item) {
-    let index = item.detail.activeIndex
+  changeBaby(index) {
     let selectedChild = this.data.children[index] || {}
     this.setData({
       selectedChild
@@ -77,22 +103,24 @@ Page({
     })
   },
 
-  goAddBaby() {
-    wx.navigateTo({
-      url: './addBaby/AddBabyPage'
-    })
-  },
-
-  goMyCourse() {
-    wx.navigateTo({
-      url: './myCourse/MyCoursePage'
-    })
-  },
-
-  goMyHonor() {
-    wx.navigateTo({
-      url: './myHonor/MyHonorPage'
-    })
+  goTargetPage(e){
+    if (this.data.isLogined) {
+      wx.navigateTo({
+        url: e.currentTarget.dataset.url
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: LoginUrl
+            })
+          }
+        }
+      })
+    }
   },
 
   loadDetail() {
@@ -121,6 +149,7 @@ Page({
         children,
         selectedChild,
         mbrInfo: result.mbrInfo || {},
+        loading: false
       })
     })
   },
@@ -159,7 +188,7 @@ Page({
     })
   },
 
-  resetData(){
+  resetData() {
     this.setData({
       children: [],
       selectedChild: {},
@@ -194,15 +223,15 @@ Page({
     // this.loadDetail()
   },
 
-  goBack(){
+  goBack() {
     let backInfo = this.data.backInfo || {}
     let fromPage = backInfo.fromPage || ''
 
-    if (fromPage == 'courseDetail'){
+    if (fromPage == 'courseDetail') {
       wx.navigateTo({
         url: '/pages/course/courseDetailPage/courseDetailPage?id=' + backInfo.courseId,
       })
-    } else if (fromPage == 'ognDetail'){
+    } else if (fromPage == 'ognDetail') {
       wx.navigateTo({
         url: '/pages/orgnization/orgnizationDetail/OrganizationDetailPage?id=' + backInfo.ognId,
       })
@@ -216,13 +245,12 @@ Page({
     this.loadDetail()
     let lastPage = USER.getLastPage()
 
-    if (lastPage.mainPicUrl){
+    if (lastPage.mainPicUrl) {
       this.setData({
         showBackBtn: true,
         backInfo: lastPage
       })
     }
-
     this.setData({
       isLogined: USER.isLogined()
     })

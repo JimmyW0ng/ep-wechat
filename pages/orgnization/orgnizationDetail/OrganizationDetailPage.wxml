@@ -36,7 +36,7 @@
         <view class='iconfont icon-address' wx:if="{{ognInfo.ognLat && ognInfo.ognLng}}"></view>
         <view class='org-address'>{{ognInfo.ognAddress}}</view>
       </view>
-      <view class='contact-right'>
+      <view class='contact-right' wx:if="{{ognInfo.ognPhone}}">
         <view class='iconfont icon-phone ripple' 
               bindtap='callOgn' 
               data-ognPhone="{{ognInfo.ognPhone}}"></view>
