@@ -17,7 +17,7 @@
         <view class='top-left'>{{item.catalogTitle}}</view>
         <view class='top-right'>{{item.startTimeFormat}}</view>
       </view>
-      <view class='class-info-bottom'>内容：{{item.catalogDesc}}</view>
+      <view class='class-info-bottom' wx:if="{{item.catalogDesc}}">内容：{{item.catalogDesc}}</view>
     </view>
     <view class='comment-info' wx:if="{{item.comment}}">
       <view class='teacher-comment' wx:if="{{item.comment}}">

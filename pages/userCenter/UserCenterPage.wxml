@@ -5,9 +5,15 @@
   </view>
 
   <view class='userCenter-header'>
-    <view class='btn-select-baby' wx:if="{{!loading && children.length > 1}}" bindtap='showPopup'>选择宝贝</view>
-    <view class='btn-logout' wx:if="{{isLogined}}" bindtap='doLogout'>登出</view>
-    <view class='btn-top-add' wx:if="{{!loading && children.length < 4 && children.length}}" bindtap='goTargetPage' data-url="./addBaby/AddBabyPage">添加宝贝</view>
+    <view class='btn-select-baby' wx:if="{{!loading && children.length > 1}}" bindtap='showPopup'>
+      <view class='iconfont icon-qiehuanjiaose'></view>
+    </view>
+    <view class='btn-logout' wx:if="{{isLogined}}" bindtap='doLogout'>
+      <view class='iconfont icon-dengchu'></view>
+    </view>
+    <view class='btn-top-add' wx:if="{{!loading && children.length < 4 && children.length}}" bindtap='goTargetPage' data-url="./addBaby/AddBabyPage">
+         <view class='iconfont icon-tianjia'></view>
+    </view>
 
     <view class='userCenter-header-top no-data' wx:if="{{children.length == 0}}">
       <view class='btn-add-wrap' bindtap='goTargetPage' data-url="./addBaby/AddBabyPage">

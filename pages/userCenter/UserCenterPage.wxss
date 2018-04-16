@@ -3,7 +3,7 @@
 .userCenter-header {
   padding: 60px 20px 40px;
   text-align: center;
-  min-height: 240px;
+  min-height: 220px;
   box-sizing: border-box;
 }
 
@@ -24,16 +24,20 @@
 
 .btn-logout {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
   font-size: 14px;
   color: #7d8794;
 }
-
+.btn-logout  .iconfont {
+  font-size: 18px;
+  position: relative;
+  top: -1px;
+}
 .btn-select-baby {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 15px;
+  left: 15px;
   font-size: 14px;
   color: #7d8794;
 }
@@ -60,8 +64,8 @@
 
 .btn-top-add {
   position: absolute;
-  top: 10px;
-  right: 60px;
+  top: 15px;
+  right: 50px;
   font-size: 14px;
   color: #7d8794;
 }

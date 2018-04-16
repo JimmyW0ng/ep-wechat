@@ -103,7 +103,7 @@ Page({
     })
   },
 
-  goTargetPage(e){
+  goTargetPage(e) {
     if (this.data.isLogined) {
       wx.navigateTo({
         url: e.currentTarget.dataset.url
@@ -123,9 +123,9 @@ Page({
     }
   },
 
-  goTargetPage2(e){
+  goTargetPage2(e) {
     if (this.data.isLogined) {
-      if (this.data.selectedChild && this.data.selectedChild.id){
+      if (this.data.selectedChild && this.data.selectedChild.id) {
         wx.navigateTo({
           url: e.currentTarget.dataset.url
         })
