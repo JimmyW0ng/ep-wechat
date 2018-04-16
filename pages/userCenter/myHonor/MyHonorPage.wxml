@@ -16,9 +16,9 @@
           <view class='notice-text'>{{selectedItem.ognName}}</view>
         </view>
       </view>
-      <view class='modal-footer'>
-        <button class='btn btn-primary'>分享到朋友圈</button>
-      </view>
+       <view class='modal-footer'>
+        <!-- <button class='btn btn-primary'>分享到朋友圈</button> -->
+      </view> 
     </view>
   </view>
 
