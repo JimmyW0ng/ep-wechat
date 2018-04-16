@@ -111,9 +111,15 @@
       </view>
 
       <view wx:else>
-        <view class='btn-primary small ripple' wx:if="{{course.isBegin}}" bindtap='showPopup'>
-          <view>立即报名 ￥{{course.prizeMin || 0}}</view>
-          <view class='text'>已有{{course.totalParticipate}}人加入</view>
+        <view wx:if="{{course.isBegin}}">
+          <view class='btn-primary small ripple' wx:if="{{course.canEnterFlag}}" bindtap='showPopup'>
+            <view>立即报名 ￥{{course.prizeMin || 0}}</view>
+            <view class='text'>已有{{course.totalParticipate}}人加入</view>
+          </view>
+          <view class='btn-primary small disabled' wx:else>
+            <view>报名已结束</view>
+            <view class='text'>已有{{course.totalParticipate}}人加入</view>
+          </view>
         </view>
 
         <view class='btn-primary small' wx:else bindtap='showPopup'>
@@ -143,9 +149,7 @@
           <view class='org-address'>{{selectedClass.address}}</view>
         </view>
         <view class='contact-right'>
-          <view class='iconfont icon-phone ripple' 
-                bindtap='callOgn' 
-                data-ognPhone="{{selectedClass.phone}}"></view>
+          <view class='iconfont icon-phone ripple' bindtap='callOgn' data-ognPhone="{{selectedClass.phone}}"></view>
         </view>
       </view>
 
@@ -174,7 +178,8 @@
       <view wx:else>
         <view wx:if="{{course.isBegin}}">
           <view class='btn-primary ripple' wx:if="{{selectedClass.canEnterFlag}}" bindtap='handleJoin'>
-            确认报名 <view class='origin-price {{selectedClass.discountAmount != undefined ? "has-discount" : ""}}'>￥{{selectedClass.classPrize}}</view> 
+            确认报名
+            <view class='origin-price {{selectedClass.discountAmount != undefined ? "has-discount" : ""}}'>￥{{selectedClass.classPrize}}</view>
             <view class='discount-amount' wx:if="{{selectedClass.discountAmount != undefined }}">￥{{selectedClass.discountAmount}}</view>
           </view>
 
