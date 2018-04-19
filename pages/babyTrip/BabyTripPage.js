@@ -1,6 +1,7 @@
 // pages/babyTrip/BabyTripPage.js
 const AXIOS = require('../../utils/axios')
 const USER = require('../../utils/user')
+const LoginUrl = '/pages/login/LoginPage'
 
 Page({
 
@@ -18,9 +19,23 @@ Page({
   },
 
   goMessageList() {
-    wx.navigateTo({
-      url: '../message/MessagePage'
-    })
+    if (this.data.isLogin){
+      wx.navigateTo({
+        url: '../message/MessagePage'
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '请先登录',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: LoginUrl
+            })
+          }
+        }
+      })
+    }
   },
 
   getListData(loadMore) {

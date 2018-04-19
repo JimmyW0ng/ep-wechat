@@ -3,6 +3,7 @@
 const CONFIG = require('../../utils/config.js')
 const AXIOS = require('../../utils/axios')
 const USER = require('../../utils/user')
+const LoginUrl = '/pages/login/LoginPage'
 Page({
   /**
    * 页面的初始数据
@@ -213,7 +214,7 @@ Page({
           wx.clearStorageSync() // 清空缓存
           self.resetData()
           wx.navigateTo({
-            url: '/pages/login/LoginPage',
+            url: LoginUrl,
           })
         } else if (res.cancel) {
           console.log('用户点击取消')
