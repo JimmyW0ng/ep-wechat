@@ -1,6 +1,6 @@
 {
   "enablePullDownRefresh": true,
-  "navigationBarTitleText": "宝贝行程",
+  "navigationBarTitleText": "行程",
     "usingComponents": {
       "loadIcon": "/components/loadIcon/loadIcon"
     }

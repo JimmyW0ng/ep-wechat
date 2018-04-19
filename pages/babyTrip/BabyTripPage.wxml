@@ -4,9 +4,9 @@
 <view class='page' wx:else>
   <view class='top-bar'>
     <!-- <view class='logo'>logo</view> -->
-    <view class='page-title'>
-      宝贝行程
-    </view>
+     <view class='page-title'>
+      <!-- 宝贝行程 -->
+    </view> 
 
     <view class='top-message-wrap'>
       <view class='top-message' wx:if="{{msgNum}}">

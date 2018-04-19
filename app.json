@@ -31,19 +31,19 @@
     "backgroundColor": "#f9f9f9",
     "list": [
       {
-        "text": "发现机构",
+        "text": "机构",
         "pagePath": "pages/orgnization/OrgnizationPage",
         "iconPath": "asset/img/tabIcon-org.png",
         "selectedIconPath": "asset/img/tabIcon-org-active.png"
       },
       {
-        "text": "宝贝行程",
+        "text": "行程",
         "pagePath": "pages/babyTrip/BabyTripPage",
         "iconPath": "asset/img/tabIcon-fly.png",
         "selectedIconPath": "asset/img/tabIcon-fly-active.png"
       },
       {
-        "text": "我的账户",
+        "text": "我的",
         "pagePath": "pages/userCenter/UserCenterPage",
         "iconPath": "asset/img/tabIcon-user.png",
         "selectedIconPath": "asset/img/tabIcon-user-active.png"

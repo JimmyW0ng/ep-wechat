@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "个人中心",
+  "navigationBarTitleText": "我的",
   "usingComponents": {
     "avatar-selector": "../../components/avatarSelector/avatarSelector",
      "tag-list": "../../components/tagList/tagList"
