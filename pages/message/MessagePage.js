@@ -19,31 +19,27 @@ Page({
     const self = this
     let page = loadMore ? self.data.page + 1 : 0
     let size = self.data.size || 10
-    let child = USER.getSelectedChild() || {}
-    let childId = child.id || ''
-
-    if (childId) {
-      AXIOS.POST('auth/member/message/comment/page', {
-        childId,
-        page,
-        size
-      }, (res) => {
-        const result = res.result || {}
-        let content = result.content || []
-        if (page > 0) {
-          content = self.data.dataSet.concat(content)
-        }
-        self.setData({
-          loading: false,
-          dataSet: content,
-          page: result.number || 0,
-          last: result.last,
-          child
-        })
+    AXIOS.POST('auth/member/message/comment/page', {
+      page,
+      size
+    }, (res) => {
+      const result = res.result || {}
+      let content = result.content || []
+      if (page > 0) {
+        content = self.data.dataSet.concat(content)
+      }
+      self.setData({
+        loading: false,
+        dataSet: content,
+        page: result.number || 0,
+        last: result.last
       })
-    } else {
-      
-    }
+    }, () => {
+      self.setData({
+        loading: false,
+        dataSet: []
+      })
+    })
   },
 
   goTeacherComment(e) {
@@ -59,14 +55,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
@@ -80,14 +76,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
@@ -110,6 +106,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })
