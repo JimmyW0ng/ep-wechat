@@ -223,12 +223,6 @@
   margin-top: 15px;
 }
 
-.course-price {
-  font-size: 18px;
-  color: #000;
-  line-height: 18px;
-}
-
 .course-learn-num {
   font-size: 12px;
   color: #a4afbf;
@@ -256,4 +250,26 @@
 }
 .course-list-item .ribbon.activity {
   background: #58b7ef;
+}
+
+.course-price {
+  font-size: 14px;
+  color: #1e293c;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.course-price .num {
+  display: inline-block;
+}
+
+.course-status {
+  font-size: 14px;
+  color: #5ee495;
+  line-height: 14px;
+}
+
+.course-status.disabled {
+  color: #999;
 }

@@ -14,7 +14,7 @@
     <view class='iconfont icon-iconuser-copy' bindtap='goUserCenter'></view>
   </view>
 
-  <image src="{{mainPicUrl}}" class="org-cover" mode="widthFix"/>
+  <image src="{{mainPicUrl}}" class="org-cover" mode="widthFix" />
 
   <view class='org-detail-wrap'>
     <view class='basic-info'>
@@ -37,9 +37,7 @@
         <view class='org-address'>{{ognInfo.ognAddress}}</view>
       </view>
       <view class='contact-right' wx:if="{{ognInfo.ognPhone}}">
-        <view class='iconfont icon-phone ripple' 
-              bindtap='callOgn' 
-              data-ognPhone="{{ognInfo.ognPhone}}"></view>
+        <view class='iconfont icon-phone ripple' bindtap='callOgn' data-ognPhone="{{ognInfo.ognPhone}}"></view>
       </view>
     </view>
 
@@ -51,7 +49,7 @@
 
         <view class='btn-checkMore' wx:if="{{showMoreBtn}}" bindtap='toggleIntro'>
           {{showShortIntro ? '查看全部' : '收起'}}
-        </view> 
+        </view>
       </view>
     </view>
   </view>
@@ -59,11 +57,7 @@
   <view class='org-course-wrap'>
     <view class='course-wrap-title'>推荐产品</view>
     <view class='course-list-wrap'>
-      <view class='course-list-item' 
-            wx:for="{{ognCourseList}}" 
-            wx:key="index" 
-            bindtap='goCourseDetailPage'  
-            data-item="{{item}}">
+      <view class='course-list-item' wx:for="{{ognCourseList}}" wx:key="index" bindtap='goCourseDetailPage' data-item="{{item}}">
         <view class='course-avatar-wrap'>
           <image class="course-avatar" src="{{item.mainPicUrl}}" mode="aspectFill"></image>
         </view>
@@ -75,8 +69,13 @@
           </view>
           <view class='course-name'>{{item.courseIntroduce}}</view>
           <view class='course-bottom-info'>
-            <view class='course-price'>￥{{item.prizeMin || 0}}</view>
-            <view class='course-learn-num'>已有{{item.totalParticipate}}人加入</view>
+            <!-- <view class='course-price'>￥{{item.prizeMin || 0}}</view>
+            <view class='course-learn-num'>已有{{item.totalParticipate}}人加入</view> -->
+
+            <view class='course-price'>
+              <view class='num'>已有{{item.totalParticipate}}</view>人加入
+            </view>
+            <view class="{{'course-status ' + (item.status == 'end' ? 'disabled' : '')}}">{{item.statusText}}</view>
           </view>
         </view>
 
