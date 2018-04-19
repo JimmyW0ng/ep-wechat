@@ -75,7 +75,7 @@
             <view class='course-price'>
               <view class='num'>已有{{item.totalParticipate}}</view>人加入
             </view>
-            <view class="{{'course-status ' + (item.status == 'end' ? 'disabled' : '')}}">{{item.statusText}}</view>
+            <view class="{{'course-status ' + (item.courseStatus == 'offline' ? 'disabled' : '')}}">{{item.courseStatusText}}</view>
           </view>
         </view>
 
