@@ -31,7 +31,7 @@ function request(apiPath, method, param, success, axios) {
     url,
     data,
     header,
-    method: method,
+    method,
     success: function (res) {
       const result = res.data;
       if (result.error) {

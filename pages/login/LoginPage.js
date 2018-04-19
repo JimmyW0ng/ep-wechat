@@ -164,6 +164,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    wx.clearStorageSync() // 清空缓存
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];   //当前页面
     var prevPage = pages[pages.length - 2];  //上一个页面

@@ -278,11 +278,15 @@ Page({
   onShow: function () {
     this.loadDetail()
     let lastPage = USER.getLastPage()
-
     if (lastPage.mainPicUrl) {
       this.setData({
         showBackBtn: true,
         backInfo: lastPage
+      })
+    } else {
+      this.setData({
+        showBackBtn: false,
+        backInfo: {}
       })
     }
     this.setData({
