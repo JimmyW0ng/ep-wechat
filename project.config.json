@@ -35,8 +35,8 @@
 				{
 					"id": 0,
 					"name": "测试公众号",
-					"pathName": "pages/orgnization/orgnizationDetail/OrganizationDetailPage",
-					"query": "id=9",
+					"pathName": "pages/course/courseDetailPage/courseDetailPage",
+					"query": "id=44",
 					"scene": "1035",
 					"referrerInfo": {}
 				}
