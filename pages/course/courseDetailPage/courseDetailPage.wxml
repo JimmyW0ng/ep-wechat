@@ -59,7 +59,6 @@
             <view class='teacher-basic'>
               <image class="teacher-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
               <view class='teacher-info'>
-                <view class='teacher-title'>授课老师</view>
                 <view class='teacher-name'>{{item.nickName}}</view>
               </view>
             </view>
@@ -86,7 +85,7 @@
             <comment-item comment="{{item}}"></comment-item>
           </view>
 
-          <view class='comment-check-all ripple' bindtap='goCourseCommentPage' wx:if="{{totalCommentNum > 0 && (comments.length != totalCommentNum)}}">
+          <view class='comment-check-all ripple' bindtap='goCourseCommentPage' wx:if="{{totalCommentNum > 0}}">
             <view class='check-all-text'>查看全部评价</view>
             <view class='check-all-icon iconfont icon-right2'></view>
           </view>
@@ -97,35 +96,26 @@
   </swiper>
 
   <view class='course-detail-footer'>
-    <view class='footer-left'>
-      <view class='footer-left-phone' wx:if="{{course.ognPhone}}">
-        <view class='iconfont icon-phone ripple' bindtap='callOgn' data-ognPhone="{{course.ognPhone}}"></view>
-      </view>
+    <view wx:if="{{course.courseStatus=='offline'}}" class='btn-primary small disabled'>
+      <view>已结束</view>
+      <view class='text'>已有{{course.totalParticipate}}人加入</view>
     </view>
 
-    <view class='footer-right'>
-
-      <view wx:if="{{course.courseStatus=='offline'}}" class='btn-primary small disabled'>
-        <view>已结束</view>
-        <view class='text'>已有{{course.totalParticipate}}人加入</view>
+    <view wx:else>
+      <view wx:if="{{course.isBegin}}">
+        <view class='btn-primary small ripple' wx:if="{{course.canEnterFlag}}" bindtap='showPopup'>
+          <view>立即报名 ￥{{course.prizeMin || 0}}</view>
+          <view class='text'>已有{{course.totalParticipate}}人加入</view>
+        </view>
+        <view class='btn-primary small disabled' wx:else>
+          <view>报名已结束</view>
+          <view class='text'>已有{{course.totalParticipate}}人加入</view>
+        </view>
       </view>
 
-      <view wx:else>
-        <view wx:if="{{course.isBegin}}">
-          <view class='btn-primary small ripple' wx:if="{{course.canEnterFlag}}" bindtap='showPopup'>
-            <view>立即报名 ￥{{course.prizeMin || 0}}</view>
-            <view class='text'>已有{{course.totalParticipate}}人加入</view>
-          </view>
-          <view class='btn-primary small disabled' wx:else>
-            <view>报名已结束</view>
-            <view class='text'>已有{{course.totalParticipate}}人加入</view>
-          </view>
-        </view>
-
-        <view class='btn-primary small' wx:else bindtap='showPopup'>
-          <view>等待报名 ￥{{course.prizeMin || 0}}</view>
-          <view class='text'>{{course.enterTimeStart}}开始</view>
-        </view>
+      <view class='btn-primary small' wx:else bindtap='showPopup'>
+        <view>等待报名 ￥{{course.prizeMin || 0}}</view>
+        <view class='text'>{{course.enterTimeStart}}开始</view>
       </view>
     </view>
   </view>
@@ -152,8 +142,6 @@
           <view class='iconfont icon-phone ripple' bindtap='callOgn' data-ognPhone="{{selectedClass.phone}}"></view>
         </view>
       </view>
-
-      <view class='join-title'>宝贝</view>
 
       <view class='baby-list'>
         <view class="baby-list-item" bindtap='chooseChild' data-joined="{{item.joined}}" data-id="{{item.childId}}" wx:for="{{children}}" wx:key="{{index}}">

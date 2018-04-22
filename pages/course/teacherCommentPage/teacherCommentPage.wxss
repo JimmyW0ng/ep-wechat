@@ -34,7 +34,7 @@
 .class-info-bottom {
   font-size: 14px;
   color: #7d8794;
-  line-height: 14px;
+  line-height: 22px;
 }
 
 .comment-info {

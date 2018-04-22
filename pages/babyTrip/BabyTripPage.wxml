@@ -39,7 +39,7 @@
         <view class='trip-item-date'>{{item.startTimeFormat}}</view>
 
         <view class='contact-info'>
-          <view class='contact-left' data-name="{{item.ognName}}" data-address="{{item.address}}" data-lat='{{item.addressLat}}' data-lng="{{item.addressLng}}" bindtap='openAddress'>
+          <view class='contact-left' data-address="{{item.address}}" data-lat='{{item.addressLat}}' data-lng="{{item.addressLng}}" bindtap='openAddress'>
             <view class='iconfont icon-address' wx:if="{{item.addressLat && item.addressLng}}"></view>
             <view class='org-address'>{{item.address}}</view>
           </view>
