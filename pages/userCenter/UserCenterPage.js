@@ -249,6 +249,11 @@ Page({
    */
   onLoad: function (options) {
     // this.loadDetail()
+
+    console.log('fu',options)
+
+    var scene = decodeURIComponent(options.scene)
+    console.log('scene', scene)
   },
 
   /**

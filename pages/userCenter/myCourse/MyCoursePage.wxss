@@ -101,7 +101,7 @@
 .course-org-name {
   font-size: 14px;
   color: #1e293c;
-  line-height: 14px;
+  line-height: 18px;
   margin-bottom: 8px;
   margin-top: 3px;
 }
