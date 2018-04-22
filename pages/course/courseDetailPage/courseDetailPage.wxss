@@ -110,8 +110,7 @@ swiper-item {
   margin-top: 5px;
 }
 
-.course-ognName,
-.course-name  {
+.course-ognName, .course-name {
   font-size: 12px;
   color: #7d8794;
   line-height: 15px;
@@ -261,25 +260,26 @@ swiper-item {
   width: 100%;
   position: fixed;
   bottom: 0;
-  height: 58px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  height: 50px;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.20);
-  padding: 0 20px;
-  box-sizing: border-box;
   z-index: 10;
-  background: #fff;
 }
 
-.btn-primary.small {
-  font-size: 12px;
-  line-height: 16px;
-  padding: 5px 14px;
+.line-btn {
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  box-sizing: border-box;
+  background-image: linear-gradient(90deg, #5ee495 0%, #2ad5f3 100%);
+  color: #fff;
+  padding: 0 20px;
 }
 
-.btn-primary.small .text {
-  font-size: 10px;
+.line-btn.disabled {
+    background-image: none;
+  background: #ddd;
 }
 
 .icon-phone {
@@ -431,16 +431,16 @@ swiper-item {
 .origin-price {
   display: inline-block;
 }
+
 .origin-price.has-discount {
   text-decoration: line-through;
-  color:#eaeaea;
+  color: #eaeaea;
 }
 
 .discount-amount {
   display: inline-block;
   margin-left: 5px;
 }
-
 
 .contact-info {
   padding: 10px 0;

@@ -91,31 +91,30 @@
           </view>
         </view>
       </scroll-view>
-
     </swiper-item>
   </swiper>
 
   <view class='course-detail-footer'>
-    <view wx:if="{{course.courseStatus=='offline'}}" class='btn-primary small disabled'>
-      <view>已结束</view>
-      <view class='text'>已有{{course.totalParticipate}}人加入</view>
+    <view wx:if="{{course.courseStatus=='offline'}}" class='line-btn disabled'>
+      <view class='other-text'>已有{{course.totalParticipate}}人加入</view>
+      <view class='status-text'>已结束</view>
     </view>
 
     <view wx:else>
       <view wx:if="{{course.isBegin}}">
-        <view class='btn-primary small ripple' wx:if="{{course.canEnterFlag}}" bindtap='showPopup'>
-          <view>立即报名 ￥{{course.prizeMin || 0}}</view>
-          <view class='text'>已有{{course.totalParticipate}}人加入</view>
+        <view class='line-btn ripple' wx:if="{{course.canEnterFlag}}" bindtap='showPopup'>
+          <view class='other-text'>已有{{course.totalParticipate}}人加入</view>
+          <view class='status-text'>立即报名 ￥{{course.prizeMin || 0}}</view>
         </view>
-        <view class='btn-primary small disabled' wx:else>
-          <view>报名已结束</view>
-          <view class='text'>已有{{course.totalParticipate}}人加入</view>
+        <view class='line-btn disabled' wx:else>
+          <view class='other-text'>已有{{course.totalParticipate}}人加入</view>
+          <view class='status-text'>报名已结束</view>
         </view>
       </view>
 
-      <view class='btn-primary small' wx:else bindtap='showPopup'>
-        <view>等待报名 ￥{{course.prizeMin || 0}}</view>
-        <view class='text'>{{course.enterTimeStart}}开始</view>
+      <view class='line-btn' wx:else bindtap='showPopup'>
+        <view class='other-text'>{{course.enterTimeStart}}开始</view>
+        <view class='status-text'>等待报名 ￥{{course.prizeMin || 0}}</view>
       </view>
     </view>
   </view>
