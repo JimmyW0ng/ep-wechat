@@ -69,7 +69,7 @@ Page({
   goCourseDetailPage(e) {
     let courseId = e.currentTarget.dataset.courseid
     wx.navigateTo({
-      url: '/pages/course/courseDetailPage/courseDetailPage?id=' + courseId
+      url: '/pages/course/courseDetailPage/courseDetailPage?scene=' + courseId
     })
   },
 

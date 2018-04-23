@@ -40,15 +40,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getOgnData(options.id)
-    this.getOgnCourseData(options.id)
+    this.getOgnData(options.scene)
+    this.getOgnCourseData(options.scene)
   },
 
   getOgnData(id) {
     const self = this
-    AXIOS.POST('security/organ/detail', {
-      ognId: id,
-      noToken: true
+
+    let apiUrl = '/security/organ/scene/detail' // 根据scene来判断
+    AXIOS.POST('security/organ/scene/detail', {
+      scene: id
     }, (res) => {
       const result = res.result || {}
       let ongInfo = result.ognInfo || {}
@@ -77,8 +78,7 @@ Page({
   getOgnCourseData(ognId) {
     const self = this
     AXIOS.POST('security/course/page', {
-      ognId, 
-      noToken: true
+      ognId,
     }, (res) => {
       const result = res.result || {}
       self.setData({
@@ -123,10 +123,9 @@ Page({
   },
 
   goCourseDetailPage: function (e) {
-    const dataset = e.currentTarget.dataset
-    const item = dataset.item
+    const item = e.currentTarget.dataset.item
     wx.navigateTo({
-      url: '../../course/courseDetailPage/courseDetailPage?fromOgnDetail=true&id=' + item.id
+      url: `/pages/course/courseDetailPage/courseDetailPage?fromOgnDetail=true&scene=${item.ognId}#${item.id}`
     })
   },
 

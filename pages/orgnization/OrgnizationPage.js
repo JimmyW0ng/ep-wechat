@@ -17,7 +17,7 @@ Page({
     const dataset = e.currentTarget.dataset
     const item = dataset.item
     wx.navigateTo({
-      url: './orgnizationDetail/OrganizationDetailPage?id=' + item.id
+      url: './orgnizationDetail/OrganizationDetailPage?scene=' + item.id
     })
   },
 
@@ -25,7 +25,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getListData()
   },
 
   /**
@@ -39,10 +38,10 @@ Page({
     const self = this
     let page = loadMore ? self.data.page + 1 : 0
     let size = self.data.size || 10
-    AXIOS.POST('security/organ/page', {
+    AXIOS.POST('security/organ/scene/page ', {
+      // scene: 2, // TODO scene 这里是ognId 测试数据是2
       page: page,
-      size: size,
-      noToken: true
+      size: size
     }, (res) => {
       const result = res.result || {}
       let content = result.content || []
@@ -62,7 +61,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getListData()
   },
 
   /**

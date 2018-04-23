@@ -70,11 +70,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getCourseDetail(options.id)
+    let scene = options.scene
+    let courseId = ''
+    // split scene ognId#courseId
+    if (scene.indexOf('#') > -1){
+      courseId = scene.split('#')[1]
+    } else {
+      courseId = scene
+    }
 
+    this.getCourseDetail(courseId)
     this.setData({
-      courseId: options.id,
-      fromOgnDetail: options.fromOgnDetail
+      courseId,
+      fromOgnDetail: options.fromOgnDetail || false
     })
 
     var self = this;
@@ -135,7 +143,7 @@ Page({
       wx.navigateBack()
     } else {
       wx.navigateTo({
-        url: '/pages/orgnization/orgnizationDetail/OrganizationDetailPage?id=' + ognId
+        url: '/pages/orgnization/orgnizationDetail/OrganizationDetailPage?scene=' + ognId
       })
     }
   },
@@ -193,9 +201,7 @@ Page({
             wx.navigateTo({
               url: LoginUrl
             })
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
+          } 
         }
       })
     }

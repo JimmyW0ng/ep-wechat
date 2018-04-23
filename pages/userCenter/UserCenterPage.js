@@ -269,11 +269,11 @@ Page({
 
     if (fromPage == 'courseDetail') {
       wx.navigateTo({
-        url: '/pages/course/courseDetailPage/courseDetailPage?id=' + backInfo.courseId,
+        url: '/pages/course/courseDetailPage/courseDetailPage?scene=' + backInfo.courseId,
       })
     } else if (fromPage == 'ognDetail') {
       wx.navigateTo({
-        url: '/pages/orgnization/orgnizationDetail/OrganizationDetailPage?id=' + backInfo.ognId,
+        url: '/pages/orgnization/orgnizationDetail/OrganizationDetailPage?scene=' + backInfo.ognId,
       })
     }
   },
