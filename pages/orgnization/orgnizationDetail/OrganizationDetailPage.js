@@ -174,7 +174,11 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    return {
+      title: this.data.ognInfo.ognName || '',
+      imageUrl: this.data.mainPicUrl,
+      path: `/pages/orgnization/orgnizationDetail/OrganizationDetailPage?scene=${this.data.ognInfo.id}`
+    }
   }
 })

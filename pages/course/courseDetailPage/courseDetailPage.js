@@ -343,7 +343,12 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    let course = this.data.course || {}
+    return {
+      title: course.courseName || '',
+      imageUrl: course.mainPicUrl,
+      path: `/pages/course/courseDetailPage/courseDetailPage?scene=${course.ognId}#${course.id}`
+    }
   }
 })
