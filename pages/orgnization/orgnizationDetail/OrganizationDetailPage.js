@@ -23,6 +23,22 @@ Page({
     loading: true
   },
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
   goUserCenter() {
     let ognInfo = this.data.ognInfo || {}
     USER.setLastPage({

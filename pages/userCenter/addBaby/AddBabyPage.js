@@ -129,7 +129,6 @@ Page({
     if(this.validForm(data)){
       if(data.childId){
         AXIOS.POST('auth/child/edit', data, res => {
-          // alert('成功添加了')
           wx.showToast({
             title: '保存成功',
             icon: 'success',

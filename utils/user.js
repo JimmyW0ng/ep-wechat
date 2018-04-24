@@ -54,12 +54,12 @@ const setSelectedChild = (value) => {
   wx.setStorageSync('ep_selectedChild', value)
 }
 
-const getSelectedChildIndex = () => {
-  return wx.getStorageSync('ep_selectedChildIndex');
+const getSelectedChildId = () => {
+  return wx.getStorageSync('ep_selectedChildId');
 }
 
-const setSelectedChildIndex = (value) => {
-  wx.setStorageSync('ep_selectedChildIndex', value);
+const setSelectedChildId = (value) => {
+  wx.setStorageSync('ep_selectedChildId', value);
 }
 
 // TODO 不知道是否需要拿这个token去掉一下后台
@@ -95,8 +95,8 @@ module.exports = {
   setMemberType,
   getSelectedChild,
   setSelectedChild,
-  getSelectedChildIndex,
-  setSelectedChildIndex,
+  getSelectedChildId,
+  setSelectedChildId,
   isLogined,
   setLastPage,
   getLastPage,

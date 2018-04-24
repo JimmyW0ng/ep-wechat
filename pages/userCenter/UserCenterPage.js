@@ -70,7 +70,7 @@ Page({
     this.getChildAbstract(selectedChild.id)
     this.getChildComment(selectedChild.id)
     USER.setSelectedChild(selectedChild)
-    USER.setSelectedChildIndex(index)
+    USER.setSelectedChildId(selectedChild.id)
   },
 
   getChildAbstract(id) {
@@ -166,7 +166,14 @@ Page({
       let selectedChild = {}
 
       if (children.length) {
-        let tempIndex = USER.getSelectedChildIndex()
+        let tempId = USER.getSelectedChildId()
+        let tempIndex = 0
+        children.map((item, index) => {
+          if(item.id == tempId){
+            tempIndex = index
+          }
+        })
+
         if (tempIndex > -1 && children[tempIndex]) {
           activeIndex = tempIndex
         }
@@ -215,8 +222,6 @@ Page({
           wx.navigateTo({
             url: LoginUrl,
           })
-        } else if (res.cancel) {
-          console.log('用户点击取消')
         }
       }
     })
@@ -247,19 +252,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.loadDetail()
-
-    console.log('fu',options)
-
     var scene = decodeURIComponent(options.scene)
-    console.log('scene', scene)
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    // this.loadDetail()
+
   },
 
   goBack() {
