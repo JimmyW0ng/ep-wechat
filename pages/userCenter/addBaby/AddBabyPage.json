@@ -1,5 +1,5 @@
 {
-        "navigationBarTitleText": "添加宝贝",
+        "navigationBarTitleText": "添加学员",
         "usingComponents": {
           "img-uploader": "../../../components/imgUploader/imgUploader"
         }

@@ -109,13 +109,13 @@ Page({
     if (!data.childNickName) {
       wx.showToast({
         icon: 'none',
-        title: '请填写宝贝昵称',
+        title: '请填写昵称',
       })
       return false
     } else if (!data.childBirthday) {
       wx.showToast({
         icon: 'none',
-        title: '请选择宝贝生日',
+        title: '请选择生日',
       })
       return false
     } else {
@@ -162,7 +162,7 @@ Page({
     let childId = data.id
     wx.showModal({
       title: '提示',
-      content: '确定要删除宝贝信息吗？',
+      content: '确定要删除学员信息吗？',
       success: function (res) {
         if (res.confirm) {
           self.handleDelete(childId)

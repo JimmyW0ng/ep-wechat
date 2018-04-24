@@ -156,7 +156,7 @@
         </view>
 
         <view class="baby-list-item add-baby" bindtap='addChild' wx:if="{{childrenNum < childrenNumLimit}}">
-          <view class='text'>添加一名宝贝</view>
+          <view class='text'>添加一名学员</view>
           <view class='iconfont icon-plus item-selector'></view>
         </view>
       </view>

@@ -9,7 +9,7 @@
         <image class='modal-header-img' mode='widthFix' src="../../../asset/img/award-cover.png"></image>
       </view>
       <view class='modal-body'>
-        <view class='title'>{{selectedItem.childNickName}}小朋友</view>
+        <view class='title'>{{selectedItem.childNickName}}</view>
         <view class='content'>{{selectedItem.content}}</view>
         <view class='notice'>
           <view class='notice-text'>{{selectedItem.awardTimeFormat}}</view>
@@ -42,7 +42,7 @@
 
   <view class='page-no-data' wx:else>
     <image class='page-no-data-img' src="../../../asset/img/gold_medal_empty.png"></image>
-    <view class='page-no-data-text'>宝贝还未获得奖状</view>
+    <view class='page-no-data-text'>还未获得奖状</view>
     <!-- <view class='page-no-data-btn ripple' bindtap='toggleData'>查看奖状</view> -->
   </view>
 

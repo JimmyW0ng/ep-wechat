@@ -5,7 +5,6 @@
   <view class='top-bar'>
     <!-- <view class='logo'>logo</view> -->
      <view class='page-title'>
-      <!-- 宝贝行程 -->
     </view> 
 
     <view class='top-message-wrap'>
@@ -22,7 +21,7 @@
     <image class='page-no-data-img' src="../../asset/img/trip_empty.png"></image>
     <view class='page-no-data-text'>
       <view>登录后</view>
-      <view>即可清晰了解宝贝行程哦</view>
+      <view>即可清晰了解行程哦</view>
     </view>
 
     <button class='btn-primary' bindtap='goLogin'>前往登录</button>
@@ -71,7 +70,7 @@
 
     <view class='page-no-data' wx:else>
       <image class='page-no-data-img' src="../../asset/img/trip_empty.png"></image>
-      <view class='page-no-data-text'>宝贝暂无行程安排</view>
+      <view class='page-no-data-text'>暂无行程安排</view>
     </view>
   </view>
 </view>

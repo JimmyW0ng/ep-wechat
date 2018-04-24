@@ -28,7 +28,6 @@ Page({
     showBackBtn: false,
     backInfo: {},
 
-    // 选择宝贝
     popupStatus: false,
     selectedChildId: '',
     loading: true
@@ -133,7 +132,7 @@ Page({
       } else {
         wx.showModal({
           title: '提示',
-          content: '请先添加宝贝',
+          content: '请先添加学员',
           success: function (res) {
             if (res.confirm) {
               wx.navigateTo({

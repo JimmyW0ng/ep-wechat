@@ -1,7 +1,7 @@
 <!--pages/userCenter/addBaby/AddBabyPage.wxml-->
 <view class='page'>
   <view class='form-control'>
-    <view class='label'>宝宝头像</view>
+    <view class='label'>头像</view>
 
     <view class='input-wrap'>
       <img-uploader bind:change="changeImg">
@@ -16,15 +16,15 @@
   </view>
 
   <view class='form-control'>
-    <view class='label'><view class='icon-required'>*</view>宝贝昵称</view>
+    <view class='label'><view class='icon-required'>*</view>昵称</view>
 
     <view class='input-wrap'>
-      <input placeholder='请输入宝贝昵称' data-key="childNickName" value="{{childNickName}}" bindinput="bindChildInfo" />
+      <input placeholder='请输入昵称' data-key="childNickName" value="{{childNickName}}" bindinput="bindChildInfo" />
     </view>
   </view>
 
   <view class='form-control'>
-    <view class='label'><view class='icon-required'>*</view>宝贝生日</view>
+    <view class='label'><view class='icon-required'>*</view>生日</view>
 
     <view class='input-wrap'>
       <view class="section">
@@ -38,7 +38,7 @@
   </view>
 
   <view class='form-control'>
-    <view class='label'><view class='icon-required'>*</view>宝贝性别</view>
+    <view class='label'><view class='icon-required'>*</view>性别</view>
     <view class='input-wrap'>
       <radio-group class="group" bindchange="radioChange">
         <view class="label-2" wx:for="{{radioItems}}" wx:key="{{index}}">
@@ -55,22 +55,22 @@
   </view>
 
   <view class='btn-more-info ripple' bindtap='toggleMoreInfo'>
-    <view class='text'>完善宝贝信息</view>
+    <view class='text'>完善信息</view>
     <view class='iconfont icon-down2'></view>
   </view>
 
   <view class='content-more-info {{showMoreInfo ? "active" : ""}}'>
 
     <view class='form-control'>
-      <view class='label'>宝贝名字</view>
+      <view class='label'>名字</view>
 
       <view class='input-wrap'>
-        <input placeholder='请输入宝贝名字' data-key="childTrueName" value="{{childTrueName}}" bindinput="bindChildInfo" />
+        <input placeholder='请输入名字' data-key="childTrueName" value="{{childTrueName}}" bindinput="bindChildInfo" />
       </view>
     </view>
 
     <view class='form-control'>
-      <view class='label'>宝贝身份证</view>
+      <view class='label'>身份证</view>
 
       <view class='input-wrap'>
         <input placeholder='请填写身份证' data-key="childIdentity" value="{{childIdentity}}" bindinput="bindChildInfo" />
