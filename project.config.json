@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
@@ -43,8 +43,8 @@
 				{
 					"id": 1,
 					"name": "测试公众号-产品",
-					"pathName": "pages/userCenter/UserCenterPage",
-					"query": "he=fuck",
+					"pathName": "pages/orgnization/OrgnizationPage",
+					"query": "scene=5",
 					"scene": "1025"
 				},
 				{

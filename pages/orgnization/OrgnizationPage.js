@@ -25,6 +25,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      scene: options.scene
+    })
   },
 
   /**
@@ -38,11 +41,16 @@ Page({
     const self = this
     let page = loadMore ? self.data.page + 1 : 0
     let size = self.data.size || 10
-    AXIOS.POST('security/organ/scene/page', {
-      // scene: 2, // TODO scene 这里是ognId 测试数据是2
-      page: page,
-      size: size
-    }, (res) => {
+
+    let param = {
+      page, size
+    }
+
+    if (self.data.scene){
+      param.scene = self.data.scene
+    }
+
+    AXIOS.POST('security/organ/scene/page', param, (res) => {
       const result = res.result || {}
       let content = result.content || []
       if (page > 0){
