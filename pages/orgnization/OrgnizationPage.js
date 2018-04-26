@@ -38,7 +38,7 @@ Page({
     const self = this
     let page = loadMore ? self.data.page + 1 : 0
     let size = self.data.size || 10
-    AXIOS.POST('security/organ/scene/page ', {
+    AXIOS.POST('security/organ/scene/page', {
       // scene: 2, // TODO scene 这里是ognId 测试数据是2
       page: page,
       size: size
