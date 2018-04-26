@@ -23,22 +23,6 @@ Page({
     loading: true
   },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
   goUserCenter() {
     let ognInfo = this.data.ognInfo || {}
     USER.setLastPage({
@@ -58,6 +42,7 @@ Page({
   onLoad: function (options) {
     this.getOgnData(options.scene)
     this.getOgnCourseData(options.scene)
+    USER.setOgnId(options.scene)
   },
 
   getOgnData(id) {
@@ -112,15 +97,8 @@ Page({
       wx.openLocation({
         latitude: Number(ognInfo.ognLat),
         longitude: Number(ognInfo.ognLng),
-        // scale: 18, // 缩放比例，范围5~18，默认为18
         name: ognInfo.ognName,
-        address: ognInfo.ognAddress,
-        success: function (res) {
-          console.log(res)
-        },
-        fail: function (res) {
-          console.log(res)
-        }
+        address: ognInfo.ognAddress
       })
     }
   },

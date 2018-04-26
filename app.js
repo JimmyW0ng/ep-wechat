@@ -1,6 +1,13 @@
 //app.js
 App({
   onLaunch: function () {
+    wx.removeStorage({
+      key: 'ep_ognid',
+      success: function (res) {
+        console.log(res.data)
+      }
+    })
+
     console.log('new date begin')
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []

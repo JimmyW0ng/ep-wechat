@@ -74,6 +74,8 @@ Page({
     let courseId = ''
     // split scene ognId#courseId
     if (scene.indexOf('#') > -1){
+      let ognId = scene.split('#')[0]
+      USER.setOgnId(ognId)
       courseId = scene.split('#')[1]
     } else {
       courseId = scene

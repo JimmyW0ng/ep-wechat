@@ -46,6 +46,14 @@ const setUid = (value) => {
   wx.setStorageSync('ep_uid', value)
 }
 
+const getOgnId = () => {
+  return wx.getStorageSync('ep_ognid');
+}
+
+const setOgnId = (value) => {
+  wx.setStorageSync('ep_ognid', value)
+}
+
 const getSelectedChild = () => {
   return wx.getStorageSync('ep_selectedChild');
 }
@@ -64,11 +72,7 @@ const setSelectedChildId = (value) => {
 
 // TODO 不知道是否需要拿这个token去掉一下后台
 const isLogined = () => {
-  if (wx.getStorageSync('ep_token')){
-    return true
-  } else {
-    return false
-  }
+  return !!wx.getStorageSync('ep_token')
 }
 
 // value {}: courseId || ognId,  mainPicUrl
@@ -100,4 +104,6 @@ module.exports = {
   isLogined,
   setLastPage,
   getLastPage,
+  getOgnId,
+  setOgnId
 }

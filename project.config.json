@@ -30,29 +30,14 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": -1,
 			"list": [
 				{
 					"id": 0,
 					"name": "测试公众号-产品",
 					"pathName": "pages/course/courseDetailPage/courseDetailPage",
-					"query": "id=44",
-					"scene": "1035",
-					"referrerInfo": {}
-				},
-				{
-					"id": 1,
-					"name": "测试公众号-产品",
-					"pathName": "pages/orgnization/OrgnizationPage",
-					"query": "scene=5",
+					"query": "scene=5#49",
 					"scene": "1025"
-				},
-				{
-					"id": -1,
-					"name": "测试公众号-产品",
-					"pathName": "pages/userCenter/UserCenterPage",
-					"query": "he=fuck",
-					"scene": "1001"
 				}
 			]
 		}
