@@ -26,7 +26,7 @@ Page({
     } else {
       wx.showModal({
         title: '提示',
-        content: '请先登录',
+        content: '请登录',
         success: function (res) {
           if (res.confirm) {
             wx.navigateTo({

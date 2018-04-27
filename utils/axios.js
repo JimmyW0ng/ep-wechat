@@ -63,7 +63,7 @@ function request(apiPath, method, param, success, fail, complete) {
 }
 
 function processRequestError(result) {
-  if (result.errorDescription == "请重新登录") {
+  if (result.error == "ERROR_ACCESS_NEED_AUTH") {
     wx.showModal({
       title: '提示',
       content: result.errorDescription || '',
