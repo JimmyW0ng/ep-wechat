@@ -163,7 +163,7 @@
         </view>
       </view>
 
-      <view class='btn-primary' bindtap='goLogin' wx:if="{{needLogin}}">登陆报名</view>
+      <view class='btn-primary' bindtap='goLogin' wx:if="{{needLogin}}">登录报名</view>
 
       <view wx:else>
         <view class='btn-primary disabled' wx:if="{{course.courseStatus == 'offline'}}">已结束</view>
