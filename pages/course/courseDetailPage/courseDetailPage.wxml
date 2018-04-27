@@ -142,38 +142,44 @@
         </view>
       </view>
 
-      <view class='baby-list'>
-        <view class="baby-list-item" bindtap='chooseChild' data-joined="{{item.joined}}" data-id="{{item.childId}}" wx:for="{{children}}" wx:key="{{index}}">
-          <view class='baby-info'>
-            <image class='item-avatar' mode="aspectFill" src="{{item.avatar || '../../../asset/img/avatar-man.png'}}"></image>
-            <view class='item-name'>{{item.childNickName}}</view>
+      <view wx:if="{{!needLogin}}">
+        <view class='baby-list'>
+          <view class="baby-list-item" bindtap='chooseChild' data-joined="{{item.joined}}" data-id="{{item.childId}}" wx:for="{{children}}" wx:key="{{index}}">
+            <view class='baby-info'>
+              <image class='item-avatar' mode="aspectFill" src="{{item.avatar || '../../../asset/img/avatar-man.png'}}"></image>
+              <view class='item-name'>{{item.childNickName}}</view>
+            </view>
+
+            <view class='joined-text' wx:if="{{item.joined}}">已报名</view>
+            <view class="item-selector {{item.childId == selectedChildId ? 'active' : ''}}" wx:else>
+              <view class='iconfont icon-right1'></view>
+            </view>
           </view>
 
-          <view class='joined-text' wx:if="{{item.joined}}">已报名</view>
-          <view class="item-selector {{item.childId == selectedChildId ? 'active' : ''}}" wx:else>
-            <view class='iconfont icon-right1'></view>
+          <view class="baby-list-item add-baby" bindtap='addChild' wx:if="{{childrenNum < childrenNumLimit}}">
+            <view class='text'>添加一名学员</view>
+            <view class='iconfont icon-plus item-selector'></view>
           </view>
-        </view>
-
-        <view class="baby-list-item add-baby" bindtap='addChild' wx:if="{{childrenNum < childrenNumLimit}}">
-          <view class='text'>添加一名学员</view>
-          <view class='iconfont icon-plus item-selector'></view>
         </view>
       </view>
 
-      <view class='btn-primary disabled' wx:if="{{course.courseStatus == 'offline'}}">已结束</view>
+      <view class='btn-primary' bindtap='goLogin' wx:if="{{needLogin}}">登陆报名</view>
+
       <view wx:else>
-        <view wx:if="{{course.isBegin}}">
-          <view class='btn-primary ripple' wx:if="{{selectedClass.canEnterFlag}}" bindtap='handleJoin'>
-            确认报名
-            <view class='origin-price {{selectedClass.discountAmount != undefined ? "has-discount" : ""}}'>￥{{selectedClass.classPrize}}</view>
-            <view class='discount-amount' wx:if="{{selectedClass.discountAmount != undefined }}">￥{{selectedClass.discountAmount}}</view>
+        <view class='btn-primary disabled' wx:if="{{course.courseStatus == 'offline'}}">已结束</view>
+        <view wx:else>
+          <view wx:if="{{course.isBegin}}">
+            <view class='btn-primary ripple' wx:if="{{selectedClass.canEnterFlag}}" bindtap='handleJoin'>
+              确认报名
+              <view class='origin-price {{selectedClass.discountAmount != undefined ? "has-discount" : ""}}'>￥{{selectedClass.classPrize}}</view>
+              <view class='discount-amount' wx:if="{{selectedClass.discountAmount != undefined }}">￥{{selectedClass.discountAmount}}</view>
+            </view>
+
+            <view class='btn-primary disabled' wx:else>{{selectedClass.canNotEnterText}}</view>
           </view>
 
-          <view class='btn-primary disabled' wx:else>{{selectedClass.canNotEnterText}}</view>
+          <view class='btn-primary disabled' wx:else>未开始 ￥{{selectedClass.classPrize}}</view>
         </view>
-
-        <view class='btn-primary disabled' wx:else>未开始 ￥{{selectedClass.classPrize}}</view>
       </view>
     </view>
   </view>

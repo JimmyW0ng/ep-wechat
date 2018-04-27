@@ -31,7 +31,8 @@ Page({
     courseId: '',
     courseCommentList: [],
     loading: true,
-    fromOgnDetail: false
+    fromOgnDetail: false,
+    needLogin: false
   },
 
 
@@ -73,7 +74,7 @@ Page({
     let scene = options.scene
     let courseId = ''
     // split scene ognId#courseId
-    if (scene.indexOf('#') > -1){
+    if (scene.indexOf('#') > -1) {
       let ognId = scene.split('#')[0]
       USER.setOgnId(ognId)
       courseId = scene.split('#')[1]
@@ -104,7 +105,7 @@ Page({
   getChildren() {
     const self = this
     const selectedClassId = '' + self.data.selectedClass.id
-    AXIOS.POST('auth/order/init', { courseId: self.data.course.id}, (res) => {
+    AXIOS.POST('auth/order/init', { courseId: self.data.course.id }, (res) => {
       const result = res.result || {}
       let children = result.children || []
       children.map((item) => {
@@ -115,7 +116,8 @@ Page({
       children.map((item, index) => {
         item.joined = !!(item.joinedClasses && item.joinedClasses.indexOf(selectedClassId) > -1)
       })
-      self.setData({ 
+      self.setData({
+        needLogin: false,
         children,
         childrenNum: result.childrenNum,
         childrenNumLimit: result.childrenNumLimit
@@ -138,10 +140,10 @@ Page({
     });
   },
 
-  goOgnDetail(e){
-    let ognId = this.data.course && this.data.course.ognId 
+  goOgnDetail(e) {
+    let ognId = this.data.course && this.data.course.ognId
 
-    if (this.data.fromOgnDetail){
+    if (this.data.fromOgnDetail) {
       wx.navigateBack()
     } else {
       wx.navigateTo({
@@ -150,14 +152,14 @@ Page({
     }
   },
 
-  goUserCenter(){
+  goUserCenter() {
     let course = this.data.course || {}
     USER.setLastPage({
       fromPage: 'courseDetail',
       mainPicUrl: course.mainPicUrl,
       courseId: this.data.courseId
     })
-    
+
     wx.switchTab({
       url: '/pages/userCenter/UserCenterPage',
     })
@@ -189,24 +191,35 @@ Page({
   },
 
   showPopup() {
-    if (USER.isLogined() ){
+    this.setData({
+      popupStatus: true
+    })
+
+    if (USER.isLogined()) {
       this.getChildren()
-      this.setData({
-        popupStatus: true
-      })
     } else {
-      wx.showModal({
-        title: '提示',
-        content: '请登录',
-        success: function (res) {
-          if (res.confirm) {
-            wx.navigateTo({
-              url: LoginUrl
-            })
-          } 
-        }
+      // wx.showModal({
+      //   title: '提示',
+      //   content: '请登录',
+      //   success: function (res) {
+      //     if (res.confirm) {
+      //       wx.navigateTo({
+      //         url: LoginUrl
+      //       })
+      //     } 
+      //   }
+      // })
+
+      this.setData({
+        needLogin: true
       })
     }
+  },
+
+  goLogin() {
+    wx.navigateTo({
+      url: LoginUrl
+    })
   },
 
   closePopup() {
@@ -215,7 +228,7 @@ Page({
     })
   },
 
-  addChild(){
+  addChild() {
     wx.navigateTo({
       url: '/pages/userCenter/addBaby/AddBabyPage'
     })
@@ -233,7 +246,7 @@ Page({
       let courseStatus = course.courseStatus
       let now = new Date().valueOf()
       let enterTime = course.enterTimeStampStart
-      
+
       course.isBegin = (now > enterTime) && (courseStatus != 'offline')
 
       self.setData({
@@ -248,10 +261,10 @@ Page({
     })
   },
 
-  goCourseCommentPage(){
+  goCourseCommentPage() {
     let courseId = this.data.courseId
     wx.navigateTo({
-      url: `/pages/course/courseCommentPage/courseCommentPage?courseId=${courseId}` ,
+      url: `/pages/course/courseCommentPage/courseCommentPage?courseId=${courseId}`,
     })
   },
 
@@ -268,7 +281,7 @@ Page({
     let selectedClassId = selectedClass.id || ''
     let selectedChildId = self.data.selectedChildId
 
-    if (self.data.children && self.data.children.length < 1){
+    if (self.data.children && self.data.children.length < 1) {
       wx.showToast({
         icon: 'none',
         title: '请先添加学员',
@@ -309,7 +322,7 @@ Page({
    */
   onShow: function () {
     let course = this.data.course
-    if (USER.isLogined() && this.data.popupStatus && course && course.id && course.courseStatus != 'offline'){
+    if (USER.isLogined() && this.data.popupStatus && course && course.id && course.courseStatus != 'offline') {
       this.getChildren()
     }
   },
