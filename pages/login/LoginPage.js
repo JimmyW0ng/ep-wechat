@@ -90,7 +90,7 @@ Page({
   doLogin() {
     const self = this
     let phone = this.data.phone
-    let code = this.data.code || 'fuck'
+    let code = this.data.code
     let captcha = this.data.captcha
 
     if (phone.length == 11 && captcha && code) {
