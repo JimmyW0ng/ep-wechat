@@ -51,7 +51,7 @@ Component({
               if (item.size > maxSize) {
                 wx.showToast({
                   icon: 'none',
-                  title: '您选择的图片体积太大，请选择体积较小的文件',
+                  title: '您选择的图片体积太大，请选择体积较小的图片',
                 })
               } else {
                 AXIOS.UPLOAD(item.path, path, (res) => {
