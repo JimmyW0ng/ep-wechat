@@ -14,6 +14,10 @@ Component({
     pathType: {
       type: String,
       value: 'childAvatar'
+    },
+    maxSize: {
+      type: Number,
+      value: 1 * 1024 * 1024 // 小程序图片大小用的是 b
     }
   },
 
@@ -39,10 +43,11 @@ Component({
       if (limit > 0) {
         wx.chooseImage({
           count: self.data.limit, // 默认9
-          sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+          sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
           sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
           success: (res) => {
             const tempFilePaths = res.tempFilePaths;
+            debugger
             tempFilePaths.map((item, index) => {
               AXIOS.UPLOAD(item, path, (res) => {
                 let result = res.result || {}

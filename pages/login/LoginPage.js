@@ -17,7 +17,8 @@ Page({
     countDown: 60,
     beginCountDown: false,
     userInfo: {},
-    hasUserInfo: false
+    hasUserInfo: false,
+    clickSend: false
   },
 
   bindPhoneInput(e) {
@@ -35,9 +36,14 @@ Page({
   doGetCaptcha() {
     const self = this
     let phone = this.data.phone
-
+  
     if (phone.length == 11) {
-      if (!self.data.beginCountDown) {
+      console.log(self.data.clickSend)
+      if (!self.data.beginCountDown && !self.data.clickSend) {
+        self.setData({
+          clickSend: true
+        })
+
         AXIOS.POST('security/api/captcha', {
           mobile: phone,
           clientId: CONFIG.clientId,
@@ -51,7 +57,6 @@ Page({
           })
 
           loginInterval = setInterval(function () {
-            console.log('fuck')
             if (self.data.countDown > 1) {
               self.setData({
                 countDown: self.data.countDown - 1,
@@ -62,13 +67,15 @@ Page({
               self.setData({
                 countDown: 60,
                 beginCountDown: false,
-                verifyBtnText: '重新发送'
+                verifyBtnText: '重新发送',
+                clickSend: false
               })
             }
           }, 1000);
         }, res => {
           self.setData({
-            beginCountDown: true,
+            beginCountDown: false,
+            clickSend: false
           })
         });
       }
@@ -83,7 +90,7 @@ Page({
   doLogin() {
     const self = this
     let phone = this.data.phone
-    let code = this.data.code
+    let code = this.data.code || 'fuck'
     let captcha = this.data.captcha
 
     if (phone.length == 11 && captcha && code) {
