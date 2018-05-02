@@ -113,7 +113,6 @@ const UPLOAD = (filePath, path, callback, error, uploadCallback) => {
       }
     },
     complete(res) {
-      // debugger
     }
   })
 

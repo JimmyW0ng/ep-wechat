@@ -17,7 +17,7 @@ Component({
     },
     maxSize: {
       type: Number,
-      value: 1 * 1024 * 1024 // 小程序图片大小用的是 b
+      value: 0.8 * 1024 * 1024 // 小程序图片大小用的是 b
     }
   },
 
@@ -37,8 +37,8 @@ Component({
   methods: {
     upload() {
       const self = this
-      console.log('limit', self.data.limit)
       let limit = self.data.limit
+      let maxSize = self.data.maxSize
       let path = self.data.pathObj[self.data.pathType]
       if (limit > 0) {
         wx.chooseImage({
@@ -46,22 +46,27 @@ Component({
           sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有
           sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
           success: (res) => {
-            const tempFilePaths = res.tempFilePaths;
-            debugger
-            tempFilePaths.map((item, index) => {
-              AXIOS.UPLOAD(item, path, (res) => {
-                let result = res.result || {}
-                let preCode = result.preCode
-                let fileUrl = result.fileUrl
-                self.triggerEvent('change', { preCode, fileUrl }, {})
-              }, (res) => {
+            const tempFiles = res.tempFiles || []
+            tempFiles.map((item, index) => {
+              if (item.size > maxSize) {
                 wx.showToast({
                   icon: 'none',
-                  title: '图片上传失败',
+                  title: '您选择的图片体积太大，请选择体积较小的文件',
                 })
-              });
+              } else {
+                AXIOS.UPLOAD(item.path, path, (res) => {
+                  let result = res.result || {}
+                  let preCode = result.preCode
+                  let fileUrl = result.fileUrl
+                  self.triggerEvent('change', { preCode, fileUrl }, {})
+                }, (res) => {
+                  wx.showToast({
+                    icon: 'none',
+                    title: '图片上传失败',
+                  })
+                });
+              }
             })
-
           }
         })
       }
