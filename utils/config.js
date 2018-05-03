@@ -4,7 +4,8 @@ let memberType = User.getMemberType()
 
 const CONFIG = {
   apiDocUrl: 'http://115.159.210.127:9003/swagger-ui.html',
-  apiUrl: 'http://115.159.210.127:9003/',
+  apiUrl: 'https://api.qwwlkj.com/',
+  // apiUrl: 'http://115.159.210.127:9003/',
   
   mySqlUrl: 'jdbc:mysql://122.225.218.26:9002/ep?useUnicode=true&characterEncoding=utf-8&useSSL=false',
 

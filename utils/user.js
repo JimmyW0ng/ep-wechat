@@ -85,14 +85,13 @@ const getLastPage = () => {
 }
 
 const userLogout = () => {
-  let ognId = ''
-  if(getOgnId()){
-    ognId = getOgnId()
-    wx.clearStorageSync()
-    setOgnId(ognId)
-  } else {
-    wx.clearStorageSync()
-  }
+  let ognId = getOgnId()
+  let lastPage = getLastPage()
+
+  wx.clearStorageSync()
+
+  setOgnId(ognId)
+  setLastPage(lastPage)
 }
 
 module.exports = {
