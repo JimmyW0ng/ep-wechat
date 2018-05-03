@@ -44,12 +44,18 @@ Page({
           clickSend: true
         })
 
-        AXIOS.POST('security/api/captcha', {
+        let param = {
           mobile: phone,
           clientId: CONFIG.clientId,
           clientSecret: CONFIG.clientSecret,
-          scene: 'member_login'
-        }, res => {
+          captchaScene: 'member_login'
+        }
+
+        if (USER.getOgnId()){
+          param.channelScene = USER.getOgnId()
+        }
+
+        AXIOS.POST('security/api/captcha', param, res => {
           self.setData({
             code: res.result || '',
             beginCountDown: true,
@@ -96,15 +102,15 @@ Page({
     if (phone.length == 11 && captcha && code) {
       AXIOS.POST('security/api/token', {
         mobile: phone,
-        code: code,
-        captcha: captcha,
+        code,
+        captcha,
         clientId: CONFIG.clientId,
         clientSecret: CONFIG.clientSecret,
         type: 'WECHAT_APP_MEMBER_CLIENT'
       }, res => {
         let result = res.result || {}
-        USER.setMemberType(result.memberType)
-        USER.setToken(result.token)
+        USER.setMemberType(result.memberType || '')
+        USER.setToken(result.token || '')
 
         self.doBack()
       })
@@ -171,11 +177,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.clearStorageSync() // 清空缓存
-    var pages = getCurrentPages();
-    var currPage = pages[pages.length - 1];   //当前页面
-    var prevPage = pages[pages.length - 2];  //上一个页面
-    console.log(pages)
+    USER.userLogout()
   },
 
   /**

@@ -24,8 +24,7 @@ Page({
     AXIOS.POST('security/course/comment/page', {
       page,
       size,
-      courseId,
-      noToken: true
+      courseId
     }, (res) => {
       const result = res.result || {}
       let content = result.content || []

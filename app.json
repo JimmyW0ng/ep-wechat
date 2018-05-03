@@ -2,7 +2,6 @@
   "pages": [
     "pages/orgnization/OrgnizationPage",
     "pages/userCenter/UserCenterPage",
-    "pages/index/index",
     "pages/course/courseDetailPage/courseDetailPage",
     "pages/course/evaluatePage/EvaluatePage",
     "pages/userCenter/myHonor/MyHonorPage",
@@ -12,7 +11,6 @@
     "pages/userCenter/addBaby/AddBabyPage",
     "pages/orgnization/orgnizationDetail/OrganizationDetailPage",
     "pages/logs/logs",
-    "pages/course/CoursePage",
     "pages/message/messageDetail/MessageDetailPage",
     "pages/message/MessagePage",
     "pages/course/teacherCommentPage/teacherCommentPage",

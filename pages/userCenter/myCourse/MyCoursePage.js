@@ -48,8 +48,7 @@ Page({
       let size = self.data.size || 10
       let status = self.data.status || 'ALL'
       AXIOS.POST('auth/child/class/page', {
-        childId, status, page, size,
-        noToken: true,
+        childId, status, page, size
       }, (res) => {
         const result = res.result || {}
         let content = result.content || []

@@ -104,26 +104,18 @@ Page({
   },
 
   goTargetPage(e) {
+    const self = this
     if (this.data.isLogined) {
       wx.navigateTo({
         url: e.currentTarget.dataset.url
       })
     } else {
-      wx.showModal({
-        title: '提示',
-        content: '请登录',
-        success: function (res) {
-          if (res.confirm) {
-            wx.navigateTo({
-              url: LoginUrl
-            })
-          }
-        }
-      })
+      self.confirmLogin()
     }
   },
 
   goTargetPage2(e) {
+    const self = this
     if (this.data.isLogined) {
       if (this.data.selectedChild && this.data.selectedChild.id) {
         wx.navigateTo({
@@ -143,18 +135,22 @@ Page({
         })
       }
     } else {
-      wx.showModal({
-        title: '提示',
-        content: '请登录',
-        success: function (res) {
-          if (res.confirm) {
-            wx.navigateTo({
-              url: LoginUrl
-            })
-          }
-        }
-      })
+      self.confirmLogin()
     }
+  },
+
+  confirmLogin(){
+    wx.showModal({
+      title: '提示',
+      content: '请登录',
+      success: function (res) {
+        if (res.confirm) {
+          wx.navigateTo({
+            url: LoginUrl
+          })
+        }
+      }
+    })
   },
 
   loadDetail() {
@@ -217,7 +213,7 @@ Page({
       content: '确定要登出账户吗',
       success: function (res) {
         if (res.confirm) {
-          wx.clearStorageSync() // 清空缓存
+          USER.userLogout()
           self.resetData()
           wx.navigateTo({
             url: LoginUrl,

@@ -49,13 +49,7 @@ Page({
         longitude: addressLng,
         // scale: 18, // 缩放比例，范围5~18，默认为18
         name,
-        address,
-        success: function (res) {
-          console.log(res)
-        },
-        fail: function (res) {
-          console.log(res)
-        }
+        address
       })
     }
   },
@@ -198,18 +192,6 @@ Page({
     if (USER.isLogined()) {
       this.getChildren()
     } else {
-      // wx.showModal({
-      //   title: '提示',
-      //   content: '请登录',
-      //   success: function (res) {
-      //     if (res.confirm) {
-      //       wx.navigateTo({
-      //         url: LoginUrl
-      //       })
-      //     } 
-      //   }
-      // })
-
       this.setData({
         needLogin: true
       })
@@ -237,8 +219,7 @@ Page({
   getCourseDetail(id) {
     const self = this
     AXIOS.POST('security/course/detail', {
-      courseId: id,
-      noToken: true
+      courseId: id
     }, (res) => {
       const result = res.result || {}
       WxParse.wxParse('courseContent', 'html', result.course.courseContent, self, 0);

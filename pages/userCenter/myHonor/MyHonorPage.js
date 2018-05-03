@@ -58,8 +58,7 @@ Page({
       let page = loadMore ? self.data.page + 1 : 0
       let size = self.data.size || 10
       AXIOS.POST('auth/child/honor/recent/page', {
-        childId, page, size,
-        noToken: true,
+        childId, page, size
       }, (res) => {
         const result = res.result || {}
         let content = result.content || []

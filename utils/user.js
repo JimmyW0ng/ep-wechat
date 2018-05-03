@@ -84,6 +84,17 @@ const getLastPage = () => {
   return wx.getStorageSync('ep_LastPage') || {}; 
 }
 
+const userLogout = () => {
+  let ognId = ''
+  if(getOgnId()){
+    ognId = getOgnId()
+    wx.clearStorageSync()
+    setOgnId(ognId)
+  } else {
+    wx.clearStorageSync()
+  }
+}
+
 module.exports = {
   getOpenId,
   setOpenId,
@@ -105,5 +116,6 @@ module.exports = {
   setLastPage,
   getLastPage,
   getOgnId,
-  setOgnId
+  setOgnId,
+  userLogout
 }

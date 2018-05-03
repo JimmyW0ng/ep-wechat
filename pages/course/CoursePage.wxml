@@ -1,6 +1,0 @@
-<!--pages/course/CoursePage.wxml-->
-<view class='tag-list' wx:if="{{tags.length}}">
-  <view class='tag' wx:for="{{tags}}" wx:key="{{index}}">
-    {{item.tagName}}{{item.num ? '(' + item.num + ')' : ''}}
-  </view>
-</view>

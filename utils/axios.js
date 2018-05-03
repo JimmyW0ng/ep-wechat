@@ -17,14 +17,15 @@ function request(apiPath, method, param, success, fail, complete) {
   const url = CONFIG.apiUrl + apiPath;
   const data = param;
 
-  let token = User.getToken() || ''
+  let token = User.getToken() ? (User.getToken() + '') : ''
 
   wx.showNavigationBarLoading()
 
   let header = {
     'content-type': 'application/x-www-form-urlencoded', // 默认值
   }
-  if (token) {
+
+  if (token && (token.trim().length > 0)) {
     header.Authorization = 'Bearer ' + token
   }
   wx.request({
@@ -72,8 +73,6 @@ function processRequestError(result) {
           wx.navigateTo({
             url: LoginUrl
           })
-        } else if (res.cancel) {
-          console.log('用户点击取消')
         }
       }
     })
