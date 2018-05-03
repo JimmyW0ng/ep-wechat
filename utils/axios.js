@@ -93,13 +93,14 @@ function processHttpError(xhr, errorType, error) {
 }
 
 const UPLOAD = (filePath, path, callback, error, uploadCallback) => {
+  let token = User.getToken() ? (User.getToken() + '') : ''
   let uploadTask = wx.uploadFile({
     url: CONFIG.apiUrl + path,
     filePath,
     name: 'file',
     header: {
       'content-type': 'multipart/form-data',
-      'Authorization': 'Bearer ' + CONFIG.token
+      'Authorization': 'Bearer ' + token
     },
     success: (res) => {
       if (callback) {
