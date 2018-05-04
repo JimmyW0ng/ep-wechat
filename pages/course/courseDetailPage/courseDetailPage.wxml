@@ -178,7 +178,11 @@
             <view class='btn-primary disabled' wx:else>{{selectedClass.canNotEnterText}}</view>
           </view>
 
-          <view class='btn-primary disabled' wx:else>未开始 ￥{{selectedClass.classPrize}}</view>
+          <view class='btn-primary disabled' wx:else>未开始
+          <view class='origin-price {{selectedClass.discountAmount != undefined ? "has-discount" : ""}}'>￥{{selectedClass.classPrize}}</view>
+          <view class='discount-amount' wx:if="{{selectedClass.discountAmount != undefined }}">￥{{selectedClass.discountAmount}}</view>
+          
+          </view>
         </view>
       </view>
     </view>
