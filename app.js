@@ -4,7 +4,7 @@ App({
     wx.removeStorage({
       key: 'ep_ognid',
       success: function (res) {
-        console.log(res.data)
+        console.log('onLaunch remove success')
       }
     })
 
@@ -41,6 +41,16 @@ App({
       }
     })
   },
+
+  onShow: function(){
+    wx.removeStorage({
+      key: 'ep_ognid',
+      success: function (res) {
+        console.log('onShow remove success')
+      }
+    })
+  },
+
   globalData: {
     userInfo: null
   }

@@ -30,13 +30,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "测试公众号-产品",
 					"pathName": "pages/course/courseDetailPage/courseDetailPage",
-					"query": "scene=5#49",
+					"query": "scene=2#1",
 					"scene": "1025"
 				}
 			]

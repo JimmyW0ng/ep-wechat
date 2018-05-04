@@ -28,12 +28,14 @@ function request(apiPath, method, param, success, fail, complete) {
   if (token && (token.trim().length > 0)) {
     header.Authorization = 'Bearer ' + token
   }
+  console.log('request: ', url, data)
   wx.request({
     url,
     data,
     header,
     method,
     success: function (res) {
+      console.log('response: ', res)
       const result = res.data;
       if (result.error) {
         processRequestError(result)
