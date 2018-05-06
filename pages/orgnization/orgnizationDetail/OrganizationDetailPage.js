@@ -58,12 +58,12 @@ Page({
       let showMoreBtn = false
       let showShortIntro = false
       let introLimit = this.data.introLimit
-      if (ognIntroduce.length > introLimit){
+      if (ognIntroduce.length > introLimit) {
         ongInfo.shortOngIntroduce = ognIntroduce.substr(0, introLimit)
         showMoreBtn = true
         showShortIntro = true
       }
-      
+
       self.setData({
         loading: false,
         mainPicUrl: result.mainPicUrl || '',
@@ -103,7 +103,7 @@ Page({
     }
   },
 
-  toggleIntro(){
+  toggleIntro() {
     this.setData({
       showShortIntro: !this.data.showShortIntro
     })
@@ -119,7 +119,7 @@ Page({
   goCourseDetailPage: function (e) {
     const item = e.currentTarget.dataset.item
     wx.navigateTo({
-      url: `/pages/course/courseDetailPage/courseDetailPage?fromOgnDetail=true&scene=${item.ognId}#${item.id}`
+      url: `/pages/course/courseDetailPage/courseDetailPage?fromOgnDetail=true&scene=${item.ognId}and${item.id}`
     })
   },
 

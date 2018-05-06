@@ -39,7 +39,7 @@ Page({
 
   },
 
-  getListData(loadMore){
+  getListData(loadMore) {
     const self = this
     let page = loadMore ? self.data.page + 1 : 0
     let size = self.data.size || 10
@@ -48,17 +48,17 @@ Page({
       page, size
     }
 
-    if (self.data.scene){
+    if (self.data.scene) {
       param.scene = self.data.scene
     }
 
     AXIOS.POST('security/organ/scene/page', param, (res) => {
       const result = res.result || {}
       let content = result.content || []
-      if (page > 0){
+      if (page > 0) {
         content = self.data.dataSet.concat(content)
       }
-      self.setData({ 
+      self.setData({
         loading: false,
         dataSet: content,
         page: result.number || 0,

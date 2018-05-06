@@ -67,11 +67,12 @@ Page({
   onLoad: function (options) {
     let scene = options.scene
     let courseId = ''
-    // split scene ognId#courseId
-    if (scene.indexOf('#') > -1) {
-      let ognId = scene.split('#')[0]
+    // split scene ognId and courseId
+    // 不能用 #，安卓不识别，fuck
+    if (scene.indexOf('and') > -1) {
+      let ognId = scene.split('and')[0]
       USER.setOgnId(ognId)
-      courseId = scene.split('#')[1]
+      courseId = scene.split('and')[1]
     } else {
       courseId = scene
     }
@@ -344,7 +345,7 @@ Page({
     return {
       title: course.courseName || '',
       imageUrl: course.mainPicUrl,
-      path: `/pages/course/courseDetailPage/courseDetailPage?scene=${course.ognId}#${course.id}`
+      path: `/pages/course/courseDetailPage/courseDetailPage?scene=${course.ognId}and${course.id}`
     }
   }
 })
