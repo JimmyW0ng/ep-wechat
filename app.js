@@ -50,6 +50,15 @@ App({
     })
   },
 
+  onHide: function(){
+    wx.removeStorage({
+      key: 'ep_ognid',
+      success: function (res) {
+        console.log('onHide remove success')
+      }
+    })
+  },
+
   globalData: {
     userInfo: null
   }
