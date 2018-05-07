@@ -3,12 +3,7 @@ let token = User.getToken()
 let memberType = User.getMemberType()
 
 const CONFIG = {
-  apiDocUrl: 'http://115.159.210.127:9003/swagger-ui.html',
-  apiUrl: 'https://api.qwwlkj.com/',
-  // apiUrl: 'http://115.159.210.127:9003/',
-  
-  mySqlUrl: 'jdbc:mysql://122.225.218.26:9002/ep?useUnicode=true&characterEncoding=utf-8&useSSL=false',
-
+  apiUrl: 'http://115.159.210.127:9003/',
   testPhone: 13575785566,
   clientId: 'wechat_app',
   clientSecret: '123456',
