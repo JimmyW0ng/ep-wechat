@@ -42,6 +42,26 @@ App({
   },
 
   onShow: function(){
+    wx.requestPayment({
+      'timeStamp': '1525860595',
+      'nonceStr': 'prepay_id=wx091809446398517664efdc130646066629',
+      'package': 'DE2BC43A03E6AD625B7EE0830D7B9D1D',
+      'signType': 'MD5',
+      'paySign': '0ac5819bbd614248b0ecbb83055b5f18',
+      'success': function (res) {
+        wx.showModal({
+          title: '成功',
+          content: JSON.stringify(res),
+        })
+      },
+      'fail': function (res) {
+        wx.showModal({
+          title: '失败',
+          content: JSON.stringify(res),
+        })
+      }
+    })
+
     wx.removeStorage({
       key: 'ep_ognid',
       success: function (res) {
