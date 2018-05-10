@@ -279,6 +279,7 @@ Page({
           childId: selectedChildId,
           classId: selectedClassId
         }, (res) => {
+          let result = res.result || {}
           wx.showToast({
             icon: 'success',
             title: '报名成功！',
@@ -287,9 +288,49 @@ Page({
           setTimeout(() => {
             self.closePopup()
           }, 1000)
+          if (result.waitPayFlag) {
+            self.getPayInfo(result)
+          }
         })
       }
     }
+  },
+
+  getPayInfo(info) {
+    const self = this
+    let orderId = info.orderId || ''
+
+    // 登录
+    wx.login({
+      success: res => {
+        const code = res.code
+        AXIOS.POST('security/wechat/xcx/member/auth', {
+          code
+        }, (res2) => {
+          console.log('res2', res2)
+          debugger
+
+          self.doWxPay(res2)
+        })
+      }
+    })
+
+  },
+
+  doWxPay(info){
+    wx.requestPayment({
+      timeStamp: '',
+      nonceStr: '',
+      package: '',
+      signType: '',
+      paySign: '',
+      'success': function (res) {
+
+      },
+      'fail': function (res) {
+        
+      }
+    })
   },
 
   /**
