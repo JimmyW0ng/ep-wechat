@@ -307,30 +307,40 @@ Page({
         AXIOS.POST('security/wechat/xcx/member/auth', {
           code
         }, (res2) => {
-          console.log('res2', res2)
-          debugger
-
-          self.doWxPay(res2)
+          self.doWxPay(res2, orderId)
         })
       }
     })
 
   },
 
-  doWxPay(info){
-    wx.requestPayment({
-      timeStamp: '',
-      nonceStr: '',
-      package: '',
-      signType: '',
-      paySign: '',
-      'success': function (res) {
-
-      },
-      'fail': function (res) {
-        
-      }
+  doWxPay(info, orderId){
+    let sessionToken = info.result || ''
+    AXIOS.POST('auth/wechat/pay/unifiedorder', {
+      sessionToken, orderId
+    }, (res) => {
+      let result = res.result || {}
+      wx.requestPayment({
+        timeStamp: result.timeStamp || '',
+        nonceStr: result.nonceStr || '',
+        package: result.package,
+        signType: result.signType,
+        paySign: result.paySign,
+        'success': function (res2) {
+          wx.showModal({
+            title: 'fuck yeah',
+            content: JSON.stringify(res2),
+          })
+        },
+        'fail': function (res2) {
+          wx.showModal({
+            title: 'fuck NOOOOOOO',
+            content: JSON.stringify(res2),
+          })
+        }
+      })
     })
+
   },
 
   /**
