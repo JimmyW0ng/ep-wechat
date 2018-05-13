@@ -1,0 +1,17 @@
+<view class='page-title'>报名成功</view>
+
+<view class='top-container'>
+  <view class='notice'>报名费用可以选择线下支付 或者 在线微信支付</view>
+
+  <view class='btn-wrap'>
+    <view class='btn-default' bindtap='goMyCourse'>查看我的报名</view>
+    <view class='btn-primary' bindtap='getPayInfo'>立即支付</view>
+  </view>
+</view>
+
+<view class='bottom-wrap'>
+  <view class='qrcode'>
+    <image src='/asset/img/wzm-qrcode.jpg' class='qrcode-img'></image>
+  </view>
+  <view class='desc'>关注小竹马微信服务号，第一时间了解报名进展。 </view>
+</view>
