@@ -142,7 +142,7 @@ Page({
       wx.navigateBack()
     } else {
       wx.navigateTo({
-        url: '/pages/orgnization/orgnizationDetail/OrganizationDetailPage?scene=' + ognId
+        url: '/pages/orgnization/orgnizationDetail/OrganizationDetailPage?setScene=no&scene=' + ognId
       })
     }
   },

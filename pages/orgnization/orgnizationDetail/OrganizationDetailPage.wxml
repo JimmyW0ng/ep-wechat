@@ -1,5 +1,3 @@
-<!--pages/orgnization/orgnizationDetail/OrganizationDetailPage.wxml-->
-
 <loadIcon wx:if="{{loading}}"></loadIcon>
 
 <view wx:else>
@@ -69,9 +67,6 @@
           </view>
           <view class='course-name'>{{item.courseIntroduce}}</view>
           <view class='course-bottom-info'>
-            <!-- <view class='course-price'>￥{{item.prizeMin || 0}}</view>
-            <view class='course-learn-num'>已有{{item.totalParticipate}}人加入</view> -->
-
             <view class='course-price'>
               <view class='num'>已有{{item.totalParticipate}}</view>人加入
             </view>

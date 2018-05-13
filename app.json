@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/course/orderPage/orderPage",
     "pages/orgnization/OrgnizationPage",
     "pages/userCenter/UserCenterPage",
     "pages/course/courseDetailPage/courseDetailPage",
@@ -16,7 +15,8 @@
     "pages/message/MessagePage",
     "pages/course/teacherCommentPage/teacherCommentPage",
     "pages/course/courseCommentPage/courseCommentPage",
-    "pages/course/joinSuccess/joinSuccess"
+    "pages/course/joinSuccess/joinSuccess",
+    "pages/course/orderPage/orderPage"
   ],
   "window": {
     "backgroundTextStyle": "white",

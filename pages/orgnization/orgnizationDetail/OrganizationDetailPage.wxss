@@ -1,5 +1,3 @@
-/* pages/orgnization/orgnizationDetail/OrganizationDetailPage.wxss */
-
 .org-cover {
   width: 100%;
 }

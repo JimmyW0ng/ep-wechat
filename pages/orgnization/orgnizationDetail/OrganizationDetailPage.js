@@ -1,4 +1,3 @@
-// pages/orgnization/orgnizationDetail/OrganizationDetailPage.js
 const AXIOS = require('../../../utils/axios')
 const USER = require('../../../utils/user')
 Page({
@@ -42,7 +41,9 @@ Page({
   onLoad: function (options) {
     this.getOgnData(options.scene)
     this.getOgnCourseData(options.scene)
-    USER.setOgnId(options.scene)
+    if(options.setScene !== 'no'){
+      USER.setOgnId(options.scene)
+    }
   },
 
   getOgnData(id) {
@@ -172,7 +173,7 @@ Page({
     return {
       title: this.data.ognInfo.ognName || '',
       imageUrl: this.data.mainPicUrl,
-      path: `/pages/orgnization/orgnizationDetail/OrganizationDetailPage?scene=${this.data.ognInfo.id}`
+      path: `/pages/orgnization/orgnizationDetail/OrganizationDetailPage?setScene=no&scene=${this.data.ognInfo.id}`
     }
   }
 })
