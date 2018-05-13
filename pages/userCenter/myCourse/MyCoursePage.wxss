@@ -157,6 +157,10 @@
   text-align: right;
 }
 
+.pay-status-text {
+  font-size: 30rpx;
+}
+
 .btn-ghost {
   margin-left: 8px;
   margin-bottom: 8px;

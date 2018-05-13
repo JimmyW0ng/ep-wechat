@@ -26,11 +26,14 @@
               <view class='course-name'>{{item.ognName}}</view>
             </view>
             <view class='course-bottom-info'>
-              <view class='course-price'>￥{{item.pirzeFormat || 0}}</view>
+              <view class='course-price'>￥{{item.pirzeFormat || 0}} </view>
               <view class="{{'course-learn-num ' + (item.status == 'end' ? 'disabled' : '')}}">{{item.statusText}}</view>
             </view>
 
             <view class='course-actions'>
+              <view class='pay-status-text'wx:if="{{item.payStatus && item.payStatus !='wait_pay' && item.payTypeFormat}}">{{payTypeFormat}}</view>
+              <view class='btn btn-ghost' wx:if="{{item.status=='save' && item.payStatus == 'wait_pay'}}" catchtap='getPayInfo' data-orderid="{{item.id}}">继续支付</view>
+
               <view class='btn btn-ghost' wx:if="{{item.status == 'opening' || item.status == 'end'}}" catchtap='goTeacherComment' data-orderid="{{item.id}}">随堂评价({{item.scheduleCommentNum || 0}})</view>
               <view class='btn btn-ghost' catchtap='goEvaluate' wx:if="{{item.waitCommentFlag}}" data-orderid="{{item.id}}">评价产品</view>
               <view class='btn btn-ghost' catchtap='goMyHonor' wx:if="{{item.honorNum}}" >查看奖状</view>

@@ -120,7 +120,7 @@ Page({
   goCourseDetailPage: function (e) {
     const item = e.currentTarget.dataset.item
     wx.navigateTo({
-      url: `/pages/course/courseDetailPage/courseDetailPage?fromOgnDetail=true&scene=${item.ognId}and${item.id}`
+      url: `/pages/course/courseDetailPage/courseDetailPage?setScene=no&fromOgnDetail=true&scene=${item.ognId}and${item.id}`
     })
   },
 

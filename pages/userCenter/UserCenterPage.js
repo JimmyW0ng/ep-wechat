@@ -264,7 +264,7 @@ Page({
 
     if (fromPage == 'courseDetail') {
       wx.navigateTo({
-        url: '/pages/course/courseDetailPage/courseDetailPage?scene=' + backInfo.courseId,
+        url: '/pages/course/courseDetailPage/courseDetailPage?setScene=no&scene=' + backInfo.courseId,
       })
     } else if (fromPage == 'ognDetail') {
       wx.navigateTo({

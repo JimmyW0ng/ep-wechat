@@ -1,4 +1,3 @@
-// pages/course/courseDetailPage/courseDetailPage.js
 const AXIOS = require('../../../utils/axios')
 const USER = require('../../../utils/user')
 const LoginUrl = '/pages/login/LoginPage'
@@ -71,8 +70,11 @@ Page({
     // 不能用 #，安卓不识别，fuck
     if (scene.indexOf('and') > -1) {
       let ognId = scene.split('and')[0]
-      USER.setOgnId(ognId)
       courseId = scene.split('and')[1]
+
+      if (options.setScene !== 'no') {
+        USER.setOgnId(ognId)
+      }
     } else {
       courseId = scene
     }
@@ -358,7 +360,7 @@ Page({
     return {
       title: course.courseName || '',
       imageUrl: course.mainPicUrl,
-      path: `/pages/course/courseDetailPage/courseDetailPage?scene=${course.ognId}and${course.id}`
+      path: `/pages/course/courseDetailPage/courseDetailPage?setScene=no&scene=${course.ognId}and${course.id}`
     }
   }
 })
