@@ -78,8 +78,15 @@ Page({
 
   goOrderPage() {
     let orderId = this.data.orderId || ''
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/course/orderPage/orderPage?orderId=' + orderId
+    })
+  },
+
+  goOrderPageTrue(){
+    let orderId = this.data.orderId || ''
+    wx.navigateTo({
+      url: '/pages/course/orderPage/orderPage?hideTitle=false&orderId=' + orderId
     })
   },
 

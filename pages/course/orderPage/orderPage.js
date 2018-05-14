@@ -16,7 +16,9 @@ Page({
     prize: '',
     payStatus: '',
     payStatusFormat: '',
-    payTypeFormat: ''
+    payTypeFormat: '',
+    hideTitle: false,
+    loading: true,
   },
 
   /**
@@ -24,6 +26,12 @@ Page({
    */
   onLoad: function (options) {
     options.orderId = 631;
+
+    if (options.hideTitle){
+      this.setData({
+        hideTitle: true
+      })
+    }
 
     if (options.orderId) {
       this.setData({
@@ -51,7 +59,9 @@ Page({
     AXIOS.POST('auth/child/class/pay/info', {
       orderId
     }, (res) => {
-      self.setData(res.result || {})
+      let result = res.result || {}
+      result.loading = false
+      self.setData(result)
     })
   },
 

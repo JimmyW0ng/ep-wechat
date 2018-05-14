@@ -159,6 +159,8 @@
 
 .pay-status-text {
   font-size: 30rpx;
+  color: #666;
+  margin-bottom: 10rpx;
 }
 
 .btn-ghost {

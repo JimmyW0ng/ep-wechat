@@ -31,12 +31,13 @@
             </view>
 
             <view class='course-actions'>
-              <view class='pay-status-text'wx:if="{{item.payStatus && item.payStatus !='wait_pay' && item.payTypeFormat}}">{{payTypeFormat}}</view>
-              <view class='btn btn-ghost' wx:if="{{item.status=='save' && item.payStatus == 'wait_pay'}}" catchtap='getPayInfo' data-orderid="{{item.id}}">继续支付</view>
+              <view class='btn btn-ghost' wx:if="{{item.status=='save' && item.payStatus &&  item.payStatus == 'wait_pay'}}" catchtap='getPayInfo' data-orderid="{{item.id}}">继续支付</view>
+
+              <view class='btn btn-ghost' wx:if="{{item.payStatus && item.payStatus != 'wait_pay'}}" catchtap='goOrderPageTrue' data-orderid="{{item.id}}">订单详情</view>
 
               <view class='btn btn-ghost' wx:if="{{item.status == 'opening' || item.status == 'end'}}" catchtap='goTeacherComment' data-orderid="{{item.id}}">随堂评价({{item.scheduleCommentNum || 0}})</view>
               <view class='btn btn-ghost' catchtap='goEvaluate' wx:if="{{item.waitCommentFlag}}" data-orderid="{{item.id}}">评价产品</view>
-              <view class='btn btn-ghost' catchtap='goMyHonor' wx:if="{{item.honorNum}}" >查看奖状</view>
+              <view class='btn btn-ghost' catchtap='goMyHonor' wx:if="{{item.honorNum}}">查看奖状</view>
             </view>
           </view>
 
@@ -47,6 +48,6 @@
 
   <view class='page-no-data' wx:if="{{dataSet.length == 0}}">
     <image class='page-no-data-img' src="../../../asset/img/comment_empty.png"></image>
-     <view class='page-no-data-text'>暂无数据</view> 
+    <view class='page-no-data-text'>暂无数据</view>
   </view>
 </view>

@@ -1,52 +1,58 @@
-<view class='page-title' wx:if="{{payStatus == 'paid'}}">支付成功</view>
-<view class='page-title' wx:if="{{payStatus == 'wait_pay'}}">支付处理中</view>
-<view class='top-container'>
-  <view class='btn-wrap'>
-    <view class='btn-primary' bindtap='goMyCourse'>我的报名</view>
+<loadIcon wx:if="{{loading}}"></loadIcon>
+
+<view class='page' wx:else>
+  <view wx:if="{{!hideTitle}}">
+    <view class='page-title' wx:if="{{payStatus == 'paid'}}">支付成功</view>
+    <view class='page-title' wx:if="{{payStatus == 'wait_pay'}}">支付处理中</view>
+    <view class='top-container'>
+      <view class='btn-wrap'>
+        <view class='btn-primary' bindtap='goMyCourse'>我的报名</view>
+      </view>
+    </view>
   </view>
-</view>
+  <view class='info-wrap'>
 
-<view class='info-wrap'>
+    <view class='info-title'>支付信息</view>
 
-  <view class='info-title'>支付信息</view>
+    <view class='info-item'>
+      <view class='left'>产品名称</view>
+      <view class='right'>{{courseName}}</view>
+    </view>
 
-  <view class='info-item'>
-    <view class='left'>产品名称</view>
-    <view class='right'>{{courseName}}</view>
-  </view>
+    <view class='info-item'>
+      <view class='left'>班次名称</view>
+      <view class='right'>{{className}}</view>
+    </view>
 
-  <view class='info-item'>
-    <view class='left'>班次名称</view>
-    <view class='right'>{{className}}</view>
-  </view>
+    <view class='info-item'>
+      <view class='left'>报名学员</view>
+      <view class='right'>
+        <!-- <image class='avatar' src="{{avatar || '/asset/img/avatar-man.png'}}"></image> -->
+        <view class='name'>{{childNickName}}</view>
+      </view>
+    </view>
 
-  <view class='info-item'>
-    <view class='left'>报名学员</view>
-    <view class='right'>
-      <!-- <image class='avatar' src="{{avatar || '/asset/img/avatar-man.png'}}"></image> -->
-      <view class='name'>{{childNickName}}</view>
+    <view class='info-item'>
+      <view class='left'>支付金额</view>
+      <view class='right'>{{pirzeFormat || 0}}元</view>
+    </view>
+
+    <view class='info-item' wx:if="{{payStatusFormat}}">
+      <view class='left'>支付状态</view>
+      <view class='right'>{{payStatusFormat}}</view>
+    </view>
+
+    <view class='info-item' wx:if="{{payTypeFormat}}">
+      <view class='left'>支付方式</view>
+      <view class='right'>{{payTypeFormat}}</view>
     </view>
   </view>
 
-  <view class='info-item'>
-    <view class='left'>支付金额</view>
-    <view class='right'>{{pirzeFormat || 0}}元</view>
+  <view class='bottom-wrap'>
+    <view class='qrcode'>
+      <image src='/asset/img/wzm-qrcode.jpg' class='qrcode-img'></image>
+    </view>
+    <view class='desc'>关注小竹马微信服务号，</view>
+    <view class='desc'>第一时间了解报名进展。 </view>
   </view>
-
-  <view class='info-item' wx:if="{{payStatusFormat}}">
-    <view class='left'>支付状态</view>
-    <view class='right'>{{payStatusFormat}}</view>
-  </view>
-
-  <view class='info-item' wx:if="{{payTypeFormat}}">
-    <view class='left'>支付方式</view>
-    <view class='right'>{{payTypeFormat}}</view>
-  </view>
-</view>
-
-<view class='bottom-wrap'>
-  <view class='qrcode'>
-    <image src='/asset/img/wzm-qrcode.jpg' class='qrcode-img'></image>
-  </view>
-  <view class='desc'>关注小竹马微信服务号，第一时间了解报名进展。 </view>
 </view>
