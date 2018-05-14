@@ -25,7 +25,6 @@ Page({
   getPayInfo(e) {
     const self = this
     let orderId = e.currentTarget.dataset.orderid || ''
-    debugger
 
     // 登录
     wx.login({

@@ -182,7 +182,8 @@ Page({
   chooseChild(e) {
     if (!e.currentTarget.dataset.joined) {
       this.setData({
-        selectedChildId: e.currentTarget.dataset.id
+        selectedChildId: e.currentTarget.dataset.id,
+        selectedChild: e.currentTarget.dataset.child
       })
     }
   },
@@ -290,6 +291,9 @@ Page({
           setTimeout(() => {
             self.closePopup()
           }, 1000)
+
+          self.setSelectedChild()
+
           if (result.waitPayFlag) {
             self.goJoinSuccess(result)
           } else {
@@ -298,6 +302,14 @@ Page({
         })
       }
     }
+  },
+
+  setSelectedChild(){
+    USER.setSelectedChildId(this.data.selectedChildId)
+
+    let child = this.data.selectedChild
+    child.id = child.childId
+    USER.setSelectedChild(child)
   },
 
   goJoinSuccess(info){
