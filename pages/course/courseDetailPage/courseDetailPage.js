@@ -283,11 +283,7 @@ Page({
           classId: selectedClassId
         }, (res) => {
           let result = res.result || {}
-          wx.showToast({
-            icon: 'success',
-            title: '报名成功！',
-            duration: 3000
-          })
+       
           setTimeout(() => {
             self.closePopup()
           }, 1000)
@@ -295,9 +291,24 @@ Page({
           self.setSelectedChild()
 
           if (result.waitPayFlag) {
+            wx.showToast({
+              icon: 'success',
+              title: '报名成功！',
+              duration: 3000
+            })
             self.goJoinSuccess(result)
           } else {
-            // TODO
+            wx.showModal({
+              title: '提示',
+              content: '报名成功,请前往我的课程查看',
+              success: function (res) {
+                if (res.confirm) {
+                  wx.navigateTo({
+                    url: '/pages/userCenter/myCourse/MyCoursePage',
+                  })
+                }
+              }
+            })
           }
         })
       }
