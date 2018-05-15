@@ -48,62 +48,6 @@ Page({
     })
   },
 
-  getPayInfo() {
-    const self = this
-    let orderId = self.data.orderId || ''
-
-    // 登录
-    wx.login({
-      success: res => {
-        const code = res.code
-        AXIOS.POST('security/wechat/xcx/member/auth', {
-          code
-        }, (res2) => {
-          self.doWxPay(res2, orderId)
-        })
-      }
-    })
-  },
-
-  doWxPay(info, orderId) {
-    const self = this
-    let sessionToken = info.result || ''
-    AXIOS.POST('auth/wechat/pay/unifiedorder', {
-      sessionToken, orderId
-    }, (res) => {
-      let result = res.result || {}
-      wx.requestPayment({
-        timeStamp: result.timeStamp || '',
-        nonceStr: result.nonceStr || '',
-        package: result.package,
-        signType: result.signType,
-        paySign: result.paySign,
-        'success': function (res2) {
-          wx.showModal({
-            title: '提示',
-            content: '支付成功',
-            success: function (res) {
-              if (res.confirm) {
-                self.goOrderPage()
-              }
-            }
-          })
-        },
-        'fail': function (res2) {
-          wx.showModal({
-            title: '支付失败',
-            content: '查看我的报名，关注报名进度',
-            success: function (res) {
-              if (res.confirm) {
-                self.goMyCourse()
-              }
-            }
-          })
-        }
-      })
-    })
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

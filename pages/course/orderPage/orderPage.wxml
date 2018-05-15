@@ -48,11 +48,5 @@
     </view>
   </view>
 
-  <view class='bottom-wrap'>
-    <view class='qrcode'>
-      <image src='/asset/img/wzm-qrcode.jpg' class='qrcode-img'></image>
-    </view>
-    <view class='desc'>关注小竹马微信服务号，</view>
-    <view class='desc'>第一时间了解报名进展。 </view>
-  </view>
+  <xzmQrcode />
 </view>

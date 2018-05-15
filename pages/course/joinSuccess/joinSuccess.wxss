@@ -29,29 +29,3 @@ page {
 .btn-primary {
   width: auto;
 }
-
-.bottom-wrap {
-  padding: 80rpx 50rpx;
-}
-
-.bottom-title {
-  text-align: center;
-  margin-bottom: 30rpx;
-}
-
-.qrcode {
-  text-align: center;
-}
-
-.qrcode-img {
-  display: inline-block;
-  width: 300rpx;
-  height: 300rpx;
-}
-
-.desc {
-  margin-top: 20rpx;
-  font-size: 30rpx;
-  color: #333;
-  text-align: center;
-}

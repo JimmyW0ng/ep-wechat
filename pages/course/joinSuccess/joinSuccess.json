@@ -1,3 +1,7 @@
 {
-  "navigationBarTitleText": "报名成功"
+  "navigationBarTitleText": "报名成功",
+  "usingComponents": {
+    "loadIcon": "/components/loadIcon/loadIcon",
+    "xzmQrcode": "/components/xzmQrcode/xzmQrcode"
+  }
 }
