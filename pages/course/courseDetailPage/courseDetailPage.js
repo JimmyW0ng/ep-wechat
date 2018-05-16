@@ -70,7 +70,7 @@ Page({
     let courseId = ''
     // split scene ognId and courseId
     // 不能用 #，安卓不识别，fuck
-    if (scene.indexOf('and') > -1) {
+    if (scene && scene.indexOf('and') > -1) {
       let ognId = scene.split('and')[0]
       courseId = scene.split('and')[1]
 
@@ -106,6 +106,7 @@ Page({
       })
     }
   },
+  
   getChildren() {
     const self = this
     const selectedClassId = '' + self.data.selectedClass.id
