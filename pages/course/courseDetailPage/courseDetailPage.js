@@ -101,14 +101,8 @@ Page({
         }
       });
     } else {
-      wx.showModal({
-        title: '提示',
-        content: '没有查询到该课程信息，请前往首页',
-        success: function (res) {
-          wx.switchTab({
-            url: '/pages/orgnization/OrgnizationPage',
-          })
-        }
+      wx.switchTab({
+        url: '/pages/orgnization/OrgnizationPage',
       })
     }
   },
