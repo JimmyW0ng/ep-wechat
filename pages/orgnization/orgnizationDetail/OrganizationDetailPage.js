@@ -40,9 +40,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getOgnData(options.scene)
-    this.getOgnCourseData(options.scene)
-    USER.setOgnId(options.scene)
+    let ognId = options.scene || ''
+
+    if (ognId) {
+      this.getOgnData(ognId)
+      this.getOgnCourseData(ognId)
+      if (options.setScene !== 'no') {
+        USER.setOgnId(ognId)
+      }
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '没有查询到该机构信息，请前往首页',
+        success: function (res) {
+          wx.switchTab({
+            url: '/pages/orgnization/OrgnizationPage',
+          })
+        }
+      })
+    }
   },
 
   getOgnData(id) {

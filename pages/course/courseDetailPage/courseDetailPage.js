@@ -64,6 +64,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+
   onLoad: function (options) {
     let scene = options.scene
     let courseId = ''
@@ -71,32 +72,46 @@ Page({
     // 不能用 #，安卓不识别，fuck
     if (scene.indexOf('and') > -1) {
       let ognId = scene.split('and')[0]
-      USER.setOgnId(ognId)
       courseId = scene.split('and')[1]
+
+      if (options.setScene !== 'no') {
+        USER.setOgnId(ognId)
+      }
     } else {
       courseId = scene
     }
 
-    this.getCourseDetail(courseId)
-    this.setData({
-      courseId,
-      fromOgnDetail: options.fromOgnDetail || false
-    })
+    if (courseId) {
+      this.getCourseDetail(courseId)
+      this.setData({
+        courseId,
+        fromOgnDetail: options.fromOgnDetail || false
+      })
 
-    var self = this;
-    //  高度自适应
-    wx.getSystemInfo({
-      success: function (res) {
-        var clientHeight = res.windowHeight,
-          clientWidth = res.windowWidth;
-        var calc = clientHeight - 170; // TODO 这里有点操蛋
-        self.setData({
-          swiperHeight: calc
-        });
-      }
-    });
+      var self = this;
+      //  高度自适应
+      wx.getSystemInfo({
+        success: function (res) {
+          var clientHeight = res.windowHeight,
+            clientWidth = res.windowWidth;
+          var calc = clientHeight - 170; // TODO 这里有点操蛋
+          self.setData({
+            swiperHeight: calc
+          });
+        }
+      });
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '没有查询到该课程信息，请前往首页',
+        success: function (res) {
+          wx.switchTab({
+            url: '/pages/orgnization/OrgnizationPage',
+          })
+        }
+      })
+    }
   },
-
   getChildren() {
     const self = this
     const selectedClassId = '' + self.data.selectedClass.id
