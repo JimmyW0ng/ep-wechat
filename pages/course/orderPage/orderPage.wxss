@@ -13,7 +13,7 @@ page {
 .top-container {
   text-align: center;
   border-bottom: 1px solid #eee;
-  padding: 30rpx 30px 70rpx;
+  padding: 30rpx 30rpx 70rpx;
 }
 
 .notice {
@@ -29,6 +29,7 @@ page {
 
 .btn-primary {
   width: auto;
+  padding: 14px;
 }
 
 .info-wrap {
