@@ -42,7 +42,7 @@ Page({
   onLoad: function (options) {
     let ognId = options.scene || ''
 
-    if (ognId) {
+    if (ognId && ognId != 'undefined') {
       this.getOgnData(ognId)
       this.getOgnCourseData(ognId)
       if (options.setScene !== 'no') {
