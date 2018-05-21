@@ -16,7 +16,8 @@
     "pages/course/teacherCommentPage/teacherCommentPage",
     "pages/course/courseCommentPage/courseCommentPage",
     "pages/course/joinSuccess/joinSuccess",
-    "pages/course/orderPage/orderPage"
+    "pages/course/orderPage/orderPage",
+    "pages/course/noPayDetail/noPayDetail"
   ],
   "window": {
     "backgroundTextStyle": "white",

@@ -58,7 +58,7 @@ Page({
             content: '支付成功',
             success: function (res) {
               if (res.confirm) {
-                self.goOrderPage()
+                self.goOrderPage(orderId)
               }
             }
           })
@@ -76,15 +76,14 @@ Page({
     })
   },
 
-  goOrderPage() {
-    let orderId = this.data.orderId || ''
+  goOrderPage(orderId) {
     wx.navigateTo({
       url: '/pages/course/orderPage/orderPage?orderId=' + orderId
     })
   },
 
-  goOrderPageTrue(){
-    let orderId = this.data.orderId || ''
+  goOrderPageTrue(e){
+    let orderId = e.currentTarget.dataset.orderid || ''
     wx.navigateTo({
       url: '/pages/course/orderPage/orderPage?hideTitle=false&orderId=' + orderId
     })

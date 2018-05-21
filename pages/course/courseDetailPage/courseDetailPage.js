@@ -296,25 +296,18 @@ Page({
           }, 1000)
 
           self.setSelectedChild()
+          
+          wx.showToast({
+            icon: 'success',
+            title: '报名成功！',
+            duration: 3000
+          })
 
           if (result.waitPayFlag) {
-            wx.showToast({
-              icon: 'success',
-              title: '报名成功！',
-              duration: 3000
-            })
             self.goJoinSuccess(result)
           } else {
-            wx.showModal({
-              title: '提示',
-              content: '报名成功,请前往我的课程查看',
-              success: function (res) {
-                if (res.confirm) {
-                  wx.navigateTo({
-                    url: '/pages/userCenter/myCourse/MyCoursePage',
-                  })
-                }
-              }
+            wx.navigateTo({
+              url: '/pages/course/noPayDetail/noPayDetail',
             })
           }
         })
