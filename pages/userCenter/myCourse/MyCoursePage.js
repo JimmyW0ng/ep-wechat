@@ -53,39 +53,33 @@ Page({
         signType: result.signType,
         paySign: result.paySign,
         'success': function (res2) {
-          wx.showModal({
-            title: '提示',
-            content: '支付成功',
-            success: function (res) {
-              if (res.confirm) {
-                self.goOrderPage(orderId)
-              }
-            }
+          wx.showToast({
+            icon: 'none',
+            title: '支付成功',
           })
+          setTimeout(() => {
+            wx.navigateTo({
+              url: '/pages/course/orderPage/orderPage?orderId=' + orderId + '&needback=yes'
+            })
+          }, 500)
         },
         'fail': function (res2) {
-          wx.showModal({
-            title: '提示 ',
-            content: '支付失败',
-            success: function (res) {
-              self.getListData()
-            }
+          wx.showToast({
+            icon: 'none',
+            title: '支付失败',
           })
+          setTimeout(() => {
+            self.getListData()
+          }, 500)
         }
       })
     })
   },
 
-  goOrderPage(orderId) {
-    wx.navigateTo({
-      url: '/pages/course/orderPage/orderPage?orderId=' + orderId
-    })
-  },
-
-  goOrderPageTrue(e){
+  goOrderPageTrue(e) {
     let orderId = e.currentTarget.dataset.orderid || ''
     wx.navigateTo({
-      url: '/pages/course/orderPage/orderPage?hideTitle=false&orderId=' + orderId
+      url: '/pages/course/orderPage/orderPage?hideTitle=false&orderId=' + orderId + '&needback=yes'
     })
   },
 

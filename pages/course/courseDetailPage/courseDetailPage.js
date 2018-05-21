@@ -296,17 +296,14 @@ Page({
           }, 1000)
 
           self.setSelectedChild()
-          
-          wx.showToast({
-            icon: 'success',
-            title: '报名成功！',
-            duration: 3000
-          })
-
+    
           if (result.waitPayFlag) {
-            self.goJoinSuccess(result)
+            let orderId = result.orderId || ''
+            wx.reLaunch({
+              url: '/pages/course/joinSuccess/joinSuccess?orderId=' + orderId,
+            })
           } else {
-            wx.navigateTo({
+            wx.reLaunch({
               url: '/pages/course/noPayDetail/noPayDetail',
             })
           }
@@ -321,13 +318,6 @@ Page({
     let child = this.data.selectedChild
     child.id = child.childId
     USER.setSelectedChild(child)
-  },
-
-  goJoinSuccess(info){
-    let orderId = info.orderId || ''
-    wx.navigateTo({
-      url: '/pages/course/joinSuccess/joinSuccess?orderId=' + orderId,
-    })
   },
 
   /**

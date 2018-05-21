@@ -24,26 +24,23 @@ Page({
         content: '没有查询到该订单',
         confirmText: '返回首页',
         success: function (res) {
-          if (res.confirm) {
-            console.log('用户点击确定')
-            wx.switchTab({
-              url: '/pages/orgnization/OrgnizationPage',
-            })
-          }
+          wx.switchTab({
+            url: '/pages/orgnization/OrgnizationPage',
+          })
         }
       })
     }
   },
 
   goMyCourse(){
-    wx.redirectTo({
+    wx.reLaunch({
       url: '/pages/userCenter/myCourse/MyCoursePage', // TODO
     })
   },
 
   goOrderPage(){
     let orderId = this.data.orderId || ''
-    wx.redirectTo({
+    wx.reLaunch({
       url: '/pages/course/orderPage/orderPage?orderId=' + orderId
     })
   },
@@ -79,25 +76,12 @@ Page({
         signType: result.signType,
         paySign: result.paySign,
         'success': function (res2) {
-          wx.showModal({
-            title: '提示',
-            content: '支付成功',
-            success: function (res) {
-              if (res.confirm) {
-                self.goOrderPage()
-              }
-            }
-          })
+          self.goOrderPage()
         },
         'fail': function (res2) {
-          wx.showModal({
+          wx.showToast({
+            icon: 'none',
             title: '支付失败',
-            content: '查看我的报名，关注报名进度',
-            success: function (res) {
-              if (res.confirm) {
-                self.goMyCourse()
-              }
-            }
           })
         }
       })

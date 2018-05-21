@@ -31,6 +31,12 @@ Page({
       })
     }
 
+    if(options.needback == 'yes'){
+      this.setData({
+        needback: true
+      })
+    }
+
     if (options.orderId) {
       this.setData({
         orderId: options.orderId
@@ -78,9 +84,13 @@ Page({
   },
 
   goMyCourse() {
-    wx.redirectTo({
-      url: '/pages/userCenter/myCourse/MyCoursePage', // TODO
-    })
+    if(this.data.needback){
+      wx.navigateBack({})
+    } else {
+      wx.reLaunch({
+        url: '/pages/userCenter/myCourse/MyCoursePage', // TODO
+      })
+    }
   },
 
   /**

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "报名成功",
+  "navigationBarTitleText": "报名进度",
   "usingComponents": {
     "loadIcon": "/components/loadIcon/loadIcon",
     "xzmQrcode": "/components/xzmQrcode/xzmQrcode"

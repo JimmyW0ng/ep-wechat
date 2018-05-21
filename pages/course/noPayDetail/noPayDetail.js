@@ -18,7 +18,7 @@ Page({
   },
 
   goMyCourse() {
-    wx.redirectTo({
+    wx.reLaunch({
       url: '/pages/userCenter/myCourse/MyCoursePage', // TODO
     })
   },

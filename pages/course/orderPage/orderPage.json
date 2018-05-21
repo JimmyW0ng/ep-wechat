@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "订单详情",
+  "navigationBarTitleText": "支付详情",
   "usingComponents": {
     "loadIcon": "/components/loadIcon/loadIcon",
         "xzmQrcode": "/components/xzmQrcode/xzmQrcode"
