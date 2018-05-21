@@ -43,7 +43,7 @@ Page({
       page, size
     }
 
-    if (self.data.scene) {
+    if (self.data.scene && self.data.scene != 'undefined') {
       param.scene = self.data.scene
     }
 

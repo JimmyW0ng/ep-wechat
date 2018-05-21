@@ -80,7 +80,7 @@ Page({
       courseId = scene
     }
     
-    if (courseId) {
+    if (courseId && courseId != 'undefined') {
       this.getCourseDetail(courseId)
       this.setData({
         courseId,
