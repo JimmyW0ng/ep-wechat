@@ -99,7 +99,7 @@ Page({
   },
 
   validForm(data){
-    if (!data.childNickName) {
+    if (!data.childTrueName) {
       wx.showToast({
         icon: 'none',
         title: '请填写学生姓名',
@@ -127,7 +127,7 @@ Page({
     var data = self.data
     if(this.validForm(data)){
       let url = data.childId ? 'auth/child/edit' : 'auth/child/add'
-      AXIOS.POST('auth/child/add', data, res => {
+      AXIOS.POST(url, data, res => {
         wx.showToast({
           title: '保存成功',
           icon: 'success',
