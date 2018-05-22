@@ -124,7 +124,7 @@ Page({
       } else {
         wx.showModal({
           title: '提示',
-          content: '请先添加学员',
+          content: '请先添加学生',
           success: function (res) {
             if (res.confirm) {
               wx.navigateTo({

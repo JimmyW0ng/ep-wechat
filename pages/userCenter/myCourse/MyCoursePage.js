@@ -41,7 +41,7 @@ Page({
     if (!childId) {
       wx.showModal({
         title: '提示',
-        content: '请选择一个学员查看',
+        content: '请选择一个学生查看',
       })
     } else {
       let page = loadMore ? self.data.page + 1 : 0

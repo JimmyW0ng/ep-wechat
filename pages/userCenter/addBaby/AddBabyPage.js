@@ -27,14 +27,7 @@ Page({
       { name: '女', value: 'woman' },
     ],
     today: new Date(),
-    canDeleteFlag: false,
-    showMoreInfo: false
-  },
-
-  toggleMoreInfo(){
-    this.setData({
-      showMoreInfo: !this.data.showMoreInfo
-    })
+    canDeleteFlag: false
   },
 
   loadDetail(childId){
@@ -109,13 +102,19 @@ Page({
     if (!data.childNickName) {
       wx.showToast({
         icon: 'none',
-        title: '请填写昵称',
+        title: '请填写学生姓名',
+      })
+      return false
+    } else if (!data.childNickName) {
+      wx.showToast({
+        icon: 'none',
+        title: '请填写学生昵称',
       })
       return false
     } else if (!data.childBirthday) {
       wx.showToast({
         icon: 'none',
-        title: '请选择生日',
+        title: '请选择学生生日',
       })
       return false
     } else {
@@ -127,31 +126,19 @@ Page({
     const self = this
     var data = self.data
     if(this.validForm(data)){
-      if(data.childId){
-        AXIOS.POST('auth/child/edit', data, res => {
-          wx.showToast({
-            title: '保存成功',
-            icon: 'success',
-            duration: 1000
-          })
+      let url = data.childId ? 'auth/child/edit' : 'auth/child/add'
+      AXIOS.POST('auth/child/add', data, res => {
+        wx.showToast({
+          title: '保存成功',
+          icon: 'success',
+          duration: 1000
+        })
+        setTimeout(() => {
           wx.navigateBack({
             delta: 1
           })
-        })
-      } else {
-        AXIOS.POST('auth/child/add', data, res => {
-          wx.showToast({
-            title: '保存成功',
-            icon: 'success',
-            duration: 1000
-          })
-          setTimeout(() => {
-            wx.navigateBack({
-              delta: 1
-            })
-          }, 1000)
-        })
-      }
+        }, 1000)
+      })
     }
   },
 
@@ -161,7 +148,7 @@ Page({
     let childId = data.id
     wx.showModal({
       title: '提示',
-      content: '确定要删除学员信息吗？',
+      content: '确定要删除学生信息吗？',
       success: function (res) {
         if (res.confirm) {
           self.handleDelete(childId)

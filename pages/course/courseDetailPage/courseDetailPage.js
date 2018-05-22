@@ -276,13 +276,13 @@ Page({
     if (self.data.children && self.data.children.length < 1) {
       wx.showToast({
         icon: 'none',
-        title: '请先添加学员',
+        title: '请先添加学生',
       })
     } else {
       if (!selectedChildId) {
         wx.showToast({
           icon: 'none',
-          title: '请选择学员',
+          title: '请选择学生',
         })
       } else {
         AXIOS.POST('auth/order/new', {

@@ -20,7 +20,7 @@
         <view class='btn-add ripple'>
           <view class='iconfont icon-plus1'></view>
         </view>
-        <view class='text-add'>添加学员信息</view>
+        <view class='text-add'>添加学生信息</view>
       </view>
     </view>
 
