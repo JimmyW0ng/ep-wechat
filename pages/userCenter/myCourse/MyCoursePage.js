@@ -22,6 +22,12 @@ Page({
     loading: true
   },
 
+  goUserCenter() {
+    wx.switchTab({
+      url: '/pages/userCenter/UserCenterPage',
+    })
+  },
+
   getPayInfo(e) {
     const self = this
     let orderId = e.currentTarget.dataset.orderid || ''
