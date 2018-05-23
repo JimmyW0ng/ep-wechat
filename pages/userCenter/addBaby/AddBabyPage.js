@@ -111,6 +111,18 @@ Page({
         title: '请填写学生昵称',
       })
       return false
+    } else if (!data.currentSchool) {
+      wx.showToast({
+        icon: 'none',
+        title: '请填写学生所在学校',
+      })
+      return false
+    } else if (!data.currentClass) {
+      wx.showToast({
+        icon: 'none',
+        title: '请填写学生所在班级',
+      })
+      return false
     } else if (!data.childBirthday) {
       wx.showToast({
         icon: 'none',
