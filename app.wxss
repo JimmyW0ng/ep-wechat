@@ -58,6 +58,18 @@ page {
   box-sizing: border-box;
 }
 
+.btn-default {
+  background: #fff;
+  border: 1px solid #eee;
+  color: #999;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 14px 30px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
 .btn-primary.disabled{
   background-image: none;
   background: #ddd;

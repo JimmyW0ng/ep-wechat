@@ -5,16 +5,19 @@
     "pages/course/courseDetailPage/courseDetailPage",
     "pages/course/evaluatePage/EvaluatePage",
     "pages/userCenter/myHonor/MyHonorPage",
-    "pages/userCenter/myCourse/MyCoursePage",
     "pages/babyTrip/BabyTripPage",
     "pages/login/LoginPage",
+    "pages/userCenter/myCourse/MyCoursePage",
     "pages/userCenter/addBaby/AddBabyPage",
     "pages/orgnization/orgnizationDetail/OrganizationDetailPage",
     "pages/logs/logs",
     "pages/message/messageDetail/MessageDetailPage",
     "pages/message/MessagePage",
     "pages/course/teacherCommentPage/teacherCommentPage",
-    "pages/course/courseCommentPage/courseCommentPage"
+    "pages/course/courseCommentPage/courseCommentPage",
+    "pages/course/joinSuccess/joinSuccess",
+    "pages/course/orderPage/orderPage",
+    "pages/course/noPayDetail/noPayDetail"
   ],
   "window": {
     "backgroundTextStyle": "white",

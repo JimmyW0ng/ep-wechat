@@ -80,6 +80,7 @@ color: #FFFFFF;
 line-height: 12px;
 margin-right: 8px;
 padding: 3px 7px;
+margin-bottom: 8px;
 }
 
 .learn-num {

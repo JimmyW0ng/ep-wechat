@@ -1,4 +1,3 @@
-// pages/orgnization/orgnizationDetail/OrganizationDetailPage.js
 const AXIOS = require('../../../utils/axios')
 const USER = require('../../../utils/user')
 Page({
@@ -129,7 +128,7 @@ Page({
   goCourseDetailPage: function (e) {
     const item = e.currentTarget.dataset.item
     wx.navigateTo({
-      url: `/pages/course/courseDetailPage/courseDetailPage?fromOgnDetail=true&scene=${item.ognId}and${item.id}`
+      url: `/pages/course/courseDetailPage/courseDetailPage?setScene=no&fromOgnDetail=true&scene=${item.ognId}and${item.id}`
     })
   },
 
@@ -182,7 +181,7 @@ Page({
     return {
       title: this.data.ognInfo.ognName || '',
       imageUrl: this.data.mainPicUrl,
-      path: `/pages/orgnization/orgnizationDetail/OrganizationDetailPage?scene=${this.data.ognInfo.id}`
+      path: `/pages/orgnization/orgnizationDetail/OrganizationDetailPage?setScene=no&scene=${this.data.ognInfo.id}`
     }
   }
 })

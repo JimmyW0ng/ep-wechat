@@ -1,4 +1,3 @@
-// pages/course/courseDetailPage/courseDetailPage.js
 const AXIOS = require('../../../utils/axios')
 const USER = require('../../../utils/user')
 const LoginUrl = '/pages/login/LoginPage'
@@ -80,7 +79,7 @@ Page({
     } else {
       courseId = scene
     }
-
+    
     if (courseId && courseId != 'undefined') {
       this.getCourseDetail(courseId)
       this.setData({
@@ -152,7 +151,7 @@ Page({
       wx.navigateBack()
     } else {
       wx.navigateTo({
-        url: '/pages/orgnization/orgnizationDetail/OrganizationDetailPage?scene=' + ognId
+        url: '/pages/orgnization/orgnizationDetail/OrganizationDetailPage?setScene=no&scene=' + ognId
       })
     }
   },
@@ -190,7 +189,8 @@ Page({
   chooseChild(e) {
     if (!e.currentTarget.dataset.joined) {
       this.setData({
-        selectedChildId: e.currentTarget.dataset.id
+        selectedChildId: e.currentTarget.dataset.id,
+        selectedChild: e.currentTarget.dataset.child
       })
     }
   },
@@ -289,17 +289,35 @@ Page({
           childId: selectedChildId,
           classId: selectedClassId
         }, (res) => {
-          wx.showToast({
-            icon: 'success',
-            title: '报名成功！',
-            duration: 3000
-          })
+          let result = res.result || {}
+       
           setTimeout(() => {
             self.closePopup()
           }, 1000)
+
+          self.setSelectedChild()
+    
+          if (result.waitPayFlag) {
+            let orderId = result.orderId || ''
+            wx.reLaunch({
+              url: '/pages/course/joinSuccess/joinSuccess?orderId=' + orderId,
+            })
+          } else {
+            wx.reLaunch({
+              url: '/pages/course/noPayDetail/noPayDetail',
+            })
+          }
         })
       }
     }
+  },
+
+  setSelectedChild(){
+    USER.setSelectedChildId(this.data.selectedChildId)
+
+    let child = this.data.selectedChild
+    child.id = child.childId
+    USER.setSelectedChild(child)
   },
 
   /**
@@ -355,7 +373,7 @@ Page({
     return {
       title: course.courseName || '',
       imageUrl: course.mainPicUrl,
-      path: `/pages/course/courseDetailPage/courseDetailPage?scene=${course.ognId}and${course.id}`
+      path: `/pages/course/courseDetailPage/courseDetailPage?setScene=no&scene=${course.ognId}and${course.id}`
     }
   }
 })

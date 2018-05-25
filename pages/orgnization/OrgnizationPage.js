@@ -17,7 +17,7 @@ Page({
     const dataset = e.currentTarget.dataset
     const item = dataset.item
     wx.navigateTo({
-      url: './orgnizationDetail/OrganizationDetailPage?scene=' + item.id
+      url: './orgnizationDetail/OrganizationDetailPage?setScene=no&scene=' + item.id
     })
   },
 

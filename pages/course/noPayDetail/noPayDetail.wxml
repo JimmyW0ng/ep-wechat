@@ -1,0 +1,9 @@
+<view class='page-title'>报名提交成功！</view>
+
+<view class='top-container'>
+  <view class='btn-wrap'>
+    <view class='btn-primary' bindtap='goMyCourse'>我的报名</view>
+  </view>
+</view>
+
+<xzmQrcode />
