@@ -1,6 +1,7 @@
 
 .bottom-wrap {
   padding: 80rpx 50rpx;
+  display: none;
 }
 
 .bottom-title {

@@ -1,11 +1,12 @@
 {
   "pages": [
+    "pages/userCenter/myCourse/MyCoursePage",
+    
     "pages/orgnization/OrgnizationPage",
     "pages/userCenter/UserCenterPage",
     "pages/course/courseDetailPage/courseDetailPage",
     "pages/course/evaluatePage/EvaluatePage",
     "pages/userCenter/myHonor/MyHonorPage",
-    "pages/userCenter/myCourse/MyCoursePage",
     "pages/babyTrip/BabyTripPage",
     "pages/login/LoginPage",
     "pages/userCenter/addBaby/AddBabyPage",

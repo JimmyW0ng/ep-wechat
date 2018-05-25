@@ -16,34 +16,35 @@
     <view class='tab-content course-introduce'>
       <view class='course-list-wrap'>
         <view class='course-list-item' wx:for="{{dataSet}}" wx:key="index" bindtap='goCourseDetailPage' data-courseid="{{item.courseId}}" data-childid="{{item.childId}}" data-classid="{{item.classId}}">
-          <view class='course-avatar-wrap'>
-            <view class='ribbon {{item.courseType}}' wx:if="{{item.courseTypeText}}">
-              {{item.courseTypeText}}
+          <view class='course-top'>
+            <view class='course-avatar-wrap'>
+              <view class='ribbon {{item.courseType}}' wx:if="{{item.courseTypeText}}">
+                {{item.courseTypeText}}
+              </view>
+              <image class="course-avatar" src="{{item.mainPicUrl}}" mode="aspectFill"></image>
             </view>
-            <image class="course-avatar" src="{{item.mainPicUrl}}" mode="aspectFill"></image>
-          </view>
-          <view class='course-info'>
-            <view class='course-org-name'>{{item.courseName}} {{item.className ? '(' + item.className + ')' : ''}}</view>
-            <view class='course-simple-info'>
-              <view class='course-tag'>{{item.label}}</view>
-              <view class='course-name'>{{item.ognName}}</view>
-            </view>
-            <view class='course-bottom-info'>
-              <view class='course-price'>￥{{item.pirzeFormat || 0}} </view>
-              <view class="{{'course-learn-num ' + (item.status == 'end' ? 'disabled' : '')}}">{{item.statusText}}</view>
-            </view>
-
-            <view class='course-actions'>
-              <view class='btn btn-ghost' wx:if="{{item.status=='save' && item.payStatus &&  item.payStatus == 'wait_pay'}}" catchtap='getPayInfo' data-orderid="{{item.id}}">继续支付</view>
-
-              <view class='btn btn-ghost' wx:if="{{item.payStatus && item.payStatus != 'wait_pay'}}" catchtap='goOrderPageTrue' data-orderid="{{item.id}}">支付详情</view>
-
-              <view class='btn btn-ghost' wx:if="{{item.status == 'opening' || item.status == 'end'}}" catchtap='goTeacherComment' data-orderid="{{item.id}}">随堂评价({{item.scheduleCommentNum || 0}})</view>
-              <view class='btn btn-ghost' catchtap='goEvaluate' wx:if="{{item.waitCommentFlag}}" data-orderid="{{item.id}}">评价产品</view>
-              <view class='btn btn-ghost' catchtap='goMyHonor' wx:if="{{item.honorNum}}">查看奖状</view>
+            <view class='course-info'>
+              <view class='course-org-name'>{{item.courseName}} {{item.className ? '(' + item.className + ')' : ''}}</view>
+              <view class='course-simple-info'>
+                <view class='course-tag'>{{item.label}}</view>
+                <view class='course-name'>{{item.ognName}}</view>
+              </view>
+              <view class='course-bottom-info'>
+                <view class='course-price'>￥{{item.pirzeFormat || 0}} </view>
+                <view class="{{'course-learn-num ' + (item.status == 'end' ? 'disabled' : '')}}">{{item.statusText}}</view>
+              </view>
             </view>
           </view>
+          
+          <view class='course-actions'>
+            <view class='btn btn-ghost' wx:if="{{item.status=='save' && item.payStatus &&  item.payStatus == 'wait_pay'}}" catchtap='getPayInfo' data-orderid="{{item.id}}">继续支付</view>
 
+            <view class='btn btn-ghost' wx:if="{{item.payStatus && item.payStatus != 'wait_pay'}}" catchtap='goOrderPageTrue' data-orderid="{{item.id}}">支付详情</view>
+
+            <view class='btn btn-ghost' wx:if="{{item.status == 'opening' || item.status == 'end'}}" catchtap='goTeacherComment' data-orderid="{{item.id}}">随堂评价({{item.scheduleCommentNum || 0}})</view>
+            <view class='btn btn-ghost' catchtap='goEvaluate' wx:if="{{item.waitCommentFlag}}" data-orderid="{{item.id}}">评价产品</view>
+            <view class='btn btn-ghost' catchtap='goMyHonor' wx:if="{{item.honorNum}}">查看奖状</view>
+          </view>
         </view>
       </view>
     </view>
