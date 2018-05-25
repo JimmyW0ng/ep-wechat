@@ -1,7 +1,5 @@
 {
   "pages": [
-    "pages/userCenter/myCourse/MyCoursePage",
-    
     "pages/orgnization/OrgnizationPage",
     "pages/userCenter/UserCenterPage",
     "pages/course/courseDetailPage/courseDetailPage",
@@ -9,6 +7,7 @@
     "pages/userCenter/myHonor/MyHonorPage",
     "pages/babyTrip/BabyTripPage",
     "pages/login/LoginPage",
+    "pages/userCenter/myCourse/MyCoursePage",
     "pages/userCenter/addBaby/AddBabyPage",
     "pages/orgnization/orgnizationDetail/OrganizationDetailPage",
     "pages/logs/logs",
