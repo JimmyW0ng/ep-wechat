@@ -79,7 +79,7 @@ Page({
     } else {
       courseId = scene
     }
-    
+
     if (courseId && courseId != 'undefined') {
       this.getCourseDetail(courseId)
       this.setData({
@@ -105,7 +105,7 @@ Page({
       })
     }
   },
-  
+
   getChildren() {
     const self = this
     const selectedClassId = '' + self.data.selectedClass.id
@@ -267,8 +267,9 @@ Page({
     })
   },
 
-  handleJoin() {
+  handleJoin(e) {
     const self = this
+    let formId = e.detail.formId
     let selectedClass = self.data.selectedClass || {}
     let selectedClassId = selectedClass.id || ''
     let selectedChildId = self.data.selectedChildId
@@ -285,26 +286,20 @@ Page({
           title: '请选择学生',
         })
       } else {
-        AXIOS.POST('auth/order/new', {
-          childId: selectedChildId,
-          classId: selectedClassId
-        }, (res) => {
-          let result = res.result || {}
-       
-          setTimeout(() => {
-            self.closePopup()
-          }, 1000)
+        wx.login({
+          success: res => {
+            const code = res.code
 
-          self.setSelectedChild()
-    
-          if (result.waitPayFlag) {
-            let orderId = result.orderId || ''
-            wx.reLaunch({
-              url: '/pages/course/joinSuccess/joinSuccess?orderId=' + orderId,
-            })
-          } else {
-            wx.reLaunch({
-              url: '/pages/course/noPayDetail/noPayDetail',
+            AXIOS.POST('security/wechat/xcx/member/auth', {
+              code
+            }, (res2) => {
+              let sessionToken = res2.result || ''
+              self.newOrder({
+                childId: selectedChildId,
+                classId: selectedClassId,
+                formId,
+                sessionToken
+              })
             })
           }
         })
@@ -312,7 +307,32 @@ Page({
     }
   },
 
-  setSelectedChild(){
+  newOrder(param){
+    const self = this
+    AXIOS.POST('auth/order/newOrder', param, (res) => {
+      let result = res.result || {}
+      setTimeout(() => {
+        self.closePopup()
+      }, 1000)
+      self.setSelectedChild()
+      self.goNext(result)
+    })
+  },
+
+  goNext(result) {
+    if (result.waitPayFlag) {
+      let orderId = result.orderId || ''
+      wx.reLaunch({
+        url: '/pages/course/joinSuccess/joinSuccess?orderId=' + orderId,
+      })
+    } else {
+      wx.reLaunch({
+        url: '/pages/course/noPayDetail/noPayDetail',
+      })
+    }
+  },
+
+  setSelectedChild() {
     USER.setSelectedChildId(this.data.selectedChildId)
 
     let child = this.data.selectedChild
