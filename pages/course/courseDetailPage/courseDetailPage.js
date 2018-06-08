@@ -2,6 +2,7 @@ const AXIOS = require('../../../utils/axios')
 const USER = require('../../../utils/user')
 const LoginUrl = '/pages/login/LoginPage'
 const WxParse = require('../../../utils/wxParse/wxParse.js');
+const _ = require('../../../utils/underscore')
 
 Page({
 
@@ -267,7 +268,7 @@ Page({
     })
   },
 
-  handleJoin(e) {
+  handleJoin: _.debounce(function(e){
     const self = this
     let formId = e.detail.formId
     let selectedClass = self.data.selectedClass || {}
@@ -305,7 +306,7 @@ Page({
         })
       }
     }
-  },
+  }, 1000, true),
 
   newOrder(param){
     const self = this
